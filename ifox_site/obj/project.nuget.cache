@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8lp2/Vj3moaxTCO7ctyO2eI6+oJwUVJK5VjG/Sbc6TQFdo+JbYbcWlW1+6l9LSQOlOtxpDSRbOmoMolMKBTUkg==",
+  "dgSpecHash": "/lnGYfXRPiSBbtgVyDqK6Ya+/Q4/Trx2Uj8E+F2YeIy3doXRJrtRc6Q3ZQsu4QHeYpDHe8nUl7zfSR8Od7GY4A==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\ifox\\ifox_site\\ifox_site\\ifox_site.csproj",
+  "projectFilePath": "C:\\Projects\\ifox_site\\ifox_site\\ifox_site.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pandi\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
     "C:\\Users\\pandi\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",

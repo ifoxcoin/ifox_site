@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\ifox\\ifox_site\\ifox_site\\ifox_site.csproj",
+      "projectUniqueName": "C:\\Projects\\ifox_site\\ifox_site\\ifox_site.csproj",
       "projectName": "ifox_site",
-      "projectPath": "C:\\Projects\\ifox\\ifox_site\\ifox_site\\ifox_site.csproj",
+      "projectPath": "C:\\Projects\\ifox_site\\ifox_site\\ifox_site.csproj",
       "packagesPath": "C:\\Users\\pandi\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\ifox\\ifox_site\\ifox_site\\obj\\",
+      "outputPath": "C:\\Projects\\ifox_site\\ifox_site\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
