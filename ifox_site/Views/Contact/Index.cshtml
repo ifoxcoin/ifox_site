@@ -1,0 +1,84 @@
+﻿@*@page
+    @model ifox_site.ContactModel
+    @{
+     ViewData["Title"] = "Contact";
+    }*@
+
+<section id="dummyspace" >
+
+    <div class="container">
+        
+    </div>
+
+</section>
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>Have any idea or project for in your mind call us or schedule a appointment. Our representative will reply you shortly.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 d-flex align-items-stretch">
+                <div class="info">
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h5>Location:</h5>
+                        <p align="left"> 3/4A, Sri Annai Meenakshi Nagar, Keelpanangadi, Kulamangalam Main Road, Vagai Kulam Post, Madurai - 625017 </p>
+                    </div>
+
+                    <div class="email">
+                        <i class="bi bi-envelope"></i>
+                        <h5>Email:</h5>
+                        <a href="mailto:info@ifox.co.in">
+                            info@ifox.co.in
+                        </a>
+
+                    </div>
+                    <br />
+                    <div class="phone">
+                        <i class="bi bi-phone"></i>
+                        <h5>Call:</h5>
+                        <a href="tel:+919597 892 118">
+                            +91 9597 892 118
+                        </a>
+                    </div>
+                    <br />
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.3662784277618!2d78.11982536949823!3d9.978384320201451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b00c7fbd209998b%3A0x1b07ebaa5c2dc60b!2sifox%20consultancy%20services!5e0!3m2!1sen!2sin!4v1684409530643!5m2!1sen!2sin" height="450" style="border:0;width:100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="name">Your Email</label>
+                            <input type="email" class="form-control" name="email" id="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Subject</label>
+                        <input type="text" class="form-control" name="subject" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Message</label>
+                        <textarea class="form-control" name="message" rows="10" required></textarea>
+                    </div>
+                    <div class="my-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
