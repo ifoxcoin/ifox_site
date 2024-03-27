@@ -8,23 +8,19 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\pandi\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\barun\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\ifox_site\\ifox_site\\ifox_site.csproj",
+      "projectUniqueName": "C:\\Users\\barun\\Documents\\GitHub\\ifox_site\\ifox_site\\ifox_site.csproj",
       "projectName": "ifox_site",
-      "projectPath": "C:\\Projects\\ifox_site\\ifox_site\\ifox_site.csproj",
-      "packagesPath": "C:\\Users\\pandi\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\ifox_site\\ifox_site\\obj\\",
+      "projectPath": "C:\\Users\\barun\\Documents\\GitHub\\ifox_site\\ifox_site\\ifox_site.csproj",
+      "packagesPath": "C:\\Users\\barun\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\barun\\Documents\\GitHub\\ifox_site\\ifox_site\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\pandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\barun\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -32,6 +28,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -55,7 +52,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -85,7 +83,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

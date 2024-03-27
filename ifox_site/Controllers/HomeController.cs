@@ -22,7 +22,7 @@ namespace ifox_site.Controllers
         {
             return View();
         }
-
+       
         public IActionResult Privacy()
         {
             return View();
