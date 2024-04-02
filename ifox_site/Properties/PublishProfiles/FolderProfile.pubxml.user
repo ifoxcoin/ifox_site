@@ -4,8 +4,8 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <_PublishTargetUrl>C:\Users\barun\Documents\GitHub\ifox_site\ifox_site\bin\Release\net5.0\publish\</_PublishTargetUrl>
-    <History>True|2024-03-26T13:01:32.5634310Z;True|2024-03-26T18:20:47.3385793+05:30;</History>
+    <_PublishTargetUrl>C:\Projects\GIT\ifox_site\ifox_site\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2024-04-01T05:36:10.5542300Z;True|2024-03-27T11:41:47.8968232+05:30;True|2024-03-27T11:36:57.4101793+05:30;True|2024-03-26T18:31:32.5634310+05:30;True|2024-03-26T18:20:47.3385793+05:30;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
