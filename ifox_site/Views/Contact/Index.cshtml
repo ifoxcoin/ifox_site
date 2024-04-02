@@ -1,8 +1,7 @@
-﻿@*@page
-    @model ifox_site.ContactModel
-    @{
-     ViewData["Title"] = "Contact";
-    }*@
+﻿@model ifox_site.Models.SendMailViewModel
+@{
+    ViewBag.Title = "Index";
+}
 
 <section id="dummyspace" >
 
@@ -49,24 +48,28 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <form asp-action="SendEmail" method="post" role="form" class="php-email-form">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="name">Your Name</label>
-                            <input type="text" name="name" class="form-control" id="name" required>
+                            <label asp-for="@Model.Name">Your Name</label>
+                            <input type="text" asp-for="@Model.Name" class="form-control" name="name" id="name" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="name">Your Email</label>
-                            <input type="email" class="form-control" name="email" id="email" required>
+                            <label asp-for="@Model.Email">Your Email</label>
+                            <input type="text" asp-for="@Model.Email" class="form-control" name="email" id="email" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="name">Subject</label>
-                        <input type="text" class="form-control" name="subject" id="subject" required>
+                        <label asp-for="@Model.Subject">Subject</label>
+                        <input type="text" asp-for="@Model.Subject" class="form-control" name="subject" id="subject" required>
                     </div>
                     <div class="form-group">
-                        <label for="name">Message</label>
-                        <textarea class="form-control" name="message" rows="10" required></textarea>
+                        <label asp-for="@Model.Contact">Contact No.</label>
+                        <input type="text" asp-for="@Model.Contact" class="form-control" name="Contact" id="Contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Message">Message</label>
+                        <textarea class="form-control" asp-for="@Model.Message" name="message" id="message" rows="10" required></textarea>
                     </div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
