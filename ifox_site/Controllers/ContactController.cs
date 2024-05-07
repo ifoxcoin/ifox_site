@@ -156,6 +156,7 @@ namespace ifox_site.Controllers
             mail.From = new MailAddress("karthikpandi@ifox.co.in");
             mail.To.Add("info@ifox.co.in");
             mail.Subject = sendMailView.Name + " trying to reach out ifox";
+            sendMailView.Attachments = file;
             if (sendMailView.Attachments != null)
             {
                 string fileName = Path.GetFileName(sendMailView.Attachments.FileName);
