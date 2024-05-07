@@ -122,13 +122,13 @@ namespace ifox_site.Controllers
         }
 
         [HttpPost]
-        public string SendEmail(SendMailViewModel sendMailView)
+        public string SendEmail(SendMailViewModel sendMailView, IFormFile file)
         {
 
 
             try
             {
-                SendEmailToIfox(sendMailView);
+                SendEmailToIfox(sendMailView, file);
 
 
                  SendEmailToContact(sendMailView);
@@ -150,12 +150,17 @@ namespace ifox_site.Controllers
             return View();
         }
 
-        public void SendEmailToIfox(SendMailViewModel sendMailView)
+        public void SendEmailToIfox(SendMailViewModel sendMailView, IFormFile file)
         {
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress("karthikpandi@ifox.co.in");
             mail.To.Add("info@ifox.co.in");
             mail.Subject = sendMailView.Name + " trying to reach out ifox";
+            if (sendMailView.Attachments != null)
+            {
+                string fileName = Path.GetFileName(sendMailView.Attachments.FileName);
+                mail.Attachments.Add(new Attachment(sendMailView.Attachments.OpenReadStream(), fileName));
+            }
 
             string content = RenderViewToString("EmailMessage", sendMailView);
             mail.IsBodyHtml = true;

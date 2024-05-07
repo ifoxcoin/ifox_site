@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace ifox_site.Models
 {
@@ -15,6 +16,8 @@ namespace ifox_site.Models
 
         [Required]
         public string? Subject { get; set; }
+
+        public IFormFile? Attachments { get; set; }
 
         [Required]
         public string? Message { get; set; }
