@@ -18,80 +18,7 @@ namespace ifox_site.Controllers
 {
     public class ContactController : Controller
     {
-        //// GET: ContactController
-        //public ActionResult SendEmail()
-        //{
-        //    return View();
-        //}
-
-        //// GET: ContactController/Details/5
-        //public ActionResult Details(int id)
-        //{
-        //    return View();
-        //}
-
-        //// GET: ContactController/Create
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
-
-        //// POST: ContactController/Create
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: ContactController/Edit/5
-        //public ActionResult Edit(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: ContactController/Edit/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: ContactController/Delete/5
-        //public ActionResult Delete(int id)
-        //{
-        //    return View();
-        //}
-
-        //// POST: ContactController/Delete/5
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Delete(int id, IFormCollection collection)
-        //{
-        //    try
-        //    {
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
+      
 
         private readonly ILogger<ContactController> _logger;
 
@@ -153,9 +80,10 @@ namespace ifox_site.Controllers
         public void SendEmailToIfox(SendMailViewModel sendMailView, IFormFile file)
         {
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("karthikpandi@ifox.co.in");
+            mail.From = new MailAddress("sales@ifox.co.in");
             mail.To.Add("info@ifox.co.in");
             mail.Subject = sendMailView.Name + " trying to reach out ifox";
+            mail.Priority = MailPriority.High;
             sendMailView.Attachments = file;
             if (sendMailView.Attachments != null)
             {
@@ -170,7 +98,7 @@ namespace ifox_site.Controllers
 
             SmtpClient smtpClient = new SmtpClient("webmail.ifox.co.in");
             smtpClient.UseDefaultCredentials = false;
-            NetworkCredential networkCredential = new NetworkCredential("karthikpandi@ifox.co.in", "karthik@2024$03");
+            NetworkCredential networkCredential = new NetworkCredential("sales@ifox.co.in", "ifox@Sales@2024");
 
             smtpClient.Credentials = networkCredential;
             smtpClient.Port = 25;
@@ -186,17 +114,17 @@ namespace ifox_site.Controllers
         public void SendEmailToContact(SendMailViewModel sendMailView)
         {
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("karthikpandi@ifox.co.in");
+            mail.From = new MailAddress("info@ifox.co.in");
             mail.To.Add(sendMailView.Email);
             mail.Subject = "Thank you for reaching out ifox.";
-
+            mail.Priority = MailPriority.High;
             mail.IsBodyHtml = true;
             string content = RenderViewToString("Thankyou", null);
             mail.Body = content;
 
             SmtpClient smtpClient = new SmtpClient("webmail.ifox.co.in");
             smtpClient.UseDefaultCredentials = false;
-            NetworkCredential networkCredential = new NetworkCredential("karthikpandi@ifox.co.in", "karthik@2024$03");
+            NetworkCredential networkCredential = new NetworkCredential("info@ifox.co.in", "ifox@admin@7629");
 
             smtpClient.Credentials = networkCredential;
             smtpClient.Port = 25;
