@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ifox_site")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc7678387ab8f6f75af29b8df60574247ede1d43")]
 [assembly: System.Reflection.AssemblyProductAttribute("ifox_site")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ifox_site")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
