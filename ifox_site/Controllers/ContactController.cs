@@ -13,6 +13,8 @@ using System.Net.Mail;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Net.Http;
 
 namespace ifox_site.Controllers
 {
@@ -49,32 +51,65 @@ namespace ifox_site.Controllers
         }
 
         [HttpPost]
-        public string SendEmail(SendMailViewModel sendMailView, IFormFile file)
+        public async Task<string> SendEmail(SendMailViewModel sendMailView, IFormFile file)
         {
-
-
-            try
+            var r = Request.Form["g-recaptcha-response"];
+            if (!string.IsNullOrWhiteSpace(r))
             {
-                SendEmailToIfox(sendMailView, file);
+                if (await VerifyCaptcha(r))
+                {
+                    try
+                    {
+                        SendEmailToIfox(sendMailView, file);
 
 
-                 SendEmailToContact(sendMailView);
+                        SendEmailToContact(sendMailView);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = ex.Message.ToString();
+                        return "Not Sent : " + ex.Message;
+                    }
+
+
+                    return "Success";
+                }
+                else
+                {
+                    return "CAPTCHA verification failed. Please try again.";
+                }
             }
-
-            catch (Exception ex)
+            else
             {
-                ViewBag.Message = ex.Message.ToString();
-                return "Not Sent : " + ex.Message;
+                return "CAPTCHA verification failed. Please try again.";
             }
-
-
-            return "Success";
         }
 
         public IActionResult BackToHome()
         {
 
             return View();
+        }
+
+        private async Task<bool> VerifyCaptcha(string captchaResponse)
+        {
+            var secretKey = "6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3";
+            var httpClient = new HttpClient();
+            var response = await httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={captchaResponse}");
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var captchaResult = JsonConvert.DeserializeObject<CaptchaResponse>(jsonResponse);
+                return true;
+            }
+            return false;
+        }
+
+        public class CaptchaResponse
+        {
+            [JsonProperty("success")]
+            public bool Success { get; set; }
         }
 
         public void SendEmailToIfox(SendMailViewModel sendMailView, IFormFile file)
@@ -93,13 +128,11 @@ namespace ifox_site.Controllers
 
             string content = RenderViewToString("EmailMessage", sendMailView);
             mail.IsBodyHtml = true;
-
             mail.Body = content;
 
             SmtpClient smtpClient = new SmtpClient("webmail.ifox.co.in");
             smtpClient.UseDefaultCredentials = false;
-            NetworkCredential networkCredential = new NetworkCredential("sales@ifox.co.in", "ifox@Sales@2024");
-
+            NetworkCredential networkCredential = new NetworkCredential("Sales@ifox.co.in", "ifox@admin@7629");
             smtpClient.Credentials = networkCredential;
             smtpClient.Port = 25;
             smtpClient.EnableSsl = false;

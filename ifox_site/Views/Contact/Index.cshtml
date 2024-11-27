@@ -48,7 +48,7 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form asp-controller="Contact" asp-action="SendEmail" method="post" role="form" class="php-email-form">
+                <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" role="form" class="php-email-form" onsubmit="return validateAndSubmit()">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Name">Your Name</label>
@@ -75,6 +75,7 @@
                             <label asp-for="@Model.Message">Message</label>
                             <textarea class="form-control" asp-for="@Model.Message" name="message" id="message" rows="10" required></textarea>
                         </div>
+                        <div class="g-recaptcha" data-sitekey="6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3" id="recaptcha-widget"></div>
                         <div class="my-3">
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>
@@ -82,10 +83,25 @@
                      </div>
                      <div class="text-center"><button type="submit">Send Message</button></div>
                 </form>
-
             </div>
 
         </div>
 
     </div>
 </section><!-- End Contact Section -->
+<script>
+    function validateAndSubmit() {
+        // Check if reCAPTCHA is completed
+        const response = grecaptcha.getResponse();
+        if (response.length === 0) {
+            return false;
+        }
+        return true; // Allow form submission
+    }
+    // Reload the reCAPTCHA widget after form submission
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+        setTimeout(function () {
+            grecaptcha.reset(); // Reset the reCAPTCHA widget
+        }, 100); // Small delay to ensure it triggers after form submission
+    });
+</script>

@@ -17,6 +17,7 @@ namespace ifox_site.Models
         [Required]
         public string? Subject { get; set; }
 
+        [Required]
         public IFormFile? Attachments { get; set; }
 
         [Required]
