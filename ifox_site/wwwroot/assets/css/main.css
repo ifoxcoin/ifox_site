@@ -823,7 +823,7 @@ section,
   left: 0;
   right: 0;
   bottom: 1px;
-  margin: auto;
+/*  margin: auto;*/
 }
 
 .section-title h2::after {
@@ -836,7 +836,7 @@ section,
   left: 0;
   right: 0;
   bottom: 0;
-  margin: auto;
+/*  margin: auto;*/
 }
 
 .section-title p {
@@ -961,7 +961,7 @@ section,
 
 .clients .swiper-slide img {
   transition: 0.3s;
-  padding: 0 10px;
+/*  padding: 0 10px;*/
 }
 
 .clients .swiper-slide img:hover {
@@ -1239,7 +1239,7 @@ section,
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action {
-  padding: 120px 0;
+  padding: 40px 0;
   position: relative;
   clip-path: inset(0);
 }
@@ -1739,11 +1739,11 @@ section,
 # Faq 2 Section
 --------------------------------------------------------------*/
 .faq-2 .faq-container {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .faq-2 .faq-container .faq-item {
-  background-color: var(--surface-color);
+/*  background-color: var(--surface-color);*/
   position: relative;
   padding: 20px;
   margin-bottom: 20px;
