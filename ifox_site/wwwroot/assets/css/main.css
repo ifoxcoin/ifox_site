@@ -781,11 +781,13 @@ h6 {
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
+  /*background-color: var(--background-color);*/
   padding: 60px 0;
   scroll-margin-top: 88px;
   overflow: clip;
 }
+section,
+
 
 @media (max-width: 1199px) {
 
@@ -1018,6 +1020,12 @@ section,
 .about .read-more:hover i {
   transform: translate(5px, 0);
 }
+
+
+
+
+
+
 
 /*--------------------------------------------------------------
 # Why Us Section
