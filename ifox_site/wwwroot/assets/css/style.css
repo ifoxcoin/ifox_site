@@ -111,6 +111,7 @@ h6 {
     transition: all 0.5s;
     z-index: 997;
     padding: 15px 0;
+    background-color: rgba(40, 58, 90, 0.9);
 }
 
 /*    #header.header-scrolled,
@@ -561,6 +562,46 @@ section {
         margin-bottom: 0;
     }
 
+
+/*--------------------------------------------------------------
+# sysEntries
+--------------------------------------------------------------*/
+    /* Container styling */
+    .image-zoom-container {
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    /* Image styling */
+    .zoom-image {
+        transition: transform 0.5s ease; /* Smooth zoom effect */
+        width: 100%; /* Ensure the image scales within its container */
+        display: block;
+    }
+
+    /* Zoom effect on hover */
+    .image-zoom-container:hover .zoom-image {
+        transform: scale(1.2); /* Zoom in by 20% */
+    }
+    
+
+    #rotatingImage {
+        /*width: 300px;*/ /* Adjust size as needed */
+        /*height: 300px;*/ /* Adjust size as needed */
+        object-fit: cover;
+        animation: rotateImage 35s linear infinite;
+    }
+
+    @keyframes rotateImage {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
@@ -574,7 +615,7 @@ section {
         transition: all 0.4s ease-in-out;
         display: inline-block;
         padding: 15px 0;
-        filter: grayscale(100);
+        /*filter: grayscale(100);*/
     }
 
         .clients img:hover {
