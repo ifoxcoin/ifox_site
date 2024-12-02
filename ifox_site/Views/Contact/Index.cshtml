@@ -50,6 +50,7 @@
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
                 <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" role="form" class="php-email-form" onsubmit="return validateAndSubmit()">
                     <div class="row">
+
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Name">Your Name</label>
                             <input type="text" asp-for="@Model.Name" class="form-control" name="name" id="name" required>

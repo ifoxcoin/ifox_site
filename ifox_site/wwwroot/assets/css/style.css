@@ -601,11 +601,24 @@ section {
             transform: rotate(360deg);
         }
     }
+/* Add this CSS to enable hover scaling and shadow effect */
+.zoom-effect:hover {
+    transform: scale(1.1);
+    
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
-/*--------------------------------------------------------------
+.blue-icon {
+    color: rgb(70, 177, 227) padding : 5px;
+}
+
+h5, h6 {
+    color: rgb(70, 177, 227);
+}
+    /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
-.clients {
+    .clients {
     padding: 12px 0;
     text-align: center;
 }
