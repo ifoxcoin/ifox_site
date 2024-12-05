@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 hero-img text-center" data-aos="zoom-in" data-aos-delay="200">
-                 <img src="~/assets/img/hiredevelopers/image (3).gif"class="img-fluid animated" alt="" width="70%" height="70%" />
+                 <img src="~/assets/img/hiredevelopers/image (4).gif"class="img-fluid animated" alt="" width="70%" height="70%" />
             </div>
         </div>
     </div>
@@ -32,37 +32,45 @@
         <!-- Swiper -->
         <div class="swiper-container">
             <!-- Slider wrapper -->
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper ">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/dataverse.svg" class="img-fluid" alt="Client 1"><DIV><b>Dataverse</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/dataverse.svg" class="img-fluid" alt="Client 1"></div>
+                    <div class="text-container"><b>Dataverse</b></div>
+                </div>
+                <div class="swiper-slide text-center">
+                    <div><img src="~/assets/img/powerplatform/powerbi.svg" class="img-fluid" alt="Client 2"></div>
+                    <div class="text-container"><b>Power BI</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerbi.svg" class="img-fluid" alt="Client 2"><DIV><b>Power BI</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/aibuilder.svg" class="img-fluid" alt="Client 3"></div>
+                    <div class="text-container"><b> AI Builder</b></div>
+                </div>
+                <div class="swiper-slide align">
+                    <div><img src="~/assets/img/powerplatform/copilotstudio.svg" class="img-fluid" alt="Client 4"></div>
+                    <div class="text-container"><b>Copilot Studio</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/aibuilder.svg" class="img-fluid" alt="Client 3"><DIV><b> AI Builder</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerplatform.svg" class="img-fluid" alt="Client 5"></div>
+                    <div class="text-container"><b>Power Platform</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/copilotstudio.svg" class="img-fluid" alt="Client 4"><DIV><b>Copilot Studio</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerpages.svg" class="img-fluid" alt="Client 6"></div>
+                    <div class="text-container"><b>Power Pages</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerplatform.svg" class="img-fluid" alt="Client 5"><DIV><b>Power Platform</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerapps.svg" class="img-fluid" alt="Client 7"></div>
+                    <div class="text-container"><b>Power Apps</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerpages.svg" class="img-fluid" alt="Client 6"><DIV><b>Power Pages</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerfx.svg" class="img-fluid" alt="Client 8"></div>
+                    <div class="text-container"><b>Power FX</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerapps.svg" class="img-fluid" alt="Client 7"><DIV><b>Power Apps</b></DIV>
-                </div>
-                <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerfx.svg" class="img-fluid" alt="Client 8"><DIV><b>Power FX</b></DIV>
-                </div>
-                <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerautomate.svg" class="img-fluid" alt="Client 9"><DIV><b>Power Automate</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerautomate.svg" class="img-fluid" alt="Client 9"></div>
+                    <div class="text-container"><b>Power Automate</b></div>
                 </div>
             </div>
-
             <!-- Pagination -->
 
         </div>
@@ -76,23 +84,12 @@
     document.addEventListener('DOMContentLoaded', function () {
         const swiper = new Swiper('.swiper-container', {
             loop: true,
-            speed: 600,
+            speed: 2000,
             autoplay: {
-                delay: 5000, // Adjust the delay for autoplay (in milliseconds)
+                delay: 0, // Adjust the delay for autoplay (in milliseconds)
                 disableOnInteraction: false, // Ensure autoplay continues after user interaction
             },
-            slidesPerView: 'auto',
-            spaceBetween: 40,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                type: 'bullets',
-            },
-            navigation: {
-                // Disable navigation buttons by not setting any buttons in the configuration
-                nextEl: null,
-                prevEl: null
-            },
+
             breakpoints: {
                 320: {
                     slidesPerView: 2,
@@ -115,6 +112,9 @@
                     spaceBetween: 120,
                 },
             },
+            loopAdditionalSlides: 1, 
+            centeredSlides: true, 
+            slidesPerView: 'auto',
         });
     });
 </script>
@@ -142,6 +142,7 @@
                 or an existing business looking to update and streamline.
             </p><br />
         </div>
+    </div>
 </section>
 
 <!-- END ABOUT US 2 SECTION -->

@@ -644,6 +644,49 @@ section {
         color: rgb(70, 177, 227);
     }
 
+.swiper-slide {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center the text */
+}
+
+.text-container {
+    margin-top: 10px; /* Space between image and text */
+    /* font-weight: bold;*/
+    display: inline-block;
+    /* margin-left: 10px;*/
+    white-space: nowrap;
+    font-size: 14px; /* Adjust the font size as needed */
+    line-height: 1.2;
+}
+
+
+
+/*.text-container {
+    display: inline-block;
+  margin-left: 10px;
+  white-space: nowrap;
+   font-size: 14px;
+   line-height: 1.2;
+}*/
+/*.swiper-slide {
+    display: flex;  
+align-items: center;  
+justify-content: center;  
+}*/
+/*.swiper-pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}*/
+/* Optional: Ensure images fit properly */
+/*.swiper-slide img {
+    max-width: 100%;*/ /* Prevent image from overflowing */
+/*height: auto;*/ /* Maintain aspect ratio */
+/*}*/
     /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
