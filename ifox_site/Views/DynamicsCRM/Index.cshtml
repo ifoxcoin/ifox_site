@@ -32,70 +32,70 @@
 </section>
 
 <!-- Clients Section -->
+
 <section id="clients" class="clients section light-background container">
     <div class="container">
         <!-- Swiper -->
         <div class="swiper-container">
             <!-- Slider wrapper -->
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper ">
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/dataverse.svg" class="img-fluid" alt="Client 1"><div><b>Dataverse</b></div>
+                    <div><img src="~/assets/img/powerplatform/dataverse.svg" class="img-fluid" alt="Client 1"></div>
+                    <div class="text-container"><b>Dataverse</b></div>
+                </div>
+                <div class="swiper-slide text-center">
+                    <div><img src="~/assets/img/powerplatform/powerbi.svg" class="img-fluid" alt="Client 2"></div>
+                    <div class="text-container"><b>Power BI</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerbi.svg" class="img-fluid" alt="Client 1"><DIV><b>Power BI</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/aibuilder.svg" class="img-fluid" alt="Client 3"></div>
+                    <div class="text-container"><b> AI Builder</b></div>
+                </div>
+                <div class="swiper-slide align">
+                    <div><img src="~/assets/img/powerplatform/copilotstudio.svg" class="img-fluid" alt="Client 4"></div>
+                    <div class="text-container"><b>Copilot Studio</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/aibuilder.svg" class="img-fluid" alt="Client 1"><DIV><b> AI Builder</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerplatform.svg" class="img-fluid" alt="Client 5"></div>
+                    <div class="text-container"><b>Power Platform</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/copilotstudio.svg" class="img-fluid" alt="Client 1"><DIV><b>Copilot Studio</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerpages.svg" class="img-fluid" alt="Client 6"></div>
+                    <div class="text-container"><b>Power Pages</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerplatform.svg" class="img-fluid" alt="Client 1"><DIV><b>Power Platform</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerapps.svg" class="img-fluid" alt="Client 7"></div>
+                    <div class="text-container"><b>Power Apps</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerpages.svg" class="img-fluid" alt="Client 1"><DIV><b>Power Pages</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerfx.svg" class="img-fluid" alt="Client 8"></div>
+                    <div class="text-container"><b>Power FX</b></div>
                 </div>
                 <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerapps.svg" class="img-fluid" alt="Client 1"><DIV><b>Power Apps</b></DIV>
-                </div>
-                <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerfx.svg" class="img-fluid" alt="Client 1"><DIV><b>Power FX</b></DIV>
-                </div>
-                <div class="swiper-slide">
-                    <img src="~/assets/img/powerplatform/powerautomate.svg" class="img-fluid" alt="Client 1"><DIV><b>Power Automate</b></DIV>
+                    <div><img src="~/assets/img/powerplatform/powerautomate.svg" class="img-fluid" alt="Client 9"></div>
+                    <div class="text-container"><b>Power Automate</b></div>
                 </div>
             </div>
-
             <!-- Pagination -->
 
         </div>
     </div>
+
 </section>
+
 <!-- Initialize Swiper -->
 <script>
     // Ensure that Swiper is initialized once the DOM is fully loaded
     document.addEventListener('DOMContentLoaded', function () {
         const swiper = new Swiper('.swiper-container', {
             loop: true,
-            speed: 600,
+            speed: 2000,
             autoplay: {
-                delay: 5000, // Adjust the delay for autoplay (in milliseconds)
+                delay: 0, // Adjust the delay for autoplay (in milliseconds)
                 disableOnInteraction: false, // Ensure autoplay continues after user interaction
             },
-            slidesPerView: 'auto',
-            spaceBetween: 40,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-                type: 'bullets',
-            },
-            navigation: {
-                // Disable navigation buttons by not setting any buttons in the configuration
-                nextEl: null,
-                prevEl: null
-            },
+
             breakpoints: {
                 320: {
                     slidesPerView: 2,
@@ -118,6 +118,9 @@
                     spaceBetween: 120,
                 },
             },
+            loopAdditionalSlides: 1,
+            centeredSlides: true,
+            slidesPerView: 'auto',
         });
     });
 </script>
@@ -208,7 +211,7 @@
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-cloud-lightning" aria-hidden="true"></i></div>
                 <h4>
-                    <a href="">
+                    <a href="/DynamicsCRM/Implementation">
                         DYNAMICS 365 IMPLEMENTATION
                     </a>
                 </h4>
@@ -219,7 +222,7 @@
         <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-import"></i></div>
-                <h4><a href="">DYNAMICS 365 ON-PREMISES IMPLEMENTATION</a></h4>
+                <h4><a href="/DynamicsCRM/OnPremises">DYNAMICS 365 ON-PREMISES IMPLEMENTATION</a></h4>
                 <p>
                     Implementing Dynamics 365 On-Premises requires careful planning, starting with a robust system architecture that ensures scalability and performance. Data migration must be clean and validated, while customizations should focus on built-in features for long-term maintainability. Seamless integration with other systems, strong security protocols, and role-based access are critical. Effective user training and change management drive adoption. Ongoing monitoring and updates ensure continued optimization and alignment with business needs.
                 </p>
@@ -229,7 +232,7 @@
         <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-support"></i></div>
-                <h4><a href="">ONGOING SUPPORT FOR DYNAMICS 365</a></h4>
+                <h4><a href="/DynamicsCRM/Support">ON GOING SUPPORT FOR DYNAMICS 365</a></h4>
                 <p>Ongoing support for Dynamics 365 involves regular system monitoring to ensure performance, security, and uptime, alongside timely updates and patches. Proactive troubleshooting and resolving issues quickly help minimize downtime, while continuous optimization through user feedback and system analytics ensures the platform meets evolving business needs. Regular data backups and disaster recovery plans are crucial for business continuity. Additionally, user training and support ensure smooth adoption, with dedicated resources available for addressing technical queries and providing guidance on new features.</p>
             </div>
         </div>
@@ -241,7 +244,7 @@
         <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-aperture" aria-hidden="true"></i></div>
-                <h4><a href="">DYNAMICS 365 Customization</a></h4>
+                <h4><a href="/DynamicsCRM/Customization">DYNAMICS 365 Customization</a></h4>
                 <p>Dynamics 365 customization allows businesses to tailor the platform to their specific needs by leveraging out-of-the-box tools like Power Apps, workflows, and business rules. Custom entities, forms, and dashboards can be created to match unique business processes, while integrations with third-party systems are facilitated through APIs and connectors. Low-code options empower non-technical users to make adjustments, reducing reliance on developers. Security and role-based access controls ensure customizations align with company policies. Ongoing adjustments and optimizations ensure the solution evolves with business requirements.</p>
             </div>
         </div>
@@ -249,7 +252,7 @@
         <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-wrench"></i></div>
-                <h4><a href="">DYNAMICS 365 INTEGRATION</a></h4>
+                <h4><a href="/DynamicsCRM/Integration">DYNAMICS 365 INTEGRATION</a></h4>
                 <p>Dynamics 365 integration enables seamless data exchange between Dynamics 365 and other systems, such as ERP, CRM, or third-party applications. Using pre-built connectors, APIs, and services like Azure Logic Apps or Power Automate, businesses can automate workflows and synchronize data in real-time. Custom integrations are possible with RESTful APIs or custom connectors, ensuring flexibility and scalability. Secure integration with role-based access and encryption guarantees data integrity and compliance. Efficient integration optimizes business processes, enhancing productivity and decision-making across platforms.</p>
             </div>
         </div>
@@ -257,7 +260,7 @@
         <div class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
                 <div class="icon"><i class="bx bx-server"></i></div>
-                <h4><a href="">DYNAMICS 365 DATA-MIGRATION</a></h4>
+                <h4><a href="/DynamicsCRM/Migration">DYNAMICS 365 DATA-MIGRATION</a></h4>
                 <p>Dynamics 365 data migration involves transferring data from legacy systems to Dynamics 365 with minimal disruption and high accuracy. The process includes data mapping, cleansing, and validation to ensure data integrity and consistency. Tools like the Data Migration Framework (DMF) and third-party solutions, such as KingswaySoft, help automate and streamline the migration. Data transformation ensures compatibility with Dynamics 365’s structure, while a phased approach reduces risks. Post-migration, ongoing validation and optimization ensure the data remains accurate and accessible for business use.</p>
             </div>
         </div>

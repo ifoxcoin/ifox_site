@@ -8,5 +8,33 @@ namespace ifox_site.Controllers
         {
             return View();
         }
+
+        public IActionResult Implementation()
+        {
+            return View();
+        }
+
+        public IActionResult Support()
+        {
+            return View();
+        }
+
+         public IActionResult Integration()
+        {
+            return View();
+        }
+        public IActionResult OnPremises()
+        {
+            return View();
+        }
+        public IActionResult Customization()
+        {
+            return View();
+        }
+        public IActionResult Migration()
+        {
+            return View();
+        }
+        
     }
 }
