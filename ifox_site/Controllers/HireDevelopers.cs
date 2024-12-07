@@ -28,5 +28,13 @@ namespace ifox_site.Controllers
         {
             return View();
         }
+        public ActionResult DotNetDeveloper()
+        {
+            return View();
+        }
+        public ActionResult CRMDeveloper()
+        {
+            return View();
+        }
     }
 }

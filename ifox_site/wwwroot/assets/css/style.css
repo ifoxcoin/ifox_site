@@ -662,35 +662,23 @@ section {
     line-height: 1.2;
 }
 
+.pillcolor:hover,
+.pillcolor:focus,
+.pillcolor:active {
+    color: rgb(70, 177, 227);
+}
 
+.Imgborder{
+    border-left:2px solid #3e4e6b;
+}
 
-/*.text-container {
-    display: inline-block;
-  margin-left: 10px;
-  white-space: nowrap;
-   font-size: 14px;
-   line-height: 1.2;
-}*/
-/*.swiper-slide {
-    display: flex;  
-align-items: center;  
-justify-content: center;  
-}*/
-/*.swiper-pagination {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-}*/
-/* Optional: Ensure images fit properly */
-/*.swiper-slide img {
-    max-width: 100%;*/ /* Prevent image from overflowing */
-/*height: auto;*/ /* Maintain aspect ratio */
-/*}*/
-    /*--------------------------------------------------------------
+.ImgRborder {
+    border-right: 2px solid #3e4e6b;
+}
+/*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
-    .clients {
+.clients {
     padding: 12px 0;
     text-align: center;
 }
