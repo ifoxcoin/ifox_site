@@ -221,6 +221,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
+
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
@@ -2073,3 +2074,15 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+/*-------------------------------------------------------------
+ #Sys entrys
+------------------------------------------------------------*/
+.navmenu .active {
+    color: red; /* Change this to whatever you prefer */
+    background-color: #007bff; /* Blue background for active link */
+    border-radius: 4px; /* Optional: adds rounded corners */
+}
+
+/*-------------------------------------------------------------
+ #Sys entrys
+------------------------------------------------------------*/

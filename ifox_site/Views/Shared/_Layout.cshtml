@@ -53,11 +53,11 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto " href="/home">Home</a></li>
-                    <li><a class="nav-link scrollto" href="/DynamicsCRM">Dynamics CRM 365</a></li>
-                    <li><a class="nav-link scrollto" href="/ProductManagement">Product Management</a></li>
-                    <li class="dropdown">
-                        <a href="/HireDevelopers">Hire Developers</a>
+                    <li><a class="nav-link scrollto @ViewData["ActiveHome"]" href="/home">Home</a></li>
+                    <li><a class="nav-link scrollto @ViewData[" ActiveDynamicsCRM"]" href="/DynamicsCRM">Dynamics CRM 365</a></li>
+                    <li><a class="nav-link scrollto @ViewData["ActiveProductManagement"]" href="/ProductManagement">Product Management</a></li>
+                    <li>
+                        <a class="nav-link scrollto @ViewData["ActiveHireDevelopers"]" href="/HireDevelopers">Hire Developers</a>
                         @*<ul>
                             <li><a href="/HireDevelopers/HireDotNetDeveloper">.Net Developer</a></li>
                             <li><a href="#">Java Developer</a></li>
@@ -68,10 +68,10 @@
                             <li><a href="#">Java Developer</a></li>
                         </ul>*@
                     </li>
-                    <li><a class="nav-link scrollto" href="/services">Services</a></li>
-                    <li><a class="nav-link scrollto" href="/Testimonials">Testimonials</a></li>
-                    <li><a class="nav-link scrollto" href="/Contact">Contact</a></li>
-                    <li><a class="getstarted scrollto" href="/Contact">Get Started</a></li>
+                    <li><a class="nav-link scrollto @ViewData["ActiveServices"]" href="/services">Services</a></li>
+                    <li><a class="nav-link scrollto @ViewData["ActiveTestimonials"]" href="/Testimonials">Testimonials</a></li>
+                    <li><a class="nav-link scrollto @ViewData["ActiveContact"]" href="/Contact">Contact</a></li>
+                    <li><a class="getstarted scrollto @ViewData["ActiveGet Started"]" href="/Contact">Get Started</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -131,13 +131,13 @@
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="home">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="home">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="Services">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="contact">Contact</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="ProductManagement">Web Design</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="ProductManagement">Web Development</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="ProductManagement">Digital Strategy</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/home">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/DynamicsCRM">DynamicsCRM</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/ProductManagement">ProductManagement</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/HireDevelopers">HireDevelopers</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/services">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/Testimonials">Testimonials</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/Contact">Contact</a></li>
                         </ul>
                     </div>
 
@@ -164,7 +164,7 @@
 
 
 
-                                                        <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+                            <a href="#" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
                             <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
@@ -173,7 +173,12 @@
 
 
                                                         -->
-                            <a href="https://www.linkedin.com/company/ifox-consultancy-services/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                            <a href="https://www.linkedin.com/company/ifox-consultancy-services/" class="linkedin" target="_blank">
+                                <i class="bx bxl-linkedin"></i>
+                            </a>
+                            <a href="https://wa.me/919597892118" class="bg.Success whatsapp" target="_blank">
+                                <i class="bx bxl-whatsapp"></i>
+                            </a>
                         </div>
                     </div>
 
@@ -212,6 +217,20 @@
 
     <!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const currentPath = window.location.pathname;
+
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href');
+                if (linkPath === currentPath) {
+                    link.classList.add('active'); // Add active class to the link
+                } else {
+                    link.classList.remove('active'); // Remove active class from other links
+                }
+            });
+        });</script>
 </body>
 
 </html>

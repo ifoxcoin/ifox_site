@@ -114,7 +114,7 @@ h6 {
     background-color: rgba(40, 58, 90, 0.9);
 }
 
-/*    #header.header-scrolled,
+    /*    #header.header-scrolled,
     #header.header-inner-pages {
         background: rgba(40, 58, 90, 0.9);
     }*/
@@ -562,119 +562,6 @@ section {
         margin-bottom: 0;
     }
 
-
-/*--------------------------------------------------------------
-# sysEntries
---------------------------------------------------------------*/
-    /* Container styling */
-    .image-zoom-container {
-        overflow: hidden;
-        display: inline-block;
-    }
-
-    /* Image styling */
-    .zoom-image {
-        transition: transform 0.5s ease; /* Smooth zoom effect */
-        width: 100%; /* Ensure the image scales within its container */
-        display: block;
-    }
-
-    /* Zoom effect on hover */
-    .image-zoom-container:hover .zoom-image {
-        transform: scale(1.2); /* Zoom in by 20% */
-    }
-    
-
-    #rotatingImage {
-        /*width: 300px;*/ /* Adjust size as needed */
-        /*height: 300px;*/ /* Adjust size as needed */
-        object-fit: cover;
-        animation: rotateImage 35s linear infinite;
-    }
-
-    @keyframes rotateImage {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-/* Add this CSS to enable hover scaling and shadow effect */
-    .zoom-effect:hover {
-        transform: scale(1.1);    
-        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    }
-
-    .blue-icon {
-        color: rgb(70, 177, 227);
-    }
-
-    h6 {
-        color: rgb(70, 177, 227);
-    }
-
-    .sticky-top {
-        overflow: auto; /* Enables scrolling */
-        max-height: 500px;
-        top: 150px;
-        z-index: 1;
-    }
-
-.guid {
-    text-decoration: none; /* Removes the underline */
-    padding: 5px 10px; /* Add padding for better box size */
-    color: #3e4e6b;
-    line-height:40px;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color */
-}
-
-    /* Hover state */
-    .guid:hover,
-    .guid:focus,
-    .guid.active {
-        background-color: rgb(70, 177, 227);
-        color: white;
-        padding: 10px;
-        border-radius: 7px;
-    }
-
-    .color{
-        color: rgb(70, 177, 227);
-    }
-
-.swiper-slide {
-    display: flex;
-    flex-direction: column; /* Stack image and text vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    text-align: center; /* Center the text */
-}
-
-.text-container {
-    margin-top: 10px; /* Space between image and text */
-    /* font-weight: bold;*/
-    display: inline-block;
-    /* margin-left: 10px;*/
-    white-space: nowrap;
-    font-size: 14px; /* Adjust the font size as needed */
-    line-height: 1.2;
-}
-
-.pillcolor:hover,
-.pillcolor:focus,
-.pillcolor:active {
-    color: rgb(70, 177, 227);
-}
-
-.Imgborder{
-    border-left:2px solid #3e4e6b;
-}
-
-.ImgRborder {
-    border-right: 2px solid #3e4e6b;
-}
 /*--------------------------------------------------------------
 # Clients
 --------------------------------------------------------------*/
@@ -1936,3 +1823,121 @@ section {
         padding-top: 4px;
     }
 }
+/*-------------------------------------------------------------
+ #Sys entrys
+------------------------------------------------------------*/
+/* Container styling */
+.image-zoom-container {
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* Image styling */
+.zoom-image {
+    transition: transform 0.5s ease; /* Smooth zoom effect */
+    width: 100%; /* Ensure the image scales within its container */
+    display: block;
+}
+
+/* Zoom effect on hover */
+.image-zoom-container:hover .zoom-image {
+    transform: scale(1.2); /* Zoom in by 20% */
+}
+
+
+#rotatingImage {
+    /*width: 300px;*/ /* Adjust size as needed */
+    /*height: 300px;*/ /* Adjust size as needed */
+    object-fit: cover;
+    animation: rotateImage 35s linear infinite;
+}
+
+@keyframes rotateImage {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* Add this CSS to enable hover scaling and shadow effect */
+.zoom-effect:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.blue-icon {
+    color: rgb(70, 177, 227);
+}
+
+h6 {
+    color: rgb(70, 177, 227);
+}
+
+.sticky-top {
+    overflow: auto; /* Enables scrolling */
+    max-height: 500px;
+    top: 150px;
+    z-index: 1;
+}
+
+.guid {
+    text-decoration: none; /* Removes the underline */
+    padding: 5px 10px; /* Add padding for better box size */
+    color: #3e4e6b;
+    line-height: 40px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background color */
+}
+
+    /* Hover state */
+    .guid:hover,
+    .guid:focus,
+    .guid.active {
+        background-color: rgb(70, 177, 227);
+        color: white;
+        padding: 10px;
+        border-radius: 7px;
+    }
+
+.color {
+    color: rgb(70, 177, 227);
+}
+
+.swiper-slide {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center the text */
+}
+
+.text-container {
+    margin-top: 10px; /* Space between image and text */
+    /* font-weight: bold;*/
+    display: inline-block;
+    /* margin-left: 10px;*/
+    white-space: nowrap;
+    font-size: 14px; /* Adjust the font size as needed */
+    line-height: 1.2;
+}
+
+.pillcolor:hover,
+.pillcolor:focus,
+.pillcolor:active {
+    color: rgb(70, 177, 227);
+}
+
+.Imgborder {
+    border-left: 2px solid #3e4e6b;
+}
+
+.ImgRborder {
+    border-right: 2px solid #3e4e6b;
+}
+
+
+
+/*-------------------------------------------------------------
+ #Sys entrys
+------------------------------------------------------------*/
