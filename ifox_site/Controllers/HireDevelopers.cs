@@ -36,5 +36,13 @@ namespace ifox_site.Controllers
         {
             return View();
         }
+        public ActionResult PHPDeveloper()
+        {
+            return View();
+        }
+        public ActionResult MobileAppDeveloper()
+        {
+            return View();
+        }
     }
 }
