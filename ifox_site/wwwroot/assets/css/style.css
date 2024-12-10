@@ -1922,12 +1922,6 @@ h6 {
     line-height: 1.2;
 }
 
-.pillcolor:hover,
-.pillcolor:focus,
-.pillcolor:active {
-    color: rgb(70, 177, 227);
-}
-
 .Imgborder {
     border-left: 2px solid #3e4e6b;
 }
@@ -1936,7 +1930,43 @@ h6 {
     border-right: 2px solid #3e4e6b;
 }
 
+/* Style the individual tab to make sure they are aligned in the center */
+.nav-tab {
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px; /* Adjust padding for better spacing */
+}
 
+/*.nav-tab h4 {
+        margin: 0;*/ /* Remove margin around the text */
+/*font-size: 16px;*/ /* Adjust font size if necessary */
+/*}*/
+
+/* On mobile screens, ensure the tabs are stacked with some space between them */
+@media (max-width: 767px) {
+    .nav-pill-wrapper {
+        flex-direction: column; /* Stack tabs vertically */
+        justify-content: center; /* Center the tabs vertically */
+    }
+
+    .nav-tab {
+        width: 100%; /* Make each tab take full width on mobile */
+        margin-bottom: 10px; /* Add space between the stacked tabs */
+    }
+
+        .nav-tab h4 {
+            font-size: 14px; /* Adjust font size on mobile */
+        }
+}
+/* Glowing effect for active tab */
+.navactive2.active,
+.navactive2:focus,
+.navactive2:hover,
+.navactive2:active {
+    background-color: rgb(70, 177, 227);
+    color: white;
+    border-radius: 25px;
+}
 
 /*-------------------------------------------------------------
  #Sys entrys
