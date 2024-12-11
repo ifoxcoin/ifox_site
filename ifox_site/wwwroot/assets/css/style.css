@@ -387,7 +387,7 @@ h6 {
 #hero {
     width: 100%;
     height: 80vh;
-    background: #37517e;
+    background: rgb(54, 80, 125);
 }
 
     #hero .container {
@@ -1967,7 +1967,10 @@ h6 {
     color: white;
     border-radius: 25px;
 }
-
+.logomargin {
+    font-size: 30px;
+    margin-right: 15px;
+}
 
 /*-------------------------------------------------------------
  #Sys entrys

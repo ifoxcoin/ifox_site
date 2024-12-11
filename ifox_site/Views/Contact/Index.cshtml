@@ -3,10 +3,9 @@
     ViewBag.Title = "Index";
 }
 
-<section id="dummyspace" >
+<section id="dummyspace">
 
     <div class="container">
-        
     </div>
 
 </section>
@@ -21,13 +20,13 @@
             <div class="col-lg-5 d-flex align-items-stretch">
                 <div class="info">
                     <div class="address">
-                        <i class="bi bi-geo-alt"></i>
+                        <i class="bi bi-geo-alt logomargin" ></i>
                         <h5>Location:</h5>
                         <p align="left"> 3/4A, Sri Annai Meenakshi Nagar, Keelpanangadi, Kulamangalam Main Road, Vagai Kulam Post, Madurai - 625017 </p>
                     </div>
 
                     <div class="email">
-                        <i class="bi bi-envelope"></i>
+                        <i class="bi bi-envelope logomargin" ></i>
                         <h5>Email:</h5>
                         <a href="mailto:info@ifox.co.in">
                             info@ifox.co.in
@@ -36,7 +35,7 @@
                     </div>
                     <br />
                     <div class="phone">
-                        <i class="bi bi-phone"></i>
+                        <i class="bi bi-phone logomargin" ></i>
                         <h5>Call:</h5>
                         <a href="tel:+919597 892 118">
                             +91 9597 892 118
@@ -59,37 +58,38 @@
                             <label asp-for="@Model.Email">Your Email</label>
                             <input type="text" asp-for="@Model.Email" class="form-control" name="email" id="email" required>
                         </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="@Model.Subject">Subject</label>
-                            <input type="text" asp-for="@Model.Subject" class="form-control" name="subject" id="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="@Model.Contact">Contact No.</label>
-                            <input type="text" asp-for="@Model.Contact" class="form-control" name="Contact" id="Contact" required>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="@Model.Attachments">Attachment</label>
-                            <input type="file" asp-for="@Model.Attachments" style="height:100%" class="form-control" name="file" id="Attachments">
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="@Model.Message">Message</label>
-                            <textarea class="form-control" asp-for="@Model.Message" name="message" id="message" rows="10" required></textarea>
-                        </div>
-                        <div class="g-recaptcha" data-sitekey="6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3" id="recaptcha-widget"></div>
-                        <div class="my-3">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Subject">Subject</label>
+                        <input type="text" asp-for="@Model.Subject" class="form-control" name="subject" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Contact">Contact No.</label>
+                        <input type="text" asp-for="@Model.Contact" class="form-control" name="Contact" id="Contact" required>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Attachments">Attachment</label>
+                        <input type="file" asp-for="@Model.Attachments" style="height:100%" class="form-control" name="file" id="Attachments">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Message">Message</label>
+                        <textarea class="form-control" asp-for="@Model.Message" name="message" id="message" rows="10" required></textarea>
+                    </div>
+                    <div class="g-recaptcha" data-sitekey="6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3" id="recaptcha-widget"></div>
+                    <div class="my-3">
                         <div class="loading">Loading</div>
                         <div class="error-message"></div>
                         <div class="sent-message">Your message has been sent. Thank you!</div>
-                     </div>
-                     <div class="text-center"><button type="submit">Send Message</button></div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
                 </form>
             </div>
 
         </div>
 
     </div>
-</section><!-- End Contact Section -->
+</section>
+<!-- End Contact Section -->
 <script>
     function validateAndSubmit() {
         // Check if reCAPTCHA is completed
