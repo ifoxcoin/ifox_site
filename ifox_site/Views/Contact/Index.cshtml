@@ -20,25 +20,30 @@
             <div class="col-lg-5 d-flex align-items-stretch">
                 <div class="info">
                     <div class="address">
-                        <i class="bi bi-geo-alt logomargin" ></i>
+                        <i class="bi bi-geo-alt logomargin"></i>
                         <h5>Location:</h5>
                         <p align="left"> 3/4A, Sri Annai Meenakshi Nagar, Keelpanangadi, Kulamangalam Main Road, Vagai Kulam Post, Madurai - 625017 </p>
                     </div>
 
                     <div class="email">
-                        <i class="bi bi-envelope logomargin" ></i>
+                        <i class="bi bi-envelope logomargin"></i>
                         <h5>Email:</h5>
                         <a href="mailto:info@ifox.co.in">
                             info@ifox.co.in
+                        </a><br />
+                        <a style="padding-left:60px" href="mailto:hr@ifox.co.in">
+                            hr@ifox.co.in
+                        </a><br />
+                        <a style="padding-left:60px" href="mailto:sales@ifox.co.in">
+                            sales@ifox.co.in
                         </a>
-
                     </div>
                     <br />
                     <div class="phone">
-                        <i class="bi bi-phone logomargin" ></i>
+                        <i class="bi bi-phone logomargin"></i>
                         <h5>Call:</h5>
                         <a href="tel:+919597 892 118">
-                            +91 9597 892 118
+                            +91 9488 718 218
                         </a>
                     </div>
                     <br />
@@ -49,14 +54,13 @@
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
                 <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" role="form" class="php-email-form" onsubmit="return validateAndSubmit()">
                     <div class="row">
-
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Name">Your Name</label>
                             <input type="text" asp-for="@Model.Name" class="form-control" name="name" id="name" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Email">Your Email</label>
-                            <input type="text" asp-for="@Model.Email" class="form-control" name="email" id="email" required>
+                            <input type="email" asp-for="@Model.Email" class="form-control" name="email" id="email" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -65,23 +69,26 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Contact">Contact No.</label>
-                        <input type="text" asp-for="@Model.Contact" class="form-control" name="Contact" id="Contact" required>
+                        <input type="tel" asp-for="@Model.Contact" class="form-control" name="Contact" id="Contact" required>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Attachments">Attachment</label>
-                        <input type="file" asp-for="@Model.Attachments" style="height:100%" class="form-control" name="file" id="Attachments">
+                        <input type="file" asp-for="@Model.Attachments" style="height:100%" class="form-control" name="file" id="Attachments" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="validateFile()" />
+                        <div class="error-message" id="fileErrorMessage" style="display:none;"></div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Message">Message</label>
                         <textarea class="form-control" asp-for="@Model.Message" name="message" id="message" rows="10" required></textarea>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3" id="recaptcha-widget"></div>
+                    <div class="g-recaptcha" data-sitekey="6LdU_n8qAAAAAKgNCQp2II1aFzjl31qf8o3umdhu" id="recaptcha-widget"></div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
-                        <div class="error-message"></div>
+                        <div class="error-message" id="formErrorMessage" style="display:none;"></div>
                         <div class="sent-message">Your message has been sent. Thank you!</div>
                     </div>
-                    <div class="text-center"><button type="submit">Send Message</button></div>
+                    <div class="text-center">
+                        <button type="submit">Send Message</button>
+                    </div>
                 </form>
             </div>
 
@@ -92,17 +99,66 @@
 <!-- End Contact Section -->
 <script>
     function validateAndSubmit() {
+        var form = document.getElementById('contact-form');
+        var errorMessage = document.getElementById('formErrorMessage');
+        var fileErrorMessage = document.getElementById('fileErrorMessage');  // Get the attachment error message element
+
+        // Clear previous error messages
+        errorMessage.style.display = 'none';
+        fileErrorMessage.style.display = 'none';  // Hide the file error message on form submit
+
         // Check if reCAPTCHA is completed
         const response = grecaptcha.getResponse();
         if (response.length === 0) {
             return false;
         }
+
+        // Check if the file is valid (can be added based on your file validation function)
+        if (!validateFile()) {
+            return false;  // Prevent form submission if file is invalid
+        }
+
         return true; // Allow form submission
     }
+
     // Reload the reCAPTCHA widget after form submission
     document.getElementById("contact-form").addEventListener("submit", function (e) {
         setTimeout(function () {
             grecaptcha.reset(); // Reset the reCAPTCHA widget
         }, 100); // Small delay to ensure it triggers after form submission
     });
+
+</script>
+
+<script>
+    function validateFile() {
+        var fileInput = document.getElementById('Attachments');
+        var file = fileInput.files[0];
+        var errorMessage = document.getElementById('fileErrorMessage');
+
+        // Reset error messages
+        errorMessage.style.display = 'none';
+
+        // Check file type (PDF, Word, Excel)
+        var allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
+        if (!allowedTypes.includes(file.type)) {
+            errorMessage.innerHTML = 'Only PDF, Word, and Excel files are allowed.';
+            errorMessage.style.display = 'block';
+            return false;
+        }
+
+        // Check file size (5MB limit)
+        var maxSize = 5 * 1024 * 1024; // 5MB in bytes
+        if (file.size > maxSize) {
+            errorMessage.innerHTML = 'File size must be below 5MB.';
+            errorMessage.style.display = 'block';
+            fileInput.value = '';
+            return false;
+        }
+
+        // If everything is valid, hide the error message
+        errorMessage.style.display = 'none';
+        return true;
+    }
+
 </script>

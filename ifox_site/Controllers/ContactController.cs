@@ -43,6 +43,11 @@ namespace ifox_site.Controllers
             return View();
         }
 
+        public IActionResult Thankyou()
+        {
+
+            return View();
+        }
 
         [HttpGet]
         public IActionResult Index()
@@ -94,7 +99,7 @@ namespace ifox_site.Controllers
 
         private async Task<bool> VerifyCaptcha(string captchaResponse)
         {
-            var secretKey = "6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3";
+            var secretKey = "6LdU_n8qAAAAAKgNCQp2II1aFzjl31qf8o3umdhu";
             var httpClient = new HttpClient();
             var response = await httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={captchaResponse}");
             if (response.IsSuccessStatusCode)
