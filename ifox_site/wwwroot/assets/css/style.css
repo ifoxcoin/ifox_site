@@ -1996,6 +1996,49 @@ h6 {
     }
 }
 
+/* Custom size for logos */
+.custom-logo-size {
+    max-width: 150%;
+    height: auto;
+}
+
+/* Mobile responsiveness - Small Screens */
+@media (max-width: 576px) {
+    .custom-logo-size {
+        max-width: 80%;  /* Reduce logo size on small screens */
+    }
+
+    .ms-logo {
+        margin-bottom: 20px; /* Add margin between logos if needed */
+    }
+
+    .footer-logos .row {
+        justify-content: center; /* Ensure the logos are centered on small screens */
+    }
+
+    .col-6 {
+        flex: 0 0 50%;  /* Make each logo container take up 50% of the width on mobile */
+    }
+}
+
+/* Medium screens and larger (tablets and above) */
+@media (min-width: 576px) {
+    .custom-logo-size {
+        max-width: 100%;
+    }
+}
+
+/* Large screens (desktops and above) */
+@media (min-width: 992px) {
+    .custom-logo-size {
+        max-width: 120%;  /* Larger logos on desktop */
+    }
+    .col-sm-2 {
+        flex: 0 0 20%;  /* 4 logos per row */
+    }
+}
+
+
 /*-------------------------------------------------------------
  #Sys entrys
 ------------------------------------------------------------*/
