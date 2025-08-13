@@ -96,12 +96,6 @@
             <!-- Move content to the left side -->
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
                 <h3><b>Empowering Businesses with Accurate Inventory and Financial Control</b></h3>
-                @*<p>
-                        We developed a powerful and user-friendly Inventory Management System that streamlines core business processes. Designed to improve accuracy and efficiency, the system handles everything from stock movement to financial tracking, giving businesses full control over their operations.
-                        The Sales and Purchase module allows users to manage their entire transaction lifecycle with ease. Businesses can create and track sales or purchase orders, manage vendors and customers, and automatically update stock levels based on transaction activities — ensuring real-time accuracy.
-                        The system also includes robust Payment and Receipt features. Users can record and track all incoming and outgoing payments, link them directly with invoices, and generate accurate financial records. This ensures better cash flow management and reduces the risk of missed or delayed payments.
-                        Our Stock and Outstanding Reports feature enables real-time stock monitoring and generates detailed insights into inventory levels, pending balances, and transaction histories. Businesses can easily track outstanding amounts for customers and suppliers, helping them make informed financial and operational decisions
-                    </p>*@
 
                 <!-- Custom Bullet Points with Blue 3 People Icon -->
                 <ul class="list-unstyled">
@@ -133,7 +127,7 @@
             </div>
             <!-- Move image to the right side -->
             <div class="col-lg-4 text-center align-content-center">
-                <img src="~/assets/img/wepdis3.webp" idth="50%" height="50%" class="img-fluid zoom-effect" alt="">
+                <img src="~/assets/img/wepdis3.webp" class="img-fluid zoom-effect hide-on-mobile" alt="">
             </div>
         </div>
             <div class="slider-container">
@@ -615,70 +609,6 @@
     </div>
 </section>
 
-<style>
-    .slider-container {
-        perspective: 1200px;
-        width: 100%;
-        max-width: 1200px;
-        margin: auto;
-        overflow: hidden;
-        position: relative;
-        height: 400px; /* Adjust based on image height */
-    }
-
-    .slider-track {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform-style: preserve-3d;
-        position: relative;
-        height: 100%;
-    }
-
-    .slide {
-        position: absolute;
-        width: 700px; /* Adjust for desired medium size */
-        height: 100%;
-        transition: transform 0.8s ease, opacity 0.8s ease;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-        .slide img.slider-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* ✅ Shows the full image without cutting */
-            border-radius: 20px;
-            background: transparent; /* ✅ Removes white background or fill */
-        }
-
-        /* Show only visible slides */
-        .slide.active,
-        .slide.left,
-        .slide.right {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .slide.active {
-            transform: translateX(0) scale(1);
-            z-index: 3;
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .slide.left {
-            transform: translateX(-420px) rotateY(25deg) scale(0.9);
-            z-index: 2;
-            opacity: 0.5;
-        }
-
-        .slide.right {
-            transform: translateX(420px) rotateY(-25deg) scale(0.9);
-            z-index: 2;
-            opacity: 0.5;
-        }
-</style>
 
 <script>
     const slides = document.querySelectorAll('.slide');
