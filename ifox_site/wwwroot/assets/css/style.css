@@ -1,4 +1,4 @@
-/**
+﻿/**
 * Template Name: Arsha
 * Updated: Mar 10 2023 with Bootstrap v5.2.3
 * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -2040,5 +2040,305 @@ h6 {
 
 
 /*-------------------------------------------------------------
- #Sys entrys
+ # End Sys entrys
 ------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------
+# Our Service Map
+--------------------------------------------------------------*/
+
+@media (max-width: 768px) {
+    .service-container {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;  
+        margin: 0 !important;  
+        border-radius: 0;  
+        box-shadow: none;  
+    }
+
+    .service-sidebar {
+        width: 100%;
+        padding: 15px;
+        text-align: center;
+        background-color: #002c57;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .service-sidebar ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .service-sidebar li {
+        display: inline-block;
+        margin: 6px;
+        padding: 8px 14px;
+        background-color: #004080;
+        color: white;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .service-map {
+        padding: 20px 10px;
+    }
+
+    .service-content {
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+    }
+
+    .service-content h3 {
+        font-size: 20px;
+    }
+
+    .service-content p {
+        font-size: 15px;
+    }
+
+    .service-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .service-content img {
+        /*width: 100%;
+        height: auto;*/
+        object-fit: contain;
+    }
+}
+
+.service-map {
+    padding: 40px;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fefefe;
+}
+
+
+.service-container {
+    display: flex;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    width: 80%;
+    margin: 0 auto; 
+}
+
+.service-sidebar {
+    background: #04345c;
+    padding: 20px;
+    /*width: 20%;*/
+    color: #fff;
+}
+
+    .service-sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .service-sidebar li {
+        padding: 10px 15px;
+        margin: 5px 0;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+        .service-sidebar li.active {
+            background-color: #104f81;
+            border-left: 5px solid #4dc5f1;
+        }
+
+.service-content {
+    flex: 1;
+    padding: 30px 40px;
+    color: #333;
+}
+
+    .service-content h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+.highlight-line {
+    display: inline-block;
+    width: 20px;
+    height: 4px;
+    background: orange;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.service-content p {
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #555;
+}
+
+.service-grid {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 30px;
+}
+
+    .service-grid ul {
+        list-style: none;
+        padding: 0;
+        font-size: 16px;
+    }
+
+    .service-grid li {
+        margin-bottom: 10px;
+    }
+
+    .service-grid a {
+        color: #2355d3;
+        text-decoration: underline;
+    }
+
+.estimation-box {
+    font-size: 18px;
+    color: #222;
+}
+
+.orange-text {
+    color: orange;
+    font-weight: bold;
+}
+
+.cta-button {
+    background: #2f94dd;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.ourservice-tab-content {
+    display: none;
+}
+
+    .ourservice-tab-content.active {
+        display: block;
+    }
+
+ Active list item style 
+.service-sidebar li.active {
+    background-color: #104f81;
+    border-left: 5px solid #4dc5f1;
+    color: #fff;
+}
+
+/*--------------------------------------------------------------
+# End Our Service Map
+--------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------
+# Image Slider
+--------------------------------------------------------------*/
+
+.slider-container {
+    perspective: 1200px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    height: 400px; /* Adjust based on image height */
+}
+
+.slider-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    position: relative;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 700px; /* Adjust for desired medium size */
+    height: 100%;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+    .slide img.slider-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* ✅ Shows the full image without cutting */
+        border-radius: 20px;
+        background: transparent; /* ✅ Removes white background or fill */
+    }
+
+    /* Show only visible slides */
+    .slide.active,
+    .slide.left,
+    .slide.right {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .slide.active {
+        transform: translateX(0) scale(1);
+        z-index: 3;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .slide.left {
+        transform: translateX(-420px) rotateY(25deg) scale(0.9);
+        z-index: 2;
+        opacity: 0.5;
+    }
+
+    .slide.right {
+        transform: translateX(420px) rotateY(-25deg) scale(0.9);
+        z-index: 2;
+        opacity: 0.5;
+    }
+
+@media screen and (max-width: 768px) {
+
+    hide-on-mobile {
+        display: none !important;
+    }
+
+    .slider-container {
+        height: 50vw; /* Less height on smaller screens */
+    }
+
+    .slide {
+        width: 90%;
+    }
+
+        .slide.left,
+        .slide.right {
+            transform: translateX(0) rotateY(0) scale(0.9); /* Optional: stack or simplify on mobile */
+            opacity: 0.5;
+        }
+
+        .slide.active {
+            scale: 1;
+        }
+}
+
+/*--------------------------------------------------------------
+# End Image Slider
+--------------------------------------------------------------*/
