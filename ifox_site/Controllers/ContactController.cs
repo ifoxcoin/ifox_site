@@ -18,9 +18,10 @@ using System.Net.Http;
 
 namespace ifox_site.Controllers
 {
+    [Route("contact-us")]
     public class ContactController : Controller
     {
-      
+
 
         private readonly ILogger<ContactController> _logger;
 
@@ -37,19 +38,21 @@ namespace ifox_site.Controllers
             _serviceProvider = serviceProvider;
         }
 
+        [HttpGet("email-message")]
         public IActionResult EmailMessage()
         {
 
             return View();
         }
 
+        [HttpGet("thankyou")]
         public IActionResult Thankyou()
         {
 
             return View();
         }
 
-        [HttpGet]
+        [HttpGet("")]
         public IActionResult Index()
         {
             return View();
@@ -91,6 +94,7 @@ namespace ifox_site.Controllers
             }
         }
 
+        [HttpGet("back-to-home")]
         public IActionResult BackToHome()
         {
 
