@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ifox_site.Controllers
 {
+    [Route("hire-developers")]
     public class HireDevelopers : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -19,27 +20,32 @@ namespace ifox_site.Controllers
             _logger = logger;
         }
 
+        [HttpGet("")]
         public ActionResult Index()
         {
             return View();
         }
-
+        [HttpGet("Hire-Dot-Net-Developer")]
         public ActionResult HireDotNetDeveloper()
         {
             return View();
         }
+        [HttpGet("Dot-Net-Developer")]
         public ActionResult DotNetDeveloper()
         {
             return View();
         }
+        [HttpGet("CRM-Developer")]
         public ActionResult CRMDeveloper()
         {
             return View();
         }
+        [HttpGet("PHP-Developer")]
         public ActionResult PHPDeveloper()
         {
             return View();
         }
+        [HttpGet("Mobile-App-Developer")]
         public ActionResult MobileAppDeveloper()
         {
             return View();

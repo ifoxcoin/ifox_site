@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace ifox_site.Controllers
 {
+    [Route("testimonials")]
     public class TestimonialsController : Controller
     {
         // GET: TestimonialsController
+        [HttpGet("")]
         public ActionResult Index()
         {
             return View();

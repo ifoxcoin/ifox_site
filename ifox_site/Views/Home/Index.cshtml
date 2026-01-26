@@ -1,9 +1,24 @@
-﻿@*@page
-    @model IndexModel
-    @{
-        ViewData["Title"] = "Home page";
-    }*@
+﻿@{
+    ViewData["Title"] = "Dynamics 365 CRM Consulting, Customization & Implementation | IFOX";
+}
 
+@section Head {
+    <meta name="description" content="IFOX provides expert Microsoft Dynamics 365 CRM consulting, setup, customization, and implementation services for businesses in the US and UK. We deliver scalable, secure, and tailored CRM solutions to improve efficiency and customer engagement.">
+    <link rel="canonical" href="https://www.ifoxsolutions.com/   />
+    <!-- ===== OPEN GRAPH (SOCIAL MEDIA) ===== -->
+    <meta property="og:title" content="Dynamics 365 CRM Consulting & Customization Services | IFOX">
+    <meta property="og:description" content="IFOX delivers end-to-end Microsoft Dynamics 365 CRM setup, customization, and consulting for businesses in the US and UK. Get scalable, secure, and high-performance CRM solutions tailored to your needs.">
+    <meta property="og:url" content="https://www.ifoxsolutions.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.ifoxsolutions.com/images/dynamics-365-crm-ifox.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dynamics 365 CRM Consulting & Customization Services | IFOX">
+    <meta name="twitter:description" content="IFOX provides end-to-end Microsoft Dynamics 365 CRM setup, customization, and consulting for businesses in the US and UK.">
+    <meta name="twitter:image" content="https://www.ifoxsolutions.com/images/dynamics-365-crm-ifox.jpg">
+    <meta name="twitter:url" content="https://www.ifoxsolutions.com/">
+}
 
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -14,7 +29,7 @@
                 <h1>Innovation Rebuild</h1>
                 <h2>Current state of it does not align with your business strategy? Request our it consulting services now.</h2>
                 <div class="d-flex justify-content-center justify-content-lg-start">
-                    <a href="/contact" class="btn-get-started scrollto">Get Started</a>
+                    <a href="/contact-us" class="btn-get-started scrollto">Get Started</a>
                     <!--  <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>-->
                 </div>
             </div>
@@ -186,7 +201,7 @@
                 <p>Set up a consultation right now.</p>
             </div>
             <div class="col-xl-3 cta-btn-container text-center">
-                <a class="cta-btn align-middle" href="/contact">
+                <a class="cta-btn align-middle" href="/contact-us">
                     Get
                     Started
                 </a>
@@ -202,72 +217,72 @@
     <div class="section-title">
         <h2>Our Service Map</h2>
     </div>
-        <div class="service-container">
-            <div class="service-sidebar">
-                <ul>
-                    <li class="tab active" data-tab="ai">Requirement Analysis</li>
-                    <li class="tab" data-tab="cloud">Planning</li>
-                    <li class="tab" data-tab="app-dev">Desing</li>
-                    <li class="tab" data-tab="backend">Development</li>
-                    <li class="tab" data-tab="web">Testing</li>
-                    <li class="tab" data-tab="team">Deployment</li>
-                    <li class="tab" data-tab="discovery">Maintenance</li>
-                </ul>
+    <div class="service-container">
+        <div class="service-sidebar">
+            <ul>
+                <li class="tab active" data-tab="ai">Requirement Analysis</li>
+                <li class="tab" data-tab="cloud">Planning</li>
+                <li class="tab" data-tab="app-dev">Desing</li>
+                <li class="tab" data-tab="backend">Development</li>
+                <li class="tab" data-tab="web">Testing</li>
+                <li class="tab" data-tab="team">Deployment</li>
+                <li class="tab" data-tab="discovery">Maintenance</li>
+            </ul>
+        </div>
+        <div class="service-content">
+            <div class="ourservice-tab-content active" id="ai">
+                <h3><span class="highlight-line"></span>Requirement Analysis</h3>
+                <p>
+                    To begin the requirement analysis, we first understand the core objectives of the project. Next, we identify the target audience to ensure the solution aligns with their needs. We then gather detailed inputs and expectations from all stakeholders involved. Finally, we collect any available content and resources to support the development process.
+                </p>
+                <div class="center-image-container">
+                    <img src="~/assets/img/home/RequirementAnalysis.png" class="img-fluid zoom-effect" alt="">
+                </div>
             </div>
-            <div class="service-content">
-                <div class="ourservice-tab-content active" id="ai">
-                    <h3><span class="highlight-line"></span>Requirement Analysis</h3>
-                    <p>
-                        To begin the requirement analysis, we first understand the core objectives of the project. Next, we identify the target audience to ensure the solution aligns with their needs. We then gather detailed inputs and expectations from all stakeholders involved. Finally, we collect any available content and resources to support the development process.
-                    </p>
-                    <div class="center-image-container">
-                        <img src="~/assets/img/home/RequirementAnalysis.png" class="img-fluid zoom-effect" alt="">
-                    </div>
+            <div class="ourservice-tab-content" id="cloud">
+                <h3><span class="highlight-line"></span>Planning</h3>
+                <p>In software development planning, it is crucial to define clear timelines that outline project milestones and deadlines. Proper resource allocation ensures that the right team members and tools are available at each stage. Choosing the appropriate technology stack is essential to meet project requirements and ensure scalability. Regularly reviewing milestones helps track progress and ensures the project stays on course for successful delivery.</p>
+                <div class="center-image-container">
+                    <img src="~/assets/img/home/Planning.png" class="img-fluid zoom-effect" alt="">
                 </div>
-                <div class="ourservice-tab-content" id="cloud">
-                    <h3><span class="highlight-line"></span>Planning</h3>
-                    <p>In software development planning, it is crucial to define clear timelines that outline project milestones and deadlines. Proper resource allocation ensures that the right team members and tools are available at each stage. Choosing the appropriate technology stack is essential to meet project requirements and ensure scalability. Regularly reviewing milestones helps track progress and ensures the project stays on course for successful delivery.</p>
-                    <div class="center-image-container">
-                        <img src="~/assets/img/home/Planning.png" class="img-fluid zoom-effect" alt="">
-                    </div>
+            </div>
+            <div class="ourservice-tab-content" id="app-dev">
+                <h3><span class="highlight-line"></span>Desing</h3>
+                <p>In the design phase of software development, UI/UX design plays a critical role in ensuring a seamless user experience. Creating prototypes for web applications helps visualize the interface and identify areas for improvement. Additionally, designing for social media branding ensures consistency across platforms and enhances user engagement. A well-thought-out design strategy aligns aesthetics with functionality, creating a positive experience for users.</p>
+                <div class="center-image-container">
+                    <img src="~/assets/img/home/Design.png" class="img-fluid zoom-effect" alt="">
                 </div>
-                <div class="ourservice-tab-content" id="app-dev">
-                    <h3><span class="highlight-line"></span>Desing</h3>
-                    <p>In the design phase of software development, UI/UX design plays a critical role in ensuring a seamless user experience. Creating prototypes for web applications helps visualize the interface and identify areas for improvement. Additionally, designing for social media branding ensures consistency across platforms and enhances user engagement. A well-thought-out design strategy aligns aesthetics with functionality, creating a positive experience for users.</p>
-                    <div class="center-image-container">
-                        <img src="~/assets/img/home/Design.png" class="img-fluid zoom-effect" alt="">
-                    </div>
+            </div>
+            <div class="ourservice-tab-content" id="backend">
+                <h3><span class="highlight-line"></span>Development</h3>
+                <p>In the development phase of software projects, it's essential to build robust website features that meet user needs and business goals. Implementing a content management system (CMS) allows for easy updates and content control. Integrating donation systems provides seamless transactions, enhancing user engagement and supporting fundraising efforts. Additionally, developing social media assets ensures consistent brand presence and facilitates smooth interaction across platforms.</p>
+                <div class="center-image-container">
+                    <img src="~/assets/img/home/Development.png" class="img-fluid zoom-effect" alt="">
                 </div>
-                <div class="ourservice-tab-content" id="backend">
-                    <h3><span class="highlight-line"></span>Development</h3>
-                    <p>In the development phase of software projects, it's essential to build robust website features that meet user needs and business goals. Implementing a content management system (CMS) allows for easy updates and content control. Integrating donation systems provides seamless transactions, enhancing user engagement and supporting fundraising efforts. Additionally, developing social media assets ensures consistent brand presence and facilitates smooth interaction across platforms.</p>
-                    <div class="center-image-container">
-                        <img src="~/assets/img/home/Development.png" class="img-fluid zoom-effect" alt="">
-                    </div>
+            </div>
+            <div class="ourservice-tab-content" id="web">
+                <h3><span class="highlight-line"></span>Testing</h3>
+                <p>In the testing phase of software development, functionality testing ensures that all features work as intended and meet the project's requirements. A security audit is essential to identify vulnerabilities and protect user data from potential threats. Additionally, browser and device compatibility checks ensure that the application performs well across different platforms and environments. Thorough testing helps guarantee a smooth and secure user experience across all devices.</p>
+                <div class="center-image-container">
+                    <img src="~/assets/img/home/Testing.png" class="img-fluid zoom-effect" alt="">
                 </div>
-                <div class="ourservice-tab-content" id="web">
-                    <h3><span class="highlight-line"></span>Testing</h3>
-                    <p>In the testing phase of software development, functionality testing ensures that all features work as intended and meet the project's requirements. A security audit is essential to identify vulnerabilities and protect user data from potential threats. Additionally, browser and device compatibility checks ensure that the application performs well across different platforms and environments. Thorough testing helps guarantee a smooth and secure user experience across all devices.</p>
-                    <div class="center-image-container">
-                        <img src="~/assets/img/home/Testing.png" class="img-fluid zoom-effect" alt="">
-                    </div>
+            </div>
+            <div class="ourservice-tab-content" id="team">
+                <h3><span class="highlight-line"></span>Deployment</h3>
+                <p>The website is hosted on a reliable server to ensure optimal performance and availability. Once the hosting is set up, the site goes live, making it accessible to users worldwide. The donation system is then configured to handle transactions securely and efficiently. Finally, social media profiles are launched to promote the website, engage users, and enhance the project's online presence.</p>
+                <div class="center-image-container">
+                    <img src="~/assets/img/home/Deployment.png" class="img-fluid zoom-effect" alt="">
                 </div>
-                <div class="ourservice-tab-content" id="team">
-                    <h3><span class="highlight-line"></span>Deployment</h3>
-                    <p>The website is hosted on a reliable server to ensure optimal performance and availability. Once the hosting is set up, the site goes live, making it accessible to users worldwide. The donation system is then configured to handle transactions securely and efficiently. Finally, social media profiles are launched to promote the website, engage users, and enhance the project's online presence.</p>
-                    <div class="center-image-container">
-                        <img src="~/assets/img/home/Deployment.png" class="img-fluid zoom-effect" alt="">
-                    </div>
-                </div>
-                <div class="ourservice-tab-content" id="discovery">
-                    <h3><span class="highlight-line"></span>Maintenance</h3>
-                    <p>In the maintenance phase of software development, ongoing updates are crucial to keep the system up-to-date with the latest features and security patches. Regular backups ensure that data is safe and can be restored in case of any issues. Performance monitoring helps identify and address potential bottlenecks, ensuring the website runs smoothly. Continuous support is provided to resolve any issues users may encounter and maintain the overall functionality of the system.</p>
-                    <div class="center-image-container">
-                        <img src="~/assets/img/home/Maintenance.png" class="img-fluid zoom-effect" alt="">
-                    </div>
+            </div>
+            <div class="ourservice-tab-content" id="discovery">
+                <h3><span class="highlight-line"></span>Maintenance</h3>
+                <p>In the maintenance phase of software development, ongoing updates are crucial to keep the system up-to-date with the latest features and security patches. Regular backups ensure that data is safe and can be restored in case of any issues. Performance monitoring helps identify and address potential bottlenecks, ensuring the website runs smoothly. Continuous support is provided to resolve any issues users may encounter and maintain the overall functionality of the system.</p>
+                <div class="center-image-container">
+                    <img src="~/assets/img/home/Maintenance.png" class="img-fluid zoom-effect" alt="">
                 </div>
             </div>
         </div>
+    </div>
 </section>
 
 <!--WHO WE ARE-->
@@ -348,5 +363,3 @@
         });
     });
 </script>
-
-
