@@ -1,0 +1,62 @@
+﻿@model List<ifox_site.Models.BlogViewModel>
+
+<!-- ===== HERO BANNER ===== -->
+<section class="blog-hero-banner">
+    <div class="blog-overlay"></div>
+
+    <div class="container">
+        <div class="blog-content">
+            <h1>IFOX Knowledge Hub</h1>
+            <p>
+                Empowering businesses with insights on CRM, AI, and digital transformation.
+                Stay ahead with strategies that turn ideas into measurable growth.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ===== BLOG GRID ===== -->
+<section class="mag-section">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var blog in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-5">
+                    <div class="mag-card">
+
+                        <img src="@blog.Image" class="mag-img" />
+
+                        <div class="mag-body">
+                            <span class="mag-date">@blog.Date</span>
+
+                            <h3>@blog.Title</h3>
+
+                            <p>@blog.ShortDescription</p>
+
+                            <a href="/blog/@blog.Slug" class="mag-link">
+                                Read Article →
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-box">
+            @{
+                int currentPage = ViewBag.CurrentPage;
+                int totalPages = ViewBag.TotalPages;
+            }
+
+            @for (int i = 1; i <= totalPages; i++)
+            {
+                <a href="/blog?page=@i" class="page @(i == currentPage ? "active-page" : "")">@i</a>
+            }
+        </div>
+
+    </div>
+</section>
