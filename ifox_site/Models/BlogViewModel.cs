@@ -1,4 +1,7 @@
-﻿namespace ifox_site.Models
+﻿using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+
+namespace ifox_site.Models
 {
     public class BlogViewModel
     {
@@ -10,6 +13,8 @@
         public string Image { get; set; }
         public string ShortDescription { get; set; }
         public string Content { get; set; }
+
+        [JsonPropertyName("htmlFile")]
         public string HtmlFile { get; set; }
 
     }

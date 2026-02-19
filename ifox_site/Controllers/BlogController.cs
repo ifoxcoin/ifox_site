@@ -34,8 +34,8 @@ public class BlogController : Controller
                 Slug = blog.Slug,
                 Image = blog.Image,
                 ShortDescription = blog.ShortDescription,
-                Date = blog.Date,
-                HtmlFile = blog.HtmlFile
+                HtmlFile = blog.HtmlFile,
+                Date = blog.Date              
             }).ToList();
 
         ViewBag.CurrentPage = page;
@@ -60,7 +60,8 @@ public class BlogController : Controller
             Date = blog.Date,
             Author = blog.Author,
             Image = blog.Image,
-            ShortDescription = blog.ShortDescription
+            ShortDescription = blog.ShortDescription,
+            HtmlFile = blog.HtmlFile
         };
 
         return View(vm);
