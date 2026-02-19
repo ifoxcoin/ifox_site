@@ -2469,3 +2469,339 @@ h6 {
 /*--------------------------------------------------------------
 # End Image Slider
 --------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------
+# IFOX CHATBOT
+--------------------------------------------------------------*/
+
+/* ================= CHATBOT BUTTON ================= */
+
+
+#chatbot-toggle {
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+    width: 180px;
+    height: 180px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: right 0.5s ease;
+    animation: chatbotFloat 4s ease-in-out infinite;
+}
+
+    /* Image inside button */
+    #chatbot-toggle img {
+        width: 180px;
+        height: 180px;
+        object-fit: contain;
+        pointer-events: none;
+    }
+
+@keyframes chatbotFloat {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+
+
+/* Chat Window */
+#chatbot-box {
+    position: fixed;
+    bottom: 185px;
+    right: 35px;
+    width: 340px;
+    height: 430px;
+    background: #ffffff;
+    border-radius: 18px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    z-index: 99999;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(80px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.chat-header {
+    background: linear-gradient(145deg,#1f3b63,#294c7a);
+    color: white;
+    padding: 14px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .chat-header span {
+        cursor: pointer;
+    }
+
+#chatbot-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    font-size: 14px;
+    background: #f7f9fc;
+}
+
+.bot-msg {
+    white-space: pre-line;
+    background: #e9eef6;
+    padding: 9px 13px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    max-width: 75%;
+}
+
+.user-msg {
+    background: #294c7a;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    margin-left: auto;
+    max-width: 75%;
+}
+
+.chat-input-area {
+    display: flex;
+    border-top: 1px solid #eee;
+}
+
+#chatbot-input {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    outline: none;
+}
+
+#chatbot-send {
+    background: #294c7a;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+/* chatbot buttons */
+#chatbot-buttons {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chat-btn {
+    background: #eef4ff;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+    .chat-btn:hover {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+#chatbot-back {
+    font-size: 18px;
+    color: white;
+}
+
+
+/* ===== SOCIAL CHAT FLOAT ===== */
+#social-chat {
+    position: fixed;
+    left: 25px;
+    bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 99999;
+}
+
+/* ROUND ICON BUTTON */
+.social-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    box-shadow: 0 12px 28px rgba(0,0,0,.28);
+    /* IMPORTANT */
+    transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ❤️ HEART BEAT ANIMATION */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.35);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.25);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* stagger delay */
+.social-btn:nth-child(1) {
+    animation: heartbeat 1.8s infinite;
+}
+
+.social-btn:nth-child(2) {
+    animation: heartbeat 1.8s infinite;
+    animation-delay: .6s;
+}
+
+.social-btn:nth-child(3) {
+    animation: heartbeat 1.8s infinite;
+    animation-delay: 1.2s;
+}
+
+/* 🔥 HOVER BIG ONLY (NO COLOR CHANGE) */
+.social-btn:hover {
+    transform: scale(1.5);
+}
+
+/* brand colors */
+.whatsapp {
+    background: #25D366;
+}
+
+.facebook {
+    background: #1877F2;
+}
+
+.instagram {
+    background: #E1306C;
+}
+
+
+
+/*--------------------------------------------------------------
+# End Image Slider
+--------------------------------------------------------------*/
+/* ===================================== */
+/* SOLID STEEL BLUE DROPDOWN (FINAL) */
+/* ===================================== */
+
+.dropdown-custom {
+    position: relative;
+}
+
+.dropdown-toggle-custom {
+    cursor: pointer;
+}
+
+/* 🔵 SOLID DROPDOWN PANEL */
+.dropdown-glass {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    min-width: 280px;
+    padding: 14px 0;
+    border-radius: 18px;
+    z-index: 999;
+    /* ⭐ STEEL BLUE BACKGROUND */
+    background: linear-gradient(180deg,#2e5f8a,#254f77);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+    /* animation */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px);
+    transition: 0.28s ease;
+}
+
+/* SHOW DROPDOWN */
+.dropdown-custom:hover .dropdown-glass {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* TOP CURVED CAP */
+.dropdown-glass::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: #284f73;
+}
+
+/* LINKS */
+.dropdown-glass a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 24px;
+    text-decoration: none;
+    color: #cfe6ff;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+/* ICON COLUMN */
+.dropdown-glass i {
+    font-size: 18px;
+    color: #6fd1ff;
+    width: 22px;
+    text-align: center;
+}
+
+/* HOVER EFFECT */
+.dropdown-glass a:hover {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    padding-left: 30px;
+}
