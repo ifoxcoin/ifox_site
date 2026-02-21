@@ -2741,17 +2741,17 @@ h6 {
     cursor: pointer;
 }
 
-/* 🔵 SOLID DROPDOWN PANEL */
 .dropdown-glass {
     position: absolute;
     top: 65px;
     left: 0;
     min-width: 280px;
+    text-align: left;
     padding: 14px 0;
     border-radius: 18px;
     z-index: 999;
     /* ⭐ STEEL BLUE BACKGROUND */
-    background: linear-gradient(180deg,#2e5f8a,#254f77);
+    background: #1f3b5c;
     box-shadow: 0 25px 50px rgba(0,0,0,0.35);
     /* animation */
     opacity: 0;
@@ -2775,27 +2775,31 @@ h6 {
     left: 0;
     right: 0;
     height: 16px;
-    background: #284f73;
+    background: #YOUR_COLOR;
 }
 
 /* LINKS */
 .dropdown-glass a {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px 24px;
+    justify-content: flex-start; /* ⭐ VERY IMPORTANT */
+    text-align: left; /* ⭐ FORCE LEFT */
+    gap: 12px;
+    padding: 14px 22px;
     text-decoration: none;
     color: #cfe6ff;
     font-size: 15px;
     font-weight: 500;
     transition: 0.25s;
+    width: 100%; /* ⭐ FULL WIDTH */
 }
 
 /* ICON COLUMN */
 .dropdown-glass i {
     font-size: 18px;
     color: #6fd1ff;
-    width: 22px;
+    width: 24px; /* fixed icon column */
+    min-width: 24px; /* ⭐ prevents shift */
     text-align: center;
 }
 
