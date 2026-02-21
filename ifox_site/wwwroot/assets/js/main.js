@@ -261,6 +261,12 @@
     let userEmail = "";
     let navStack = [];   // ⭐ navigation history
     let clientStep = "";
+    /* ===== CHAT TRACKING ===== */
+    let chatHistory = [];
+    let startTracking = false;
+    let idleTimer;
+    let transcriptSent = false;
+    const CHAT_IDLE_MS = 60000; // 60 sec
 
 
     /* ⭐ AUTO SCROLL FUNCTIONS */
@@ -339,6 +345,7 @@
             div.innerHTML = msg;
             messages.appendChild(div);
             scrollToElement(div);
+            trackMessage("Bot", msg);
         }
 
         function user(msg) {
@@ -347,6 +354,7 @@
             div.innerText = msg;
             messages.appendChild(div);
             scrollToElement(div);
+            trackMessage("User", msg);
         }
 
         function clearBtns() { buttons.innerHTML = "" }
@@ -372,6 +380,11 @@
 
                 // save email
                 userEmail = msg;
+
+                // ⭐ START TRACKING FROM NOW
+                startTracking = true;
+                transcriptSent = false;
+                chatHistory = [];
 
                 // notify
                 notifyWhatsApp("🔥 New chatbot visitor: " + userEmail);
@@ -402,6 +415,18 @@
                 { text: "Dynamic CRM", fn: "DynamicCRMModule()" },
                 { text: "Support", fn: "supportModule()" }
             ]);
+        }
+        function trackMessage(sender, text) {
+
+            if (!startTracking) return;
+
+            chatHistory.push({
+                sender: sender,
+                text: text,
+                time: new Date().toISOString()
+            });
+
+            resetIdleTimer();
         }
 
 
@@ -720,6 +745,35 @@
         <a class="chat-btn" target="_blank"
         href="mailto:ifoxvvjob@gmail.com?subject=Website Enquiry">
         Send Email</a>`;
+        }
+        function resetIdleTimer() {
+            clearTimeout(idleTimer);
+
+            idleTimer = setTimeout(() => {
+                if (!transcriptSent) {
+                    sendChatToEmail();
+                    transcriptSent = true;
+                }
+            }, CHAT_IDLE_MS);
+        }
+        async function sendChatToEmail() {
+
+            if (!userEmail || chatHistory.length === 0) return;
+
+            try {
+                await fetch("/api/chat/send-transcript", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        userEmail: userEmail,
+                        messages: chatHistory
+                    })
+                });
+
+                console.log("Transcript sent");
+            } catch (e) {
+                console.error("Transcript failed", e);
+            }
         }
         /* ===== PROJECT TIMELINE STEP ===== */
 
