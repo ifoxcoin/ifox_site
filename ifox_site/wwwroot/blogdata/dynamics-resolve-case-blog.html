@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simplifying Case Resolution in Dynamics 365</title>
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI',sans-serif;
+            line-height: 1.8;
+            background: #ffffff;
+            color: #333;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        h1, h2 {
+            color: #0f3c8d;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        .blog-image {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+            .blog-image img {
+                width: 100%;
+                max-width: 900px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #f3f7ff;
+            border-left: 5px solid #0F3C8D;
+            padding: 18px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>:rocket: Simplifying Case Resolution in Microsoft Dynamics 365 with a Custom Resolve Case Button</h1>
+
+        <p>
+            While working on a Microsoft Dynamics 365 Customer Service implementation, I recently worked on a small customization that significantly improved the user experience for support agents handling cases.
+        </p>
+
+        <p>
+            In Dynamics 365, the Resolve Case functionality is used to close a support ticket after the issue is resolved. However, the default behavior requires users to fill additional information through a popup dialog before the case can be closed.
+        </p>
+
+        <p>
+            For teams handling a large number of cases daily, this extra step can slow down the workflow. Because of this requirement, I implemented a custom Resolve Case button using Ribbon Workbench and JavaScript, which resolves the case automatically and displays a confirmation message to the user.
+        </p>
+
+        <p>
+            This article explains the complete implementation process and how this customization helps streamline the case resolution workflow.
+        </p>
+
+        <div class="highlight">
+            This customization removes the popup dialog and allows agents to resolve cases faster.
+        </div>
+
+        <h2>Understanding the Default Resolve Case Behavior</h2>
+
+        <p>
+            In the default Dynamics 365 system, when a user clicks the Resolve Case button on a case record, the platform opens a popup dialog asking the user to provide resolution details.
+        </p>
+
+        <p>The user must fill information such as:</p>
+
+        <ul>
+            <li>Resolution Type</li>
+            <li>Description</li>
+            <li>Additional information related to the case resolution</li>
+        </ul>
+
+        <p>
+            Only after filling these fields can the user click Resolve and close the case.
+        </p>
+
+        <p><b>Below is the default popup that appears when the standard Resolve Case button is clicked.</b></p>
+
+        <div class="blog-image">
+            <img src="/assets/img/blog/resolvecase-default-popup.png" alt="Default Resolve Case Popup">
+        </div>
+
+        <p>
+            While this behavior is useful for documentation purposes, in some business scenarios users already have all the required information and do not need to enter additional details each time they resolve a case.
+        </p>
+
+        <p>
+            To simplify this process, I decided to implement a custom Resolve Case button that automatically resolves the case without opening this popup.
+        </p>
+
+        <h2>Creating a Custom Resolve Case Button</h2>
+
+        <p>
+            To achieve this customization, I used Ribbon Workbench from XrmToolBox, which allows developers to modify the command bar in Dynamics 365.
+        </p>
+
+        <p>
+            Instead of modifying the existing Resolve Case button, I created a new custom button and connected it to a custom command that triggers JavaScript logic.
+        </p>
+
+        <p>
+            In the Ribbon Workbench, I added a new button in the Case entity form ribbon and configured its properties such as label, command, icons, and tooltip.
+        </p>
+
+        <p>
+            The button was connected to a custom command created inside the solution so that the system executes our custom logic when the button is clicked.
+        </p>
+
+        <p><b>Below is the configuration of the newly created Resolve Case button inside Ribbon Workbench.</b></p>
+
+        <div class="blog-image">
+            <img src="/assets/img/blog/ribbon-button-config.png" alt="Resolve Case Button Configuration">
+        </div>
+
+        <p>
+            This button now appears in the Case form alongside other command bar buttons.
+        </p>
+
+        <h2>Connecting the Button to a Custom Command</h2>
+
+        <p>
+            After creating the button, the next step was to configure the command associated with this button.
+        </p>
+
+        <p>
+            Commands in Ribbon Workbench define what action should happen when a button is clicked. In this case, the button was connected to a Custom JavaScript Action.
+        </p>
+
+        <ul>
+            <li>JavaScript Library → Web resource containing the script</li>
+            <li>Function Name → ResolveCase</li>
+            <li>Parameter → PrimaryControl</li>
+        </ul>
+
+        <p>
+            Passing the PrimaryControl parameter allows the JavaScript function to access the current case record and retrieve necessary details such as the Case ID.
+        </p>
+
+        <p><b>Below is the command configuration used for the custom Resolve Case button.</b></p>
+
+        <div class="blog-image">
+            <img src="/assets/img/blog/command-config.png" alt="Command Configuration">
+        </div>
+
+        <h2>Adding Display Rules for the Button</h2>
+
+        <p>
+            To ensure the button appears only when appropriate, I configured a Display Rule.
+        </p>
+
+        <p>
+            The button should only appear when the case is Active and disappear once the case is resolved.
+        </p>
+
+        <ul>
+            <li>Field → statecode</li>
+            <li>Value → 0 (Active)</li>
+        </ul>
+
+        <p><b>Below is the Display Rule configuration inside Ribbon Workbench.</b></p>
+
+        <div class="blog-image">
+            <img src="/assets/img/blog/display-rule.png" alt="Display Rule Configuration">
+        </div>
+
+        <h2>Creating the JavaScript Web Resource</h2>
+
+        <p>
+            Inside the Power Apps solution, I created a new web resource called <b>ifox_ResolveCase</b>.
+        </p>
+
+        <p>
+            The script retrieves the Case ID from the form context and updates the case record so that its status changes to Resolved.
+        </p>
+
+        <p>
+            Additionally, the script displays a confirmation message to the user once the case is resolved successfully.
+        </p>
+
+        <p><b>Below is the web resource configuration inside the solution.</b></p>
+
+        <div class="blog-image">
+            <img src="/assets/img/blog/webresource-config.png" alt="Web Resource Configuration">
+        </div>
+
+        <h2>Result After Customization</h2>
+
+        <p>
+            Instead of opening the resolution popup, the system now performs the following actions when the custom button is clicked:
+        </p>
+
+        <ul>
+            <li>The case is automatically resolved</li>
+            <li>The system updates the case status</li>
+            <li>A confirmation message appears on the screen</li>
+        </ul>
+
+        <p><b>Below is the confirmation message displayed after resolving the case.</b></p>
+
+        <div class="blog-image">
+            <img src="/assets/img/blog/resolve-confirmation.png" alt="Resolve Confirmation Message">
+        </div>
+
+        <h2>Benefits of This Customization</h2>
+
+        <ul>
+            <li>Faster case resolution process</li>
+            <li>Improved productivity for support agents</li>
+            <li>Reduced manual data entry</li>
+            <li>Simplified user experience</li>
+        </ul>
+
+        <h2>Final Thoughts</h2>
+
+        <p>
+            Dynamics 365 provides powerful customization capabilities that allow developers to tailor the platform to match real business requirements.
+        </p>
+
+        <p>
+            By combining Ribbon Workbench, JavaScript Web Resources, and command configuration, developers can modify system behavior and improve the user experience without affecting core functionality.
+        </p>
+
+    </div>
+
+</body>
+</html>

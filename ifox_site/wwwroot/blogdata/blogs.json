@@ -1,13 +1,112 @@
 ﻿[
   {
-    "id": 16,
+    "id": 17,
+    "title": "Simplifying Case Resolution in Microsoft Dynamics 365 with a Custom Resolve Case Button",
+    "slug": "dynamics-365-resolve-case-button",
+    "date": "2026-03-06",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/blog/resolvecase-blog-hero.png",
+    "shortDescription": "Learn how to simplify case resolution in Dynamics 365 by creating a custom Resolve Case button using Ribbon Workbench and JavaScript. This customization removes the default popup and allows support agents to resolve cases faster.",
+    "htmlFile": "~/blogdata/dynamics-resolve-case-blog.html"
+  },
+  {
+    "id": 1,
     "title": "Dynamics 365 CRM + Copilot: Small Feature, Big Impact",
     "slug": "dynamics-365-copilot-productivity",
-    "date": "2026-02-19",
+    "date": "2026-02-17",
     "author": "iFox Consultancy",
     "image": "/assets/img/crmcopilot.png",
     "shortDescription": "Copilot in Dynamics 365 Sales reduces manual CRM work by generating emails, summarizing meetings, and suggesting next actions — helping sales teams focus on selling instead of data entry.",
     "htmlFile": "~/blogdata/dynamics-copilot-blog.html"
+  },
+  {
+    "id": 3,
+    "title": "Real-Time Conversation Intelligence in Dynamics 365",
+    "slug": "dynamics-365-conversation-intelligence",
+    "date": "2026-02-01",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/conversation-intelligence.png",
+    "shortDescription": "Built-in conversation intelligence analyzes calls for sentiment, keywords, and competitor mentions, providing deeper visibility into customer interactions.",
+    "htmlFile": "~/blogdata/conversation-intelligence.html"
+  },
+  {
+    "id": 4,
+    "title": "Meeting & Call Summarization with Dynamics 365 Copilot",
+    "slug": "dynamics-365-copilot-meeting-call-summary",
+    "date": "2026-01-19",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/copilot-meeting-summary.png",
+    "shortDescription": "Copilot summarizes Teams meetings and sales calls directly inside Dynamics 365, capturing key discussion points, action items, and follow-ups automatically.",
+    "htmlFile": "~/blogdata/copilot-meeting-call-summary.html"
+  },
+  {
+    "id": 5,
+    "title": "Next-Best Action Recommendations in Dynamics 365",
+    "slug": "dynamics-365-next-best-action-ai",
+    "date": "2025-11-12",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/copilot-next-best-action.png",
+    "shortDescription": "AI-driven next-best action recommendations guide sellers on what to do next, helping accelerate deal progression and improve win rates.",
+    "htmlFile": "~/blogdata/copilot-next-best-action.html"
+  },
+  {
+    "id": 6,
+    "title": "Natural Language Record Updates in Dynamics 365",
+    "slug": "dynamics-365-natural-language-updates",
+    "date": "2025-09-19",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/copilot-natural-language.png",
+    "shortDescription": "Users can update CRM records using conversational prompts with Copilot, reducing manual form entry and improving user productivity.",
+    "htmlFile": "~/blogdata/copilot-natural-language.html"
+  },
+  {
+    "id": 7,
+    "title": "Opportunity & Pipeline Insights with AI",
+    "slug": "dynamics-365-pipeline-insights-ai",
+    "date": "2025-08-29",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/pipeline-insights-ai.png",
+    "shortDescription": "Enhanced pipeline intelligence highlights deal risks, engagement gaps, and revenue forecasts to help sales leaders make data-driven decisions.",
+    "htmlFile": "~/blogdata/pipeline-insights-ai.html"
+  },
+  {
+    "id": 8,
+    "title": "Automated Lead Qualification Using AI",
+    "slug": "dynamics-365-automated-lead-qualification",
+    "date": "2025-08-16",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/ai-lead-qualification.png",
+    "shortDescription": "AI analyzes engagement signals and behaviors to prioritize high-quality leads, helping sales teams focus on prospects most likely to convert.",
+    "htmlFile": "~/blogdata/ai-lead-qualification.html"
+  },
+  {
+    "id": 9,
+    "title": "AI-Enhanced Sales Forecasting in Dynamics 365",
+    "slug": "dynamics-365-ai-sales-forecasting",
+    "date": "2025-07-27",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/ai-sales-forecasting.webp",
+    "shortDescription": "AI-powered forecasting improves revenue predictions by analyzing historical performance, pipeline health, and seller activity patterns.",
+    "htmlFile": "~/blogdata/ai-sales-forecasting.html"
+  },
+  {
+    "id": 10,
+    "title": "Embedded Copilot Chat Experience in Dynamics 365",
+    "slug": "dynamics-365-embedded-copilot-chat",
+    "date": "2025-07-01",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/copilot-embedded-chat.png",
+    "shortDescription": "Copilot is deeply embedded within Dynamics 365, allowing users to ask questions, retrieve insights, and perform actions without leaving the CRM.",
+    "htmlFile": "~/blogdata/copilot-embedded-chat.html"
+  },
+  {
+    "id": 11,
+    "title": "Customer Service Case Summaries with Copilot",
+    "slug": "dynamics-365-case-summary-copilot",
+    "date": "2025-06-12",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/copilot-case-summary.png",
+    "shortDescription": "Copilot automatically generates case summaries and recommended responses, helping service agents resolve issues faster and more consistently.",
+    "htmlFile": "~/blogdata/copilot-case-summary.html"
   }
-
 ]
