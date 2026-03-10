@@ -1,5 +1,15 @@
 ﻿[
   {
+    "id": 18,
+    "title": "Automatic Attendance Status Update in Dynamics 365 Using Plugin",
+    "slug": "dynamics-365-attendance-status-plugin",
+    "date": "2026-03-10",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/blog/Attendence-plugin.png",
+    "shortDescription": "Automatically update student attendance status as Present or Absent using a Dynamics 365 plugin based on whether the Out Time field is filled or not.",
+    "htmlFile": "~/blogdata/Attendence-Plugin.html"
+  },
+  {
     "id": 17,
     "title": "Simplifying Case Resolution in Microsoft Dynamics 365 with a Custom Resolve Case Button",
     "slug": "dynamics-365-resolve-case-button",

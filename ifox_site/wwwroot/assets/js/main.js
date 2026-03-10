@@ -738,12 +738,12 @@
 
             buttons.innerHTML = `
         <a class="chat-btn" target="_blank"
-        href="https://wa.me/919876543210">Chat on WhatsApp</a>
+        href="https://wa.me/919488718218">Chat on WhatsApp</a>
 
         <div style="margin:8px;font-size:12px;">OR</div>
 
         <a class="chat-btn" target="_blank"
-        href="mailto:ifoxvvjob@gmail.com?subject=Website Enquiry">
+        href="mailto:hr@ifox.co.in?subject=Website Enquiry">
         Send Email</a>`;
         }
         function resetIdleTimer() {
