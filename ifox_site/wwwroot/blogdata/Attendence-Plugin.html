@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automatic Attendance Status Update in Dynamics 365</title>
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI',sans-serif;
+            line-height: 1.8;
+            background: #ffffff;
+            color: #333;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .blog-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+            .blog-header img {
+                width: 420px;
+                border-radius: 10px;
+                box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+            }
+
+        .blog-header-text h1 {
+            color: #0f3c8d;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .blog-meta {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #0f3c8d;
+            margin-top: 35px;
+        }
+
+        p {
+            margin-bottom: 18px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background: #f3f7ff;
+            border-left: 5px solid #0F3C8D;
+            padding: 18px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+        .blog-image-row {
+            display: flex;
+            gap: 25px;
+            margin: 30px 0;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+            .blog-image-row img:hover {
+                transform: scale(1.02);
+                transition: 0.3s;
+            }
+        ul li {
+            margin-bottom: 6px;
+        }
+
+            .blog-image-row img {
+                width: 48%;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            }
+
+        .blog-image {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+            .blog-image img {
+                width: 100%;
+                max-width: 850px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="blog-header">
+
+            <img src="/assets/img/blog/Attendence-plugin.png">
+
+            <div class="blog-header-text">
+
+                <h1>🚀 Automatic Attendance Status Update in Dynamics 365 Using Plugin</h1>
+
+                <div class="blog-meta">
+                    2026-03-10 | iFox Consultancy
+                </div>
+
+                <p>
+                    Managing student attendance manually can be time-consuming and error-prone.
+                    To simplify this process, we can automate attendance status updates using a
+                    Dynamics 365 Plugin.
+                </p>
+
+                <p>
+                    In this article, we will see how to automatically update a student's
+                    attendance status as <b>Present</b> or <b>Absent</b> based on whether
+                    the <b>Out Time</b> is provided or not.
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="highlight">
+            The plugin automatically sets attendance status based on the Out Time field without any manual update.
+        </div>
+
+
+        <h2>1. Creating the Plugin Project</h2>
+
+        <p>
+            First create a <b>Class Library</b> project in Visual Studio and add the
+            required Dynamics 365 SDK references. Then create a plugin class that
+            implements the <b>IPlugin</b> interface.
+        </p>
+
+        <p>
+            This plugin ensures the system automatically updates the attendance
+            status whenever a record is created or updated.
+        </p>
+
+        <p>The logic used inside the plugin:</p>
+
+        <ul>
+            <li>If Out Time has a value → Status = Present</li>
+            <li>If Out Time is empty → Status = Absent</li>
+        </ul>
+
+        <div class="blog-image">
+            <img src="/assets/img/blog/Outime.png">
+        </div>
+
+
+        <h2>2. Registering the Plugin in Dynamics 365</h2>
+
+        <p>
+            Once the code is ready, build the project and register the plugin
+            using the <b>XrmToolBox Plugin Registration Tool</b>.
+        </p>
+
+        <ul>
+            <li>Open XrmToolBox</li>
+            <li>Open Plugin Registration Tool</li>
+            <li>Click Register New Assembly</li>
+            <li>Select the compiled DLL</li>
+        </ul>
+
+        <div class="blog-image-row">
+
+            <img src="/assets/img/blog/Assemply.png">
+
+            <img src="/assets/img/blog/load assemply.png">
+
+        </div>
+
+
+        <h2>3. Adding a Plugin Step</h2>
+
+        <p>
+            After registering the assembly, we need to create a Plugin Step so the system
+            knows when the plugin should execute.
+        </p>
+
+        <p><b>Configuration:</b></p>
+
+        <ul>
+            <li>Message → Create</li>
+            <li>Primary Entity → Attendance</li>
+            <li>Pipeline Stage → Pre-Operation</li>
+            <li>Execution Mode → Synchronous</li>
+        </ul>
+
+        <div class="blog-image-row">
+
+            <div>
+                <img src="/assets/img/blog/newstep.png">
+                <p style="text-align:center;font-size:13px;">Registering New Step</p>
+            </div>
+
+            <div>
+                <img src="/assets/img/blog/attende-plug-create.png">
+                <p style="text-align:center;font-size:13px;"></p>
+            </div>
+
+        </div>
+
+
+        <h2>4. Build Code And Updating Plugin Assembly</h2>
+
+        <p>
+            After making changes to the plugin code, rebuild the project in Visual Studio
+            and update the plugin assembly in Dynamics 365.
+        </p>
+
+        <p>
+            The Plugin Registration Tool allows developers to update an existing assembly
+            without re-registering the plugin again.
+        </p>
+
+        <p><b>Steps:</b></p>
+
+        <ul>
+            <li>Click <b>Update</b> on the existing Plugin Assembly</li>
+            <li>Select the updated DLL file from the build folder</li>
+            <li>Upload the new assembly</li>
+        </ul>
+
+        <div class="blog-image-row">
+
+            <div>
+                <img src="/assets/img/blog/attendence-build.png">
+                <p style="text-align:center;font-size:13px;">Build Plugin Project in Visual Studio</p>
+            </div>
+
+            <div>
+                <img src="/assets/img/blog/update.png">
+                <p style="text-align:center;font-size:13px;">Updating Plugin Assembly in Plugin Registration Tool</p>
+            </div>
+
+        </div>
+
+
+        <h2>5. Testing the Plugin</h2>
+
+        <p>
+            Now test the plugin inside Dynamics 365.
+        </p>
+
+        Steps:
+
+        <ul>
+            <li>Navigate to Attendances</li>
+            <li>Create a new record</li>
+            <li>Fill fields like Student, Date, In Time and Out Time</li>
+        </ul>
+
+        <div class="blog-image-row">
+
+            <div>
+                <img src="/assets/img/blog/new-record.png">
+                <p style="text-align:center;font-size:13px;">Creating a New Attendance Record</p>
+            </div>
+
+            <div>
+                <img src="/assets/img/blog/test-record.png">
+            </div>
+        </div>
+
+
+        <h2>6. Automatic Attendance Status Update</h2>
+
+        <p>
+            The plugin automatically sets the attendance status based on the
+            Out Time field.
+        </p>
+
+        <p><b>Case 1: Out Time Provided</b></p>
+
+        <ul>
+            <li>Out Time filled</li>
+            <li>Status = Present</li>
+        </ul>
+
+        <p><b>Case 2: Out Time Not Provided</b></p>
+
+        <ul>
+            <li>Out Time empty</li>
+            <li>Status = Absent</li>
+        </ul>
+        <div class="blog-image">
+            <img src="/assets/img/blog/Attendence-final.png">
+        </div>
+
+
+        <h2>Benefits</h2>
+
+        <ul>
+            <li>Eliminates manual updates</li>
+            <li>Reduces human errors</li>
+            <li>Ensures consistent attendance tracking</li>
+            <li>Automates business logic</li>
+        </ul>
+
+
+        <h2>Conclusion</h2>
+
+        <p>
+            Automating business logic using Dynamics 365 Plugins can significantly improve system efficiency and reduce manual work.
+            In this implementation, the plugin automatically determines the student's attendance status based on the availability of the <b>Out Time</b> field, ensuring that the correct status is applied without requiring user intervention.
+        </p>
+
+        <p>
+            This approach helps organizations maintain accurate attendance records while minimizing human errors.
+            Since the logic runs within the server-side pipeline, the system ensures that the attendance status is always updated consistently whenever a record is created or modified.
+        </p>
+
+        <p>
+            One of the major advantages of using plugins is that the automation runs seamlessly in the background, allowing users to focus on their tasks instead of manually updating system fields.
+            This not only improves productivity but also ensures data reliability across the system.
+        </p>
+
+        <p>
+            With further enhancements, this solution can be extended to include advanced attendance management features such as late arrival detection, half-day calculations, attendance analytics, and automated notifications for administrators or students.
+        </p>
+
+        <p>
+            By leveraging Dynamics 365 customization capabilities like Plugins, organizations can build powerful automation solutions that streamline daily operations and enhance overall system usability.
+        </p>
+    </div>
+
+</body>
+</html>
