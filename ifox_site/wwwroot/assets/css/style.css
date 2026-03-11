@@ -2315,7 +2315,8 @@ h6 {
 .mag-img {
     width: 100%;
     height: 260px;
-    object-fit: cover;
+    object-fit: contain;
+    background: #fff;
 }
 
 .mag-body {
