@@ -1,5 +1,15 @@
 ﻿[
   {
+    "id": 19,
+    "title": "Learn About Early Bound Plugin Classes in Dynamics 365",
+    "slug": "dynamics-365-early-bound-plugin",
+    "date": "2026-03-10",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/blog/EarlyBoundPlugin.png",
+    "shortDescription":" Understand how Early Bound classes work in Dynamics 365 plugins and learn how to generate and use them with XrmToolBox for strongly typed and maintainable code.",
+    "htmlFile": "~/blogdata/EarlyBound.html"
+  },
+  {
     "id": 18,
     "title": "Automatic Attendance Status Update in Dynamics 365 Using Plugin",
     "slug": "dynamics-365-attendance-status-plugin",
