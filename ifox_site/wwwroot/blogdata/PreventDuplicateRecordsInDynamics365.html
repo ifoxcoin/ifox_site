@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prevent Duplicate Records in Dynamics 365</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            background: #fff;
+            color: #333;
+        }
+
+        .blog-wrapper {
+            padding: 50px 60px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #0f3c8d;
+            font-size: 36px;
+        }
+
+        h2 {
+            color: #0f3c8d;
+            margin-top: 40px;
+        }
+
+        .hero {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+            .hero img {
+                width: 100%;
+                max-width: 500px;
+                height: 300px; 
+                object-fit: cover;
+            }
+
+            .hero img {
+                width: 100%;
+                border-radius: 12px;
+            }
+
+        .section {
+            margin-top: 40px;
+        }
+
+        .step {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin: 40px 0;
+        }
+
+            .step img {
+                width: 100%;
+                max-width: 450px;
+                border-radius: 10px;
+            }
+
+        .highlight {
+            background: #f3f7ff;
+            padding: 20px;
+            border-left: 5px solid #0f3c8d;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        @media(max-width:768px) {
+            .hero, .step {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="blog-wrapper">
+
+        <!-- HERO -->
+        <div class="hero">
+            <img src="/assets/img/blog/PreventDuplicateRecords.png">
+            <div>
+                <h1>🚀 Prevent Duplicate Records in Dynamics 365</h1>
+
+                <p>
+                    In any CRM system, data is the backbone of business operations.
+                    However, when duplicate records exist, it creates serious problems
+                    such as incorrect reporting, poor customer experience, and confusion among users.
+                </p>
+
+                <p>
+                    Microsoft Dynamics 365 provides a powerful feature called
+                    <strong>Duplicate Detection</strong> which helps identify and prevent
+                    duplicate records automatically during data entry, updates, and imports.
+                </p>
+
+                <p>
+                    In this blog, we will explore how to configure duplicate detection
+                    step-by-step and understand why it is essential for maintaining
+                    high-quality CRM data.
+                </p>
+            </div>
+        </div>
+
+        <!-- WHY -->
+        <div class="section">
+            <h2>❓ Why Duplicate Records Are a Problem?</h2>
+
+            <p>
+                Duplicate records may seem like a small issue, but in real-world business scenarios,
+                they can lead to serious consequences.
+            </p>
+
+            <ul>
+                <li>Sales team may contact the same customer multiple times</li>
+                <li>Reports become inaccurate due to duplicate entries</li>
+                <li>Marketing campaigns send repeated emails</li>
+                <li>Customer trust gets affected</li>
+            </ul>
+
+            <div class="highlight">
+                👉 Clean data = Better decisions + Better business growth
+            </div>
+
+            <p>
+                For example, if a customer named "ABC Corp" is stored twice in the system,
+                sales revenue and interactions may be split across two records, leading to confusion.
+            </p>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="section">
+            <h2>🔹 Step 1: Open Advanced Settings</h2>
+
+            <div class="step">
+                <img src="/assets/img/blog/AdvancedSettings.png">
+                <div>
+                    <p>
+                        First, navigate to the Settings area in Dynamics 365 and click on
+                        <strong>Advanced Settings</strong>.
+                    </p>
+
+                    <p>
+                        This will redirect you to the Power Platform environment settings page,
+                        where all system-level configurations are available.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="section">
+            <h2>🔹 Step 2: Navigate to Data Management</h2>
+
+            <div class="step">
+                <img src="/assets/img/blog/datamanagement.png">
+                <div>
+                    <p>
+                        Inside Advanced Settings, go to <strong>Data Management</strong>.
+                    </p>
+
+                    <p>
+                        Here you will find multiple options related to data handling,
+                        including duplicate detection rules and settings.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="section">
+            <h2>🔹 Step 3: Enable Duplicate Detection</h2>
+
+            <div class="step">
+                <img src="/assets/img/blog/enabledetection.png">
+                <div>
+                    <p>
+                        Enable duplicate detection by turning on the toggle.
+                    </p>
+
+                    <ul>
+                        <li>During Create</li>
+                        <li>During Update</li>
+                        <li>During Import</li>
+                    </ul>
+
+                    <p>
+                        This ensures duplicates are detected in all scenarios.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="section">
+            <h2>🔹 Step 4: Create Duplicate Detection Rule</h2>
+
+            <div class="step">
+                <img src="/assets/img/blog/detectionrule.png">
+                <div>
+                    <p>
+                        Create a rule to define what counts as a duplicate.
+                    </p>
+
+                    <p>
+                        Example:
+                    </p>
+
+                    <ul>
+                        <li>Entity: Account</li>
+                        <li>Field: Account Name</li>
+                        <li>Criteria: Exact Match</li>
+                    </ul>
+
+                    <p>
+                        You can also create advanced rules using email, phone number, etc.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="section">
+            <h2>🔹 Step 5: Publish the Rule</h2>
+
+            <div class="step">
+                <img src="/assets/img/blog/publishrule.png">
+                <div>
+                    <p>
+                        After creating the rule, click <strong>Publish</strong>.
+                    </p>
+
+                    <p>
+                        Only published rules will be active in the system.
+                    </p>
+
+                    <p>
+                        Once enabled, the system will automatically detect duplicates
+                        and prevent users from creating them.
+                    </p>
+                </div>
+            </div>
+            <div class="highlight">
+                🚀 Duplicate Detection is a MUST-HAVE feature for every Dynamics 365 implementation.
+            </div>
+
+        </div>
+
+
+
+        <!-- TESTING SECTION -->
+        <div class="section">
+            <h2>🧪 Testing Duplicate Detection (Final Output)</h2>
+
+            <p>
+                After configuring duplicate detection rules, let's test the system behavior.
+                Below are real-time scenarios demonstrating how Dynamics 365 prevents duplicate records.
+            </p>
+
+            <!-- TEST STEP 1 -->
+            <div class="step">
+                <img src="/assets/img/blog/test-existing-record.png">
+                <div>
+                    <h3>📌 Existing Record in CRM</h3>
+                    <p>
+                        Here, we already have an account named <strong>Santhosh</strong> in the system.
+                        This acts as our existing data.
+                    </p>
+                </div>
+            </div>
+
+            <!-- TEST STEP 2 -->
+            <div class="step">
+                <img src="/assets/img/blog/test-create-record.png">
+                <div>
+                    <h3>📌 Creating New Record with Same Name</h3>
+                    <p>
+                        When we try to create a new account with the same name,
+                        Dynamics 365 starts validating based on duplicate detection rules.
+                    </p>
+                </div>
+            </div>
+
+            <!-- TEST STEP 3 -->
+            <div class="step">
+                <img src="/assets/img/blog/test-duplicate-popup.png">
+                <div>
+                    <h3>🚫 Duplicate Detected</h3>
+                    <p>
+                        The system immediately shows a duplicate warning popup.
+                    </p>
+
+                    <ul>
+                        <li>Shows existing matching record</li>
+                        <li>Gives option to merge or ignore</li>
+                        <li>Prevents accidental duplicate creation</li>
+                    </ul>
+
+                    <p>
+                        This ensures data consistency and avoids duplication issues.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FINAL -->
+        <div class="section">
+            <h2>✅ Final Result</h2>
+
+            <p>
+                After implementing duplicate detection:
+            </p>
+
+            <ul>
+                <li>No duplicate accounts or contacts</li>
+                <li>Improved CRM data quality</li>
+                <li>Accurate reporting</li>
+                <li>Better customer experience</li>
+            </ul>
+
+            
+        </div>
+
+
+        <!-- FINAL CONCLUSION (LIKE YOUR FIRST IMAGE STYLE) -->
+        <div class="section">
+            <div style="background:#eef3fb; padding:25px; border-radius:12px;">
+
+                <p>
+                    AI-powered and rule-based data validation features like Duplicate Detection
+                    play a critical role in maintaining high-quality CRM data.
+                    Instead of relying on manual checks, businesses can automate data validation
+                    and ensure consistency across the system.
+                </p>
+
+                <p>
+                    With Dynamics 365, organizations can prevent duplicate records in real-time,
+                    improve reporting accuracy, and enhance overall customer experience.
+                    As CRM systems continue to evolve, implementing features like duplicate detection
+                    is no longer optional — it is essential for scalable and reliable business operations.
+                </p>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
