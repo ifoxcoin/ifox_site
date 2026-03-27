@@ -1,5 +1,15 @@
 ﻿[
   {
+    "id": 21,
+    "title": "Prevent Duplicate Records in Dynamics 365",
+    "slug": "dynamics-365-duplicate-detection",
+    "date": "2026-03-26",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/blog/PreventDuplicateRecords.png",
+    "shortDescription": "Learn how to prevent duplicate records in Dynamics 365 using duplicate detection rules.",
+    "htmlFile": "/blogdata/PreventDuplicateRecordsInDynamics365.html"
+  },
+  {
     "id": 20,
     "title": "AI Contact Insights in Dynamics 365",
     "slug": "dynamics-365-ai-contact-insights",
