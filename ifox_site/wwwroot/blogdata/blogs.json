@@ -1,5 +1,15 @@
 ﻿[
   {
+    "id": 22,
+    "title": "Automate File Transfer from One Entity to Another Entity In Dynamics 365",
+    "slug": "dynamics-365-download-upload-flow",
+    "date": "2026-04-03",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/blog/AutomateFileTransferfromOneEntity-to-AnotherEntityInDynamics365.png",
+    "shortDescription": "Step-by-step guide to implement a download flow in Dynamics 365 using Power Automate.",
+    "htmlFile": "/blogdata/AutomateFileTransferfromOneEntity-to-AnotherEntityInDynamics365.html"
+  },
+  {
     "id": 21,
     "title": "Prevent Duplicate Records in Dynamics 365",
     "slug": "dynamics-365-duplicate-detection",
