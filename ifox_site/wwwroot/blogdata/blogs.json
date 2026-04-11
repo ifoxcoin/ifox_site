@@ -1,5 +1,15 @@
 ﻿[
   {
+    "id": 23,
+    "title": "Overcoming Process Flow Limitations in Dynamics 365 Using Custom Code Activities",
+    "slug": "overcoming-dynamics-365-process-limitations",
+    "date": "2026-04-11",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/blog/Overcoming Process Flow Limitations.png",
+    "shortDescription": "Break beyond out-of-the-box workflow limitations by integrating custom code activities for smarter and more flexible automation.",
+    "htmlFile": "/blogdata/AvoidDuplicateMembershipCreationInDynamics365.html"
+  },
+  {
     "id": 22,
     "title": "Automate File Transfer from One Entity to Another Entity In Dynamics 365",
     "slug": "dynamics-365-download-upload-flow",
