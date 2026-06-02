@@ -1,5 +1,15 @@
 ﻿[
   {
+    "id": 24,
+    "title": "Automatically Reactivate Closed Accounts and Contacts in Dynamics 365",
+    "slug": "Dynamics-365-automatic-customer-reactivation",
+    "date": "2026-06-02",
+    "author": "iFox Consultancy",
+    "image": "/assets/img/blog/CustomerReactivationDynamics365.png",
+    "shortDescription": "Automatically reactivate closed Accounts and Contacts when returning customers place new Orders in Dynamics 365 using Power Automate.",
+    "htmlFile": "/blogdata/Dynamics-365-automatic-customer-reactivation.html"
+  },
+  {
     "id": 23,
     "title": "Overcoming Process Flow Limitations in Dynamics 365 Using Custom Code Activities",
     "slug": "overcoming-dynamics-365-process-limitations",
