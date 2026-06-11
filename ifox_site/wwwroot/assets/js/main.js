@@ -835,6 +835,99 @@
                 .catch(err => console.error("Error sending WhatsApp:", err));
         }
 
+        /*Hover Effect*/
+
+            const dot = document.getElementById('cursor-dot');
+            const ring = document.getElementById('cursor-ring');
+
+            let mouseX = 0;
+            let mouseY = 0;
+
+            let ringX = 0;
+            let ringY = 0;
+
+            document.addEventListener('mousemove', function (e) {
+
+                mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            dot.style.left = mouseX + 'px';
+            dot.style.top = mouseY + 'px';
+
+        });
+
+            function animateCursor() {
+
+                ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+
+            ring.style.left = ringX + 'px';
+            ring.style.top = ringY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+
+            animateCursor();
+
+        /* Hover Effect */
+
+        document.querySelectorAll('a,button').forEach(el => {
+
+                el.addEventListener('mouseenter', () => {
+
+                    ring.style.width = '55px';
+                    ring.style.height = '55px';
+
+                    ring.style.borderColor = 'rgba(0,245,255,.6)';
+
+                });
+
+            el.addEventListener('mouseleave', () => {
+
+                ring.style.width = '36px';
+            ring.style.height = '36px';
+
+            ring.style.borderColor = 'rgba(0,245,255,.6)';
+
+            });
+
+        });
+        console.log("LAYOUT LOADED");
+
+
+
+        /* ─── NAV SMOOTH SCROLL ─── */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) gsap.to(window, { duration: 1.2, scrollTo: target, ease: 'power3.inOut' });
+            });
+        });
+
+        /* ─── CLICK RIPPLE EFFECT ─── */
+        document.addEventListener('click', e => {
+            if (e.target.tagName === 'CANVAS') return;
+            const ripple = document.createElement('div');
+            Object.assign(ripple.style, {
+                position: 'fixed',
+                left: e.clientX + 'px', top: e.clientY + 'px',
+                width: '4px', height: '4px',
+                borderRadius: '50%',
+                background: 'rgba(0,245,255,0.6)',
+                boxShadow: '0 0 20px rgba(0,245,255,0.4)',
+                transform: 'translate(-50%,-50%) scale(1)',
+                pointerEvents: 'none',
+                zIndex: '9000',
+                transition: 'transform 0.6s ease, opacity 0.6s ease'
+            });
+            document.body.appendChild(ripple);
+            requestAnimationFrame(() => {
+                ripple.style.transform = 'translate(-50%,-50%) scale(30)';
+                ripple.style.opacity = '0';
+            });
+            setTimeout(() => ripple.remove(), 700);
+        });
     });
 
 
