@@ -3,18 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>@ViewData["Title"]</title>
-    @RenderSection("Head", required: false)
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">    
-    <meta name="google-site-verification" content="imBH-if6GvXS1T1o5_wMZq1ER-r0_aitxk-HIQKcZQc" />
-    <!-- Favicons -->
+    <title>@ViewData["Title"]</title> @RenderSection("Head", required: false)
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="google-site-verification" content="imBH-if6GvXS1T1o5_wMZq1ER-r0_aitxk-HIQKcZQc" /><!-- Favicons -->
     <link href="~/assets/img/ifoxsitelogo.webp" rel="icon">
-    <link href="~/assets/img/ifoxsitelogo.webp" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
+    <link href="~/assets/img/ifoxsitelogo.webp" rel="apple-touch-icon"><!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"><!-- Vendor CSS Files -->
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -22,142 +16,2589 @@
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
     <link href="~/assets/css/style.css" rel="stylesheet">
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        (function(c, l, a, r, i, t, y) {
+            c[a] = c[a] || function() {
+                (c[a].q = c[a].q || []).push(arguments)
+            };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "vh6fptllta");
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
     <!-- Nexus Cursor -->
     <div id="cursor-dot"></div>
-    <div id="cursor-ring"></div>
-    <!-- ======= Header ======= -->
+    <div id="cursor-ring"></div><!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
+            <h1 class="me-auto"><a href="/home"><img src="~/assets/img/Ifoxlogo57.webp" alt="ifox" style="width: 60%; height: 60%;"></a></h1>
+            <nav class="ifox-navigation" id="ifoxNavigation">
 
-            <h1 class="me-auto">
-                <a href="/home"><img src="~/assets/img/Ifoxlogo57.webp" alt="ifox" style="width: 60%; height: 60%;"></a>
-            </h1>
+                <ul class="ifox-nav-list">
 
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li>
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
 
-                    <!-- ===== DYNAMICS DROPDOWN (GLASS) ===== -->
-                    <li class="nav-item dropdown-custom">
-                        <a class="nav-link dropdown-toggle-custom"
-                           asp-controller="DynamicsCRM" asp-action="Index">
-                          Dynamics CRM 365
-                        <i class="bi bi-chevron-down"></i>
+                    <!-- ABOUT -->
+                    <li class="ifox-nav-item">
+
+                        <a asp-controller="Home" asp-action="Index" class="ifox-nav-link">
+
+                            About
+
                         </a>
 
-                        <div class="dropdown-glass">
-
-                            <a asp-controller="DynamicsCRM" asp-action="Implementation">
-                                <i class="bi bi-gear"></i>
-                                Dynamics 365 Implementation
-                            </a>
-
-                            <a asp-controller="DynamicsCRM" asp-action="OnPremises">
-                                <i class="bi bi-server"></i>
-                                Dynamics 365 On-Premises
-                            </a>
-
-                            <a asp-controller="DynamicsCRM" asp-action="Support">
-                                <i class="bi bi-headset"></i>
-                                Ongoing Support
-                            </a>
-
-                            <a asp-controller="DynamicsCRM" asp-action="Customization">
-                                <i class="bi bi-sliders"></i>
-                                Dynamics 365 Customization
-                            </a>
-
-                            <a asp-controller="DynamicsCRM" asp-action="Integration">
-                                <i class="bi bi-diagram-3"></i>
-                                Dynamics 365 Integration
-                            </a>
-
-                            <a asp-controller="DynamicsCRM" asp-action="Migration">
-                                <i class="bi bi-cloud-arrow-up"></i>
-                                Dynamics 365 Migration
-                            </a>
-
-                        </div>
                     </li>
 
-                    <li>
-                        <a class="nav-link" asp-controller="ProductManagement" asp-action="Index">
+
+                    <!-- =================================================
+                         SERVICES
+                         ================================================= -->
+                    <!-- SERVICES -->
+                    <li class="ifox-nav-item ifox-has-mega ifox-services-menu">
+
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                            Services
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+
+                        <div class="ifox-mega-menu">
+
+                            <div class="ifox-mega-inner">
+
+                                <!-- =====================================
+                                     LEFT SIDE
+                                     ===================================== -->
+
+                                <div class="ifox-mega-sidebar">
+
+                                    <!-- Dynamics -->
+                                    <div class="ifox-mega-category active" data-tab="dynamics">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-microsoft"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+                                            <strong>Microsoft Dynamics 365</strong>
+                                            <small>CRM & Power Platform</small>
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Web -->
+                                    <div class="ifox-mega-category" data-tab="web">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-code-slash"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+                                            <strong>Web Development</strong>
+                                            <small>Websites & Applications</small>
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Mobile -->
+                                    <div class="ifox-mega-category" data-tab="mobile">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-phone"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+                                            <strong>Mobile Development</strong>
+                                            <small>Android & iOS Apps</small>
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Windows -->
+                                    <div class="ifox-mega-category" data-tab="windows">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-windows"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+                                            <strong>Windows Applications</strong>
+                                            <small>Business Applications</small>
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- AI -->
+                                    <div class="ifox-mega-category" data-tab="ai">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-robot"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+                                            <strong>AI Solutions</strong>
+                                            <small>AI & Intelligent Automation</small>
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Cloud -->
+                                    <div class="ifox-mega-category" data-tab="cloud">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-cloud"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+                                            <strong>Cloud Solutions</strong>
+                                            <small>Azure, AWS & DevOps</small>
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- =====================================
+                                     RIGHT SIDE
+                                     ===================================== -->
+
+                                <div class="ifox-mega-content">
+
+
+                                    <!-- =================================
+                                         DYNAMICS
+                                         ================================= -->
+
+                                    <div class="ifox-service-panel active" data-panel="dynamics">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>Microsoft Dynamics 365</span>
+
+                                            <p>
+                                                Transform your business with Microsoft CRM
+                                                and Power Platform.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="DynamicsCRM" asp-action="CRMConsulting">
+
+                                                <i class="bi bi-person-check"></i>
+
+                                                <span>
+                                                    <strong>CRM Consulting</strong>
+                                                    <small>Expert CRM guidance</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="DynamicsCRM" asp-action="Implementation">
+
+                                                <i class="bi bi-gear"></i>
+
+                                                <span>
+                                                    <strong>CRM Implementation</strong>
+                                                    <small>End-to-end implementation</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="DynamicsCRM" asp-action="CRMCustomization">
+
+                                                <i class="bi bi-sliders"></i>
+
+                                                <span>
+                                                    <strong>CRM Customization</strong>
+                                                    <small>Tailored CRM solutions</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="DynamicsCRM" asp-action="PluginDevelopment">
+
+                                                <i class="bi bi-plugin"></i>
+
+                                                <span>
+                                                    <strong>Plugin Development</strong>
+                                                    <small>Custom CRM extensions</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="DynamicsCRM" asp-action="Integration">
+
+                                                <i class="bi bi-diagram-3"></i>
+
+                                                <span>
+                                                    <strong>Integration</strong>
+                                                    <small>Connect your systems</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="DynamicsCRM" asp-action="Migration">
+
+                                                <i class="bi bi-database"></i>
+
+                                                <span>
+                                                    <strong>Data Migration</strong>
+                                                    <small>Secure data migration</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="DynamicsCRM" asp-action="PowerPlatform">
+
+                                                <i class="bi bi-lightning"></i>
+
+                                                <span>
+                                                    <strong>Power Platform</strong>
+                                                    <small>Apps & automation</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="DynamicsCRM" asp-action="Support">
+
+                                                <i class="bi bi-headset"></i>
+
+                                                <span>
+                                                    <strong>Support</strong>
+                                                    <small>Ongoing CRM support</small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         WEB
+                                         ================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="web">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>Web Development</span>
+
+                                            <p>
+                                                Build scalable, secure and modern web
+                                                applications for your business.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="Web" asp-action="CorporateWebsites">
+
+                                                <i class="bi bi-globe"></i>
+
+                                                <span>
+                                                    <strong>Corporate Websites</strong>
+                                                    <small>Professional business websites</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Web" asp-action="CustomWebApplications">
+
+                                                <i class="bi bi-window"></i>
+
+                                                <span>
+                                                    <strong>Custom Web Applications</strong>
+                                                    <small>Business-focused applications</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Web" asp-action="ERP">
+
+                                                <i class="bi bi-grid"></i>
+
+                                                <span>
+                                                    <strong>ERP</strong>
+                                                    <small>Integrated business management</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Web" asp-action="CRMPortals">
+
+                                                <i class="bi bi-people"></i>
+
+                                                <span>
+                                                    <strong>CRM Portals</strong>
+                                                    <small>Customer self-service portals</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Web" asp-action="HRMS">
+
+                                                <i class="bi bi-person-workspace"></i>
+
+                                                <span>
+                                                    <strong>HRMS</strong>
+                                                    <small>Human resource management</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Web" asp-action="LMS">
+
+                                                <i class="bi bi-book"></i>
+
+                                                <span>
+                                                    <strong>LMS</strong>
+                                                    <small>Learning management systems</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Web" asp-action="ECommerce">
+
+                                                <i class="bi bi-cart"></i>
+
+                                                <span>
+                                                    <strong>E-Commerce</strong>
+                                                    <small>Online shopping platforms</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Web" asp-action="APIDevelopment">
+
+                                                <i class="bi bi-braces"></i>
+
+                                                <span>
+                                                    <strong>API Development</strong>
+                                                    <small>Secure API solutions</small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         MOBILE
+                                         ================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="mobile">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>Mobile Development</span>
+
+                                            <p>
+                                                Create fast, scalable and user-friendly
+                                                mobile applications.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="Mobile" asp-action="Android">
+
+                                                <i class="bi bi-android2"></i>
+
+                                                <span>
+                                                    <strong>Android</strong>
+                                                    <small>Native Android applications</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Mobile" asp-action="IOS">
+
+                                                <i class="bi bi-apple"></i>
+
+                                                <span>
+                                                    <strong>iOS</strong>
+                                                    <small>iPhone & iPad applications</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Mobile" asp-action="Flutter">
+
+                                                <i class="bi bi-phone"></i>
+
+                                                <span>
+                                                    <strong>Flutter</strong>
+                                                    <small>Cross-platform applications</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Mobile" asp-action="ReactNative">
+
+                                                <i class="bi bi-code-slash"></i>
+
+                                                <span>
+                                                    <strong>React Native</strong>
+                                                    <small>Cross-platform mobile apps</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Mobile" asp-action="EnterpriseApps">
+
+                                                <i class="bi bi-building"></i>
+
+                                                <span>
+                                                    <strong>Enterprise Apps</strong>
+                                                    <small>Business mobile applications</small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         WINDOWS
+                                         ================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="windows">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>Windows Applications</span>
+
+                                            <p>
+                                                Powerful desktop applications designed
+                                                for business operations.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="Windows" asp-action="Billing">
+
+                                                <i class="bi bi-receipt"></i>
+
+                                                <span>
+                                                    <strong>Billing Software</strong>
+                                                    <small>Smart billing solutions</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Windows" asp-action="Inventory">
+
+                                                <i class="bi bi-box-seam"></i>
+
+                                                <span>
+                                                    <strong>Inventory</strong>
+                                                    <small>Inventory management</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Windows" asp-action="POS">
+
+                                                <i class="bi bi-shop"></i>
+
+                                                <span>
+                                                    <strong>POS</strong>
+                                                    <small>Point of sale solutions</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Windows" asp-action="Manufacturing">
+
+                                                <i class="bi bi-buildings"></i>
+
+                                                <span>
+                                                    <strong>Manufacturing</strong>
+                                                    <small>Manufacturing management</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Windows" asp-action="Hospital">
+
+                                                <i class="bi bi-hospital"></i>
+
+                                                <span>
+                                                    <strong>Hospital Management</strong>
+                                                    <small>Healthcare management systems</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Windows" asp-action="School">
+
+                                                <i class="bi bi-mortarboard"></i>
+
+                                                <span>
+                                                    <strong>School Management</strong>
+                                                    <small>Education management systems</small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         AI
+                                         ================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="ai">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>AI Solutions</span>
+
+                                            <p>
+                                                Build intelligent solutions using modern
+                                                AI technologies and automation.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="AI" asp-action="Copilot">
+
+                                                <i class="bi bi-stars"></i>
+
+                                                <span>
+                                                    <strong>Copilot</strong>
+                                                    <small>AI-powered productivity</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="AI" asp-action="OpenAI">
+
+                                                <i class="bi bi-cpu"></i>
+
+                                                <span>
+                                                    <strong>OpenAI</strong>
+                                                    <small>AI-powered applications</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="AI" asp-action="ChatBots">
+
+                                                <i class="bi bi-chat-dots"></i>
+
+                                                <span>
+                                                    <strong>AI Chatbots</strong>
+                                                    <small>Intelligent conversational AI</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="AI" asp-action="DocumentAI">
+
+                                                <i class="bi bi-file-earmark-text"></i>
+
+                                                <span>
+                                                    <strong>Document AI</strong>
+                                                    <small>Intelligent document processing</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="AI" asp-action="OCR">
+
+                                                <i class="bi bi-file-text"></i>
+
+                                                <span>
+                                                    <strong>OCR</strong>
+                                                    <small>Automated text extraction</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="AI" asp-action="Automation">
+
+                                                <i class="bi bi-gear-wide-connected"></i>
+
+                                                <span>
+                                                    <strong>AI Automation</strong>
+                                                    <small>Intelligent business automation</small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================
+                                         CLOUD
+                                         ================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="cloud">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>Cloud Solutions</span>
+
+                                            <p>
+                                                Secure and scalable cloud solutions for
+                                                modern businesses.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="Cloud" asp-action="Azure">
+
+                                                <i class="bi bi-cloud"></i>
+
+                                                <span>
+                                                    <strong>Microsoft Azure</strong>
+                                                    <small>Cloud application services</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Cloud" asp-action="AWS">
+
+                                                <i class="bi bi-cloud-arrow-up"></i>
+
+                                                <span>
+                                                    <strong>AWS</strong>
+                                                    <small>Amazon cloud solutions</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Cloud" asp-action="DevOps">
+
+                                                <i class="bi bi-git"></i>
+
+                                                <span>
+                                                    <strong>DevOps</strong>
+                                                    <small>CI/CD and automation</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Cloud" asp-action="Migration">
+
+                                                <i class="bi bi-cloud-arrow-down"></i>
+
+                                                <span>
+                                                    <strong>Cloud Migration</strong>
+                                                    <small>Secure cloud migration</small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Cloud" asp-action="Infrastructure">
+
+                                                <i class="bi bi-diagram-3"></i>
+
+                                                <span>
+                                                    <strong>Infrastructure</strong>
+                                                    <small>Cloud infrastructure solutions</small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+
+                    <!-- =================================================
+                         INDUSTRIES
+                         ================================================= -->
+                    <!-- =========================================================
+                    INDUSTRIES MEGA MENU
+                    ========================================================= -->
+
+                    <li class="ifox-nav-item ifox-has-mega ifox-industries-menu">
+
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+
+                            Industries
+
+                            <i class="bi bi-chevron-down"></i>
+
+                        </a>
+
+
+                        <div class="ifox-mega-menu">
+
+                            <div class="ifox-mega-inner">
+
+
+                                <!-- =================================================
+                                     LEFT SIDE
+                                     ================================================= -->
+
+                                <div class="ifox-mega-sidebar">
+
+
+                                    <!-- Healthcare -->
+
+                                    <div class="ifox-mega-category active" data-tab="healthcare">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-hospital"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>Healthcare</strong>
+
+                                            <small>
+                                                Healthcare IT Solutions
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Manufacturing -->
+
+                                    <div class="ifox-mega-category" data-tab="manufacturing">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-building"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>Manufacturing</strong>
+
+                                            <small>
+                                                Manufacturing Technology
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Retail -->
+
+                                    <div class="ifox-mega-category" data-tab="retail">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-shop"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>Retail & E-Commerce</strong>
+
+                                            <small>
+                                                Retail & Digital Commerce
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Education -->
+
+                                    <div class="ifox-mega-category" data-tab="education">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-mortarboard"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>Education</strong>
+
+                                            <small>
+                                                Education Technology
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Finance -->
+
+                                    <div class="ifox-mega-category" data-tab="finance">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-bank"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>Finance & Banking</strong>
+
+                                            <small>
+                                                Financial Technology
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Logistics -->
+
+                                    <div class="ifox-mega-category" data-tab="logistics">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-truck"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>Logistics & Transportation</strong>
+
+                                            <small>
+                                                Logistics Technology
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <!-- =================================================
+                                     RIGHT SIDE
+                                     ================================================= -->
+
+                                <div class="ifox-mega-content">
+
+
+                                    <!-- =================================================
+                                         HEALTHCARE
+                                         ================================================= -->
+
+                                    <div class="ifox-service-panel active" data-panel="healthcare">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Healthcare IT Solutions
+                                            </span>
+
+                                            <p>
+                                                Transform healthcare operations with
+                                                secure, scalable and intelligent
+                                                digital solutions.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+
+                                            <a asp-controller="Industries" asp-action="Healthcare">
+
+                                                <i class="bi bi-hospital"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Healthcare Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Digital healthcare management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Healthcare">
+
+                                                <i class="bi bi-person-vcard"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Patient Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Patient information management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Healthcare">
+
+                                                <i class="bi bi-calendar-check"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Appointment & Scheduling
+                                                    </strong>
+
+                                                    <small>
+                                                        Smart appointment management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Healthcare">
+
+                                                <i class="bi bi-people"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Healthcare CRM
+                                                    </strong>
+
+                                                    <small>
+                                                        Customer and patient engagement
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Healthcare">
+
+                                                <i class="bi bi-camera-video"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Telemedicine
+                                                    </strong>
+
+                                                    <small>
+                                                        Remote healthcare solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Healthcare">
+
+                                                <i class="bi bi-file-earmark-medical"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Medical Data Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Secure healthcare data solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================================
+                                         MANUFACTURING
+                                         ================================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="manufacturing">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Manufacturing Technology Solutions
+                                            </span>
+
+                                            <p>
+                                                Improve production, inventory, supply chain
+                                                and operational efficiency with connected
+                                                digital solutions.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+
+                                            <a asp-controller="Industries" asp-action="Manufacturing">
+
+                                                <i class="bi bi-boxes"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Manufacturing ERP
+                                                    </strong>
+
+                                                    <small>
+                                                        Integrated business management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Manufacturing">
+
+                                                <i class="bi bi-gear"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Production Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Manage production operations
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Manufacturing">
+
+                                                <i class="bi bi-box-seam"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Inventory Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Real-time inventory visibility
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Manufacturing">
+
+                                                <i class="bi bi-truck"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Supply Chain Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Connected supply chain operations
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Manufacturing">
+
+                                                <i class="bi bi-check2-square"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Quality Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Improve quality control
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Manufacturing">
+
+                                                <i class="bi bi-robot"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Manufacturing Automation
+                                                    </strong>
+
+                                                    <small>
+                                                        Automate business processes
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================================
+                                         RETAIL
+                                         ================================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="retail">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Retail & E-Commerce Solutions
+                                            </span>
+
+                                            <p>
+                                                Build seamless retail experiences with
+                                                powerful e-commerce, POS, inventory and
+                                                customer engagement solutions.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+
+                                            <a asp-controller="Industries" asp-action="Retail">
+
+                                                <i class="bi bi-cart"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        E-Commerce Development
+                                                    </strong>
+
+                                                    <small>
+                                                        Scalable online shopping platforms
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Retail">
+
+                                                <i class="bi bi-shop"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Retail Management
+                                                    </strong>
+
+                                                    <small>
+                                                        End-to-end retail management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Retail">
+
+                                                <i class="bi bi-credit-card"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Point of Sale
+                                                    </strong>
+
+                                                    <small>
+                                                        Modern POS solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Retail">
+
+                                                <i class="bi bi-box-seam"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Inventory Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Product and stock management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Retail">
+
+                                                <i class="bi bi-people"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Customer Engagement
+                                                    </strong>
+
+                                                    <small>
+                                                        Build stronger customer relationships
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Retail">
+
+                                                <i class="bi bi-credit-card-2-front"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Payment Integration
+                                                    </strong>
+
+                                                    <small>
+                                                        Secure payment integrations
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================================
+                                         EDUCATION
+                                         ================================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="education">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Education Technology Solutions
+                                            </span>
+
+                                            <p>
+                                                Modernize education with digital platforms
+                                                that simplify administration, learning and
+                                                student management.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+
+                                            <a asp-controller="Industries" asp-action="Education">
+
+                                                <i class="bi bi-building"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        School Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Complete school management systems
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Education">
+
+                                                <i class="bi bi-mortarboard"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        College Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Digital college management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Education">
+
+                                                <i class="bi bi-book"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Learning Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Online learning platforms
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Education">
+
+                                                <i class="bi bi-person"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Student Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Student information management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Education">
+
+                                                <i class="bi bi-pencil-square"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Examination Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Digital examination management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Education">
+
+                                                <i class="bi bi-wallet2"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Fee Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Online fee and payment management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================================
+                                         FINANCE
+                                         ================================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="finance">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Financial Technology Solutions
+                                            </span>
+
+                                            <p>
+                                                Build secure and scalable financial
+                                                applications with automation, CRM,
+                                                analytics and integration.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+
+                                            <a asp-controller="Industries" asp-action="Finance">
+
+                                                <i class="bi bi-cash-stack"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Financial Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Digital financial management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Finance">
+
+                                                <i class="bi bi-bank"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Banking Applications
+                                                    </strong>
+
+                                                    <small>
+                                                        Secure banking applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Finance">
+
+                                                <i class="bi bi-people"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Financial CRM
+                                                    </strong>
+
+                                                    <small>
+                                                        Customer relationship management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Finance">
+
+                                                <i class="bi bi-file-earmark-text"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Loan Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Digital loan processing
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Finance">
+
+                                                <i class="bi bi-credit-card"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Payment Solutions
+                                                    </strong>
+
+                                                    <small>
+                                                        Secure payment solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Finance">
+
+                                                <i class="bi bi-bar-chart"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Analytics & Reporting
+                                                    </strong>
+
+                                                    <small>
+                                                        Financial insights and reporting
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- =================================================
+                                         LOGISTICS
+                                         ================================================= -->
+
+                                    <div class="ifox-service-panel" data-panel="logistics">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Logistics & Transportation Solutions
+                                            </span>
+
+                                            <p>
+                                                Streamline logistics operations with
+                                                intelligent solutions for fleet, shipment,
+                                                warehouse and supply chain management.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+
+                                            <a asp-controller="Industries" asp-action="Logistics">
+
+                                                <i class="bi bi-truck"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Logistics Management
+                                                    </strong>
+
+                                                    <small>
+                                                        End-to-end logistics management
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Logistics">
+
+                                                <i class="bi bi-car-front"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Fleet Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Manage vehicles and fleet operations
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Logistics">
+
+                                                <i class="bi bi-box-seam"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Warehouse Management
+                                                    </strong>
+
+                                                    <small>
+                                                        Smart warehouse operations
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Logistics">
+
+                                                <i class="bi bi-geo-alt"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Shipment Tracking
+                                                    </strong>
+
+                                                    <small>
+                                                        Real-time shipment visibility
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Logistics">
+
+                                                <i class="bi bi-sign-turn-right"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Route Optimization
+                                                    </strong>
+
+                                                    <small>
+                                                        Improve transportation efficiency
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="Industries" asp-action="Logistics">
+
+                                                <i class="bi bi-diagram-3"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Supply Chain Automation
+                                                    </strong>
+
+                                                    <small>
+                                                        Connected supply chain solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+
+                    <!-- PRODUCT MANAGEMENT -->
+
+                    <li class="ifox-nav-item">
+
+                        <a asp-controller="ProductManagement" asp-action="Index" class="ifox-nav-link">
+
                             Product Management
+
                         </a>
+
                     </li>
 
-                    <!-- ===== HIRE DEVELOPERS DROPDOWN (GLASS) ===== -->
-                    <li class="nav-item dropdown-custom">
-                        <a class="nav-link dropdown-toggle-custom"
-                          asp-controller="HireDevelopers" asp-action="Index">
-                              Hire Developers
-                           <i class="bi bi-chevron-down"></i>
-                            </a>
 
-                        <div class="dropdown-glass">
+                    <!-- =================================================
+                         HIRE DEVELOPERS
+                         ================================================= -->
 
-                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
-                                <i class="bi bi-briefcase"></i>
-                                Hire Dynamics CRM Developer
-                            </a>
+                    <li class="ifox-nav-item ifox-has-mega ifox-hire-menu">
 
-                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
-                                <i class="bi bi-code-slash"></i>
-                                Hire .NET Developer
-                            </a>
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
 
-                            <a asp-controller="HireDevelopers" asp-action="MobileAppDeveloper">
-                                <i class="bi bi-phone"></i>
-                                Hire Mobile App Developer
-                            </a>
+                            Hire Developers
 
-                            <a asp-controller="HireDevelopers" asp-action="PHPDeveloper">
-                                <i class="bi bi-filetype-php"></i>
-                                Hire PHP Developer
-                            </a>
+                            <i class="bi bi-chevron-down"></i>
+
+                        </a>
+
+
+                        <div class="ifox-mega-menu">
+
+                            <div class="ifox-mega-inner">
+
+
+                                <!-- =================================================
+                                     LEFT SIDE
+                                     ================================================= -->
+
+                                <div class="ifox-mega-sidebar">
+
+
+                                    <!-- Dynamics -->
+
+                                    <div class="ifox-mega-category active" data-tab="hire-dynamics">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-microsoft"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>
+                                                Dynamics 365 Developers
+                                            </strong>
+
+                                            <small>
+                                                CRM & Power Platform
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- .NET -->
+
+                                    <div class="ifox-mega-category" data-tab="hire-dotnet">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-code-slash"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>
+                                                .NET Developers
+                                            </strong>
+
+                                            <small>
+                                                ASP.NET & Web API
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Mobile -->
+
+                                    <div class="ifox-mega-category" data-tab="hire-mobile">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-phone"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>
+                                                Mobile Developers
+                                            </strong>
+
+                                            <small>
+                                                Android, iOS & Cross Platform
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- React / Node -->
+
+                                    <div class="ifox-mega-category" data-tab="hire-react">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-filetype-js"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>
+                                                React & Node.js Developers
+                                            </strong>
+
+                                            <small>
+                                                Modern Web Development
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- PHP -->
+
+                                    <div class="ifox-mega-category" data-tab="hire-php">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-filetype-php"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>
+                                                PHP Developers
+                                            </strong>
+
+                                            <small>
+                                                PHP & Web Applications
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                    <!-- Power Platform -->
+
+                                    <div class="ifox-mega-category" data-tab="hire-powerplatform">
+
+                                        <div class="ifox-category-icon">
+                                            <i class="bi bi-lightning"></i>
+                                        </div>
+
+                                        <div class="ifox-category-content">
+
+                                            <strong>
+                                                Power Platform Developers
+                                            </strong>
+
+                                            <small>
+                                                Power Apps & Automation
+                                            </small>
+
+                                        </div>
+
+                                        <i class="bi bi-chevron-right"></i>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <!-- =================================================
+                                     RIGHT SIDE
+                                     ================================================= -->
+
+                                <div class="ifox-mega-content">
+
+
+                                    <!-- DYNAMICS -->
+
+                                    <div class="ifox-service-panel active" data-panel="hire-dynamics">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Hire Dynamics 365 Developers
+                                            </span>
+
+                                            <p>
+                                                Hire experienced Microsoft Dynamics 365
+                                                professionals for CRM implementation,
+                                                customization, integration and support.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-person-gear"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Dynamics CRM Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        CRM customization & development
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-gear"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Dynamics 365 Consultant
+                                                    </strong>
+
+                                                    <small>
+                                                        CRM implementation & consulting
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-plugin"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Dynamics Plugin Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Custom plugins & extensions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-lightning"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Power Platform Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Power Apps & Power Automate
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- .NET -->
+
+                                    <div class="ifox-service-panel" data-panel="hire-dotnet">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Hire .NET Developers
+                                            </span>
+
+                                            <p>
+                                                Hire skilled .NET developers to build
+                                                scalable enterprise applications,
+                                                APIs and modern web solutions.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-code-slash"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        ASP.NET Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Enterprise web applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-window"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        ASP.NET Core Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Modern scalable applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-diagram-3"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        .NET API Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        REST API development
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-database"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        .NET Full Stack Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        End-to-end application development
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- MOBILE -->
+
+                                    <div class="ifox-service-panel" data-panel="hire-mobile">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Hire Mobile App Developers
+                                            </span>
+
+                                            <p>
+                                                Build high-performance mobile applications
+                                                for Android, iOS and cross-platform devices.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="HireDevelopers" asp-action="MobileAppDeveloper">
+
+                                                <i class="bi bi-android2"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Android Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Native Android applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="MobileAppDeveloper">
+
+                                                <i class="bi bi-apple"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        iOS Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        iPhone & iPad applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="MobileAppDeveloper">
+
+                                                <i class="bi bi-phone"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Flutter Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Cross-platform applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="MobileAppDeveloper">
+
+                                                <i class="bi bi-code-slash"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        React Native Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Cross-platform mobile apps
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- REACT / NODE -->
+
+                                    <div class="ifox-service-panel" data-panel="hire-react">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Hire React & Node.js Developers
+                                            </span>
+
+                                            <p>
+                                                Build modern, high-performance web
+                                                applications using React and Node.js.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-filetype-react"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        React Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Modern frontend applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-filetype-js"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Node.js Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Scalable backend applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-code-square"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Full Stack Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Frontend & backend development
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="DotNetDeveloper">
+
+                                                <i class="bi bi-cloud"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        MERN Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        MongoDB, Express, React & Node
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- PHP -->
+
+                                    <div class="ifox-service-panel" data-panel="hire-php">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Hire PHP Developers
+                                            </span>
+
+                                            <p>
+                                                Hire experienced PHP developers for
+                                                scalable websites, portals and business
+                                                applications.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="HireDevelopers" asp-action="PHPDeveloper">
+
+                                                <i class="bi bi-filetype-php"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        PHP Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Custom PHP applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="PHPDeveloper">
+
+                                                <i class="bi bi-wordpress"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        WordPress Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        WordPress websites & solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="PHPDeveloper">
+
+                                                <i class="bi bi-cart"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        PHP E-Commerce Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Online commerce solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="PHPDeveloper">
+
+                                                <i class="bi bi-globe"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Laravel Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Modern Laravel applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- POWER PLATFORM -->
+
+                                    <div class="ifox-service-panel" data-panel="hire-powerplatform">
+
+                                        <div class="ifox-panel-header">
+
+                                            <span>
+                                                Hire Power Platform Developers
+                                            </span>
+
+                                            <p>
+                                                Hire Power Platform professionals to
+                                                build business applications, workflows
+                                                and intelligent automation.
+                                            </p>
+
+                                        </div>
+
+
+                                        <div class="ifox-service-grid">
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-app"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Power Apps Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Business applications
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-lightning"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Power Automate Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Workflow automation
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-database"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Dataverse Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Data platform solutions
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+
+                                            <a asp-controller="HireDevelopers" asp-action="CRMDeveloper">
+
+                                                <i class="bi bi-bar-chart"></i>
+
+                                                <span>
+                                                    <strong>
+                                                        Power BI Developer
+                                                    </strong>
+
+                                                    <small>
+                                                        Business intelligence & analytics
+                                                    </small>
+                                                </span>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
 
                         </div>
-                    </li>
-                    <li><a class="nav-link" asp-controller="Testimonials" asp-action="Index">Testimonials</a></li>
-                    <li><a class="nav-link" asp-controller="Blog" asp-action="Index">Blog</a></li>
-                    <li><a class="nav-link" asp-controller="Contact" asp-action="Index">Contact</a></li>
-                    <li><a class="getstarted" asp-controller="Contact" asp-action="Index">Get Started</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
 
+                    </li>
+
+
+                    <!-- TESTIMONIALS -->
+
+                    <li class="ifox-nav-item">
+
+                        <a asp-controller="Testimonials" asp-action="Index" class="ifox-nav-link">
+
+                            Testimonials
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- BLOG -->
+
+                    <li class="ifox-nav-item">
+
+                        <a asp-controller="Blog" asp-action="Index" class="ifox-nav-link">
+
+                            Blog
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- CONTACT -->
+
+                    <li class="ifox-nav-item">
+
+                        <a asp-controller="Contact" asp-action="Index" class="ifox-nav-link">
+
+                            Contact
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- GET STARTED -->
+
+                    <li class="ifox-nav-item">
+
+                        <a asp-controller="Contact" asp-action="Index" class="ifox-get-started">
+
+                            Get Started
+
+                            <i class="bi bi-arrow-up-right"></i>
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
         </div>
     </header><!-- End Header -->
-
-    <main id="main">
-        @RenderBody()
-    </main><!-- End #main -->
-    <!-- ======= Footer ======= -->
+    <main id="main"> @RenderBody() </main><!-- End #main --><!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
-
         <!-- Newsletter Section -->
         <div class="footer-newsletter">
             <div class="container">
@@ -165,150 +2606,74 @@
                     <div class="col-lg-6">
                         <h4>Join Our Newsletter</h4>
                         <p>Subscribe to our newsletter to receive emails about any updates</p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
+                        <form action="" method="post"><input type="email" name="email"><input type="submit" value="Subscribe"></form>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Footer Top Section -->
+        </div><!-- Footer Top Section -->
         <div class="footer-top">
             <div class="container">
                 <div class="row">
-
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h1 class="logo me-auto">
-                            <a href="/home">
-                                <img src="~/assets/img/Ifoxlogo56.webp" alt="ifox" style="width: 60%; height: 60%;">
-                            </a>
-                        </h1><br />
-                        <p align="left">
-                            29, Sri Ganapathi Nagar,<br>
-                            Keelapanangadi,<br>
-                            Kulamangalam Main Road<br>
-                            Vagai Kulam Post<br>
-                            Madurai - 625017<br>
-                            India<br /><br />
-                            <strong>Phone:</strong>
-                            <a class="contact-info mob first_nav_content mr-md-2" href="tel:+919597 892 118">
-                                +91 9488 718 218
-                            </a><br />
-                            <strong>Email  : </strong><a href="mailto:info@ifox.co.in">
-                                info@ifox.co.in
-                            </a>
-                            <br />
-                            <a style="padding-left:50px" href="mailto:sales@ifox.co.in">
-                                sales@ifox.co.in
-                            </a><br />
-                            <a style="padding-left:50px" href="mailto:hr@ifox.co.in">
-                                hr@ifox.co.in
-                            </a>
-                            <br>
-                        </p>
-                    </div>
-
-                    <!-- Useful Links -->
+                        <h1 class="logo me-auto"><a href="/home"><img src="~/assets/img/Ifoxlogo56.webp" alt="ifox" style="width: 60%; height: 60%;"></a></h1><br />
+                        <p align="left"> 29, Sri Ganapathi Nagar,<br> Keelapanangadi,<br> Kulamangalam Main Road<br> Vagai Kulam Post<br> Madurai - 625017<br> India<br /><br /><strong>Phone:</strong><a class="contact-info mob first_nav_content mr-md-2" href="tel:+919597 892 118"> +91 9488 718 218 </a><br /><strong>Email : </strong><a href="mailto:info@ifox.co.in"> info@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:sales@ifox.co.in"> sales@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:hr@ifox.co.in"> hr@ifox.co.in </a><br></p>
+                    </div><!-- Useful Links -->
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/home">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/dynamics-365-crm-services">Dynamics CRM 365</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/project-management-solutions">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/hire-developers">Hire Developers</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/it-support-services">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/testimonials">Testimonials</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/contact-us">Contact</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/home">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/dynamics-365-crm-services">Dynamics CRM 365</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/project-management-solutions">Product Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/hire-developers">Hire Developers</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/it-support-services">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/testimonials">Testimonials</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/contact-us">Contact</a></li>
                         </ul>
-                    </div>
-
-                    <!-- Our Services -->
+                    </div><!-- Our Services -->
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title1">Emergency Support</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title2">Remote office Support</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title3">Network Administration</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title4">Graphic Designing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title5">IT Consulting Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title6">Customer Support Service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title7">Digital Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/services#title8">Office System Installations</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title1">Emergency Support</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title2">Remote office Support</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title3">Network Administration</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title4">Graphic Designing</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title5">IT Consulting Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title6">Customer Support Service</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title7">Digital Marketing</a></li>
+                            <li><i class="bx bx-chevron-right"></i><a href="/services#title8">Office System Installations</a></li>
                         </ul>
-                    </div>
-
-                    <!-- Our Social Networks -->
+                    </div><!-- Our Social Networks -->
                     <div class="col-lg-5 col-md-6 footer-links">
                         <h4>Our Social Networks</h4>
                         <p>Social network theory focuses on the role of social relationships in transmitting information, channeling personal or media influence, and enabling attitudinal or behavioral change</p>
-                        <div class="social-links mt-3">
-                            <a href="https://www.linkedin.com/company/ifox-consultancy-services/" class="bg.primary linkedin" target="_blank">
-                                <i class="bx bxl-linkedin"></i>
-                            </a>
-                            <a href="https://wa.me/919488718218" class="bg.Success whatsapp" target="_blank">
-                                <i class="bi bi-whatsapp"></i>
-                            </a>
-                        </div>
-
-                        <!-- Logo Section Under Social Networks -->
+                        <div class="social-links mt-3"><a href="https://www.linkedin.com/company/ifox-consultancy-services/" class="bg.primary linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a><a href="https://wa.me/919488718218" class="bg.Success whatsapp" target="_blank"><i class="bi bi-whatsapp"></i></a></div><!-- Logo Section Under Social Networks -->
                         <div class="footer-logos mt-4">
                             <div class="row justify-content-start">
                                 <!-- Logo 1 -->
-                                <div class="col-6 col-sm-2 ms-logo mt-1 text-center">
-                                    <img src="~/assets/img/msdynamics365.png" alt="Logo 5" class="img-fluid custom-logo-size">
-                                </div>
-                                <!-- Logo 2 -->
-                                <div class="col-6 col-sm-2 ms-log text-center">
-                                    <img src="~/assets/img/mslogo2.png" alt="Logo 6" class="img-fluid custom-logo-size">
-                                </div>
+                                <div class="col-6 col-sm-2 ms-logo mt-1 text-center"><img src="~/assets/img/msdynamics365.png" alt="Logo 5" class="img-fluid custom-logo-size"></div><!-- Logo 2 -->
+                                <div class="col-6 col-sm-2 ms-log text-center"><img src="~/assets/img/mslogo2.png" alt="Logo 6" class="img-fluid custom-logo-size"></div>
                             </div>
-                        </div>
-                        <!-- End of Logos Section -->
-                        <!-- image logo Section Under Social Networks -->
+                        </div><!-- End of Logos Section --><!-- image logo Section Under Social Networks -->
                         <div class="footer-logos mt-4">
                             <div class="row justify-content-start">
                                 <!-- Logo 1 -->
-                                <div class="col-6 col-sm-2 ms-logo text-center">
-                                    <img src="~/assets/img/MSCERTIFIED1.png" alt="Logo 1" class="img-fluid">
-                                </div>
-                                <!-- Logo 2 -->
-                                <div class="col-6 col-sm-2 ms-logo text-center">
-                                    <img src="~/assets/img/MSCERTIFIED2.png" alt="Logo 2" class="img-fluid">
-                                </div>
-                                <!-- Logo 3 -->
-                                <div class="col-6 col-sm-2 ms-logo text-center">
-                                    <img src="~/assets/img/MSCERTIFIED3.png" alt="Logo 3" class="img-fluid">
-                                </div>
-                                <!-- Logo 4 -->
-                                <div class="col-6 col-sm-2 ms-logo text-center">
-                                    <img src="~/assets/img/MSCERTIFIED4.png" alt="Logo 4" class="img-fluid">
-                                </div>
+                                <div class="col-6 col-sm-2 ms-logo text-center"><img src="~/assets/img/MSCERTIFIED1.png" alt="Logo 1" class="img-fluid"></div><!-- Logo 2 -->
+                                <div class="col-6 col-sm-2 ms-logo text-center"><img src="~/assets/img/MSCERTIFIED2.png" alt="Logo 2" class="img-fluid"></div><!-- Logo 3 -->
+                                <div class="col-6 col-sm-2 ms-logo text-center"><img src="~/assets/img/MSCERTIFIED3.png" alt="Logo 3" class="img-fluid"></div><!-- Logo 4 -->
+                                <div class="col-6 col-sm-2 ms-logo text-center"><img src="~/assets/img/MSCERTIFIED4.png" alt="Logo 4" class="img-fluid"></div>
                             </div>
-                        </div>
-                        <!-- End of image Logos Section -->
-
-                    </div>
-                    <!-- End of Social Networks Section -->
-
+                        </div><!-- End of image Logos Section -->
+                    </div><!-- End of Social Networks Section -->
                 </div>
             </div>
-        </div>
-
-        <!-- Footer Bottom Section -->
+        </div><!-- Footer Bottom Section -->
         <div class="container footer-bottom">
-            <div class="copyright">
-                &copy; Copyright <strong><span>ifox</span></strong>. All Rights Reserved V.1.0.5
-            </div>
+            <div class="copyright"> &copy; Copyright <strong><span>ifox</span></strong>. All Rights Reserved V.1.0.5 </div>
         </div>
-
     </footer><!-- End Footer -->
-
     <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a><!-- Vendor JS Files -->
     <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/assets/vendor/php-email-form/validate.js"></script>
     <script src="~/assets/vendor/aos/aos.js"></script>
@@ -317,22 +2682,21 @@
     <script src="~/assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <!-- Google tag (gtag.js) -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script><!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNG595LVT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
 
         gtag('config', 'G-TTNG595LVT');
-    </script>
-
-    <!-- Template Main JS File -->
+    </script><!-- Template Main JS File -->
     <script src="~/assets/js/main.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const currentPath = window.location.pathname;
 
@@ -344,57 +2708,319 @@
                     link.classList.remove('active'); // Remove active class from other links
                 }
             });
-        });</script>
-    <!-- ================= CHATBOT UI ================= -->
+        });
+    </script><!-- ================= CHATBOT UI ================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* =========================================================
+               IFOX MEGA MENU
+               SERVICES
+               INDUSTRIES
+               HIRE DEVELOPERS
+               ========================================================= */
+
+            const megaItems =
+                document.querySelectorAll(".ifox-has-mega");
+
+            if (!megaItems.length) {
+                return;
+            }
+
+
+            /* =========================================================
+               CLOSE ALL MENUS
+               ========================================================= */
+
+            function closeAllMegaMenus() {
+
+                megaItems.forEach(function (item) {
+
+                    item.classList.remove("services-open");
+
+                });
+
+            }
+
+
+            /* =========================================================
+               INITIALIZE EACH MENU
+               ========================================================= */
+
+            megaItems.forEach(function (megaItem) {
+
+                const trigger =
+                    megaItem.querySelector(".ifox-dropdown-trigger");
+
+                const megaMenu =
+                    megaItem.querySelector(".ifox-mega-menu");
+
+
+                /* -----------------------------------------------------
+                   SAFETY CHECK
+                   ----------------------------------------------------- */
+
+                if (!trigger || !megaMenu) {
+
+                    console.warn(
+                        "IFOX Mega Menu missing:",
+                        megaItem
+                    );
+
+                    return;
+                }
+
+
+                /* =====================================================
+                   TRIGGER CLICK
+                   ===================================================== */
+
+                trigger.addEventListener("click", function (event) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    const isCurrentlyOpen =
+                        megaItem.classList.contains("services-open");
+
+
+                    /* Close every menu */
+                    closeAllMegaMenus();
+
+
+                    /* Open only clicked menu */
+                    if (!isCurrentlyOpen) {
+
+                        megaItem.classList.add("services-open");
+
+                    }
+
+                });
+
+
+                /* =====================================================
+                   MEGA MENU CLICK
+                   ===================================================== */
+
+                megaMenu.addEventListener("click", function (event) {
+
+                    /*
+                     * Do NOT close the menu when clicking inside it.
+                     */
+
+                    event.stopPropagation();
+
+                });
+
+
+                /* =====================================================
+                   CATEGORY TABS
+                   ===================================================== */
+
+                const categories =
+                    megaItem.querySelectorAll(
+                        ".ifox-mega-category"
+                    );
+
+
+                const panels =
+                    megaItem.querySelectorAll(
+                        ".ifox-service-panel"
+                    );
+
+
+                categories.forEach(function (category) {
+
+                    category.addEventListener(
+                        "click",
+                        function (event) {
+
+                            event.preventDefault();
+                            event.stopPropagation();
+
+
+                            const tab =
+                                this.getAttribute("data-tab");
+
+
+                            if (!tab) {
+                                return;
+                            }
+
+
+                            /* -----------------------------------------
+                               REMOVE ACTIVE CATEGORY
+                               ----------------------------------------- */
+
+                            categories.forEach(function (item) {
+
+                                item.classList.remove("active");
+
+                            });
+
+
+                            /* -----------------------------------------
+                               REMOVE ACTIVE PANELS
+                               ----------------------------------------- */
+
+                            panels.forEach(function (panel) {
+
+                                panel.classList.remove("active");
+
+                            });
+
+
+                            /* -----------------------------------------
+                               ACTIVATE CATEGORY
+                               ----------------------------------------- */
+
+                            this.classList.add("active");
+
+
+                            /* -----------------------------------------
+                               FIND PANEL
+                               ----------------------------------------- */
+
+                            const selectedPanel =
+                                megaItem.querySelector(
+                                    '.ifox-service-panel[data-panel="' +
+                                    tab +
+                                    '"]'
+                                );
+
+
+                            /* -----------------------------------------
+                               ACTIVATE PANEL
+                               ----------------------------------------- */
+
+                            if (selectedPanel) {
+
+                                selectedPanel.classList.add("active");
+
+                            }
+
+                        }
+                    );
+
+                });
+
+
+                /* =====================================================
+                   DEFAULT ACTIVE TAB
+                   ===================================================== */
+
+                const activeCategory =
+                    megaItem.querySelector(
+                        ".ifox-mega-category.active"
+                    );
+
+
+                if (activeCategory) {
+
+                    const firstTab =
+                        activeCategory.getAttribute("data-tab");
+
+
+                    panels.forEach(function (panel) {
+
+                        panel.classList.remove("active");
+
+                    });
+
+
+                    if (firstTab) {
+
+                        const firstPanel =
+                            megaItem.querySelector(
+                                '.ifox-service-panel[data-panel="' +
+                                firstTab +
+                                '"]'
+                            );
+
+
+                        if (firstPanel) {
+
+                            firstPanel.classList.add("active");
+
+                        }
+
+                    }
+
+                }
+
+            });
+
+
+            /* =========================================================
+               CLICK OUTSIDE
+               ========================================================= */
+
+            document.addEventListener(
+                "click",
+                function (event) {
+
+                    /*
+                     * If the click is outside ALL mega menu items,
+                     * close everything.
+                     */
+
+                    const clickedInsideMega =
+                        event.target.closest(".ifox-has-mega");
+
+
+                    if (!clickedInsideMega) {
+
+                        closeAllMegaMenus();
+
+                    }
+
+                },
+                false
+            );
+
+
+            /* =========================================================
+               ESCAPE KEY
+               ========================================================= */
+
+            document.addEventListener(
+                "keydown",
+                function (event) {
+
+                    if (event.key === "Escape") {
+
+                        closeAllMegaMenus();
+
+                    }
+
+                }
+            );
+
+
+            /* =========================================================
+               DEBUG
+               ========================================================= */
+
+            console.log(
+                "IFOX Mega Menu initialized:",
+                megaItems.length,
+                "menus"
+            );
+
+        });
+    </script>
     <div id="chatbot-container">
-
         <!-- Floating Logo -->
-        <div id="chatbot-toggle">
-            <img src="~/assets/img/chatbot_neon.webp" alt="Chatbot">
-        </div>
-
-        <!-- CHAT WINDOW (THIS WAS MISSING ❗) -->
+        <div id="chatbot-toggle"><img src="~/assets/img/chatbot_neon.webp" alt="Chatbot"></div><!-- CHAT WINDOW (THIS WAS MISSING ❗) -->
         <div id="chatbot-box">
-
-            <div class="chat-header">
-                <span id="chatbot-back" style="cursor:pointer;margin-right:10px;">⬅</span>
-                iFox Assistant
-                <span id="chatbot-close">✖</span>
-            </div>
-
+            <div class="chat-header"><span id="chatbot-back" style="cursor:pointer;margin-right:10px;">⬅</span> iFox Assistant <span id="chatbot-close">✖</span></div>
             <div id="chatbot-messages"></div>
             <div id="chatbot-buttons"></div>
-
-            <div class="chat-input-area">
-                <input type="text" id="chatbot-input" placeholder="Type message..." />
-                <button id="chatbot-send">Send</button>
-            </div>
-
+            <div class="chat-input-area"><input type="text" id="chatbot-input" placeholder="Type message..." /><button id="chatbot-send">Send</button></div>
         </div>
-    </div>
-
-    <!-- ===== SOCIAL CHAT FLOATING ICONS ===== -->
-    <div id="social-chat">
-
-        <a href="https://wa.me/919488718218?text=Hello%20I%20contacted%20you%20from%20iFox%20website"
-           target="_blank"
-           class="social-btn whatsapp">
-            <i class="ri-whatsapp-fill"></i>
-        </a>
-
-        <a href="https://www.facebook.com/people/IFOX-Tech/61579832498636/"
-           target="_blank"
-           class="social-btn facebook">
-            <i class="ri-facebook-fill"></i>
-        </a>
-
-        <a href="https://ig.me/m/ifox_tech"
-           target="_blank"
-           class="social-btn instagram">
-            <i class="ri-instagram-line"></i>
-        </a>
-
-    </div>
-    
+    </div><!-- ===== SOCIAL CHAT FLOATING ICONS ===== -->
+    <div id="social-chat"><a href="https://wa.me/919488718218?text=Hello%20I%20contacted%20you%20from%20iFox%20website" target="_blank" class="social-btn whatsapp"><i class="ri-whatsapp-fill"></i></a><a href="https://www.facebook.com/people/IFOX-Tech/61579832498636/" target="_blank" class="social-btn facebook"><i class="ri-facebook-fill"></i></a><a href="https://ig.me/m/ifox_tech" target="_blank" class="social-btn instagram"><i class="ri-instagram-line"></i></a></div>
 </body>
+
 </html>
