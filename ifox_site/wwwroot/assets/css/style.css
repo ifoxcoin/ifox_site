@@ -3633,3 +3633,159 @@ select,
 * {
     cursor: none !important;
 }
+
+
+
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: Segoe UI,Arial;
+    background: linear-gradient(#f8fbff,#eef4ff)
+}
+
+.wrap {
+    margin: auto;
+    padding: 120px 20px 50px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    /*margin-top: 100px;*/
+    margin-bottom: 30px
+}
+
+    .stats div {
+        background: #fff;
+        padding: 18px 30px;
+        border-radius: 18px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.08);
+        text-align: center
+    }
+
+    .stats h2 {
+        margin: 0;
+        color: #FD6905;
+        font-size: 34px
+    }
+
+.tag {
+    text-align: center;
+    color: #5b63ff;
+    font-weight: 700;
+    letter-spacing: 3px
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin: 12px 0
+}
+
+.intro {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 35px;
+    color: #666;
+    line-height: 1.7
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px
+}
+
+.card {
+    background: #fff;
+    padding: 22px;
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    transition: .35s;
+    position: relative;
+    overflow: hidden
+}
+
+    .card:before {
+        content: '';
+        position: absolute;
+        left: -80px;
+        top: -80px;
+        width: 160px;
+        height: 160px;
+        background: rgba(91,99,255,.08);
+        border-radius: 50%;
+        transition: .4s
+    }
+
+    .card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 25px 45px rgba(91,99,255,.25)
+    }
+
+        .card:hover:before {
+            transform: scale(1.6)
+        }
+
+.quote {
+    font-size: 42px;
+    color: #3D4D6A;
+    transition: .35s
+}
+
+.card:hover .quote {
+    transform: rotate(-10deg) scale(1.15)
+}
+
+.stars {
+    color: #ffb400;
+    font-size: 19px;
+    margin: 12px 0
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px
+}
+
+    .user img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid #5b63ff;
+        transition: .35s
+    }
+
+.card:hover img {
+    transform: scale(1.1)
+}
+
+.user span {
+    display: block;
+    color: #777;
+    font-size: 13px
+}
+
+@media(max-width:992px) {
+    .grid {
+        grid-template-columns: repeat(2,1fr)
+    }
+}
+
+@media(max-width:600px) {
+    .grid {
+        grid-template-columns: 1fr
+    }
+
+    h1 {
+        font-size: 30px
+    }
+}
