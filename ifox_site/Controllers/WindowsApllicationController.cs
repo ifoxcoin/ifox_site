@@ -3,7 +3,7 @@
 namespace ifox_site.Controllers
 {
     [Route("Windows Application")]
-    public class Windows_Application : Controller
+    public class WindowsApplicationController : Controller
     {
         [HttpGet("")]
         public IActionResult Index()
@@ -30,7 +30,7 @@ namespace ifox_site.Controllers
         }
 
         [HttpGet("Manufacturing Management")]
-        public IActionResult ManufaturingManagement()
+        public IActionResult ManufacturingManagement()
         {
             return View();
         }
