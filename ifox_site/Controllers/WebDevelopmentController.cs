@@ -3,7 +3,7 @@
 namespace ifox_site.Controllers
 {
     [Route("Web-Development-services")]
-    public class Web_Development : Controller
+    public class WebDevelopmentController : Controller
     {
         [HttpGet("")]
         public IActionResult Index()
@@ -44,8 +44,14 @@ namespace ifox_site.Controllers
             return View();
         }
 
-        [HttpGet("E-Commerce")]
+        [HttpGet("E Commerce")]
         public IActionResult ECommerce()
+        {
+            return View();
+        }
+
+        [HttpGet("API Development")]
+        public IActionResult APIDevelopment()
         {
             return View();
         }

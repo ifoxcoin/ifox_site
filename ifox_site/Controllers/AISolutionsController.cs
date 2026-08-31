@@ -3,7 +3,7 @@
 namespace ifox_site.Controllers
 {
     [Route("AI Solutions")]
-    public class AI_Solution : Controller
+    public class AISolutionsController : Controller
     {
         [HttpGet("")]
         public IActionResult Index()
@@ -12,13 +12,13 @@ namespace ifox_site.Controllers
         }
 
         [HttpGet("AI Automation")]
-        public IActionResult AiAutomation()
+        public IActionResult AIAutomation()
         {
             return View();
         }
 
         [HttpGet("AI Chatbots")]
-        public IActionResult AiChatbots()
+        public IActionResult AIChatbots()
         {
             return View();
         }
@@ -30,7 +30,7 @@ namespace ifox_site.Controllers
         }
 
         [HttpGet("Document AI")]
-        public IActionResult DocumentAi()
+        public IActionResult DocumentAI()
         {
             return View();
         }
@@ -40,7 +40,7 @@ namespace ifox_site.Controllers
             return View();
         }
         [HttpGet("Open AI")]
-        public IActionResult OpenAi()
+        public IActionResult OpenAI()
         {
             return View();
         }

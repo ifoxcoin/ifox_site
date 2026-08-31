@@ -3,7 +3,7 @@
 namespace ifox_site.Controllers
 {
     [Route("Mobile Development")]
-    public class Mobile_Development : Controller
+    public class MobileDevelopmentController : Controller
     {
         [HttpGet("")]
         public IActionResult Index()
@@ -23,8 +23,8 @@ namespace ifox_site.Controllers
             return View();
         }
 
-        [HttpGet("Enterprise App")]
-        public IActionResult EnterpriseApp()
+        [HttpGet("Enterprise Apps")]
+        public IActionResult EnterpriseApps()
         {
             return View();
         }
@@ -33,13 +33,8 @@ namespace ifox_site.Controllers
         {
             return View();
         }
-        [HttpGet("React")]
-        public IActionResult React()
-        {
-            return View();
-        }
-        [HttpGet("LMS")]
-        public IActionResult LMS()
+        [HttpGet("React Native")]
+        public IActionResult ReactNative()
         {
             return View();
         }

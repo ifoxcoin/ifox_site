@@ -3,7 +3,7 @@
 namespace ifox_site.Controllers
 {
     [Route("Cloud Solutions")]
-    public class Cloud_Solutions : Controller
+    public class CloudSolutionsController : Controller
     {
         [HttpGet("")]
         public IActionResult Index()

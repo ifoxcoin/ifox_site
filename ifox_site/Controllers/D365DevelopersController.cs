@@ -3,7 +3,7 @@
 namespace ifox_site.Controllers
 {
     [Route("Hire D365 Developers")]
-    public class Hire_D365_Developers : Controller
+    public class D365DevelopersController : Controller
     {
         [HttpGet("")]
         public IActionResult Index()
@@ -12,13 +12,13 @@ namespace ifox_site.Controllers
         }
 
         [HttpGet("CRM Developers")]
-        public IActionResult CRMDevelopers()
+        public IActionResult DynamicsCRMDevelopers()
         {
             return View();
         }
 
         [HttpGet("D365 Puligin Developers")]
-        public IActionResult D365PluginDevelopers()
+        public IActionResult DynamicsPluginDevelopers()
         {
             return View();
         }
