@@ -12,6 +12,7 @@ namespace ifox_site.Controllers
         }
 
         [HttpGet("Android")]
+        
         public IActionResult Android()
         {
             return View();
