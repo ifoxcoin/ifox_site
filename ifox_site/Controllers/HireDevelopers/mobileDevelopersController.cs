@@ -2,31 +2,31 @@
 
 namespace ifox_site.Controllers
 {
-    [Route("Mobile Developer")]
-    public class MobileDeveloperController : Controller
+    [Route("Mobile-Developer")]
+    public class MobileDevelopersController : Controller
     {
-        [HttpGet("Android Developer")]
+        [HttpGet("Android-Developer")]
         public IActionResult AndroidDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/MobileDeveloper/AndroidDeveloper.cshtml");
         }
 
-        [HttpGet("Flutter Developer")]
+        [HttpGet("Flutter-Developer")]
         public IActionResult FlutterDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/MobileDeveloper/FlutterDeveloper.cshtml");
         }
 
-        [HttpGet("IOS Developer")]
+        [HttpGet("IOS-Developer")]
         public IActionResult IOSDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/MobileDeveloper/IOSDeveloper.cshtml");
         }
 
-        [HttpGet("React Native Developer")]
+        [HttpGet("React-Native-Developer")]
         public IActionResult ReactNativeDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/MobileDeveloper/ReactNativeDeveloper.cshtml");
         }
     }
 }

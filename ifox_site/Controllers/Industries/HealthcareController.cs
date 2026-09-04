@@ -26,7 +26,7 @@ namespace ifox_site.Controllers
         [HttpGet("Medical Data Management")]
         public IActionResult MedicalDataManagement()
         {
-            return View("~/Views/Industries/healthcare/HealthcareManagement.cshtml");
+            return View("~/Views/Industries/healthcare/MedicalDataManagement.cshtml");
         }
 
         [HttpGet("Patient Management")]

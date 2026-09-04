@@ -2,43 +2,43 @@
 
 namespace ifox_site.Controllers
 {
-    [Route("D365Developers")]
+    [Route("D365-Developers")]
     public class D365HireDeveloperController : Controller
     {
-        [HttpGet("CRM Developers")]
-        public IActionResult CRMDevelopers()
-        {
-            return View();
-        }
-
-        [HttpGet("D365 Consultant")]
-        public IActionResult D365Consultant()
-        {
-            return View();
-        }
-
-        [HttpGet("Dynamics CRM Developers")]
-        public IActionResult DynamicsCRMDevelopers()
-        {
-            return View();
-        }
-
-        [HttpGet("Dynamics Plugin Developers")]
-        public IActionResult DynamicsPluginDevelopers()
-        {
-            return View();
-        }
-
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View();
+            return View("~/Views/HireDevelopers/D365Developers/Index.cshtml");
         }
 
-        [HttpGet("Power Platform")]
+        [HttpGet("CRM-Developer")]
+        public IActionResult CRMDevelopers()
+        {
+            return View("~/Views/HireDevelopers/D365Developers/CRMDevelopers.cshtml");
+        }
+
+        [HttpGet("D365-Consultant")]
+        public IActionResult D365Consultant()
+        {
+            return View("~/Views/HireDevelopers/D365Developers/D365Consultant.cshtml");
+        }
+
+        [HttpGet("Dynamics-CRM-Developers")]
+        public IActionResult DynamicsCRMDevelopers()
+        {
+            return View("~/Views/HireDevelopers/D365Developers/DynamicsCRMDevelopers.cshtml");
+        }
+
+        [HttpGet("Dynamics-Plugin-Developers")]
+        public IActionResult DynamicsPluginDevelopers()
+        {
+            return View("~/Views/HireDevelopers/D365Developers/DynamicsPluginDevelopers.cshtml");
+        }
+
+        [HttpGet("Power-Platform")]
         public IActionResult PowerPlatform()
         {
-            return View();
+            return View("~/Views/HireDevelopers/D365Developers/PowerPlatform.cshtml");
         }
     }
 }
