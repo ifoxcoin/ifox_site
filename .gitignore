@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ifox_site/obj/Debug
+/.vs
+/ifox_site/bin/Debug
