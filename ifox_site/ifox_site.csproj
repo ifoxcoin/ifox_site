@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.0</TargetFramework>
 		<UserSecretsId>3fa32fd7-fe61-4f0d-bfd5-c50a81e3b8c2</UserSecretsId>
+		<OutputType>WinExe</OutputType>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -62,6 +63,7 @@
 		<None Include="wwwroot\assets\vendor\swiper\swiper-bundle.min.js" />
 		<None Include="wwwroot\assets\vendor\swiper\swiper-bundle.min.js.map" />
 		<None Include="wwwroot\assets\vendor\waypoints\noframework.waypoints.js" />
+		<None Include="wwwroot\google86d0d346ada77217.html" />
 	</ItemGroup>
 
 	<ItemGroup>
