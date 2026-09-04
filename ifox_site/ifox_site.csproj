@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="Views\HireDevelopers\NETDeveloper\ASPNETCoreDeveloper.cshtml" />
+		<None Include="Views\HireDevelopers\NETDeveloper\ASPNETDeveloper.cshtml" />
+		<None Include="Views\HireDevelopers\NETDeveloper\DotNetAPIDeveloper.cshtml" />
+		<None Include="Views\HireDevelopers\NETDeveloper\DotNetFullStackDeveloper.cshtml" />
 		<None Include="wwwroot\assets\img\azure.svg" />
 		<None Include="wwwroot\assets\img\hiredevelopers\hired.webp" />
 		<None Include="wwwroot\assets\js\main.js" />
