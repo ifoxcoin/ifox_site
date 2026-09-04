@@ -1,54 +1,44 @@
-﻿using ifox_site.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace ifox_site.Controllers
 {
     [Route("hire-developers")]
-    public class HireDevelopers : Controller
+    public class HireDevelopersController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HireDevelopers(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet("")]
-        public ActionResult Index()
+        public IActionResult Index()
         {
-            return View();
+            return View("~/Views/HireDevelopers/Index.cshtml");
         }
+
         [HttpGet("Hire-Dot-Net-Developer")]
-        public ActionResult HireDotNetDeveloper()
+        public IActionResult HireDotNetDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/HireDotNetDeveloper.cshtml");
         }
+
         [HttpGet("Dot-Net-Developer")]
-        public ActionResult DotNetDeveloper()
+        public IActionResult DotNetDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/DotNetDeveloper.cshtml");
         }
+
         [HttpGet("CRM-Developer")]
-        public ActionResult CRMDeveloper()
+        public IActionResult CRMDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/CRMDeveloper.cshtml");
         }
+
         [HttpGet("PHP-Developer")]
-        public ActionResult PHPDeveloper()
+        public IActionResult PHPDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/PHPDeveloper.cshtml");
         }
+
         [HttpGet("Mobile-App-Developer")]
-        public ActionResult MobileAppDeveloper()
+        public IActionResult MobileAppDeveloper()
         {
-            return View();
+            return View("~/Views/HireDevelopers/MobileAppDeveloper.cshtml");
         }
     }
 }
