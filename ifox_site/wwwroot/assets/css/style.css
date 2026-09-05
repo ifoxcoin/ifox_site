@@ -79,19 +79,22 @@ h6 {
     visibility: hidden;
     opacity: 0;
     right: 15px;
-    bottom: 15px;
+    bottom: 50px;
     z-index: 996;
     background: #47b2e4;
     width: 40px;
     height: 40px;
     border-radius: 50px;
     transition: all 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
     .back-to-top i {
         font-size: 24px;
         color: #fff;
-        line-height: 0;
+        line-height: 1;
     }
 
     .back-to-top:hover {
@@ -2479,30 +2482,27 @@ Active list item style
 /*--------------------------------------------------------------
 # IFOX CHATBOT
 --------------------------------------------------------------*/
-
 /* ================= CHATBOT BUTTON ================= */
-
 
 #chatbot-toggle {
     position: fixed;
-    bottom: 70px;
-    right: 10px;
-    width: 180px;
-    height: 180px;
+    right: 70px;
+    bottom: 150px;
+    width: 110px;
+    height: 110px;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 100001;
     transition: right 0.5s ease;
     animation: chatbotFloat 4s ease-in-out infinite;
 }
 
-    /* Image inside button */
+    /* ONLY THE IMAGE IS CLICKABLE */
     #chatbot-toggle img {
         width: 180px;
         height: 180px;
         object-fit: contain;
         pointer-events: none;
     }
-
 @keyframes chatbotFloat {
     0% {
         transform: translateY(0px);
@@ -2523,8 +2523,8 @@ Active list item style
 /* Chat Window */
 #chatbot-box {
     position: fixed;
-    bottom: 185px;
-    right: 35px;
+    bottom: 200px;
+    right: 60px;
     width: 340px;
     height: 430px;
     background: #ffffff;
@@ -2533,7 +2533,7 @@ Active list item style
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-    z-index: 99999;
+    z-index: 100000;
     animation: slideUp 0.4s ease;
 }
 
@@ -3575,6 +3575,48 @@ Active list item style
     #header .ifox-service-grid > a small {
         font-size: 11px !important;
     }
+        /* Chatbot - Mobile Responsive */
+    #chatbot-toggle {
+        right: 50px !important;
+        bottom: 120px !important;
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    #chatbot-toggle img {
+        width: 150px !important;
+        height: 120px !important;
+    }
+
+    #chatbot-box {
+        width: calc(100% - 20px) !important;
+        max-width: 360px !important;
+        height: calc(100vh - 120px) !important;
+        max-height: 500px !important;
+        right: 10px !important;
+        bottom: 180px !important;
+        border-radius: 16px !important;
+    }
+
+    #chatbot-messages {
+        min-height: 0 !important;
+        overflow-y: auto !important;
+    }
+
+    .bot-msg,
+    .user-msg {
+        max-width: 85% !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+    }
+
+    .chat-input-area {
+        flex-shrink: 0 !important;
+    }
+
+    #chatbot-input {
+        min-width: 0 !important;
+    }
 }
 
 /* =========================================================
@@ -3709,7 +3751,7 @@ h1 {
     box-shadow: 0 12px 30px rgba(0,0,0,.08);
     transition: .35s;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
 }
 
     .card:before {
@@ -3789,3 +3831,4 @@ h1 {
         font-size: 30px
     }
 }
+
