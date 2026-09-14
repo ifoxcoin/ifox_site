@@ -14,7 +14,7 @@ namespace ifox_site.Controllers
         [HttpGet("Healthcare CRM")]
         public IActionResult HealthcareCRM()
         {
-            return View("~/Views/Industries/healthcare/AppointmentScheduling.cshtml");
+            return View("~/Views/Industries/healthcare/HealthcareCRM.cshtml");
         }
 
         [HttpGet("Healthcare Management")]
