@@ -94,18 +94,36 @@
     /**
      * Back to top button
      */
-    let backtotop = select('.back-to-top')
-    if (backtotop) {
-        const toggleBacktotop = () => {
-            if (window.scrollY > 100) {
-                backtotop.classList.add('active')
-            } else {
-                backtotop.classList.remove('active')
-            }
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const backToTop = document.querySelector(".back-to-top");
+
+        if (!backToTop) {
+            console.log("Back-to-top button not found");
+            return;
         }
-        window.addEventListener('load', toggleBacktotop)
-        onscroll(document, toggleBacktotop)
-    }
+
+        // Show / hide button while scrolling
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) {
+                backToTop.classList.add("active");
+            } else {
+                backToTop.classList.remove("active");
+            }
+        });
+
+        // Scroll to top when clicked
+        backToTop.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
+        });
+
+    });
 
     /**
      * Mobile nav toggle
@@ -299,7 +317,6 @@
         const buttons = document.getElementById("chatbot-buttons");
 
         let isOpen = false;
-
         /* OPEN CHAT */
         toggleBtn.onclick = () => {
             chatBox.style.display = isOpen ? "none" : "flex";
@@ -311,7 +328,6 @@
                 step = "askEmail";
             }
         }
-
         closeBtn.onclick = () => chatBox.style.display = "none";
 
         /* ================= BACK BUTTON (REAL HISTORY) ================= */
