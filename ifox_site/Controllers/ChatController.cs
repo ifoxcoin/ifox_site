@@ -52,6 +52,11 @@ public class ChatController : Controller
     [HttpPost("send-transcript")]
     public async Task<IActionResult> SendTranscript([FromBody] ChatLogModel model)
     {
+        if (model == null || string.IsNullOrWhiteSpace(model.UserEmail))
+        {
+            return BadRequest("A user email is required.");
+        }
+
         await SendEmail(model);
         return Ok();
     }
@@ -61,6 +66,12 @@ public class ChatController : Controller
     ====================================================== */
     private async Task SendEmail(ChatLogModel chat)
     {
+        var password = _config["EmailSettings:AppPassword"];
+        if (string.IsNullOrWhiteSpace(password))
+        {
+            throw new InvalidOperationException("Chat email delivery is not configured.");
+        }
+
         var body = new StringBuilder();
 
         body.AppendLine($"User Email: {chat.UserEmail}");

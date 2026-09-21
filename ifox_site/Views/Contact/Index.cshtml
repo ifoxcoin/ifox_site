@@ -1,4 +1,5 @@
 ﻿@model ifox_site.Models.SendMailViewModel
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
 @{
     ViewData["Title"] = "Contact IFOX Solutions | IT Consulting & Dynamics 365 Experts";
 }
@@ -98,7 +99,7 @@
                         <label asp-for="@Model.Message">Message</label>
                         <textarea class="form-control" asp-for="@Model.Message" name="message" id="message" rows="10" required></textarea>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3" id="recaptcha-widget"></div>
+                    <div class="g-recaptcha" data-sitekey="@(Configuration["Recaptcha:SiteKey"] ?? string.Empty)" id="recaptcha-widget"></div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
                         <div class="error-message" id="formErrorMessage" style="display:none;"></div>
@@ -187,3 +188,4 @@
     }
 
 </script>
+

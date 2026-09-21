@@ -328,7 +328,17 @@
                 step = "askEmail";
             }
         }
-        closeBtn.onclick = () => chatBox.style.display = "none";
+        closeBtn.onclick = () => {
+            chatBox.style.display = "none";
+            isOpen = false;
+        };
+
+        document.addEventListener("click", function (event) {
+            if (isOpen && !chatBox.contains(event.target) && !toggleBtn.contains(event.target)) {
+                chatBox.style.display = "none";
+                isOpen = false;
+            }
+        });
 
         /* ================= BACK BUTTON (REAL HISTORY) ================= */
         backBtn.onclick = () => {
@@ -401,9 +411,6 @@
                 startTracking = true;
                 transcriptSent = false;
                 chatHistory = [];
-
-                // notify
-                notifyWhatsApp("🔥 New chatbot visitor: " + userEmail);
 
                 // ⭐ ADD THIS MESSAGE HERE
                 bot("Thanks 😊\nHow can we help you today?");
@@ -831,25 +838,6 @@
             contactCTA();
         }
 
-
-        /* ================= WHATSAPP ALERT ================= */
-
-        function notifyWhatsApp(message) {
-
-            fetch("https://carisa-triangular-unpreventively.ngrok-free.dev/notify", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: userEmail,
-                    message: message
-                })
-            })
-                .then(res => res.text())
-                .then(data => console.log("WhatsApp Notified"))
-                .catch(err => console.error("Error sending WhatsApp:", err));
-        }
 
         /*Hover Effect*/
 

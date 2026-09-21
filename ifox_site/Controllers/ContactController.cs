@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,12 +31,14 @@ namespace ifox_site.Controllers
 
         private ICompositeViewEngine _viewEngine;
         private IServiceProvider _serviceProvider;
+        private readonly IConfiguration _configuration;
 
-        public ContactController(ICompositeViewEngine viewEngine, ILogger<ContactController> logger, IServiceProvider serviceProvider)
+        public ContactController(ICompositeViewEngine viewEngine, ILogger<ContactController> logger, IServiceProvider serviceProvider, IConfiguration configuration)
         {
             _viewEngine = viewEngine;
             _logger = logger;
             _serviceProvider = serviceProvider;
+            _configuration = configuration;
         }
 
         [HttpGet("email-message")]
@@ -76,8 +79,9 @@ namespace ifox_site.Controllers
 
                     catch (Exception ex)
                     {
-                        ViewBag.Message = ex.Message.ToString();
-                        return "Not Sent : " + ex.Message;
+                        _logger.LogError(ex, "Contact form email delivery failed.");
+                        ViewBag.Message = "Unable to send your message right now.";
+                        return "Not Sent : Unable to send your message right now.";
                     }
 
 
@@ -103,14 +107,20 @@ namespace ifox_site.Controllers
 
         private async Task<bool> VerifyCaptcha(string captchaResponse)
         {
-            var secretKey = "6Lcm938qAAAAANLYOZWtf5LF4ACzDyfQLoghfpf3";
-            var httpClient = new HttpClient();
+            var secretKey = _configuration["Recaptcha:SecretKey"];
+            if (string.IsNullOrWhiteSpace(secretKey))
+            {
+                _logger.LogError("reCAPTCHA secret key is not configured.");
+                return false;
+            }
+
+            using var httpClient = new HttpClient();
             var response = await httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={secretKey}&response={captchaResponse}");
             if (response.IsSuccessStatusCode)
             {
                 var jsonResponse = await response.Content.ReadAsStringAsync();
                 var captchaResult = JsonConvert.DeserializeObject<CaptchaResponse>(jsonResponse);
-                return true;
+                return captchaResult?.Success == true;
             }
             return false;
         }
@@ -139,12 +149,14 @@ namespace ifox_site.Controllers
             mail.IsBodyHtml = true;
             mail.Body = content;
 
-            SmtpClient smtpClient = new SmtpClient("webmail.ifox.co.in");
+            SmtpClient smtpClient = new SmtpClient(_configuration["ContactEmailSettings:SmtpServer"]);
             smtpClient.UseDefaultCredentials = false;
-            NetworkCredential networkCredential = new NetworkCredential("Sales@ifox.co.in", "ifox@admin@7629");
+            NetworkCredential networkCredential = new NetworkCredential(
+                _configuration["ContactEmailSettings:Username"],
+                _configuration["ContactEmailSettings:Password"]);
             smtpClient.Credentials = networkCredential;
-            smtpClient.Port = 25;
-            smtpClient.EnableSsl = false;
+            smtpClient.Port = int.Parse(_configuration["ContactEmailSettings:Port"] ?? "25");
+            smtpClient.EnableSsl = bool.Parse(_configuration["ContactEmailSettings:EnableSsl"] ?? "false");
             smtpClient.Send(mail);
             Thread.Sleep(4000);
             ViewBag.Message = "Mail Send";
@@ -164,13 +176,15 @@ namespace ifox_site.Controllers
             string content = RenderViewToString("Thankyou", null);
             mail.Body = content;
 
-            SmtpClient smtpClient = new SmtpClient("webmail.ifox.co.in");
+            SmtpClient smtpClient = new SmtpClient(_configuration["ContactEmailSettings:SmtpServer"]);
             smtpClient.UseDefaultCredentials = false;
-            NetworkCredential networkCredential = new NetworkCredential("info@ifox.co.in", "ifox@admin@7629");
+            NetworkCredential networkCredential = new NetworkCredential(
+                _configuration["ContactEmailSettings:Username"],
+                _configuration["ContactEmailSettings:Password"]);
 
             smtpClient.Credentials = networkCredential;
-            smtpClient.Port = 25;
-            smtpClient.EnableSsl = false;
+            smtpClient.Port = int.Parse(_configuration["ContactEmailSettings:Port"] ?? "25");
+            smtpClient.EnableSsl = bool.Parse(_configuration["ContactEmailSettings:EnableSsl"] ?? "false");
             smtpClient.Send(mail);
             Thread.Sleep(4000);
 
