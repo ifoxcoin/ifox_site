@@ -151,8 +151,15 @@
 <script>
     function validateFile() {
         var fileInput = document.getElementById('Attachments');
-        var file = fileInput.files[0];
         var errorMessage = document.getElementById('fileErrorMessage');
+
+        // If no file is selected, don't block submission on attachment validation.
+        if (!fileInput.files || fileInput.files.length === 0) {
+            errorMessage.style.display = 'none';
+            return true;
+        }
+
+        var file = fileInput.files[0];
 
         // Reset error messages
         errorMessage.style.display = 'none';

@@ -14,6 +14,158 @@ body {
     color: #444444;
 }
 
+/* Premium styling for the remaining mega-menus only. */
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu {
+    transition: opacity .26s cubic-bezier(.2, .8, .2, 1), transform .26s cubic-bezier(.2, .8, .2, 1), visibility .26s ease, filter .26s ease !important;
+    filter: blur(2px);
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu).services-open > .ifox-mega-menu {
+    filter: blur(0);
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+    background: rgba(5, 18, 32, .95) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(93, 228, 255, .18) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45), 0 0 30px rgba(93, 228, 255, .08), 0 0 45px rgba(168, 85, 247, .06) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar {
+    position: relative !important;
+    background: rgba(5, 11, 22, .82) !important;
+    border-right: 0 !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar::after {
+    position: absolute !important;
+    top: 18px !important;
+    right: 0 !important;
+    bottom: 18px !important;
+    width: 1px !important;
+    background: linear-gradient(to bottom, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    content: "" !important;
+    pointer-events: none !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category {
+    background: transparent !important;
+    color: #f4f8fb !important;
+    transition: background .24s ease, transform .24s ease, color .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .11), rgba(168, 85, 247, .06), transparent) !important;
+    transform: translateX(3px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category.active {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .15), rgba(168, 85, 247, .06), transparent) !important;
+    border-left: 2px solid #5de4ff !important;
+    padding-left: 26px !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-icon {
+    background: rgba(5, 21, 36, .78) !important;
+    border: 1px solid rgba(93, 228, 255, .28) !important;
+    color: #5de4ff !important;
+    box-shadow: 0 0 12px rgba(93, 228, 255, .15) !important;
+    transition: color .24s ease, border-color .24s ease, box-shadow .24s ease, transform .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover .ifox-category-icon {
+    border-color: rgba(192, 132, 252, .68) !important;
+    color: #c084fc !important;
+    box-shadow: 0 0 14px rgba(168, 85, 247, .3) !important;
+    transform: translateX(1px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category > i {
+    color: #5de4ff !important;
+    transition: color .24s ease, transform .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover > i {
+    color: #c084fc !important;
+    transform: translateX(4px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content strong,
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header span {
+    color: #f4f8fb !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content small,
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header p,
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a small {
+    color: #91a5b7 !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-content {
+    background: rgba(8, 21, 36, .82) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header {
+    border-bottom-color: rgba(93, 228, 255, .14) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a {
+    background: transparent !important;
+    transition: transform .25s ease, background .25s ease, color .25s ease, text-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover {
+    background: rgba(93, 228, 255, .06) !important;
+    box-shadow: none !important;
+    transform: translateX(4px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a > i {
+    color: #5de4ff !important;
+    background: rgba(5, 21, 36, .7) !important;
+    border: 1px solid rgba(93, 228, 255, .22) !important;
+    box-shadow: 0 0 10px rgba(93, 228, 255, .12) !important;
+    transition: color .25s ease, border-color .25s ease, box-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover > i {
+    color: #c084fc !important;
+    border-color: rgba(192, 132, 252, .55) !important;
+    box-shadow: 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a strong {
+    color: #f4f8fb !important;
+    transition: color .25s ease, text-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover strong {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(168, 85, 247, .65), 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+@media (max-width: 991px) {
+    #header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+        border-radius: 0 0 12px 12px !important;
+    }
+
+    #header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar::after {
+        top: auto !important;
+        right: 18px !important;
+        bottom: 0 !important;
+        left: 18px !important;
+        width: auto !important;
+        height: 1px !important;
+        background: linear-gradient(to right, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    }
+
+    #header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category.active {
+        padding-left: 16px !important;
+    }
+}
+
 a {
     color: #47b2e4;
     text-decoration: none;
@@ -44,7 +196,7 @@ h6 {
     bottom: 0;
     z-index: 9999;
     overflow: hidden;
-    background: #37517e;
+    background: radial-gradient(circle at 50% 45%, #0a2c49 0%, #031526 45%, #020b17 100%);
 }
 
     #preloader:before {
@@ -52,9 +204,9 @@ h6 {
         position: fixed;
         top: calc(50% - 30px);
         left: calc(50% - 30px);
-        border: 6px solid #37517e;
-        border-top-color: #fff;
-        border-bottom-color: #fff;
+        border: 6px solid rgba(99, 221, 255, .2);
+        border-top-color: #63ddff;
+        border-bottom-color: #ff6b27;
         border-radius: 50%;
         width: 60px;
         height: 60px;
@@ -408,11 +560,11 @@ h6 {
     #hero h2 {
         color: rgba(255, 255, 255, 0.6);
         margin-bottom: 50px;
-        font-size: 24px;
+        font-size: 30px;
     }
 
     #hero .btn-get-started {
-        font-family: "Jost", sans-serif;
+        font-family: "Manrope", sans-serif;
         font-weight: 500;
         font-size: 16px;
         letter-spacing: 1px;
@@ -482,7 +634,7 @@ h6 {
 
     #hero h2 {
         font-size: 18px;
-        line-height: 24px;
+        line-height: 30px;
         margin-bottom: 30px;
     }
 
@@ -3022,8 +3174,15 @@ Active list item style
         transition: opacity .18s ease, transform .18s ease, visibility .18s ease !important;
     }
 
+    /* A closed menu must not exist in the hit-test tree. This prevents its
+       positioned navigation links from intercepting page content clicks. */
+    #header .ifox-has-mega:not(.services-open) > .ifox-mega-menu {
+        display: none !important;
+    }
+
     /* Open */
     #header .ifox-has-mega.services-open > .ifox-mega-menu {
+        display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
@@ -3829,6 +3988,1140 @@ h1 {
 
     h1 {
         font-size: 30px
+    }
+}
+
+/* Homepage dark-blue theme for the Services mega menu. */
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+    background: linear-gradient(135deg, #020b17 0%, #03182a 58%, #062642 100%) !important;
+    border-color: rgba(93, 228, 255, .16) !important;
+    box-shadow: 0 25px 70px rgba(0, 5, 14, .55) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar {
+    background: #03101f !important;
+    border-right-color: rgba(93, 228, 255, .14) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category {
+    background: #03101f !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover {
+    background: #082b49 !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category.active {
+    background: #0e3a62 !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-icon,
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a > i {
+    background: rgba(32, 157, 216, .16) !important;
+    color: #5de4ff !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-content {
+    background: linear-gradient(135deg, #03182a 0%, #062642 100%) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header {
+    border-bottom-color: rgba(125, 210, 239, .18) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header p,
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content small,
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a small {
+    color: #8bdcff !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category > i {
+    color: #70d7ff !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover {
+    background: rgba(38, 157, 214, .18) !important;
+    box-shadow: 0 8px 20px rgba(0, 5, 14, .2) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header span,
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content strong,
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a strong {
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+/* Compact hover dropdown for the Services navigation item. */
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    right: auto !important;
+    width: 300px !important;
+    height: auto !important;
+    max-height: calc(100vh - var(--ifox-header-height) - 24px) !important;
+    transform: translate(-50%, 12px) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu).services-open > .ifox-mega-menu {
+    transform: translate(-50%, 0) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+    display: block !important;
+    height: auto !important;
+    max-height: inherit !important;
+    overflow: visible !important;
+    border-radius: 0 0 14px 14px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    max-height: inherit !important;
+    padding: 8px 0 !important;
+    border-right: 0 !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category {
+    min-height: 58px !important;
+    padding: 9px 18px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-icon {
+    width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    margin-right: 12px !important;
+    border-radius: 9px !important;
+    font-size: 17px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content strong {
+    font-size: 15px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content small {
+    font-size: 12px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-content {
+    position: absolute !important;
+    top: 0 !important;
+    left: 100% !important;
+    display: block !important;
+    width: 390px !important;
+    height: auto !important;
+    max-height: calc(100vh - var(--ifox-header-height) - 24px) !important;
+    overflow: visible !important;
+    background: #03182a !important;
+    border: 1px solid rgba(93, 228, 255, .16) !important;
+    border-radius: 0 14px 14px 14px !important;
+    box-shadow: 0 25px 70px rgba(0, 5, 14, .55) !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-panel {
+    position: relative !important;
+    inset: auto !important;
+    display: none !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: inherit !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: none !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-panel.active {
+    display: block !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header {
+    display: none !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a {
+    min-height: 48px !important;
+    padding: 8px 10px !important;
+    border-radius: 9px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a > i {
+    width: 34px !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    margin-right: 11px !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a strong {
+    font-size: 14px !important;
+}
+
+#header :is(.ifox-services-menu, .ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a small {
+    font-size: 11px !important;
+}
+
+#header .ifox-nav-link:hover,
+#header .ifox-has-mega.services-open > .ifox-nav-link {
+    color: #8bdcff !important;
+}
+
+#header .ifox-nav-link:hover i,
+#header .ifox-has-mega.services-open > .ifox-nav-link i {
+    color: #8bdcff !important;
+}
+
+body:has(#hero.ifox-home-page) #header .ifox-has-mega.services-open > .ifox-nav-link,
+body:has(#hero.ifox-home-page) #header .ifox-has-mega.services-open > .ifox-nav-link i {
+    color: #8bdcff !important;
+}
+
+body:has(#hero.ifox-home-page) #header .ifox-nav-link {
+    color: #ffffff !important;
+}
+
+body:has(#hero.ifox-home-page) #header .ifox-navigation .ifox-nav-link {
+    color: #ffffff !important;
+}
+
+body:has(#hero.ifox-home-page) #header .ifox-nav-link:hover,
+body:has(#hero.ifox-home-page) #header .ifox-has-mega.services-open > .ifox-nav-link,
+body:has(#hero.ifox-home-page) #header .ifox-has-mega.services-open > .ifox-nav-link i {
+    color: #8bdcff !important;
+}
+
+body:has(#hero.ifox-home-page) #header .ifox-navigation .ifox-nav-link:hover,
+body:has(#hero.ifox-home-page) #header .ifox-navigation .ifox-has-mega.services-open > .ifox-nav-link,
+body:has(#hero.ifox-home-page) #header .ifox-navigation .ifox-has-mega.services-open > .ifox-nav-link i {
+    color: #8bdcff !important;
+}
+
+/* Homepage dark theme for the first service page preview. */
+body.ifox-service-page {
+    color: #d9efff !important;
+    background: #020b17 !important;
+}
+
+body.ifox-service-page #main {
+    background: #020b17 !important;
+}
+
+body.ifox-service-page #main > section:not(#call-to-action) {
+    color: #d9efff !important;
+    background: #020b17 !important;
+}
+
+body.ifox-service-page #main > section:first-child {
+    background-image: linear-gradient(110deg, rgba(2, 11, 23, .96), rgba(3, 24, 42, .7)), url('/assets/img/hiredevelopers/her2.webp') !important;
+    background-color: #020b17 !important;
+    background-blend-mode: normal !important;
+}
+
+body.ifox-service-page #main h1,
+body.ifox-service-page #main h3 {
+    color: #ff6b27 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+body.ifox-service-page #main p,
+body.ifox-service-page #main li {
+    color: #b7d5e6 !important;
+}
+
+body.ifox-service-page #main .color,
+body.ifox-service-page #main a {
+    color: #63ddff !important;
+}
+
+body.ifox-service-page #main .Imgborder {
+    border-color: rgba(99, 221, 255, .3) !important;
+}
+
+body.ifox-service-page #main > #call-to-action {
+    background: #020b17 !important;
+    color: #8bdcff !important;
+}
+
+body.ifox-service-page #main > #call-to-action::before {
+    background: linear-gradient(90deg, rgba(2, 11, 23, .98), rgba(3, 24, 42, .9)) !important;
+}
+
+body.ifox-service-page #main > #call-to-action img {
+    display: none !important;
+}
+
+body.ifox-service-page #main > #call-to-action h3,
+body.ifox-service-page #main > #call-to-action p {
+    color: #8bdcff !important;
+}
+
+body.ifox-service-page #main > #call-to-action .cta-btn {
+    color: #8bdcff !important;
+    border-color: #8bdcff !important;
+    background: transparent !important;
+}
+
+body.ifox-service-page #footer,
+body.ifox-service-page #footer .footer-newsletter,
+body.ifox-service-page #footer .footer-top,
+body.ifox-service-page #footer .footer-bottom {
+    color: #8bdcff !important;
+    background: #061b2e !important;
+}
+
+body.ifox-service-page #footer .footer-newsletter h4,
+body.ifox-service-page #footer .footer-top h4,
+body.ifox-service-page #footer .footer-contact h1,
+body.ifox-service-page #footer .footer-contact strong {
+    color: #ff6b27 !important;
+}
+
+body.ifox-service-page #footer .footer-newsletter p,
+body.ifox-service-page #footer .footer-top p,
+body.ifox-service-page #footer .footer-contact,
+body.ifox-service-page #footer .footer-bottom,
+body.ifox-service-page #footer .footer-bottom a,
+body.ifox-service-page #footer .footer-links ul a {
+    color: #7ec8e8 !important;
+}
+
+body.ifox-service-page #footer .footer-links ul i {
+    color: #ff6b27 !important;
+}
+
+body.ifox-service-page #footer .footer-newsletter form {
+    background: #ffffff !important;
+    border-color: rgba(126, 200, 232, .45) !important;
+}
+
+body.ifox-service-page #footer .footer-newsletter form input[type=email] {
+    color: #174a6a !important;
+    background: #ffffff !important;
+}
+
+body.ifox-service-page #footer .footer-newsletter form input[type=submit] {
+    color: #ffffff !important;
+    background: #45afe0 !important;
+}
+
+body.ifox-service-detail-page #main > section:first-child,
+body.ifox-dropdown-detail-page #main > section:first-child {
+    position: relative;
+    isolation: isolate;
+    box-sizing: border-box;
+    margin: 18px 12px 64px !important;
+    min-height: 222px;
+    border: 1px solid rgba(99, 221, 255, .78) !important;
+    border-top: 1px solid rgba(99, 221, 255, .78) !important;
+    border-radius: 4px;
+    overflow: hidden;
+    background: linear-gradient(110deg, #031426 0%, #0a3150 52%, #87d8f3 100%) !important;
+    box-shadow: 0 0 0 1px rgba(194, 49, 255, .42), 0 -10px 24px rgba(154, 0, 255, .62), 0 18px 45px rgba(154, 0, 255, .58), 0 0 58px rgba(154, 0, 255, .3);
+}
+
+body.ifox-service-detail-page #main,
+body.ifox-dropdown-detail-page #main {
+    padding-top: 82px !important;
+}
+
+body.ifox-service-detail-page #main > section:first-child::before,
+body.ifox-dropdown-detail-page #main > section:first-child::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 18px;
+    bottom: 18px;
+    left: -1px;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #ff6b27, #63ddff);
+    box-shadow: 0 0 18px rgba(255, 107, 39, .45);
+}
+
+body.ifox-service-detail-page #main > section:first-child::after,
+body.ifox-dropdown-detail-page #main > section:first-child::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-radius: 3px 3px 0 0;
+    background: linear-gradient(90deg, #2bbcff 0%, #63ddff 50%, #b8efff 100%);
+    box-shadow: 0 0 6px rgba(99, 221, 255, .65);
+    pointer-events: none;
+}
+
+body.ifox-service-detail-page #main > section:first-child .container,
+body.ifox-dropdown-detail-page #main > section:first-child .container {
+    position: relative;
+    z-index: 1;
+}
+
+body.ifox-service-detail-page #main > section:first-child h1,
+body.ifox-dropdown-detail-page #main > section:first-child h1 {
+    max-width: 760px;
+    margin-left: 0 !important;
+    margin-bottom: 10px;
+    padding: 18px 24px 8px !important;
+    border-left: 3px solid #ff6b27;
+    background: linear-gradient(90deg, rgba(255, 107, 39, .12), rgba(255, 107, 39, 0));
+    color: #ff6b27 !important;
+    letter-spacing: .02em;
+    text-shadow: 0 0 18px rgba(255, 107, 39, .18);
+}
+
+body.ifox-service-detail-page #main > section:first-child p,
+body.ifox-dropdown-detail-page #main > section:first-child p {
+    display: block;
+    box-sizing: border-box;
+    width: min(760px, 100%);
+    margin: 0 !important;
+    padding: 7px 14px 7px 24px !important;
+    border: 1px solid rgba(99, 221, 255, .32);
+    border-radius: 3px;
+    background: rgba(99, 221, 255, .07);
+    color: #9ee7ff !important;
+    letter-spacing: .03em;
+    text-align: left !important;
+}
+
+/* Use the homepage navigation panel theme consistently across every page. */
+#header {
+    height: 82px !important;
+    background: rgba(5, 11, 22, .92) !important;
+    border-bottom: 1px solid rgba(125, 210, 239, .18) !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .18);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+#header > .container,
+#header > .container > h1,
+#header > .container > h1.me-auto,
+#header .ifox-navigation,
+#header .ifox-nav-list {
+    height: 82px !important;
+}
+
+#header > .container {
+    max-width: 1380px !important;
+    padding: 0 32px !important;
+}
+
+#header .ifox-nav-link,
+#header .ifox-nav-link:focus {
+    padding: 0 8px !important;
+    color: #ffffff !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    letter-spacing: .01em;
+    transition: color .2s ease, background-color .2s ease !important;
+}
+
+#header .ifox-nav-link:hover,
+#header .ifox-nav-link:focus-visible,
+#header .ifox-has-mega.services-open > .ifox-nav-link,
+#header .ifox-has-mega.services-open > .ifox-nav-link i {
+    color: #5de4ff !important;
+    text-shadow: 0 0 8px rgba(154, 0, 255, 1), 0 0 22px rgba(154, 0, 255, .98), 0 0 42px rgba(154, 0, 255, .86), 0 0 68px rgba(154, 0, 255, .68), 0 0 92px rgba(154, 0, 255, .42) !important;
+}
+
+/* Premium styling for the Services mega-menu only. */
+#header .ifox-services-menu > .ifox-mega-menu {
+    transition: opacity .26s cubic-bezier(.2, .8, .2, 1), transform .26s cubic-bezier(.2, .8, .2, 1), visibility .26s ease, filter .26s ease !important;
+    filter: blur(2px);
+}
+
+#header .ifox-services-menu.services-open > .ifox-mega-menu {
+    filter: blur(0);
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-inner {
+    background: rgba(5, 18, 32, .95) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(93, 228, 255, .18) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45), 0 0 30px rgba(93, 228, 255, .08), 0 0 45px rgba(168, 85, 247, .06) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-sidebar {
+    position: relative !important;
+    background: rgba(5, 11, 22, .82) !important;
+    border-right: 0 !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-sidebar::after {
+    position: absolute !important;
+    top: 18px !important;
+    right: 0 !important;
+    bottom: 18px !important;
+    width: 1px !important;
+    background: linear-gradient(to bottom, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    content: "" !important;
+    pointer-events: none !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-category {
+    min-height: 86px !important;
+    background: transparent !important;
+    color: #f4f8fb !important;
+    transition: background .24s ease, transform .24s ease, color .24s ease !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-category:hover {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .11), rgba(168, 85, 247, .06), transparent) !important;
+    transform: translateX(3px) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-category.active {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .15), rgba(168, 85, 247, .06), transparent) !important;
+    border-left: 2px solid #5de4ff !important;
+    padding-left: 26px !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-category-icon {
+    background: rgba(5, 21, 36, .78) !important;
+    border: 1px solid rgba(93, 228, 255, .28) !important;
+    color: #5de4ff !important;
+    box-shadow: 0 0 12px rgba(93, 228, 255, .15) !important;
+    transition: color .24s ease, border-color .24s ease, box-shadow .24s ease, transform .24s ease !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-category:hover .ifox-category-icon {
+    border-color: rgba(192, 132, 252, .68) !important;
+    color: #c084fc !important;
+    box-shadow: 0 0 14px rgba(168, 85, 247, .3) !important;
+    transform: translateX(1px) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-category > i {
+    color: #5de4ff !important;
+    transition: color .24s ease, transform .24s ease !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-category:hover > i {
+    color: #c084fc !important;
+    transform: translateX(4px) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-category-content strong {
+    color: #f4f8fb !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-category-content small {
+    color: #91a5b7 !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-content {
+    background: rgba(8, 21, 36, .82) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-panel {
+    background: transparent !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-panel-header {
+    border-bottom-color: rgba(93, 228, 255, .14) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-panel-header span {
+    color: #f4f8fb !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-panel-header p {
+    color: #91a5b7 !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-grid > a {
+    background: transparent !important;
+    transition: transform .25s ease, background .25s ease, color .25s ease, text-shadow .25s ease !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-grid > a:hover {
+    background: rgba(93, 228, 255, .06) !important;
+    box-shadow: none !important;
+    transform: translateX(4px) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-grid > a > i {
+    color: #5de4ff !important;
+    background: rgba(5, 21, 36, .7) !important;
+    border: 1px solid rgba(93, 228, 255, .22) !important;
+    box-shadow: 0 0 10px rgba(93, 228, 255, .12) !important;
+    transition: color .25s ease, border-color .25s ease, box-shadow .25s ease !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-grid > a:hover > i {
+    color: #c084fc !important;
+    border-color: rgba(192, 132, 252, .55) !important;
+    box-shadow: 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-grid > a strong {
+    color: #f4f8fb !important;
+    transition: color .25s ease, text-shadow .25s ease !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-grid > a:hover strong {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(168, 85, 247, .65), 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-service-grid > a small {
+    color: #91a5b7 !important;
+}
+
+@media (max-width: 991px) {
+    #header .ifox-services-menu > .ifox-mega-menu .ifox-mega-inner {
+        border-radius: 0 0 12px 12px !important;
+    }
+
+    #header .ifox-services-menu > .ifox-mega-menu .ifox-mega-sidebar::after {
+        top: auto !important;
+        right: 18px !important;
+        bottom: 0 !important;
+        left: 18px !important;
+        width: auto !important;
+        height: 1px !important;
+        background: linear-gradient(to right, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    }
+
+    #header .ifox-services-menu > .ifox-mega-menu .ifox-mega-category.active {
+        padding-left: 16px !important;
+    }
+}
+
+#header .ifox-services-menu > .ifox-nav-link {
+    height: var(--ifox-header-height) !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#header .ifox-services-menu > .ifox-nav-link .ifox-services-label {
+    transition: color .2s ease, text-shadow .2s ease !important;
+}
+
+#header .ifox-services-menu > .ifox-nav-link:hover .ifox-services-label,
+#header .ifox-services-menu > .ifox-nav-link:focus-visible .ifox-services-label,
+#header .ifox-services-menu.services-open > .ifox-nav-link .ifox-services-label {
+    color: #5de4ff !important;
+    text-shadow: 0 0 8px rgba(154, 0, 255, 1), 0 0 22px rgba(154, 0, 255, .98), 0 0 42px rgba(154, 0, 255, .86), 0 0 68px rgba(154, 0, 255, .68), 0 0 92px rgba(154, 0, 255, .42) !important;
+}
+
+#header .ifox-services-menu > .ifox-nav-link:hover i,
+#header .ifox-services-menu > .ifox-nav-link:focus-visible i,
+#header .ifox-services-menu.services-open > .ifox-nav-link i {
+    color: #5de4ff !important;
+    text-shadow: 0 0 8px rgba(93, 228, 255, .85) !important;
+}
+
+#header .ifox-get-started {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+}
+
+#header .ifox-nav-link.ifox-nav-cta {
+    color: #f4f8fb !important;
+    border-color: rgba(125, 210, 239, .28) !important;
+}
+
+/* Shared dark treatment for Testimonials, Blog, and Contact pages. */
+body.ifox-testimonials-page,
+body.ifox-blog-page,
+body.ifox-contact-page {
+    color: #d9efff !important;
+    background: #020b17 !important;
+}
+
+/* Keep the Contact form above an open navigation flyout. The flyout is
+   positioned from the fixed header and must never win hit testing over a
+   form field below it. */
+body.ifox-contact-page #contact .php-email-form {
+    position: relative !important;
+    z-index: 100011 !important;
+}
+
+body.ifox-testimonials-page #main,
+body.ifox-blog-page #main,
+body.ifox-contact-page #main {
+    padding-top: 82px !important;
+    background: #020b17 !important;
+}
+
+body.ifox-testimonials-page #main h1,
+body.ifox-testimonials-page #main h2,
+body.ifox-testimonials-page #main h3,
+body.ifox-blog-page #main h1,
+body.ifox-blog-page #main h2,
+body.ifox-blog-page #main h3,
+body.ifox-contact-page #main h1,
+body.ifox-contact-page #main h2,
+body.ifox-contact-page #main h3,
+body.ifox-contact-page #main h4,
+body.ifox-contact-page #main h5 {
+    color: #ff6b27 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+}
+
+body.ifox-testimonials-page #main p,
+body.ifox-testimonials-page #main span,
+body.ifox-blog-page #main p,
+body.ifox-blog-page #main span,
+body.ifox-contact-page #main p,
+body.ifox-contact-page #main label {
+    color: #b7d5e6 !important;
+}
+
+body.ifox-testimonials-page #main .wrap {
+    min-height: calc(100vh - 82px);
+    padding: 74px 6% 90px;
+    background: linear-gradient(135deg, #020b17 0%, #03182a 52%, #020b17 100%);
+}
+
+body.ifox-testimonials-page #main .tag {
+    color: #63ddff !important;
+    letter-spacing: .16em;
+}
+
+body.ifox-testimonials-page #main .intro {
+    max-width: 900px;
+}
+
+body.ifox-testimonials-page #main .stats h2,
+body.ifox-testimonials-page #main .stars,
+body.ifox-testimonials-page #main .quote {
+    color: #ff6b27 !important;
+}
+
+body.ifox-testimonials-page #main .stats p,
+body.ifox-testimonials-page #main .user span {
+    color: #8bdcff !important;
+}
+
+body.ifox-testimonials-page #main .card {
+    border: 1px solid rgba(99, 221, 255, .28) !important;
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(5, 30, 50, .96), rgba(2, 15, 29, .96)) !important;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .25), inset 0 0 20px rgba(99, 221, 255, .04);
+}
+
+body.ifox-blog-page #main .blog-hero-banner,
+body.ifox-blog-page #main .mag-section {
+    background-color: #020b17 !important;
+    color: #d9efff !important;
+}
+
+body.ifox-blog-page #main .blog-hero-banner {
+    padding-top: 82px;
+    background-image: linear-gradient(110deg, rgba(2, 11, 23, .96), rgba(3, 31, 53, .86)), url('/assets/img/hiredevelopers/her2.webp') !important;
+    background-blend-mode: normal;
+}
+
+body.ifox-blog-page #main .blog-content h1 {
+    color: #ff6b27 !important;
+}
+
+body.ifox-blog-page #main .mag-card {
+    overflow: hidden;
+    border: 1px solid rgba(99, 221, 255, .28) !important;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #06223a, #031426) !important;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .28);
+}
+
+body.ifox-blog-page #main .mag-body {
+    background: transparent !important;
+}
+
+body.ifox-blog-page #main .mag-date,
+body.ifox-blog-page #main .mag-link,
+body.ifox-blog-page #main .pagination-box a {
+    color: #63ddff !important;
+}
+
+body.ifox-blog-page #main .pagination-box .active-page,
+body.ifox-blog-page #main .pagination-box a:hover {
+    color: #020b17 !important;
+    background: #63ddff !important;
+}
+
+/* Premium treatment for Industries, Product Management, and Hire Developers.
+   Services remains intentionally excluded from this block. */
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu {
+    transition: opacity .26s cubic-bezier(.2, .8, .2, 1), transform .26s cubic-bezier(.2, .8, .2, 1), visibility .26s ease, filter .26s ease !important;
+    filter: blur(2px);
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu).services-open > .ifox-mega-menu {
+    filter: blur(0);
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+    background: rgba(5, 18, 32, .95) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(93, 228, 255, .18) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45), 0 0 30px rgba(93, 228, 255, .08), 0 0 45px rgba(168, 85, 247, .06) !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar {
+    position: relative !important;
+    background: rgba(5, 11, 22, .82) !important;
+    border-right: 0 !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar::after {
+    position: absolute !important;
+    top: 18px !important;
+    right: 0 !important;
+    bottom: 18px !important;
+    width: 1px !important;
+    background: linear-gradient(to bottom, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    content: "" !important;
+    pointer-events: none !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category {
+    min-height: 58px !important;
+    background: transparent !important;
+    color: #f4f8fb !important;
+    transition: background .24s ease, transform .24s ease, color .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .11), rgba(168, 85, 247, .06), transparent) !important;
+    transform: translateX(3px) !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category.active {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .15), rgba(168, 85, 247, .06), transparent) !important;
+    border-left: 2px solid #5de4ff !important;
+    padding-left: 16px !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-icon,
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a > i {
+    background: rgba(5, 21, 36, .78) !important;
+    border: 1px solid rgba(93, 228, 255, .28) !important;
+    color: #5de4ff !important;
+    box-shadow: 0 0 12px rgba(93, 228, 255, .15) !important;
+    transition: color .24s ease, border-color .24s ease, box-shadow .24s ease, transform .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover .ifox-category-icon,
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover > i {
+    border-color: rgba(192, 132, 252, .68) !important;
+    color: #c084fc !important;
+    box-shadow: 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category > i {
+    color: #5de4ff !important;
+    transition: color .24s ease, transform .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover > i {
+    color: #c084fc !important;
+    transform: translateX(4px) !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a {
+    background: transparent !important;
+    transition: transform .25s ease, background .25s ease, color .25s ease, text-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: translateX(4px) !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a strong {
+    color: #f4f8fb !important;
+    transition: color .25s ease, text-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover strong {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(168, 85, 247, .65), 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a small,
+#header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content small {
+    color: #91a5b7 !important;
+}
+
+@media (min-width: 992px) and (max-width: 1250px) {
+    #header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-content {
+        left: auto !important;
+        right: 100% !important;
+        border-radius: 14px 0 14px 14px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    #header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+        border-radius: 0 0 12px 12px !important;
+    }
+
+    #header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar::after {
+        top: auto !important;
+        right: 18px !important;
+        bottom: 0 !important;
+        left: 18px !important;
+        width: auto !important;
+        height: 1px !important;
+        background: linear-gradient(to right, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    }
+
+    #header :is(.ifox-industries-menu:not(.ifox-product-menu), .ifox-product-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category.active {
+        padding-left: 16px !important;
+    }
+}
+
+body.ifox-contact-page #main #contact {
+    min-height: calc(100vh - 82px);
+    padding: 70px 0 90px;
+    background: linear-gradient(135deg, #020b17 0%, #03182a 52%, #020b17 100%) !important;
+}
+
+body.ifox-contact-page #main .section-title h2 {
+    color: #ff6b27 !important;
+}
+
+body.ifox-contact-page #main .section-title h2::after {
+    background: #63ddff !important;
+}
+
+body.ifox-contact-page #main .info,
+body.ifox-contact-page #main .php-email-form {
+    border: 1px solid rgba(99, 221, 255, .28) !important;
+    border-radius: 8px;
+    background: linear-gradient(145deg, rgba(5, 30, 50, .96), rgba(2, 15, 29, .96)) !important;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .28);
+}
+
+body.ifox-contact-page #main .info a,
+body.ifox-contact-page #main .info i,
+body.ifox-contact-page #main .php-email-form button {
+    color: #63ddff !important;
+}
+
+body.ifox-contact-page #main .php-email-form input,
+body.ifox-contact-page #main .php-email-form textarea,
+body.ifox-contact-page #main .php-email-form select {
+    color: #d9efff !important;
+    background: rgba(2, 11, 23, .78) !important;
+    border-color: rgba(99, 221, 255, .3) !important;
+}
+
+body.ifox-contact-page #main .php-email-form input:focus,
+body.ifox-contact-page #main .php-email-form textarea:focus,
+body.ifox-contact-page #main .php-email-form select:focus {
+    border-color: #63ddff !important;
+    box-shadow: 0 0 0 .2rem rgba(99, 221, 255, .14) !important;
+}
+
+body.ifox-contact-page #main .php-email-form button {
+    border-color: #63ddff !important;
+    background: transparent !important;
+}
+
+body.ifox-contact-page #main .php-email-form button:hover {
+    color: #020b17 !important;
+    background: #63ddff !important;
+}
+
+@media (max-width: 767px) {
+    body.ifox-service-detail-page #main > section:first-child,
+    body.ifox-dropdown-detail-page #main > section:first-child {
+        margin: 14px 8px 44px !important;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child h1,
+    body.ifox-dropdown-detail-page #main > section:first-child h1 {
+        padding: 14px 16px 8px !important;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child p,
+    body.ifox-dropdown-detail-page #main > section:first-child p {
+        width: 100%;
+        margin-left: 0 !important;
+        padding: 7px 10px 7px 16px !important;
+    }
+
+    #header > .container {
+        padding: 0 18px !important;
+    }
+}
+
+/* Final cascade reinforcement for Industries, Product Management, and Hire Developers. */
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu {
+    transition: opacity .26s cubic-bezier(.2, .8, .2, 1), transform .26s cubic-bezier(.2, .8, .2, 1), visibility .26s ease, filter .26s ease !important;
+    filter: blur(2px);
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu).services-open > .ifox-mega-menu {
+    filter: blur(0);
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+    background: rgba(5, 18, 32, .95) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(93, 228, 255, .18) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .45), 0 0 30px rgba(93, 228, 255, .08), 0 0 45px rgba(168, 85, 247, .06) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar {
+    position: relative !important;
+    background: rgba(5, 11, 22, .82) !important;
+    border-right: 0 !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar::after {
+    position: absolute !important;
+    top: 18px !important;
+    right: 0 !important;
+    bottom: 18px !important;
+    width: 1px !important;
+    background: linear-gradient(to bottom, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    content: "" !important;
+    pointer-events: none !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category {
+    background: transparent !important;
+    color: #f4f8fb !important;
+    transition: background .24s ease, transform .24s ease, color .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .11), rgba(168, 85, 247, .06), transparent) !important;
+    transform: translateX(3px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category.active {
+    background: linear-gradient(90deg, rgba(93, 228, 255, .15), rgba(168, 85, 247, .06), transparent) !important;
+    border-left: 2px solid #5de4ff !important;
+    padding-left: 26px !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-icon {
+    background: rgba(5, 21, 36, .78) !important;
+    border: 1px solid rgba(93, 228, 255, .28) !important;
+    color: #5de4ff !important;
+    box-shadow: 0 0 12px rgba(93, 228, 255, .15) !important;
+    transition: color .24s ease, border-color .24s ease, box-shadow .24s ease, transform .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover .ifox-category-icon {
+    border-color: rgba(192, 132, 252, .68) !important;
+    color: #c084fc !important;
+    box-shadow: 0 0 14px rgba(168, 85, 247, .3) !important;
+    transform: translateX(1px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category > i {
+    color: #5de4ff !important;
+    transition: color .24s ease, transform .24s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category:hover > i {
+    color: #c084fc !important;
+    transform: translateX(4px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-content {
+    background: rgba(8, 21, 36, .82) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header {
+    border-bottom-color: rgba(93, 228, 255, .14) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header span,
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content strong {
+    color: #f4f8fb !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-panel-header p,
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-category-content small,
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a small {
+    color: #91a5b7 !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a {
+    background: transparent !important;
+    transition: transform .25s ease, background .25s ease, color .25s ease, text-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover {
+    background: rgba(93, 228, 255, .06) !important;
+    box-shadow: none !important;
+    transform: translateX(4px) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a > i {
+    color: #5de4ff !important;
+    background: rgba(5, 21, 36, .7) !important;
+    border: 1px solid rgba(93, 228, 255, .22) !important;
+    box-shadow: 0 0 10px rgba(93, 228, 255, .12) !important;
+    transition: color .25s ease, border-color .25s ease, box-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover > i {
+    color: #c084fc !important;
+    border-color: rgba(192, 132, 252, .55) !important;
+    box-shadow: 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a strong {
+    color: #f4f8fb !important;
+    transition: color .25s ease, text-shadow .25s ease !important;
+}
+
+#header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-service-grid > a:hover strong {
+    color: #ffffff !important;
+    text-shadow: 0 0 6px rgba(168, 85, 247, .65), 0 0 14px rgba(168, 85, 247, .3) !important;
+}
+
+@media (max-width: 991px) {
+    #header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-inner {
+        border-radius: 0 0 12px 12px !important;
+    }
+
+    #header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-sidebar::after {
+        top: auto !important;
+        right: 18px !important;
+        bottom: 0 !important;
+        left: 18px !important;
+        width: auto !important;
+        height: 1px !important;
+        background: linear-gradient(to right, transparent, rgba(93, 228, 255, .55), rgba(168, 85, 247, .28), transparent) !important;
+    }
+
+    #header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu .ifox-mega-category.active {
+        padding-left: 16px !important;
     }
 }
 

@@ -1,4 +1,45 @@
-﻿<!DOCTYPE html>
+@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var serviceControllers = new[]
+    {
+        "DynamicsCRM",
+        "WebDevelopment",
+        "MobileDevelopment",
+        "WindowsApplication",
+        "AISolutions",
+        "CloudSolutions"
+    };
+    var dropdownPageControllers = new[]
+    {
+        "RetailandEcommerce",
+        "ManufacturingTechnology",
+        "LogisticsAndTransportation",
+        "Healthcare",
+        "Financialtechnology",
+        "EducationTechnology",
+        "ProductStrategyVision",
+        "ProductRoadmapPlanning",
+        "ProductLaunch",
+        "ProductGrowthOptimization",
+        "MarketCustomerResearch",
+        "ProductDevelopment",
+        "Reactandnodedevelopers",
+        "powerplatformDeveloper",
+        "PhpDeveloper",
+        "MobileDevelopers",
+        "DotNetDevelopers",
+        "D365HireDeveloper"
+    };
+    var isServicePage = Array.IndexOf(serviceControllers, currentController) >= 0;
+    var isDropdownPage = Array.IndexOf(dropdownPageControllers, currentController) >= 0;
+    var isTestimonialsPage = string.Equals(currentController, "Testimonials", StringComparison.OrdinalIgnoreCase);
+    var isBlogPage = string.Equals(currentController, "Blog", StringComparison.OrdinalIgnoreCase);
+    var isContactPage = string.Equals(currentController, "Contact", StringComparison.OrdinalIgnoreCase);
+    var isDarkContentPage = isServicePage || isDropdownPage || isTestimonialsPage || isBlogPage || isContactPage;
+    var pageClass = $"{ViewData["PageClass"] ?? string.Empty} {(isDarkContentPage ? "ifox-service-page" : string.Empty)} {(isServicePage ? "ifox-service-detail-page" : string.Empty)} {(isDropdownPage ? "ifox-dropdown-detail-page" : string.Empty)} {(isTestimonialsPage ? "ifox-testimonials-page" : string.Empty)} {(isBlogPage ? "ifox-blog-page" : string.Empty)} {(isContactPage ? "ifox-contact-page" : string.Empty)}".Trim();
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,7 +49,7 @@
     <meta name="google-site-verification" content="imBH-if6GvXS1T1o5_wMZq1ER-r0_aitxk-HIQKcZQc" /><!-- Favicons -->
     <link href="~/assets/img/ifoxsitelogo.webp" rel="icon">
     <link href="~/assets/img/ifoxsitelogo.webp" rel="apple-touch-icon"><!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"><!-- Vendor CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Manrope:400,500,600,700,800|Space+Grotesk:400,500,600,700" rel="stylesheet"><!-- Vendor CSS Files -->
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
@@ -18,7 +59,19 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-    <link href="~/assets/css/style.css" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260729" rel="stylesheet">
+    @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
+    {
+        <link href="~/assets/css/home.css?v=20260619" rel="stylesheet" />
+        <style>
+            body:has(#hero.ifox-home-page) #header .ifox-nav-link,
+            body:has(#hero.ifox-home-page) #header .ifox-get-started {
+                font-family: 'Space Grotesk', sans-serif !important;
+                font-size: 15px !important;
+                font-weight: 500 !important;
+            }
+        </style>
+    }
     <script type="text/javascript">
         (function(c, l, a, r, i, t, y) {
             c[a] = c[a] || function() {
@@ -37,7 +90,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body>
+<body class="@pageClass">
     <!-- Nexus Cursor -->
     <div id="cursor-dot"></div>
     <div id="cursor-ring"></div><!-- ======= Header ======= -->
@@ -49,12 +102,12 @@
                 <ul class="ifox-nav-list">
 
 
-                    <!-- ABOUT -->
+                    <!-- HOME -->
                     <li class="ifox-nav-item">
 
                         <a asp-controller="Home" asp-action="Index" class="ifox-nav-link">
 
-                            About
+                            HOME
 
                         </a>
 
@@ -68,7 +121,7 @@
                     <li class="ifox-nav-item ifox-has-mega ifox-services-menu">
 
                         <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
-                            Services
+                            <span class="ifox-services-label">SERVICES</span>
                             <i class="bi bi-chevron-down"></i>
                         </a>
 
@@ -812,7 +865,7 @@
 
                         <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
 
-                            Industries
+                            INDUSTRIES
 
                             <i class="bi bi-chevron-down"></i>
 
@@ -1778,11 +1831,11 @@
                          PRODUCT MANAGEMENT
                          ================================================= -->
 
-                    <li class="ifox-nav-item ifox-has-mega ifox-industries-menu">
+                    <li class="ifox-nav-item ifox-has-mega ifox-industries-menu ifox-product-menu">
 
                         <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
 
-                            Product Management
+                            PRODUCT MANAGEMENT
 
                             <i class="bi bi-chevron-down"></i>
 
@@ -2708,7 +2761,7 @@
 
                         <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
 
-                            Hire Developers
+                            HIRE DEVELOPERS
 
                             <i class="bi bi-chevron-down"></i>
 
@@ -3458,7 +3511,7 @@
 
                         <a asp-controller="Testimonials" asp-action="Index" class="ifox-nav-link">
 
-                            Testimonials
+                            TESTIMONIALS
 
                         </a>
 
@@ -3471,7 +3524,7 @@
 
                         <a asp-controller="Blog" asp-action="Index" class="ifox-nav-link">
 
-                            Blog
+                            BLOG
 
                         </a>
 
@@ -3484,7 +3537,7 @@
 
                         <a asp-controller="Contact" asp-action="Index" class="ifox-nav-link">
 
-                            Contact
+                            CONTACT
 
                         </a>
 
@@ -3497,7 +3550,7 @@
 
                         <a asp-controller="Contact" asp-action="Index" class="ifox-get-started">
 
-                            Get Started
+                            GET STARTED
 
                             <i class="bi bi-arrow-up-right"></i>
 
@@ -3656,6 +3709,27 @@
 
             }
 
+            document.addEventListener("mousemove", function (event) {
+                if (!event.target.closest(".ifox-has-mega")) {
+                    closeAllMegaMenus();
+                }
+            });
+
+            /* Form controls must always win over navigation state. */
+            document.addEventListener("pointerdown", function (event) {
+                if (event.target.closest("form, input, textarea, select, button")) {
+                    closeAllMegaMenus();
+                }
+            }, true);
+
+            // Close any open mega-menu when the contact form is entered or focused.
+            // This ensures the form controls are interactive and not occluded by the flyout.
+            const contactForm = document.querySelector("body.ifox-contact-page #contact-form");
+            if (contactForm) {
+                contactForm.addEventListener("pointerenter", closeAllMegaMenus, true);
+                contactForm.addEventListener("focusin", closeAllMegaMenus, true);
+            }
+
 
             /* =========================================================
                INITIALIZE EACH MENU
@@ -3694,6 +3768,16 @@
                     event.preventDefault();
                     event.stopPropagation();
 
+                    const hoverOnlyMenu =
+                        megaItem.classList.contains("ifox-services-menu") ||
+                        megaItem.classList.contains("ifox-industries-menu") ||
+                        megaItem.classList.contains("ifox-hire-menu");
+
+                    if (hoverOnlyMenu) {
+                        closeAllMegaMenus();
+                        return;
+                    }
+
                     const isCurrentlyOpen =
                         megaItem.classList.contains("services-open");
 
@@ -3710,6 +3794,24 @@
                     }
 
                 });
+
+                if (megaItem.classList.contains("ifox-services-menu") ||
+                    megaItem.classList.contains("ifox-industries-menu") ||
+                    megaItem.classList.contains("ifox-hire-menu")) {
+                    let closeTimer;
+
+                    trigger.addEventListener("mouseenter", function () {
+                        window.clearTimeout(closeTimer);
+                        closeAllMegaMenus();
+                        megaItem.classList.add("services-open");
+                    });
+
+                    megaItem.addEventListener("mouseleave", function () {
+                        closeTimer = window.setTimeout(function () {
+                            megaItem.classList.remove("services-open");
+                        }, 120);
+                    });
+                }
 
 
                 /* =====================================================
@@ -3745,9 +3847,39 @@
 
                 categories.forEach(function (category) {
 
+                    if (megaItem.classList.contains("ifox-services-menu") ||
+                        megaItem.classList.contains("ifox-industries-menu") ||
+                        megaItem.classList.contains("ifox-hire-menu")) {
+                        category.addEventListener("mouseenter", function () {
+                            const tab = this.getAttribute("data-tab");
+
+                            categories.forEach(function (item) {
+                                item.classList.remove("active");
+                            });
+
+                            panels.forEach(function (panel) {
+                                panel.classList.remove("active");
+                            });
+
+                            this.classList.add("active");
+
+                            const selectedPanel = megaItem.querySelector(
+                                '.ifox-service-panel[data-panel="' + tab + '"]'
+                            );
+
+                            if (selectedPanel) {
+                                selectedPanel.classList.add("active");
+                            }
+                        });
+                    }
+
                     category.addEventListener(
                         "click",
                         function (event) {
+
+                            if (!event.target.closest(".ifox-mega-category")) {
+                                return;
+                            }
 
                             event.preventDefault();
                             event.stopPropagation();
@@ -3755,6 +3887,52 @@
 
                             const tab =
                                 this.getAttribute("data-tab");
+
+                            if (megaItem.classList.contains("ifox-services-menu")) {
+                                const serviceUrls = {
+                                    dynamics: "/dynamics-365-crm-services",
+                                    web: "/Web-Development-services/Corporate%20Websites",
+                                    mobile: "/Mobile%20Development/Android",
+                                    windows: "/Windows%20Application/Billing%20Software",
+                                    ai: "/AI%20Solutions/AI%20Automation",
+                                    cloud: "/CloudSolutions/AWS"
+                                };
+
+                                const serviceUrl = serviceUrls[tab];
+
+                                if (serviceUrl) {
+                                    window.location.href = serviceUrl;
+                                    return;
+                                }
+                            }
+
+                            const categoryUrls = {
+                                healthcare: "/Healthcare",
+                                manufacturing: "/Industries/Manufacturing",
+                                retail: "/RetailandEcommerce",
+                                education: "/Education%20Technology",
+                                finance: "/FinancialTechnology",
+                                logistics: "/Logistics%20and%20transportation",
+                                "Market-customer-Research": "/Market-Customer-Research",
+                                "Product-Development": "/Product-Development",
+                                "Growth-optimization": "/Product-Growth-Optimization",
+                                "Product-Launch": "/Product-Launch",
+                                "Roadmap-Planning": "/Product-Roadmap-Planning",
+                                "Strategy-Vision": "/Product-Strategy-Vision",
+                                "hire-dynamics": "/D365-Developers",
+                                "hire-dotnet": "/Dot-Net-Developers",
+                                "hire-mobile": "/Mobile-Developer",
+                                "hire-react": "/Reactandnodedevelopers",
+                                "hire-php": "/PHP-Developer",
+                                "hire-powerplatform": "/Power-Platform-Developer"
+                            };
+
+                            if (categoryUrls[tab] &&
+                                (megaItem.classList.contains("ifox-industries-menu") ||
+                                    megaItem.classList.contains("ifox-hire-menu"))) {
+                                window.location.href = categoryUrls[tab];
+                                return;
+                            }
 
 
                             if (!tab) {
@@ -3925,7 +4103,18 @@
     </script>
     <div id="chatbot-container">
         <!-- Floating Logo -->
-        <div id="chatbot-toggle"><img src="~/assets/img/chatbot_neon.webp" alt="Chatbot"></div><!-- CHAT WINDOW (THIS WAS MISSING ❗) -->
+        <div id="chatbot-toggle">
+            @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
+            {
+                <span class="ifox-home-ai-orb" aria-label="iFOX AI Assistant">
+                    <img src="~/assets/img/chatbot_neon.webp" alt="iFOX AI Assistant" />
+                </span>
+            }
+            else
+            {
+                <img src="~/assets/img/chatbot_neon.webp" alt="Chatbot">
+            }
+        </div><!-- CHAT WINDOW (THIS WAS MISSING ❗) -->
         <div id="chatbot-box">
             <div class="chat-header"><span id="chatbot-back" style="cursor:pointer;margin-right:10px;">⬅</span> iFox Assistant <span id="chatbot-close">✖</span></div>
             <div id="chatbot-messages"></div>
