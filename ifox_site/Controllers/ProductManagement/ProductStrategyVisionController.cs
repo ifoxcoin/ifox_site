@@ -8,7 +8,7 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View();
+            return View("~/Views/ProductManagement/ProductStrategyVision/Index.cshtml");
         }
 
         [HttpGet("Product-Consulting")]

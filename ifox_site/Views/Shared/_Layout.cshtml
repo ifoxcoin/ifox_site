@@ -1,4 +1,4 @@
-@{
+﻿@{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var serviceControllers = new[]
     {
@@ -31,11 +31,12 @@
         "D365HireDeveloper"
     };
     var isServicePage = Array.IndexOf(serviceControllers, currentController) >= 0;
+    var isServicesLandingPage = string.Equals(currentController, "Services", StringComparison.OrdinalIgnoreCase);
     var isDropdownPage = Array.IndexOf(dropdownPageControllers, currentController) >= 0;
     var isTestimonialsPage = string.Equals(currentController, "Testimonials", StringComparison.OrdinalIgnoreCase);
     var isBlogPage = string.Equals(currentController, "Blog", StringComparison.OrdinalIgnoreCase);
     var isContactPage = string.Equals(currentController, "Contact", StringComparison.OrdinalIgnoreCase);
-    var isDarkContentPage = isServicePage || isDropdownPage || isTestimonialsPage || isBlogPage || isContactPage;
+    var isDarkContentPage = isServicePage || isServicesLandingPage || isDropdownPage || isTestimonialsPage || isBlogPage || isContactPage;
     var pageClass = $"{ViewData["PageClass"] ?? string.Empty} {(isDarkContentPage ? "ifox-service-page" : string.Empty)} {(isServicePage ? "ifox-service-detail-page" : string.Empty)} {(isDropdownPage ? "ifox-dropdown-detail-page" : string.Empty)} {(isTestimonialsPage ? "ifox-testimonials-page" : string.Empty)} {(isBlogPage ? "ifox-blog-page" : string.Empty)} {(isContactPage ? "ifox-contact-page" : string.Empty)}".Trim();
 }
 
@@ -59,7 +60,7 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260729" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260737" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
         <link href="~/assets/css/home.css?v=20260619" rel="stylesheet" />
@@ -96,7 +97,7 @@
     <div id="cursor-ring"></div><!-- ======= Header ======= -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center">
-            <h1 class="me-auto"><a href="/home"><img src="~/assets/img/Ifoxlogo57.webp" alt="ifox" style="width: 60%; height: 60%;"></a></h1>
+            <h1 class="me-auto"><a href="/home"><img src="~/assets/img/Ifoxlogo57.webp" alt="ifox" style="width: 60%; height: 60%;"></a></h1><button type="button" class="ifox-mobile-menu-toggle" id="ifoxMobileMenuToggle" aria-label="Open navigation menu" aria-controls="ifoxNavigation" aria-expanded="false"><i class="bi bi-list" aria-hidden="true"></i></button>
             <nav class="ifox-navigation" id="ifoxNavigation">
 
                 <ul class="ifox-nav-list">
@@ -3660,7 +3661,7 @@
 
         gtag('config', 'G-TTNG595LVT');
     </script><!-- Template Main JS File -->
-    <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/main.js"></script><script>document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("ifoxMobileMenuToggle"),n=document.getElementById("ifoxNavigation");if(!t||!n)return;t.addEventListener("click",function(){const o=n.classList.toggle("mobile-open");t.setAttribute("aria-expanded",o);t.setAttribute("aria-label",o?"Close navigation menu":"Open navigation menu");t.querySelector("i").className=o?"bi bi-x":"bi bi-list"});window.addEventListener("resize",function(){if(innerWidth>991){n.classList.remove("mobile-open");t.setAttribute("aria-expanded","false");t.querySelector("i").className="bi bi-list"}})});</script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -3728,6 +3729,18 @@
             if (contactForm) {
                 contactForm.addEventListener("pointerenter", closeAllMegaMenus, true);
                 contactForm.addEventListener("focusin", closeAllMegaMenus, true);
+            }
+
+            if (document.body.classList.contains("ifox-contact-page")) {
+                const contactMain = document.querySelector("body.ifox-contact-page #main");
+                const header = document.querySelector("#header");
+                if (header) {
+                    header.addEventListener("mouseleave", closeAllMegaMenus, true);
+                }
+                if (contactMain) {
+                    contactMain.addEventListener("pointerenter", closeAllMegaMenus, true);
+                    contactMain.addEventListener("focusin", closeAllMegaMenus, true);
+                }
             }
 
 
@@ -3891,11 +3904,11 @@
                             if (megaItem.classList.contains("ifox-services-menu")) {
                                 const serviceUrls = {
                                     dynamics: "/dynamics-365-crm-services",
-                                    web: "/Web-Development-services/Corporate%20Websites",
-                                    mobile: "/Mobile%20Development/Android",
-                                    windows: "/Windows%20Application/Billing%20Software",
-                                    ai: "/AI%20Solutions/AI%20Automation",
-                                    cloud: "/CloudSolutions/AWS"
+                                    web: "/Web-Development-services",
+                                    mobile: "/Mobile%20Development",
+                                    windows: "/Windows%20Application",
+                                    ai: "/AI%20Solutions",
+                                    cloud: "/CloudSolutions"
                                 };
 
                                 const serviceUrl = serviceUrls[tab];
@@ -4107,16 +4120,16 @@
             @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
             {
                 <span class="ifox-home-ai-orb" aria-label="iFOX AI Assistant">
-                    <img src="~/assets/img/chatbot_neon.webp" alt="iFOX AI Assistant" />
+                    <img src="~/assets/img/fox-chatbot-v12.png" alt="iFOX AI Assistant" />
                 </span>
             }
             else
             {
-                <img src="~/assets/img/chatbot_neon.webp" alt="Chatbot">
+                <img src="~/assets/img/fox-chatbot-v12.png" alt="Chatbot">
             }
-        </div><!-- CHAT WINDOW (THIS WAS MISSING ❗) -->
+        </div><!-- CHAT WINDOW (THIS WAS MISSING â—) -->
         <div id="chatbot-box">
-            <div class="chat-header"><span id="chatbot-back" style="cursor:pointer;margin-right:10px;">⬅</span> iFox Assistant <span id="chatbot-close">✖</span></div>
+            <div class="chat-header"><span id="chatbot-back" style="cursor:pointer;margin-right:10px;">â¬…</span> iFox Assistant <span id="chatbot-close">âœ–</span></div>
             <div id="chatbot-messages"></div>
             <div id="chatbot-buttons"></div>
             <div class="chat-input-area"><input type="text" id="chatbot-input" placeholder="Type message..."/><button id="chatbot-send">Send</button></div>
@@ -4126,3 +4139,9 @@
 </body>
 
 </html>
+
+
+
+
+
+

@@ -8,7 +8,17 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View("~/Views/HireDevelopers/D365Developers/Index.cshtml");
+            ViewData["HireTitle"] = "Dynamics 365 Developers";
+            ViewData["HireDescription"] = "Hire experienced Dynamics 365 CRM and Power Platform developers for scalable business solutions.";
+            ViewData["HireItems"] = new[]
+            {
+                new[] { "/D365-Developers/CRM-Developer", "CRM Developers", "Build and customize Dynamics CRM solutions" },
+                new[] { "/D365-Developers/D365-Consultant", "D365 Consultants", "Plan and optimize Dynamics 365 implementations" },
+                new[] { "/D365-Developers/Dynamics-CRM-Developers", "Dynamics CRM Developers", "Develop connected customer experiences" },
+                new[] { "/D365-Developers/Dynamics-Plugin-Developers", "Dynamics Plugin Developers", "Extend CRM with reliable plugins" },
+                new[] { "/D365-Developers/Power-Platform", "Power Platform Developers", "Create apps and automations with Power Platform" }
+            };
+            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
         }
 
         [HttpGet("CRM-Developer")]

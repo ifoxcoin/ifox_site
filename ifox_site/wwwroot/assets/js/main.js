@@ -315,8 +315,14 @@
         const input = document.getElementById("chatbot-input");
         const messages = document.getElementById("chatbot-messages");
         const buttons = document.getElementById("chatbot-buttons");
+        const chatbotContainer = document.getElementById("chatbot-container");
 
         let isOpen = false;
+        function closeChat() {
+            chatBox.style.display = "none";
+            isOpen = false;
+        }
+
         /* OPEN CHAT */
         toggleBtn.onclick = () => {
             chatBox.style.display = isOpen ? "none" : "flex";
@@ -328,7 +334,14 @@
                 step = "askEmail";
             }
         }
-        closeBtn.onclick = () => chatBox.style.display = "none";
+        closeBtn.onclick = closeChat;
+        chatBox.addEventListener("click", event => event.stopPropagation());
+
+        document.addEventListener("click", event => {
+            if (isOpen && chatbotContainer && !chatbotContainer.contains(event.target)) {
+                closeChat();
+            }
+        });
 
         /* ================= BACK BUTTON (REAL HISTORY) ================= */
         backBtn.onclick = () => {

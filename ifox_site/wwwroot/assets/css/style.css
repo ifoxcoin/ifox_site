@@ -1,4 +1,4 @@
-﻿/**
+/**
 * Template Name: Arsha
 * Updated: Mar 10 2023 with Bootstrap v5.2.3
 * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
@@ -233,7 +233,9 @@ h6 {
     right: 15px;
     bottom: 50px;
     z-index: 996;
-    background: #47b2e4;
+    background: #061727;
+    border: 1px solid rgba(99, 221, 255, 0.75);
+    box-shadow: 0 0 16px rgba(99, 221, 255, 0.18);
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -250,7 +252,9 @@ h6 {
     }
 
     .back-to-top:hover {
-        background: #6bc1e9;
+        background: #ff6b27;
+        border-color: #ff6b27;
+        box-shadow: 0 0 18px rgba(255, 107, 39, 0.35);
         color: #fff;
     }
 
@@ -2638,10 +2642,10 @@ Active list item style
 
 #chatbot-toggle {
     position: fixed;
-    right: 70px;
-    bottom: 150px;
-    width: 110px;
-    height: 110px;
+    right: 78px;
+    bottom: 42px;
+    width: 128px;
+    height: 128px;
     cursor: pointer;
     z-index: 100001;
     transition: right 0.5s ease;
@@ -2650,8 +2654,8 @@ Active list item style
 
     /* ONLY THE IMAGE IS CLICKABLE */
     #chatbot-toggle img {
-        width: 180px;
-        height: 180px;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
         pointer-events: none;
     }
@@ -2675,17 +2679,17 @@ Active list item style
 /* Chat Window */
 #chatbot-box {
     position: fixed;
-    bottom: 200px;
-    right: 60px;
-    width: 340px;
-    height: 430px;
-    background: #ffffff;
+    bottom: 182px;
+    right: 78px;
+    width: 320px;
+    height: 410px;
+    background: #061727;
     border-radius: 18px;
     display: none;
     flex-direction: column;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0,0,0,0.35);
-    z-index: 100000;
+    z-index: 100002;
     animation: slideUp 0.4s ease;
 }
 
@@ -2702,10 +2706,15 @@ Active list item style
 }
 
 .chat-header {
-    background: linear-gradient(145deg,#1f3b63,#294c7a);
-    color: white;
-    padding: 14px;
+    background: #061727;
+    border-bottom: 1px solid rgba(83, 204, 255, .16);
+    color: #dff8ff;
+    padding: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
     font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2720,12 +2729,15 @@ Active list item style
     padding: 12px;
     overflow-y: auto;
     font-size: 14px;
-    background: #f7f9fc;
+    background: #041321;
+    color: #b7d5e6;
 }
 
 .bot-msg {
     white-space: pre-line;
-    background: #e9eef6;
+    border: 1px solid rgba(83, 204, 255, .12);
+    color: #d9efff;
+    background: #12324b;
     padding: 9px 13px;
     border-radius: 12px;
     margin-bottom: 8px;
@@ -2733,8 +2745,9 @@ Active list item style
 }
 
 .user-msg {
-    background: #294c7a;
-    color: white;
+    border: 1px solid rgba(83, 204, 255, .12);
+    background: #0b5d80;
+    color: #d9efff;
     padding: 9px 13px;
     border-radius: 12px;
     margin-bottom: 8px;
@@ -2744,19 +2757,26 @@ Active list item style
 
 .chat-input-area {
     display: flex;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(83, 204, 255, .16);
+    background: #061727;
 }
 
 #chatbot-input {
     flex: 1;
     border: none;
     padding: 12px;
+    color: #d9efff;
+    background: transparent;
     outline: none;
 }
 
+#chatbot-input::placeholder {
+    color: #7190a3;
+}
+
 #chatbot-send {
-    background: #294c7a;
-    color: white;
+    background: #ff7728;
+    color: #031525;
     border: none;
     padding: 10px 16px;
     cursor: pointer;
@@ -2768,12 +2788,13 @@ Active list item style
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    background: #041321;
 }
 
 .chat-btn {
-    background: #eef4ff;
-    border: 1px solid #0d6efd;
-    color: #0d6efd;
+    background: transparent;
+    border: 1px solid rgba(83, 204, 255, .45);
+    color: #61dfff;
     padding: 8px 12px;
     border-radius: 20px;
     font-size: 13px;
@@ -2782,8 +2803,8 @@ Active list item style
 }
 
     .chat-btn:hover {
-        background: #0d6efd;
-        color: #fff;
+        background: #61dfff;
+        color: #031525;
     }
 
 #chatbot-back {
@@ -3696,55 +3717,16 @@ Active list item style
         }
 }
 
-@media (max-width: 480px) {
-
-    #header > .container {
-        padding: 0 12px !important;
-    }
-
-        #header > .container > h1,
-        #header > .container > h1.me-auto {
-            width: 120px !important;
-            min-width: 120px !important;
-            max-width: 120px !important;
-            flex-basis: 120px !important;
-        }
-
-            #header > .container > h1 > a > img {
-                width: 115px !important;
-                max-width: 115px !important;
-            }
-
-    #header .ifox-service-panel {
-        padding: 15px !important;
-    }
-
-    #header .ifox-service-grid > a > i {
-        width: 44px !important;
-        min-width: 44px !important;
-        height: 44px !important;
-        margin-right: 12px !important;
-        font-size: 18px !important;
-    }
-
-    #header .ifox-service-grid > a strong {
-        font-size: 14px !important;
-    }
-
-    #header .ifox-service-grid > a small {
-        font-size: 11px !important;
-    }
-        /* Chatbot - Mobile Responsive */
     #chatbot-toggle {
-        right: 50px !important;
-        bottom: 120px !important;
-        width: 80px !important;
-        height: 80px !important;
+        right: 80px !important;
+        bottom: 34px !important;
+        width: 104px !important;
+        height: 104px !important;
     }
 
     #chatbot-toggle img {
-        width: 150px !important;
-        height: 120px !important;
+        width: 100% !important;
+        height: 100% !important;
     }
 
     #chatbot-box {
@@ -4680,6 +4662,10 @@ body.ifox-contact-page #main h5 {
     font-family: 'Space Grotesk', sans-serif !important;
 }
 
+body.ifox-contact-page #main .section-title h2 {
+    font-family: 'Manrope', sans-serif !important;
+}
+
 body.ifox-testimonials-page #main p,
 body.ifox-testimonials-page #main span,
 body.ifox-blog-page #main p,
@@ -4713,6 +4699,10 @@ body.ifox-testimonials-page #main .quote {
 body.ifox-testimonials-page #main .stats p,
 body.ifox-testimonials-page #main .user span {
     color: #8bdcff !important;
+}
+
+body.ifox-testimonials-page #main .user strong {
+    color: #ffffff !important;
 }
 
 body.ifox-testimonials-page #main .card {
@@ -4902,6 +4892,10 @@ body.ifox-contact-page #main #contact {
     padding: 70px 0 90px;
     background: linear-gradient(135deg, #020b17 0%, #03182a 52%, #020b17 100%) !important;
 }
+
+body.ifox-contact-page #header .ifox-mega-menu { max-height: calc(100vh - var(--ifox-header-height) - 16px) !important; }
+
+body.ifox-contact-page #header .ifox-mega-menu, body.ifox-contact-page #header .ifox-has-mega.services-open > .ifox-mega-menu { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 
 body.ifox-contact-page #main .section-title h2 {
     color: #ff6b27 !important;
@@ -5125,3 +5119,21 @@ body.ifox-contact-page #main .php-email-form button:hover {
     }
 }
 
+
+.product-category-landing__grid{display:flex!important;width:min(100%,950px)!important;margin:0 auto!important;flex-direction:column!important;gap:18px!important}.product-category-landing__grid>a{display:block!important;width:100%!important;box-sizing:border-box!important;padding:22px 24px!important;border:1px solid rgba(93,228,255,.28)!important;border-radius:6px!important;background:rgba(8,25,40,.82)!important;text-align:center!important;white-space:normal!important}.product-category-landing__grid>a strong,.product-category-landing__grid>a span{display:block!important;width:100%!important}.product-category-landing__grid>a strong{color:#82a9e8!important;font-family:Space Grotesk,sans-serif!important;font-size:1.6rem!important;line-height:1.3!important}.product-category-landing__grid>a span{margin-top:8px!important;color:#8fe9ff!important;font-size:1rem!important;line-height:1.6!important}
+.product-category-landing>.container{width:min(100%,950px)!important;max-width:950px!important;margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important}.product-category-landing__eyebrow,.product-category-landing h1,.product-category-landing__intro{width:100%!important;max-width:none!important;box-sizing:border-box!important;margin-left:auto!important;margin-right:auto!important;text-align:center!important}.product-category-landing__eyebrow{margin-bottom:28px!important}.product-category-landing h1{margin-bottom:22px!important}.product-category-landing__intro{margin-bottom:36px!important}
+body.ifox-dropdown-detail-page #main > section:first-child{box-shadow:none!important;}
+body.ifox-service-detail-page #main > section:first-child,body.ifox-dropdown-detail-page #main > section:first-child{box-shadow:none!important;}
+
+body .footer-logos img[src*="msdynamics365.png"] {
+    filter: brightness(0) invert(1);
+}
+
+@media (max-width: 576px) {
+    body .footer-logos img[src*="msdynamics365.png"] {
+        max-width: 80%;
+        height: auto;
+        object-fit: contain;
+    }
+}
+@media (max-width: 991px) { #header .ifox-mobile-menu-toggle { display:inline-flex!important; align-items:center!important; justify-content:center!important; width:44px!important; height:44px!important; margin-left:auto!important; padding:0!important; border:1px solid rgba(255,255,255,.35)!important; border-radius:8px!important; background:transparent!important; color:#fff!important; font-size:28px!important; cursor:pointer!important } #header .ifox-navigation { display:none!important; position:absolute!important; top:70px!important; right:12px!important; left:12px!important; width:auto!important; height:calc(100vh - 82px)!important; max-height:calc(100vh - 82px)!important; overflow-y:auto!important; overflow-x:hidden!important; padding:8px 0 20px!important; border:1px solid rgba(255,255,255,.12)!important; border-radius:0 0 14px 14px!important; background:#233f66!important; box-shadow:0 18px 40px rgba(0,0,0,.35)!important } #header .ifox-navigation.mobile-open { display:block!important } #header .ifox-nav-list { display:flex!important; flex-direction:column!important; align-items:stretch!important; width:100%!important; min-width:0!important; height:auto!important } #header .ifox-nav-item { display:block!important; width:100%!important; height:auto!important; white-space:normal!important } #header .ifox-nav-link { display:flex!important; align-items:center!important; justify-content:space-between!important; width:100%!important; min-height:48px!important; height:auto!important; padding:12px 18px!important; font-size:14px!important } #header .ifox-get-started { width:calc(100% - 36px)!important; min-width:0!important; height:44px!important; margin:10px 18px!important } #header .ifox-mega-menu { position:static!important; width:100%!important; max-height:none!important; overflow:visible!important } #header .ifox-mega-inner { border:0!important; border-radius:0!important; box-shadow:none!important } } @media (min-width: 992px) { #header .ifox-mobile-menu-toggle { display:none!important } }

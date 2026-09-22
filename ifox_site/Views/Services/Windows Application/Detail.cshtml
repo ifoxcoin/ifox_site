@@ -1,0 +1,70 @@
+@{
+    var title = ViewData["DetailTitle"] as string ?? "Windows Application";
+    var subtitle = ViewData["DetailSubtitle"] as string ?? "Business application solutions";
+    var intro = ViewData["DetailIntro"] as string ?? "Build dependable Windows applications that support efficient business operations.";
+    var features = ViewData["DetailFeatures"] as string[][] ?? Array.Empty<string[]>();
+    var sections = ViewData["DetailSections"] as string[][] ?? Array.Empty<string[]>();
+    ViewData["Title"] = title;
+}
+<section style="background-image:url('/assets/img/hiredevelopers/her2.webp'); background-repeat:no-repeat; background-size:cover; background-position:center;">
+    <div class="container" data-aos="fade-up">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mt-5">
+                <h1 class="text-white text-start pt-5 pb-3"><b>@title</b></h1>
+                <p class="text-white pb-4">@subtitle</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8" align="justify">
+                <h3><b>@title Development Services</b></h3>
+                <p>@intro</p>
+                <ul class="list-unstyled">
+                    @foreach (var feature in features)
+                    {
+                        <li><p><i class="bi bi-check2-circle color"></i> <b>@feature[0]</b> : @feature[1]</p></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-lg-4 Imgborder">
+                <img src="~/assets/img/dynamics365/woman analyzing-checking-finance-graphs-office.webp" class="img-fluid text-center m-3" alt="@title" />
+                <img src="~/assets/img/dynamics365/mod woman-equipped-computer-lab.webp" class="img-fluid text-center m-3" alt="@title" />
+            </div>
+        </div>
+    </div>
+</section>
+<section id="call-to-action" class="call-to-action section dark-background">
+    <img src="~/assets/img/dynamics365/office2.webp" alt="">
+    <div class="container">
+        <div class="row aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-xl-9 text-center text-xl-start">
+                <h3>Looking for reliable @title solutions?</h3>
+                <p>Set up a consultation with our application specialists.</p>
+            </div>
+            <div class="col-xl-3 cta-btn-container text-center">
+                <a class="cta-btn align-middle" href="/contact">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <img src="~/assets/img/dynamics365/businesswoman-discussing-with-disabled-woman.webp" class="img-fluid text-start mb-5 p-3" alt="@title" />
+                <img src="~/assets/img/dynamics365/representation-user-experience-interface-design-computer.webp" class="img-fluid text-start mb-5 p-3" alt="@title" />
+            </div>
+            <div class="col-lg-8 Imgborder" align="justify">
+                @foreach (var section in sections)
+                {
+                    <h3><b>@(section[0])</b></h3>
+                    <p>@(section[1])</p>
+                    <br />
+                }
+            </div>
+        </div>
+    </div>
+</section>

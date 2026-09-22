@@ -5,6 +5,24 @@ namespace ifox_site.Controllers
     [Route("FinancialTechnology")]
     public class FinancialtechnologyController : Controller
     {
+        [HttpGet("")]
+        [HttpGet("~/Finance")]
+        public IActionResult Index()
+        {
+            ViewData["IndustryTitle"] = "Financial Technology";
+            ViewData["IndustryDescription"] = "Secure, scalable financial technology that connects data, automates processes, and supports better decisions.";
+            ViewData["IndustryItems"] = new[]
+            {
+                new[] { "/FinancialTechnology/Banking%20Applications", "Banking Applications", "Build secure and connected banking experiences." },
+                new[] { "/FinancialTechnology/Financial%20CRM", "Financial CRM", "Strengthen customer relationships with connected data." },
+                new[] { "/FinancialTechnology/Financial%20Management", "Financial Management", "Improve financial control and decision-making." },
+                new[] { "/FinancialTechnology/Loan%20Management", "Loan Management", "Streamline lending workflows and customer service." },
+                new[] { "/FinancialTechnology/Payment%20Solutions", "Payment Solutions", "Deliver secure and efficient payment experiences." },
+                new[] { "/FinancialTechnology/Risk%20Management", "Risk Management", "Identify, monitor, and manage financial risk." }
+            };
+            return View("~/Views/Industries/Index.cshtml");
+        }
+
         [HttpGet("Banking Applications")]
         public IActionResult BankingApplications()
         {
