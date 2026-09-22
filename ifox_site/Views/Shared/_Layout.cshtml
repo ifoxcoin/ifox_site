@@ -9,6 +9,9 @@
         "AISolutions",
         "CloudSolutions"
     };
+    var industriesControllers = new[] { "RetailandEcommerce", "ManufacturingTechnology", "LogisticsAndTransportation", "Healthcare", "Financialtechnology", "EducationTechnology" };
+    var hireDevelopersControllers = new[] { "Reactandnodedevelopers", "powerplatformDeveloper", "PhpDeveloper", "MobileDevelopers", "DotNetDevelopers", "D365HireDeveloper" };
+    var productManagementControllers = new[] { "ProductStrategyVision", "ProductRoadmapPlanning", "ProductLaunch", "ProductGrowthOptimization", "MarketCustomerResearch", "ProductDevelopment" };
     var dropdownPageControllers = new[]
     {
         "RetailandEcommerce",
@@ -31,12 +34,15 @@
         "D365HireDeveloper"
     };
     var isServicePage = Array.IndexOf(serviceControllers, currentController) >= 0;
+    var isIndustriesPage = Array.IndexOf(industriesControllers, currentController) >= 0;
+    var isHireDevelopersPage = Array.IndexOf(hireDevelopersControllers, currentController) >= 0;
+    var isProductManagementPage = Array.IndexOf(productManagementControllers, currentController) >= 0;
     var isDropdownPage = Array.IndexOf(dropdownPageControllers, currentController) >= 0;
     var isTestimonialsPage = string.Equals(currentController, "Testimonials", StringComparison.OrdinalIgnoreCase);
     var isBlogPage = string.Equals(currentController, "Blog", StringComparison.OrdinalIgnoreCase);
     var isContactPage = string.Equals(currentController, "Contact", StringComparison.OrdinalIgnoreCase);
     var isDarkContentPage = isServicePage || isDropdownPage || isTestimonialsPage || isBlogPage || isContactPage;
-    var pageClass = $"{ViewData["PageClass"] ?? string.Empty} {(isDarkContentPage ? "ifox-service-page" : string.Empty)} {(isServicePage ? "ifox-service-detail-page" : string.Empty)} {(isDropdownPage ? "ifox-dropdown-detail-page" : string.Empty)} {(isTestimonialsPage ? "ifox-testimonials-page" : string.Empty)} {(isBlogPage ? "ifox-blog-page" : string.Empty)} {(isContactPage ? "ifox-contact-page" : string.Empty)}".Trim();
+    var pageClass = $"{ViewData["PageClass"] ?? string.Empty} {(isDarkContentPage ? "ifox-service-page" : string.Empty)} {(isServicePage ? "ifox-service-detail-page" : string.Empty)} {(isIndustriesPage ? "ifox-industries-detail-page" : string.Empty)} {(isHireDevelopersPage ? "ifox-hire-developers-detail-page" : string.Empty)} {(isProductManagementPage ? "ifox-product-management-detail-page" : string.Empty)} {(isDropdownPage ? "ifox-dropdown-detail-page" : string.Empty)} {(isTestimonialsPage ? "ifox-testimonials-page" : string.Empty)} {(isBlogPage ? "ifox-blog-page" : string.Empty)} {(isContactPage ? "ifox-contact-page" : string.Empty)}".Trim();
 }
 
 <!DOCTYPE html>
@@ -59,7 +65,7 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260729" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260731" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
         <link href="~/assets/css/home.css?v=20260619" rel="stylesheet" />
@@ -3563,7 +3569,7 @@
             </nav>
         </div>
     </header><!-- End Header -->
-    <main id="main"> @RenderBody() </main><!-- End #main --><!-- ======= Footer ======= -->
+    <main id="main"> @if (isServicePage) { <img class="ifox-service-heading-image" src="~/assets/img/service-pages.png" alt="" aria-hidden="true" /> } @if (isIndustriesPage) { <img class="ifox-industries-heading-image" src="~/assets/img/industries-pages.png" alt="" aria-hidden="true" /> } @if (isHireDevelopersPage) { <img class="ifox-hire-developers-heading-image" src="~/assets/img/Hiredevelopers-pages.png" alt="" aria-hidden="true" /> } @if (isProductManagementPage) { <img class="ifox-product-management-heading-image" src="~/assets/img/Product-management-pages.png" alt="" aria-hidden="true" /> } @RenderBody() </main><!-- End #main --><!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <!-- Newsletter Section -->
         <div class="footer-newsletter">
@@ -4107,12 +4113,12 @@
             @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
             {
                 <span class="ifox-home-ai-orb" aria-label="iFOX AI Assistant">
-                    <img src="~/assets/img/chatbot_neon.webp" alt="iFOX AI Assistant" />
+                    <img src="~/assets/img/fox-chatbot-v12.png" alt="iFOX AI Assistant" />
                 </span>
             }
             else
             {
-                <img src="~/assets/img/chatbot_neon.webp" alt="Chatbot">
+                <img src="~/assets/img/fox-chatbot-v12.png" alt="iFOX AI Assistant">
             }
         </div><!-- CHAT WINDOW (THIS WAS MISSING ❗) -->
         <div id="chatbot-box">
@@ -4126,3 +4132,7 @@
 </body>
 
 </html>
+
+
+
+
