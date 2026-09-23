@@ -25,7 +25,21 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View("~/Views/Services/DynamicsCRM/Index.cshtml");
+            ViewData["ServiceTitle"] = "Microsoft Dynamics 365 CRM";
+            ViewData["ServiceDescription"] = "Transform customer operations with connected Dynamics 365 CRM and Power Platform solutions.";
+            ViewData["ServiceItems"] = new[]
+            {
+                new[] { "/dynamics-365-crm-services/CRM%20Consulting", "CRM Consulting", "Align CRM strategy with business goals." },
+                new[] { "/dynamics-365-crm-services/Customization", "Customization", "Shape Dynamics 365 around your processes." },
+                new[] { "/dynamics-365-crm-services/Implementation", "Implementation", "Deploy CRM with a practical delivery approach." },
+                new[] { "/dynamics-365-crm-services/Integration", "Integration", "Connect CRM with your business systems." },
+                new[] { "/dynamics-365-crm-services/Migration", "Migration", "Move CRM data and processes safely." },
+                new[] { "/dynamics-365-crm-services/On-Premises", "On-Premises CRM", "Support on-premises Dynamics environments." },
+                new[] { "/dynamics-365-crm-services/Plugin%20Development", "Plugin Development", "Extend CRM with reliable custom plugins." },
+                new[] { "/dynamics-365-crm-services/Power%20Platform", "Power Platform", "Build connected apps and automations." },
+                new[] { "/dynamics-365-crm-services/Support", "CRM Support", "Keep your CRM platform healthy and effective." }
+            };
+            return View("~/Views/Services/CategoryIndex.cshtml");
         }
 
         [HttpGet("Implementation")]

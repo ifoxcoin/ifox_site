@@ -5,6 +5,24 @@ namespace ifox_site.Controllers
     [Route("Logistics and transportation")]
     public class LogisticsAndTransportationController : Controller
     {
+        [HttpGet("")]
+        [HttpGet("~/Logistics")]
+        public IActionResult Index()
+        {
+            ViewData["IndustryTitle"] = "Logistics & Transportation";
+            ViewData["IndustryDescription"] = "Connected logistics solutions that help teams plan, track, optimize, and deliver with confidence.";
+            ViewData["IndustryItems"] = new[]
+            {
+                new[] { "/Logistics%20and%20transportation/Fleet%20Management", "Fleet Management", "Monitor vehicles, drivers, and field operations." },
+                new[] { "/Logistics%20and%20transportation/Logistics%20Management", "Logistics Management", "Coordinate logistics operations from one platform." },
+                new[] { "/Logistics%20and%20transportation/Route%20Optimization", "Route Optimization", "Plan efficient routes and reduce delivery costs." },
+                new[] { "/Logistics%20and%20transportation/Shipment%20Tracking", "Shipment Tracking", "Give teams and customers real-time delivery visibility." },
+                new[] { "/Logistics%20and%20transportation/Supply%20Chain%20Automation", "Supply Chain Automation", "Automate connected supply chain workflows." },
+                new[] { "/Logistics%20and%20transportation/Warehouse%20Management", "Warehouse Management", "Improve warehouse accuracy, speed, and control." }
+            };
+            return View("~/Views/Industries/Index.cshtml");
+        }
+
         [HttpGet("Fleet Management")]
         public IActionResult FleetManagement()
         {

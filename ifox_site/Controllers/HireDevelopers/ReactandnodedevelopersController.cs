@@ -5,6 +5,21 @@ namespace ifox_site.Controllers
     [Route("Reactandnodedevelopers")]
     public class ReactandnodedevelopersController : Controller
     {
+        [HttpGet("")]
+        public IActionResult Index()
+        {
+            ViewData["HireTitle"] = "React & Node.js Developers";
+            ViewData["HireDescription"] = "Hire modern JavaScript specialists to build fast, scalable, and engaging web applications.";
+            ViewData["HireItems"] = new[]
+            {
+                new[] { "/Reactandnodedevelopers/FullStackDeveloper", "Full Stack Developers", "Build complete modern web solutions" },
+                new[] { "/Reactandnodedevelopers/MERNDeveloper", "MERN Developers", "Develop full-stack JavaScript applications" },
+                new[] { "/Reactandnodedevelopers/NodeJsDeveloper", "Node.js Developers", "Create scalable server-side applications" },
+                new[] { "/Reactandnodedevelopers/ReactDeveloper", "React Developers", "Build responsive user interfaces" }
+            };
+            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
+        }
+
         [HttpGet("FullStackDeveloper")]
         public IActionResult FullStackDeveloper()
         {

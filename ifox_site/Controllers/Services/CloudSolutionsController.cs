@@ -8,7 +8,17 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View();
+            ViewData["ServiceTitle"] = "Cloud Solutions";
+            ViewData["ServiceDescription"] = "Secure, scalable cloud solutions that improve infrastructure, delivery, and business agility.";
+            ViewData["ServiceItems"] = new[]
+            {
+                new[] { "/CloudSolutions/AWS", "AWS Solutions", "Build and operate reliable AWS cloud platforms." },
+                new[] { "/CloudSolutions/Cloud%20Migration", "Cloud Migration", "Move workloads to the cloud with confidence." },
+                new[] { "/CloudSolutions/DevOps", "DevOps", "Connect development, delivery, and operations." },
+                new[] { "/CloudSolutions/Infrastructure", "Cloud Infrastructure", "Create secure and resilient cloud foundations." },
+                new[] { "/CloudSolutions/Microsoft%20Azure", "Microsoft Azure", "Use Azure to modernize applications and data." }
+            };
+            return View("~/Views/Services/CategoryIndex.cshtml");
         }
 
         [HttpGet("AWS")]

@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = ViewData["HireTitle"];
+    var items = ViewData["HireItems"] as string[][] ?? Array.Empty<string[]>();
+}
+
+<section class="product-category-landing">
+    <div class="container">
+        <p class="product-category-landing__eyebrow">HIRE DEVELOPERS</p>
+        <h1>@ViewData["HireTitle"]</h1>
+        <p class="product-category-landing__intro">@ViewData["HireDescription"]</p>
+        <div class="product-category-landing__grid">
+            @foreach (var item in items)
+            {
+                <a href="@item[0]"><strong>@item[1]</strong><span>@item[2]</span></a>
+            }
+        </div>
+    </div>
+</section>
