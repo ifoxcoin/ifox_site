@@ -415,9 +415,6 @@
                 transcriptSent = false;
                 chatHistory = [];
 
-                // notify
-                notifyWhatsApp("🔥 New chatbot visitor: " + userEmail);
-
                 // ⭐ ADD THIS MESSAGE HERE
                 bot("Thanks 😊\nHow can we help you today?");
 
@@ -844,25 +841,6 @@
             contactCTA();
         }
 
-
-        /* ================= WHATSAPP ALERT ================= */
-
-        function notifyWhatsApp(message) {
-
-            fetch("https://carisa-triangular-unpreventively.ngrok-free.dev/notify", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: userEmail,
-                    message: message
-                })
-            })
-                .then(res => res.text())
-                .then(data => console.log("WhatsApp Notified"))
-                .catch(err => console.error("Error sending WhatsApp:", err));
-        }
 
         /*Hover Effect*/
 

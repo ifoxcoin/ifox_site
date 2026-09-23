@@ -4308,13 +4308,23 @@ body.ifox-dropdown-detail-page #main > section:first-child {
     border-radius: 4px;
     overflow: hidden;
     background: linear-gradient(110deg, #031426 0%, #0a3150 52%, #87d8f3 100%) !important;
-    box-shadow: 0 0 0 1px rgba(194, 49, 255, .42), 0 -10px 24px rgba(154, 0, 255, .62), 0 18px 45px rgba(154, 0, 255, .58), 0 0 58px rgba(154, 0, 255, .3);
+    box-shadow: none;
 }
 
 body.ifox-service-detail-page #main,
 body.ifox-dropdown-detail-page #main {
     padding-top: 82px !important;
 }
+
+body.ifox-service-detail-page #main { position: relative; }
+
+body.ifox-service-detail-page .ifox-service-heading-image { position: absolute; z-index: 20; top: 220px; right: clamp(42px, 8vw, 150px); display: block; width: clamp(240px, 28vw, 400px); height: auto; max-width: 400px; pointer-events: none; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .38)); animation: service-heading-image-float 5s ease-in-out infinite; }
+
+@keyframes service-heading-image-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+
+body.ifox-industries-detail-page #main { position: relative; }
+
+body.ifox-industries-detail-page .ifox-industries-heading-image { position: absolute; z-index: 20; top: 220px; right: clamp(42px, 8vw, 150px); display: block; width: clamp(240px, 28vw, 400px); height: auto; max-width: 400px; pointer-events: none; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .38)); animation: service-heading-image-float 5s ease-in-out infinite; }
 
 body.ifox-service-detail-page #main > section:first-child::before,
 body.ifox-dropdown-detail-page #main > section:first-child::before {
@@ -5128,6 +5138,36 @@ body.ifox-service-detail-page #main > section:first-child,body.ifox-dropdown-det
 body .footer-logos img[src*="msdynamics365.png"] {
     filter: brightness(0) invert(1);
 }
+
+
+/* Non-home chatbot theme aligned with the homepage chatbot. */
+body:not(:has(#hero.ifox-home-page)) #chatbot-toggle { right: 28px !important; bottom: 55px !important; width: 126px !important; height: 126px !important; z-index: 99999 !important; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-toggle > img { display: block; width: 126px !important; height: 126px !important; object-fit: contain; border-radius: 0; filter: drop-shadow(0 0 14px rgba(35, 212, 255, .48)); }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box { right: 28px !important; bottom: 182px !important; width: 320px !important; height: 410px !important; border: 1px solid rgba(83, 204, 255, .22) !important; border-radius: 8px !important; background: #061727 !important; box-shadow: 0 18px 48px rgba(0, 0, 0, .42), 0 0 26px rgba(31, 170, 231, .12) !important; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box .chat-header { padding: 16px; background: #061727; border-bottom: 1px solid rgba(83, 204, 255, .16); color: #dff8ff; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-messages { padding: 16px; background: #041321; color: #b7d5e6; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box .bot-msg, body:not(:has(#hero.ifox-home-page)) #chatbot-box .user-msg { border: 1px solid rgba(83, 204, 255, .12); border-radius: 2px; color: #d9efff; background: #12324b; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box .user-msg { background: #0b5d80; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-buttons { background: #041321; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box .chat-btn { border-color: rgba(83, 204, 255, .45); color: #61dfff; background: transparent; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box .chat-btn:hover { color: #031525; background: #61dfff; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box .chat-input-area { border-top-color: rgba(83, 204, 255, .16); background: #061727; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box #chatbot-input { color: #d9efff; background: transparent; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box #chatbot-input::placeholder { color: #7190a3; }
+body:not(:has(#hero.ifox-home-page)) #chatbot-box #chatbot-send { margin: 6px; padding: 8px 12px; border-radius: 2px; color: #031525; background: #ff7728; }
+@media (max-width: 767px) {
+    body:not(:has(#hero.ifox-home-page)) #chatbot-toggle { right: 28px !important; bottom: 55px !important; width: 126px !important; height: 126px !important; }
+    body:not(:has(#hero.ifox-home-page)) #chatbot-toggle > img { width: 126px !important; height: 126px !important; }
+    body:not(:has(#hero.ifox-home-page)) #chatbot-box { right: 28px !important; bottom: 182px !important; width: calc(100% - 56px) !important; max-width: 320px !important; height: 410px !important; max-height: calc(100vh - 210px) !important; }
+}
+
+
+
+
+
+body.ifox-hire-developers-detail-page #main, body.ifox-product-management-detail-page #main { position: relative; }
+
+body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.ifox-product-management-detail-page .ifox-product-management-heading-image { position: absolute; z-index: 20; top: 220px; right: clamp(42px, 8vw, 150px); display: block; width: clamp(240px, 28vw, 400px); height: auto; max-width: 400px; pointer-events: none; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, .38)); animation: service-heading-image-float 5s ease-in-out infinite; }
 
 @media (max-width: 576px) {
     body .footer-logos img[src*="msdynamics365.png"] {
