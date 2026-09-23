@@ -1,5 +1,6 @@
 ﻿@{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
     var serviceControllers = new[]
     {
         "DynamicsCRM",
@@ -3571,7 +3572,7 @@
             </nav>
         </div>
     </header><!-- End Header -->
-    <main id="main"> @if (isServicePage) { <img class="ifox-service-heading-image" src="~/assets/img/service-pages.png" alt="" aria-hidden="true" /> } @if (isIndustriesPage) { <img class="ifox-industries-heading-image" src="~/assets/img/industries-pages.png" alt="" aria-hidden="true" /> } @if (isHireDevelopersPage) { <img class="ifox-hire-developers-heading-image" src="~/assets/img/Hiredevelopers-pages.png" alt="" aria-hidden="true" /> } @if (isProductManagementPage) { <img class="ifox-product-management-heading-image" src="~/assets/img/Product-management-pages.png" alt="" aria-hidden="true" /> } @RenderBody() </main><!-- End #main --><!-- ======= Footer ======= -->
+    <main id="main"> @if (isServicePage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-service-heading-image" src="~/assets/img/service-pages.png" alt="" aria-hidden="true" /> } @if (isIndustriesPage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-industries-heading-image" src="~/assets/img/industries-pages.png" alt="" aria-hidden="true" /> } @if (isHireDevelopersPage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-hire-developers-heading-image" src="~/assets/img/Hiredevelopers-pages.png" alt="" aria-hidden="true" /> } @if (isProductManagementPage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-product-management-heading-image" src="~/assets/img/Product-management-pages.png" alt="" aria-hidden="true" /> } @RenderBody() </main><!-- End #main --><!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <!-- Newsletter Section -->
         <div class="footer-newsletter">
@@ -4132,8 +4133,7 @@
             }
             else
             {
-                <img src="~/assets/img/fox-chatbot-v12.png" alt="iFOX AI Assistant">
-                <img src="~/assets/img/fox-chatbot-v12.png" alt="Chatbot">
+                                <img src="~/assets/img/fox-chatbot-v12.png" alt="Chatbot">
             }
         </div><!-- CHAT WINDOW (THIS WAS MISSING â—) -->
         <div id="chatbot-box">
@@ -4152,6 +4152,10 @@
 
 
 </html>
+
+
+
+
 
 
 
