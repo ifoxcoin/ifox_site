@@ -1,4 +1,4 @@
-﻿@{
+@{
     var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
     var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
     var serviceControllers = new[]
@@ -4135,9 +4135,9 @@
             {
                                 <img src="~/assets/img/fox-chatbot-v12.png" alt="Chatbot">
             }
-        </div><!-- CHAT WINDOW (THIS WAS MISSING â—) -->
+        </div><!-- Chat window -->
         <div id="chatbot-box">
-            <div class="chat-header"><span id="chatbot-back" style="cursor:pointer;margin-right:10px;">â¬…</span> iFox Assistant <span id="chatbot-close">âœ–</span></div>
+            <div class="chat-header"><span id="chatbot-back" style="cursor:pointer;margin-right:10px;">&#x2B05;</span> iFox Assistant <span id="chatbot-close">&#x2716;</span></div>
             <div id="chatbot-messages"></div>
             <div id="chatbot-buttons"></div>
             <div class="chat-input-area"><input type="text" id="chatbot-input" placeholder="Type message..."/><button id="chatbot-send">Send</button></div>
