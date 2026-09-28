@@ -22,12 +22,6 @@
     <meta name="twitter:site" content="@@IFOXSolutions">
 }
 
-<section id="dummyspace">
-
-    <div class="container">
-    </div>
-
-</section>
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="contact">
     <div class="container" data-aos="fade-up">
@@ -71,24 +65,24 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" role="form" class="php-email-form" onsubmit="return validateAndSubmit()">
+                <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" enctype="multipart/form-data" role="form" class="php-email-form" onsubmit="return validateAndSubmit()">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Name">Your Name</label>
-                            <input type="text" asp-for="@Model.Name" class="form-control" name="name" id="name" required>
+                            <input type="text" asp-for="@Model.Name" class="form-control" id="name" autocomplete="name" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Email">Your Email</label>
-                            <input type="email" asp-for="@Model.Email" class="form-control" name="email" id="email" required>
+                            <input type="email" asp-for="@Model.Email" class="form-control" id="email" autocomplete="email" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Subject">Subject</label>
-                        <input type="text" asp-for="@Model.Subject" class="form-control" name="subject" id="subject" required>
+                        <input type="text" asp-for="@Model.Subject" class="form-control" id="subject" maxlength="200" required>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Contact">Contact No.</label>
-                        <input type="tel" asp-for="@Model.Contact" class="form-control" name="Contact" id="Contact" required>
+                        <input type="tel" asp-for="@Model.Contact" class="form-control" id="Contact" autocomplete="tel" inputmode="tel" maxlength="25" required>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Attachments">Attachment</label>
@@ -97,9 +91,13 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Message">Message</label>
-                        <textarea class="form-control" asp-for="@Model.Message" name="message" id="message" rows="10" required></textarea>
+                        <textarea class="form-control" asp-for="@Model.Message" id="message" rows="10" maxlength="5000" required></textarea>
                     </div>
-                    <div class="g-recaptcha" data-sitekey="@(Configuration["Recaptcha:SiteKey"] ?? string.Empty)" id="recaptcha-widget"></div>
+                    <div class="local-captcha">
+                        <input type="checkbox" id="local-captcha" name="local-captcha" value="verified" />
+                        <label for="local-captcha">I am not a robot</label>
+                    </div>
+                    <div class="text-danger" id="captchaErrorMessage" role="alert" aria-live="polite"></div>
                     <div class="my-3">
                         <div class="loading">Loading</div>
                         <div class="error-message" id="formErrorMessage" style="display:none;"></div>
@@ -127,8 +125,8 @@
         fileErrorMessage.style.display = 'none';  // Hide the file error message on form submit
 
         // Check if reCAPTCHA is completed
-        const response = grecaptcha.getResponse();
-        if (response.length === 0) {
+        if (!document.getElementById("local-captcha").checked) {
+            document.getElementById("captchaErrorMessage").textContent = "Please confirm that you are not a robot.";
             return false;
         }
 
@@ -140,12 +138,6 @@
         return true; // Allow form submission
     }
 
-    // Reload the reCAPTCHA widget after form submission
-    document.getElementById("contact-form").addEventListener("submit", function (e) {
-        setTimeout(function () {
-            grecaptcha.reset(); // Reset the reCAPTCHA widget
-        }, 100); // Small delay to ensure it triggers after form submission
-    });
 
 </script>
 

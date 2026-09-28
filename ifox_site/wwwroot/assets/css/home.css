@@ -1006,12 +1006,27 @@ body:has(#hero.ifox-home-page) #header .ifox-get-started {
 }
 
 @media (max-width: 767px) {
+    #hero.ifox-home-page {
+        min-height: 0;
+        overflow: visible;
+    }
+
     #hero.ifox-home-page .ifox-hero-shell {
         width: calc(100% - 10%);
         min-height: 0;
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: auto auto auto;
         padding: 0 0 36px;
+    }
+
+    #hero.ifox-home-page .ifox-hero-visual {
+        min-height: 520px;
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: min(520px, 100%);
+        min-height: 520px;
+        margin: 0 auto;
     }
 
     #hero.ifox-home-page .ifox-hero-copy {
@@ -1026,6 +1041,117 @@ body:has(#hero.ifox-home-page) #header .ifox-get-started {
 /* Homepage typography scale for the hero and globe cards. */
 #hero.ifox-home-page .ifox-hero-heading {
     font-size: clamp(48px, 5.2vw, 78px);
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+    #hero.ifox-home-page .ifox-hero-shell {
+        width: min(1240px, calc(100% - 8%));
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        column-gap: clamp(16px, 2.5vw, 32px);
+    }
+
+    #hero.ifox-home-page .ifox-hero-copy,
+    #hero.ifox-home-page .ifox-hero-visual {
+        min-width: 0;
+    }
+
+    #hero.ifox-home-page .ifox-hero-heading {
+        font-size: clamp(46px, 5vw, 72px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    #hero.ifox-home-page .ifox-hero-shell {
+        grid-template-rows: minmax(560px, 1fr) auto;
+        min-height: 600px;
+        padding-bottom: 24px;
+    }
+
+    #hero.ifox-home-page .ifox-hero-copy {
+        padding-top: 20px;
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: min(560px, 100%);
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1366px) {
+    #hero.ifox-home-page {
+        min-height: clamp(700px, calc(100vh - 20px), 820px);
+    }
+
+    #hero.ifox-home-page .ifox-hero-shell {
+        box-sizing: border-box;
+        padding-left: clamp(64px, 5vw, 72px);
+        grid-template-columns: minmax(0, .97fr) minmax(0, 1.03fr);
+        grid-template-rows: minmax(clamp(560px, calc(100vh - 140px), 640px), 1fr) auto;
+        column-gap: clamp(20px, 3vw, 40px);
+    }
+
+    #hero.ifox-home-page .ifox-hero-copy {
+        left: clamp(72px, 6vw, 84px);
+        padding-top: clamp(18px, 2vw, 28px);
+        padding-left: clamp(88px, 6vw, 96px);
+    }
+
+    #hero.ifox-home-page .ifox-hero-heading {
+        font-size: clamp(52px, 4.8vw, 66px);
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: min(clamp(500px, 38vw, 520px), 100%);
+        margin: 0 auto;
+    }
+
+    #hero.ifox-home-page .ifox-floating-card {
+        width: clamp(116px, 8.8vw, 124px);
+        padding: clamp(10px, .8vw, 12px);
+    }
+
+    #hero.ifox-home-page .ifox-floating-card .card-title {
+        font-size: clamp(14px, 1.05vw, 15px);
+    }
+
+    #hero.ifox-home-page .ifox-floating-card .card-sub {
+        font-size: clamp(8px, .7vw, 9px);
+    }
+
+    #hero.ifox-home-page .card-build {
+        bottom: clamp(68px, 5.5vw, 78px);
+    }
+
+    #hero.ifox-home-page .card-transform {
+        top: clamp(20px, 1.8vw, 25px);
+    }
+
+    #hero.ifox-home-page .card-grow {
+        right: clamp(26px, 2.2vw, 32px);
+        bottom: clamp(54px, 4.5vw, 62px);
+    }
+
+    body:has(#hero.ifox-home-page) #social-chat {
+        left: 12px;
+    }
+
+}
+
+#hero.ifox-home-page ~ #clients,
+#hero.ifox-home-page ~ #clients .container,
+#hero.ifox-home-page ~ #clients .swiper-container {
+    max-width: 100%;
+}
+
+@media (min-width: 992px) and (max-width: 1366px) {
+    body:has(#hero.ifox-home-page) #chatbot-toggle {
+        right: -24px;
+        bottom: 8px;
+    }
+}
+
+#hero.ifox-home-page ~ #clients .swiper-slide {
+    min-width: 0;
 }
 
 #hero.ifox-home-page .ifox-floating-card {

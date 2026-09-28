@@ -18,19 +18,21 @@ namespace ifox_site.Controllers
         }
 
         // GET: TestimonialsController/Details/5
+        [HttpGet("details/{id:int}")]
         public ActionResult Details(int id)
         {
             return View();
         }
 
         // GET: TestimonialsController/Create
+        [HttpGet("create")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: TestimonialsController/Create
-        [HttpPost]
+        [HttpPost("create")]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
@@ -45,13 +47,14 @@ namespace ifox_site.Controllers
         }
 
         // GET: TestimonialsController/Edit/5
+        [HttpGet("edit/{id:int}")]
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         // POST: TestimonialsController/Edit/5
-        [HttpPost]
+        [HttpPost("edit/{id:int}")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
         {
@@ -66,13 +69,14 @@ namespace ifox_site.Controllers
         }
 
         // GET: TestimonialsController/Delete/5
+        [HttpGet("delete/{id:int}")]
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         // POST: TestimonialsController/Delete/5
-        [HttpPost]
+        [HttpPost("delete/{id:int}")]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {

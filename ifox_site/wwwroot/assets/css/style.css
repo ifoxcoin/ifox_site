@@ -14,6 +14,30 @@ body {
     color: #444444;
 }
 
+/* Final mega-menu state: visibility is controlled only by .services-open. */
+#header .ifox-has-mega > .ifox-mega-menu {
+    display: block !important;
+    position: fixed !important;
+    top: var(--ifox-header-height) !important;
+    left: 50% !important;
+    width: min(1540px, calc(100vw - 70px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    max-height: calc(100vh - var(--ifox-header-height) - 24px) !important;
+    height: auto !important;
+    transform: translate(-50%, 12px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: 100010 !important;
+}
+
+#header .ifox-has-mega.services-open > .ifox-mega-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, 0) !important;
+}
+
 /* Premium styling for the remaining mega-menus only. */
 #header :is(.ifox-industries-menu, .ifox-hire-menu) > .ifox-mega-menu {
     transition: opacity .26s cubic-bezier(.2, .8, .2, 1), transform .26s cubic-bezier(.2, .8, .2, 1), visibility .26s ease, filter .26s ease !important;
@@ -4647,7 +4671,7 @@ body.ifox-contact-page {
    form field below it. */
 body.ifox-contact-page #contact .php-email-form {
     position: relative !important;
-    z-index: 100011 !important;
+    z-index: 1 !important;
 }
 
 body.ifox-testimonials-page #main,
@@ -4898,14 +4922,13 @@ body.ifox-blog-page #main .pagination-box a:hover {
 }
 
 body.ifox-contact-page #main #contact {
+    margin-top: 0 !important;
     min-height: calc(100vh - 82px);
-    padding: 70px 0 90px;
+    padding: 32px 0 90px;
     background: linear-gradient(135deg, #020b17 0%, #03182a 52%, #020b17 100%) !important;
 }
 
 body.ifox-contact-page #header .ifox-mega-menu { max-height: calc(100vh - var(--ifox-header-height) - 16px) !important; }
-
-body.ifox-contact-page #header .ifox-mega-menu, body.ifox-contact-page #header .ifox-has-mega.services-open > .ifox-mega-menu { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
 
 body.ifox-contact-page #main .section-title h2 {
     color: #ff6b27 !important;
@@ -5194,3 +5217,70 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
 /* Final cascade for dropdown heading artwork. */
 body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; top: 108px; right: clamp(28px, 6vw, 96px); width: clamp(210px, 23vw, 320px); max-width: 320px; opacity: .9; }
 
+
+
+/* Compact desktop navigation for 992-1199px displays. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    #header .ifox-mobile-menu-toggle { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; margin-left: auto !important; padding: 0 !important; border: 1px solid rgba(255,255,255,.35) !important; border-radius: 8px !important; background: transparent !important; color: #fff !important; font-size: 28px !important; cursor: pointer !important; }
+    #header .ifox-navigation { display: none !important; position: absolute !important; top: 82px !important; right: 18px !important; left: 18px !important; width: auto !important; height: calc(100vh - 94px) !important; max-height: calc(100vh - 94px) !important; overflow-y: auto !important; overflow-x: hidden !important; padding: 8px 0 20px !important; border: 1px solid rgba(255,255,255,.12) !important; border-radius: 0 0 14px 14px !important; background: #233f66 !important; box-shadow: 0 18px 40px rgba(0,0,0,.35) !important; }
+    #header .ifox-navigation.mobile-open { display: block !important; }
+    #header .ifox-nav-list { display: flex !important; flex-direction: column !important; align-items: stretch !important; width: 100% !important; min-width: 0 !important; height: auto !important; }
+    #header .ifox-nav-item { display: block !important; width: 100% !important; height: auto !important; white-space: normal !important; }
+    #header .ifox-nav-link { display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; min-height: 48px !important; height: auto !important; padding: 12px 18px !important; font-size: 14px !important; }
+    #header .ifox-get-started { width: calc(100% - 36px) !important; min-width: 0 !important; height: 44px !important; margin: 10px 18px !important; }
+    #header .ifox-mega-menu { position: static !important; width: 100% !important; height: auto !important; max-height: none !important; overflow: visible !important; }
+    #header .ifox-mega-inner { display: block !important; height: auto !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }
+    #header .ifox-mega-sidebar { width: 100% !important; min-width: 100% !important; height: auto !important; max-height: 300px !important; }
+    #header .ifox-mega-content { height: auto !important; overflow: visible !important; }
+    #header .ifox-service-panel { position: relative !important; inset: auto !important; display: none !important; width: 100% !important; height: auto !important; padding: 20px !important; opacity: 1 !important; visibility: visible !important; transform: none !important; }
+    #header .ifox-service-panel.active { display: block !important; }
+    #header .ifox-service-grid { grid-template-columns: 1fr !important; gap: 8px !important; }
+}
+
+
+#footer .footer-top .social-links a.linkedin {
+    background: #0A66C2 !important;
+    color: #ffffff !important;
+}
+
+#footer .footer-top .social-links a.linkedin:hover {
+    background: #004182 !important;
+    color: #ffffff !important;
+}
+
+
+/* Current-page navigation state */
+#header .ifox-nav-link.is-active,
+#header .ifox-nav-link.is-active:hover,
+#header .ifox-nav-link.is-active:focus {
+    color: #8bdcff !important;
+}
+
+#header .ifox-nav-link.is-active::after {
+    display: block !important;
+    position: absolute;
+    right: 12px;
+    bottom: 16px;
+    left: 12px;
+    height: 2px;
+    background: #8bdcff;
+    content: "";
+}
+
+/* Keep dropdown content sharp; only the panel background may use translucency. */
+#header .ifox-has-mega > .ifox-mega-menu,
+#header .ifox-has-mega.services-open > .ifox-mega-menu {
+    filter: none !important;
+    -webkit-filter: none !important;
+}
+
+/* Stable dropdown fallback: keep the panel visible while its trigger or panel is hovered. */
+#header .ifox-has-mega:hover > .ifox-mega-menu,
+#header .ifox-has-mega.services-open > .ifox-mega-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, 0) !important;
+    z-index: 100010 !important;
+}
