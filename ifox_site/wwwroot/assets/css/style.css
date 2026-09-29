@@ -31,6 +31,14 @@ body {
     z-index: 100010 !important;
 }
 
+/* A trigger click closes the hovered menu until the pointer leaves the item. */
+#header .ifox-has-mega.ifox-click-closed:hover > .ifox-mega-menu {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
 #header .ifox-has-mega.services-open > .ifox-mega-menu {
     opacity: 1 !important;
     visibility: visible !important;

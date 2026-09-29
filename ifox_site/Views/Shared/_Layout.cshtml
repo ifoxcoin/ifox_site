@@ -3774,21 +3774,26 @@
                     event.preventDefault();
                     event.stopPropagation();
 
-                    const isCurrentlyOpen =
-                        megaItem.classList.contains("services-open");
+                    const isClickClosed =
+                        megaItem.classList.contains("ifox-click-closed");
 
-
-                    /* Close every menu */
                     closeAllMegaMenus();
 
-
-                    /* Open only clicked menu */
-                    if (!isCurrentlyOpen) {
-
+                    if (isClickClosed) {
+                        megaItem.classList.remove("ifox-click-closed");
                         megaItem.classList.add("services-open");
-
+                    } else {
+                        megaItem.classList.add("ifox-click-closed");
                     }
 
+                });
+
+                megaItem.addEventListener("mouseenter", function () {
+                    megaItem.classList.remove("ifox-click-closed");
+                });
+
+                megaItem.addEventListener("mouseleave", function () {
+                    megaItem.classList.remove("services-open", "ifox-click-closed");
                 });
 
                 /* =====================================================
