@@ -994,6 +994,10 @@ body:has(#hero.ifox-home-page) #header .ifox-nav-link:focus {
     color: #5de4ff !important;
 }
 
+body:has(#hero.ifox-home-page) #header .ifox-nav-link.is-active {
+    color: #8bdcff !important;
+}
+
 body:has(#hero.ifox-home-page) #header .ifox-nav-link.ifox-nav-cta {
     color: #f4f8fb !important;
     border-color: rgba(125, 210, 239, .28) !important;
@@ -1537,6 +1541,12 @@ body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=email]
 body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=submit] {
     color: #ffffff !important;
     background: #45afe0 !important;
+}
+
+body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=submit]:hover {
+    background: #0879b5 !important;
+    box-shadow: 0 4px 12px rgba(8, 121, 181, .45) !important;
+    transform: translateY(-1px);
 }
 
 body:has(#hero.ifox-home-page) #footer .social-links a {

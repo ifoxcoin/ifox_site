@@ -129,7 +129,7 @@
                     <!-- SERVICES -->
                     <li class="ifox-nav-item ifox-has-mega ifox-services-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isServicePage || isServicesLandingPage ? "is-active" : string.Empty)">
                             <span class="ifox-services-label">SERVICES</span>
                             <i class="bi bi-chevron-down"></i>
                         </a>
@@ -872,7 +872,7 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isIndustriesPage ? "is-active" : string.Empty)">
 
                             INDUSTRIES
 
@@ -1842,7 +1842,7 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu ifox-product-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isProductManagementPage ? "is-active" : string.Empty)">
 
                             PRODUCT MANAGEMENT
 
@@ -2768,7 +2768,7 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-hire-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isHireDevelopersPage ? "is-active" : string.Empty)">
 
                             HIRE DEVELOPERS
 
@@ -3581,9 +3581,9 @@
                     <div class="col-lg-6">
                         <h4>Join Our Newsletter</h4>
                         <p>Subscribe to our newsletter to receive emails about any updates</p>
-                        <form action="/newsletter/subscribe" method="post">
+                        <form action="/newsletter/subscribe" method="post" onsubmit="sessionStorage.setItem('newsletterScrollY', window.scrollY.toString());">
                             @Html.AntiForgeryToken()
-                            <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address">
+                            <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address" oninvalid="this.setCustomValidity(this.value.trim() ? 'Please enter a valid email address.' : 'Please fill out this field.')" oninput="this.setCustomValidity('')">
                             <input type="submit" value="Subscribe">
                         </form>
                         @if (TempData["NewsletterSuccess"] != null)

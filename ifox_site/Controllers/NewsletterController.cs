@@ -23,7 +23,13 @@ namespace ifox_site.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Subscribe(string email)
         {
-            if (string.IsNullOrWhiteSpace(email) || !new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(email))
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                TempData["NewsletterError"] = "Please fill out this field.";
+                return RedirectToReferer();
+            }
+
+            if (!new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(email))
             {
                 TempData["NewsletterError"] = "Please enter a valid email address.";
                 return RedirectToReferer();
@@ -70,7 +76,7 @@ namespace ifox_site.Controllers
                 && Uri.TryCreate(referer, UriKind.Absolute, out uri)
                 && uri.Host == Request.Host.Host)
             {
-                return Redirect(uri.PathAndQuery + "#newsletter");
+                return Redirect(uri.PathAndQuery);
             }
 
             return RedirectToAction("Index", "Home");

@@ -98,6 +98,18 @@
 
         const backToTop = document.querySelector(".back-to-top");
 
+        const newsletterScrollY = sessionStorage.getItem("newsletterScrollY");
+        if (newsletterScrollY !== null) {
+            sessionStorage.removeItem("newsletterScrollY");
+            window.setTimeout(() => {
+                window.scrollTo({
+                    top: Number(newsletterScrollY),
+                    left: 0,
+                    behavior: "auto"
+                });
+            }, 0);
+        }
+
         if (!backToTop) {
             console.log("Back-to-top button not found");
             return;
@@ -386,7 +398,10 @@
             trackMessage("User", msg);
         }
 
-        function clearBtns() { buttons.innerHTML = "" }
+        function clearBtns() {
+            buttons.innerHTML = "";
+            buttons.classList.remove("contact-buttons");
+        }
 
         function addBtns(arr) {
             clearBtns();
@@ -763,14 +778,9 @@
             bot("For more details contact us 👇 \n Contact:+919488718218 \n E-Mail:hr@ifox.co.in");
 
             buttons.innerHTML = `
-        <a class="chat-btn" target="_blank"
-        href="https://wa.me/919488718218">Chat on WhatsApp</a>
-
-        <div style="margin:8px;font-size:12px;">OR</div>
-
-        <a class="chat-btn" target="_blank"
-        href="mailto:hr@ifox.co.in?subject=Website Enquiry">
-        Send Email</a>`;
+        <a class="chat-btn whatsapp-contact-btn" target="_blank"
+        href="https://wa.me/919488718218">Chat on WhatsApp</a>`;
+            buttons.classList.add("contact-buttons");
         }
         function resetIdleTimer() {
             clearTimeout(idleTimer);
