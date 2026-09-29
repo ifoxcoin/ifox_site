@@ -2016,6 +2016,206 @@ section {
         padding-top: 4px;
     }
 }
+
+#footer .footer-newsletter {
+    padding: 32px 0 36px;
+}
+
+#footer .footer-newsletter h4 {
+    margin-bottom: 14px;
+}
+
+#footer .footer-newsletter form {
+    width: min(100%, 630px);
+    margin: 24px auto 0;
+}
+
+#footer .footer-top {
+    padding: 34px 0 22px;
+}
+
+#footer .footer-top > .container > .row {
+    display: grid;
+    grid-template-columns: minmax(210px, .8fr) minmax(190px, .8fr) minmax(0, 1.65fr);
+    gap: 28px 42px;
+    align-items: start;
+}
+
+#footer .footer-top .footer-contact,
+#footer .footer-top .footer-links {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+#footer .footer-top .footer-contact {
+    align-self: start;
+    justify-self: end;
+    width: min(100%, 260px);
+}
+
+#footer .footer-contact h1 {
+    height: 58px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+}
+
+#footer .footer-contact h1 img {
+    width: 178px !important;
+    height: auto !important;
+    max-width: 100%;
+}
+
+#footer .footer-contact p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.75;
+    text-align: left;
+}
+
+#footer .footer-top h4 {
+    margin: 0 0 12px;
+    padding: 0;
+    line-height: 1.3;
+}
+
+#footer .footer-home-services {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#footer .footer-home-services h4 {
+    color: #ff6b27 !important;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#footer .footer-home-services ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#footer .footer-home-services li {
+    position: relative;
+    padding: 5px 0 5px 16px;
+    color: #7ec8e8;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#footer .footer-home-services li::before {
+    position: absolute;
+    left: 0;
+    color: #ff6b27;
+    content: "›";
+    font-size: 18px;
+    line-height: 1.05;
+}
+
+#footer .footer-home-services a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#footer .footer-home-services a:hover {
+    color: #ffffff;
+}
+
+#footer .footer-top .social-links {
+    margin-top: 14px !important;
+}
+
+#footer .footer-top .social-links a {
+    margin-right: 8px;
+}
+
+#footer .footer-logos {
+    margin-top: 18px !important;
+}
+
+#footer .footer-logos .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+}
+
+#footer .footer-logos .row > div {
+    width: auto;
+    flex: 0 0 auto;
+    padding: 0;
+    margin: 0 !important;
+}
+
+#footer .footer-logos img {
+    display: block;
+    width: auto;
+    max-width: 92px;
+    max-height: 56px;
+    object-fit: contain;
+}
+
+#footer .footer-logos:first-of-type img {
+    max-width: 112px;
+    max-height: 52px;
+}
+
+#footer .footer-bottom {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    #footer .footer-top > .container > .row {
+        grid-template-columns: minmax(220px, 1fr) minmax(180px, 1fr);
+        gap: 30px 36px;
+    }
+
+    #footer .footer-top .footer-links:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 767px) {
+    #footer .footer-newsletter {
+        padding: 28px 16px 30px;
+    }
+
+    #footer .footer-newsletter form {
+        width: 100%;
+    }
+
+    #footer .footer-top {
+        padding: 30px 16px 18px;
+    }
+
+    #footer .footer-top > .container > .row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    #footer .footer-top .footer-contact {
+        justify-self: start;
+        width: 100%;
+    }
+
+    #footer .footer-top .footer-links:last-child {
+        grid-column: auto;
+    }
+
+    #footer .footer-logos .row {
+        flex-wrap: wrap;
+        gap: 14px 20px;
+    }
+
+    #footer .footer-bottom {
+        padding: 14px 16px;
+    }
+}
 /*-------------------------------------------------------------
  #Sys entrys
 ------------------------------------------------------------*/
@@ -2862,6 +3062,53 @@ Active list item style
     z-index: 99999;
 }
 
+@media (min-width: 992px) and (max-width: 1200px) {
+    #header > .container {
+        gap: 10px !important;
+        padding: 0 16px !important;
+    }
+
+    #header > .container > h1,
+    #header > .container > h1.me-auto {
+        width: 170px !important;
+        min-width: 170px !important;
+        max-width: 170px !important;
+        flex-basis: 170px !important;
+    }
+
+    #header > .container > h1 > a > img {
+        width: 158px !important;
+        max-width: 158px !important;
+    }
+
+    #header .ifox-nav-link,
+    #header .ifox-nav-link:focus {
+        gap: 4px !important;
+        padding: 0 6px !important;
+        font-size: 13px !important;
+    }
+
+    #header .ifox-get-started {
+        width: 116px !important;
+        min-width: 116px !important;
+        margin-left: 6px !important;
+        padding: 0 12px !important;
+        font-size: 12px !important;
+    }
+
+    #social-chat {
+        left: 12px;
+        bottom: 96px;
+        gap: 10px;
+    }
+
+    #social-chat .social-btn {
+        width: 46px;
+        height: 46px;
+        font-size: 21px;
+    }
+}
+
 /* ROUND ICON BUTTON */
 .social-btn {
     width: 52px;
@@ -3564,6 +3811,18 @@ Active list item style
         #header .ifox-has-mega.services-open > .ifox-mega-menu {
             z-index: 100010 !important;
         }
+
+/* Match the newsletter Subscribe button to the Contact Us Send Message button. */
+#footer .footer-newsletter form input[type=submit] {
+    background: #8be8ff !important;
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+#footer .footer-newsletter form input[type=submit]:hover {
+    background: #8be8ff !important;
+    color: #020b17 !important;
+}
 
     /* =========================================================
    NORMAL DROPDOWN SUPPORT
@@ -4330,13 +4589,15 @@ body.ifox-service-page #footer .footer-newsletter form input[type=email] {
 }
 
 body.ifox-service-page #footer .footer-newsletter form input[type=submit] {
-    color: #ffffff !important;
-    background: #45afe0 !important;
+    color: #000000 !important;
+    background: #8be8ff !important;
+    font-weight: 600 !important;
 }
 
 body.ifox-service-page #footer .footer-newsletter form input[type=submit]:hover {
-    background: #0879b5 !important;
-    box-shadow: 0 4px 12px rgba(8, 121, 181, .45) !important;
+    background: #8be8ff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
     transform: translateY(-1px);
 }
 

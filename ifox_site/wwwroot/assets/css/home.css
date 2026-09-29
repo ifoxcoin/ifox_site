@@ -1088,16 +1088,16 @@ body:has(#hero.ifox-home-page) #header .ifox-get-started {
 
     #hero.ifox-home-page .ifox-hero-shell {
         box-sizing: border-box;
-        padding-left: clamp(64px, 5vw, 72px);
+        width: min(1240px, calc(100% - 16%));
         grid-template-columns: minmax(0, .97fr) minmax(0, 1.03fr);
         grid-template-rows: minmax(clamp(560px, calc(100vh - 140px), 640px), 1fr) auto;
         column-gap: clamp(20px, 3vw, 40px);
     }
 
     #hero.ifox-home-page .ifox-hero-copy {
-        left: clamp(72px, 6vw, 84px);
+        left: 0;
         padding-top: clamp(18px, 2vw, 28px);
-        padding-left: clamp(88px, 6vw, 96px);
+        padding-left: 0;
     }
 
     #hero.ifox-home-page .ifox-hero-heading {
@@ -1539,13 +1539,15 @@ body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=email]
 }
 
 body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=submit] {
-    color: #ffffff !important;
-    background: #45afe0 !important;
+    color: #000000 !important;
+    background: #8be8ff !important;
+    font-weight: 600 !important;
 }
 
 body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=submit]:hover {
-    background: #0879b5 !important;
-    box-shadow: 0 4px 12px rgba(8, 121, 181, .45) !important;
+    background: #8be8ff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
     transform: translateY(-1px);
 }
 

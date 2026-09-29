@@ -68,10 +68,10 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260737" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260738" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
-        <link href="~/assets/css/home.css?v=20260619" rel="stylesheet" />
+         <link href="~/assets/css/home.css?v=20260620" rel="stylesheet" />
         <style>
             body:has(#hero.ifox-home-page) #header .ifox-nav-link,
             body:has(#hero.ifox-home-page) #header .ifox-get-started {
@@ -3604,33 +3604,21 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h1 class="logo me-auto"><a href="/home"><img src="~/assets/img/Ifoxlogo56.webp" alt="ifox" style="width: 60%; height: 60%;"></a></h1><br />
-                        <p align="left"> 29, Sri Ganapathi Nagar,<br> Keelapanangadi,<br> Kulamangalam Main Road<br> Vagai Kulam Post<br> Madurai - 625017<br> India<br /><br /><strong>Phone:</strong><a class="contact-info mob first_nav_content mr-md-2" href="tel:+919597 892 118"> +91 9488 718 218 </a><br /><strong>Email : </strong><a href="mailto:info@ifox.co.in"> info@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:sales@ifox.co.in"> sales@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:hr@ifox.co.in"> hr@ifox.co.in </a><br></p>
-                    </div><!-- Useful Links -->
-                    <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i><span>Home</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Dynamics CRM 365</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Product Management</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Hire Developers</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Services</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Testimonials</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Contact</span></li>
-                        </ul>
-                    </div><!-- Our Services -->
-                    <div class="col-lg-2 col-md-6 footer-links">
+                        <p align="left">
+                            <strong>Phone:</strong><a class="contact-info mob first_nav_content mr-md-2" href="tel:+919597 892 118"> +91 9488 718 218 </a><br /><strong>Email : </strong><a href="mailto:info@ifox.co.in"> info@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:sales@ifox.co.in"> sales@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:hr@ifox.co.in"> hr@ifox.co.in </a><br>
+                        </p>
+                    </div><!-- Our Social Networks -->
+                    <div class="footer-home-services">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i><span>Emergency Support</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Remote office Support</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Network Administration</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Graphic Designing</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>IT Consulting Services</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Customer Support Service</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Digital Marketing</span></li>
-                            <li><i class="bx bx-chevron-right"></i><span>Office System Installations</span></li>
+                            <li><a asp-controller="DynamicsCRM" asp-action="Index">Microsoft Dynamics 365</a></li>
+                            <li><a asp-controller="WebDevelopment" asp-action="Index">Web Development</a></li>
+                            <li><a asp-controller="MobileDevelopment" asp-action="Index">Mobile Development</a></li>
+                            <li><a asp-controller="WindowsApplication" asp-action="Index">Windows Applications</a></li>
+                            <li><a asp-controller="AISolutions" asp-action="Index">AI Solutions</a></li>
+                            <li><a asp-controller="CloudSolutions" asp-action="Index">Cloud Solutions</a></li>
                         </ul>
-                    </div><!-- Our Social Networks -->
+                    </div>
                     <div class="col-lg-5 col-md-6 footer-links">
                         <h4>Our Social Networks</h4>
                         <p>Social network theory focuses on the role of social relationships in transmitting information, channeling personal or media influence, and enabling attitudinal or behavioral change</p>
