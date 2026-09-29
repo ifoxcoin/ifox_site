@@ -138,13 +138,64 @@
     });
 
     /**
-     * Mobile nav toggle
+     * Mobile navigation
      */
-    on('click', '.mobile-nav-toggle', function (e) {
-        select('#navbar').classList.toggle('navbar-mobile')
-        this.classList.toggle('bi-list')
-        this.classList.toggle('bi-x')
-    })
+    const mobileMenuToggle = document.getElementById('ifoxMobileMenuToggle')
+    const mobileNavigation = document.getElementById('ifoxNavigation')
+
+    if (mobileMenuToggle && mobileNavigation) {
+        const closeMobileNavigation = () => {
+            mobileNavigation.classList.remove('mobile-open')
+            document.body.classList.remove('ifox-mobile-nav-open')
+            mobileMenuToggle.setAttribute('aria-expanded', 'false')
+            mobileMenuToggle.setAttribute('aria-label', 'Open navigation menu')
+            const icon = mobileMenuToggle.querySelector('i')
+            if (icon) icon.className = 'bi bi-list'
+        }
+
+        const openMobileNavigation = () => {
+            mobileNavigation.classList.add('mobile-open')
+            document.body.classList.add('ifox-mobile-nav-open')
+            mobileMenuToggle.setAttribute('aria-expanded', 'true')
+            mobileMenuToggle.setAttribute('aria-label', 'Close navigation menu')
+            const icon = mobileMenuToggle.querySelector('i')
+            if (icon) icon.className = 'bi bi-x'
+        }
+
+        mobileMenuToggle.addEventListener('click', (event) => {
+            event.preventDefault()
+            event.stopPropagation()
+            if (mobileNavigation.classList.contains('mobile-open')) {
+                closeMobileNavigation()
+            } else {
+                openMobileNavigation()
+            }
+        })
+
+        mobileNavigation.addEventListener('click', (event) => {
+            const link = event.target.closest('a')
+            if (!link || link.classList.contains('ifox-dropdown-trigger')) return
+            closeMobileNavigation()
+        })
+
+        document.addEventListener('click', (event) => {
+            if (!mobileNavigation.classList.contains('mobile-open') ||
+                mobileNavigation.contains(event.target) ||
+                mobileMenuToggle.contains(event.target)) return
+            closeMobileNavigation()
+        })
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && mobileNavigation.classList.contains('mobile-open')) {
+                closeMobileNavigation()
+                mobileMenuToggle.focus()
+            }
+        })
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 991) closeMobileNavigation()
+        })
+    }
 
     /**
      * Mobile nav dropdowns activate
