@@ -65,37 +65,41 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" enctype="multipart/form-data" role="form" class="php-email-form" onsubmit="return validateAndSubmit()">
+                <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" enctype="multipart/form-data" role="form" class="php-email-form" onsubmit="return validateAndSubmit()" novalidate>
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Name">Your Name</label>
                             <input type="text" asp-for="@Model.Name" class="form-control" id="name" autocomplete="name" required>
+                            <div class="custom-validation-message" id="nameErrorMessage" role="alert"></div>
                         </div>
                         <div class="form-group col-md-6">
                             <label asp-for="@Model.Email">Your Email</label>
                             <input type="email" asp-for="@Model.Email" class="form-control" id="email" autocomplete="email" required>
+                            <div class="custom-validation-message" id="emailErrorMessage" role="alert"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Subject">Subject</label>
                         <input type="text" asp-for="@Model.Subject" class="form-control" id="subject" maxlength="200" required>
+                        <div class="custom-validation-message" id="subjectErrorMessage" role="alert"></div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Contact">Contact No.</label>
                         <input type="tel" asp-for="@Model.Contact" class="form-control" id="Contact" autocomplete="tel" inputmode="tel" maxlength="25" required>
+                        <div class="custom-validation-message" id="contactErrorMessage" role="alert"></div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Attachments">Attachment</label>
                         <input type="file" asp-for="@Model.Attachments" style="height:100%" class="form-control" name="file" id="Attachments" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="validateFile()" />
-                        <div class="error-message" id="fileErrorMessage" style="display:none;"></div>
+                        <div class="file-validation-message" id="fileErrorMessage" style="display:none;"></div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Message">Message</label>
-                        <textarea class="form-control" asp-for="@Model.Message" id="message" rows="10" maxlength="5000" required></textarea>
+                        <textarea class="form-control" asp-for="@Model.Message" id="message" rows="10" maxlength="5000"></textarea>
                     </div>
                     <div class="local-captcha">
                         <input type="checkbox" id="local-captcha" name="local-captcha" value="verified" />
-                        <label for="local-captcha">I am not a robot</label>
+                        <label for="local-captcha">I'm not a robot</label>
                     </div>
                     <div class="text-danger" id="captchaErrorMessage" role="alert" aria-live="polite"></div>
                     <div class="my-3">
@@ -119,10 +123,41 @@
         var form = document.getElementById('contact-form');
         var errorMessage = document.getElementById('formErrorMessage');
         var fileErrorMessage = document.getElementById('fileErrorMessage');  // Get the attachment error message element
+        var requiredFields = [
+            { input: document.getElementById('name'), error: document.getElementById('nameErrorMessage'), requiredMessage: 'Please fill out this field.' },
+            { input: document.getElementById('email'), error: document.getElementById('emailErrorMessage'), requiredMessage: 'Please fill out this field.', invalidMessage: 'Please enter a valid email address.' },
+            { input: document.getElementById('subject'), error: document.getElementById('subjectErrorMessage'), requiredMessage: 'Please fill out this field.' },
+            { input: document.getElementById('Contact'), error: document.getElementById('contactErrorMessage'), requiredMessage: 'Please fill out this field.', invalidMessage: 'Please enter a valid contact number.' }
+        ];
+        var firstInvalidField = null;
+        var emailPattern = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
+        var contactPattern = /^\+?[0-9][0-9\s().-]{6,24}$/;
 
         // Clear previous error messages
         errorMessage.style.display = 'none';
         fileErrorMessage.style.display = 'none';  // Hide the file error message on form submit
+        requiredFields.forEach(function (field) {
+            field.error.textContent = '';
+            field.input.classList.remove('custom-validation-error');
+            if (!field.input.value.trim()) {
+                field.error.textContent = field.requiredMessage;
+                field.input.classList.add('custom-validation-error');
+                firstInvalidField = firstInvalidField || field.input;
+            } else if (field.input.id === 'email' && !emailPattern.test(field.input.value.trim())) {
+                field.error.textContent = field.invalidMessage;
+                field.input.classList.add('custom-validation-error');
+                firstInvalidField = firstInvalidField || field.input;
+            } else if (field.input.id === 'Contact' && !contactPattern.test(field.input.value.trim())) {
+                field.error.textContent = field.invalidMessage;
+                field.input.classList.add('custom-validation-error');
+                firstInvalidField = firstInvalidField || field.input;
+            }
+        });
+
+        if (firstInvalidField) {
+            firstInvalidField.focus();
+            return false;
+        }
 
         // Check if reCAPTCHA is completed
         if (!document.getElementById("local-captcha").checked) {

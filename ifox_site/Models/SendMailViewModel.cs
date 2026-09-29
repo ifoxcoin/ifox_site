@@ -24,8 +24,7 @@ namespace ifox_site.Models
 
         public IFormFile? Attachments { get; set; }
 
-        [Required(ErrorMessage = "Please enter a message.")]
-        [StringLength(5000, MinimumLength = 1)]
+        [StringLength(5000)]
         public string? Message { get; set; }
 
         

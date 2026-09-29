@@ -63,7 +63,7 @@ namespace ifox_site.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<string> SendEmail(SendMailViewModel sendMailView, IFormFile file)
+        public async Task<string> SendEmail(SendMailViewModel sendMailView, [FromForm(Name = "file")] IFormFile? file)
         {
             if (!ModelState.IsValid)
             {
@@ -140,7 +140,7 @@ namespace ifox_site.Controllers
             public bool Success { get; set; }
         }
 
-        public void SendEmailToIfox(SendMailViewModel sendMailView, IFormFile file)
+        public void SendEmailToIfox(SendMailViewModel sendMailView, IFormFile? file)
         {
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(_configuration["EmailSettings:FromEmail"] ?? "sales@ifox.co.in");

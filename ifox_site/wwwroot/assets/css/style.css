@@ -4975,14 +4975,34 @@ body.ifox-contact-page #main .php-email-form select:focus {
     box-shadow: 0 0 0 .2rem rgba(99, 221, 255, .14) !important;
 }
 
+body.ifox-contact-page #main .php-email-form .custom-validation-message {
+    min-height: 18px;
+    padding-top: 4px;
+    color: #ff8f8f !important;
+    font-size: 13px;
+}
+
+body.ifox-contact-page #main .php-email-form .custom-validation-error {
+    border-color: #ff8f8f !important;
+}
+
+body.ifox-contact-page #main .php-email-form .file-validation-message {
+    color: #fff;
+    background: #ed3c0d;
+    padding: 15px;
+    font-weight: 600;
+}
+
 body.ifox-contact-page #main .php-email-form button {
     border-color: #63ddff !important;
-    background: transparent !important;
+    background: #63ddff !important;
+    color: #020b17 !important;
+    font-weight: 600;
 }
 
 body.ifox-contact-page #main .php-email-form button:hover {
     color: #020b17 !important;
-    background: #63ddff !important;
+    background: #8be8ff !important;
 }
 
 @media (max-width: 767px) {
