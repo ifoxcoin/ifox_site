@@ -5,22 +5,26 @@ namespace ifox_site.Models
 {
     public class SendMailViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Please enter your name.")]
+        [StringLength(100, MinimumLength = 2)]
         public string? Name { get; set; }
 
-        [Required] 
+        [Required(ErrorMessage = "Please enter your email address.")]
+        [EmailAddress]
         public string? Email { get; set; }
 
-        [Required]
-        public string Contact { get; set; }
+        [Required(ErrorMessage = "Please enter your contact number.")]
+        [Phone]
+        [RegularExpression(@"^\+?[0-9][0-9\s().-]{6,24}$", ErrorMessage = "Please enter a valid contact number.")]
+        public string? Contact { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter a subject.")]
+        [StringLength(200, MinimumLength = 2)]
         public string? Subject { get; set; }
 
-        [Required]
         public IFormFile? Attachments { get; set; }
 
-        [Required]
+        [StringLength(5000)]
         public string? Message { get; set; }
 
         

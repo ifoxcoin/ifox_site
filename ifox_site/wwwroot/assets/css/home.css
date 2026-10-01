@@ -18,6 +18,74 @@
     animation: ifox-hero-background-drift 42s ease-in-out infinite alternate;
 }
 
+/* Keep the live globe and floating cards in separate rows on phones. */
+@media (max-width: 767px) {
+    #hero.ifox-home-page .ifox-hero-visual {
+        min-height: 560px;
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: 100%;
+        height: 560px;
+        min-height: 560px;
+        aspect-ratio: auto;
+        margin: 0 auto;
+    }
+
+    #hero.ifox-home-page .ifox-globe {
+        top: 24px;
+        left: calc(50% - 125px);
+        width: 250px;
+        height: 250px;
+    }
+
+    #hero.ifox-home-page .ifox-glow-orb {
+        top: 12px;
+        left: calc(50% - 145px);
+        width: 290px;
+        height: 290px;
+    }
+
+    #hero.ifox-home-page .ifox-floating-card {
+        top: 310px;
+        bottom: auto;
+        width: calc(50% - 8px);
+        min-height: 62px;
+        padding: 9px 10px;
+        border-radius: 8px;
+    }
+
+    #hero.ifox-home-page .ifox-floating-card .card-index {
+        margin-bottom: 3px;
+        font-size: 9px;
+    }
+
+    #hero.ifox-home-page .ifox-floating-card .card-title {
+        font-size: 14px;
+    }
+
+    #hero.ifox-home-page .ifox-floating-card .card-sub {
+        font-size: 9px;
+    }
+
+    #hero.ifox-home-page .card-build {
+        right: auto;
+        left: 0;
+    }
+
+    #hero.ifox-home-page .card-grow {
+        right: 0;
+        left: auto;
+    }
+
+    #hero.ifox-home-page .card-transform {
+        top: 398px;
+        right: auto;
+        left: calc(50% - 65px);
+        width: 130px;
+    }
+}
+
 /* Homepage-only scroll reveal system. */
 .home-scroll-reveal {
     opacity: 0;
@@ -994,6 +1062,10 @@ body:has(#hero.ifox-home-page) #header .ifox-nav-link:focus {
     color: #5de4ff !important;
 }
 
+body:has(#hero.ifox-home-page) #header .ifox-nav-link.is-active {
+    color: #8bdcff !important;
+}
+
 body:has(#hero.ifox-home-page) #header .ifox-nav-link.ifox-nav-cta {
     color: #f4f8fb !important;
     border-color: rgba(125, 210, 239, .28) !important;
@@ -1006,12 +1078,27 @@ body:has(#hero.ifox-home-page) #header .ifox-get-started {
 }
 
 @media (max-width: 767px) {
+    #hero.ifox-home-page {
+        min-height: 0;
+        overflow: visible;
+    }
+
     #hero.ifox-home-page .ifox-hero-shell {
         width: calc(100% - 10%);
         min-height: 0;
         grid-template-columns: minmax(0, 1fr);
         grid-template-rows: auto auto auto;
         padding: 0 0 36px;
+    }
+
+    #hero.ifox-home-page .ifox-hero-visual {
+        min-height: 520px;
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: min(520px, 100%);
+        min-height: 520px;
+        margin: 0 auto;
     }
 
     #hero.ifox-home-page .ifox-hero-copy {
@@ -1026,6 +1113,117 @@ body:has(#hero.ifox-home-page) #header .ifox-get-started {
 /* Homepage typography scale for the hero and globe cards. */
 #hero.ifox-home-page .ifox-hero-heading {
     font-size: clamp(48px, 5.2vw, 78px);
+}
+
+@media (min-width: 768px) and (max-width: 1440px) {
+    #hero.ifox-home-page .ifox-hero-shell {
+        width: min(1240px, calc(100% - 8%));
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        column-gap: clamp(16px, 2.5vw, 32px);
+    }
+
+    #hero.ifox-home-page .ifox-hero-copy,
+    #hero.ifox-home-page .ifox-hero-visual {
+        min-width: 0;
+    }
+
+    #hero.ifox-home-page .ifox-hero-heading {
+        font-size: clamp(46px, 5vw, 72px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1280px) {
+    #hero.ifox-home-page .ifox-hero-shell {
+        grid-template-rows: minmax(560px, 1fr) auto;
+        min-height: 600px;
+        padding-bottom: 24px;
+    }
+
+    #hero.ifox-home-page .ifox-hero-copy {
+        padding-top: 20px;
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: min(560px, 100%);
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1366px) {
+    #hero.ifox-home-page {
+        min-height: clamp(700px, calc(100vh - 20px), 820px);
+    }
+
+    #hero.ifox-home-page .ifox-hero-shell {
+        box-sizing: border-box;
+        width: min(1240px, calc(100% - 16%));
+        grid-template-columns: minmax(0, .97fr) minmax(0, 1.03fr);
+        grid-template-rows: minmax(clamp(560px, calc(100vh - 140px), 640px), 1fr) auto;
+        column-gap: clamp(20px, 3vw, 40px);
+    }
+
+    #hero.ifox-home-page .ifox-hero-copy {
+        left: 0;
+        padding-top: clamp(18px, 2vw, 28px);
+        padding-left: 0;
+    }
+
+    #hero.ifox-home-page .ifox-hero-heading {
+        font-size: clamp(52px, 4.8vw, 66px);
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: min(clamp(500px, 38vw, 520px), 100%);
+        margin: 0 auto;
+    }
+
+    #hero.ifox-home-page .ifox-floating-card {
+        width: clamp(116px, 8.8vw, 124px);
+        padding: clamp(10px, .8vw, 12px);
+    }
+
+    #hero.ifox-home-page .ifox-floating-card .card-title {
+        font-size: clamp(14px, 1.05vw, 15px);
+    }
+
+    #hero.ifox-home-page .ifox-floating-card .card-sub {
+        font-size: clamp(8px, .7vw, 9px);
+    }
+
+    #hero.ifox-home-page .card-build {
+        bottom: clamp(68px, 5.5vw, 78px);
+    }
+
+    #hero.ifox-home-page .card-transform {
+        top: clamp(20px, 1.8vw, 25px);
+    }
+
+    #hero.ifox-home-page .card-grow {
+        right: clamp(26px, 2.2vw, 32px);
+        bottom: clamp(54px, 4.5vw, 62px);
+    }
+
+    body:has(#hero.ifox-home-page) #social-chat {
+        left: 12px;
+    }
+
+}
+
+#hero.ifox-home-page ~ #clients,
+#hero.ifox-home-page ~ #clients .container,
+#hero.ifox-home-page ~ #clients .swiper-container {
+    max-width: 100%;
+}
+
+@media (min-width: 992px) and (max-width: 1366px) {
+    body:has(#hero.ifox-home-page) #chatbot-toggle {
+        right: -24px;
+        bottom: 8px;
+    }
+}
+
+#hero.ifox-home-page ~ #clients .swiper-slide {
+    min-width: 0;
 }
 
 #hero.ifox-home-page .ifox-floating-card {
@@ -1409,8 +1607,16 @@ body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=email]
 }
 
 body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=submit] {
-    color: #ffffff !important;
-    background: #45afe0 !important;
+    color: #000000 !important;
+    background: #8be8ff !important;
+    font-weight: 600 !important;
+}
+
+body:has(#hero.ifox-home-page) #footer .footer-newsletter form input[type=submit]:hover {
+    background: #8be8ff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+    transform: translateY(-1px);
 }
 
 body:has(#hero.ifox-home-page) #footer .social-links a {
@@ -1426,6 +1632,127 @@ body:has(#hero.ifox-home-page) #footer .social-links a {
     max-width: 1180px;
     margin: 0 auto;
     padding: 92px 0 100px;
+}
+
+/* Keep the hero visual readable on narrow screens.  The globe and cards use
+   absolute positioning by design, so the phone layout gives them a dedicated
+   stage with enough vertical space instead of allowing them to cover the copy. */
+@media (max-width: 767px) {
+    #hero.ifox-home-page {
+        overflow: hidden;
+    }
+
+    #hero.ifox-home-page .ifox-hero-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        gap: 24px;
+        width: min(100% - 32px, 560px);
+        min-height: 0;
+        padding: 42px 0 28px;
+        transform: none;
+    }
+
+    #hero.ifox-home-page .ifox-hero-copy {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: center;
+    }
+
+    #hero.ifox-home-page .ifox-hero-kicker,
+    #hero.ifox-home-page .ifox-hero-paragraph {
+        text-align: center;
+    }
+
+    #hero.ifox-home-page .ifox-hero-heading {
+        align-items: center;
+        font-size: clamp(38px, 11vw, 58px);
+        line-height: 1.04;
+    }
+
+    #hero.ifox-home-page .ifox-hero-heading .ifox-hero-heading-line {
+        white-space: normal;
+    }
+
+    #hero.ifox-home-page .ifox-hero-paragraph {
+        max-width: 34rem;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 16px;
+    }
+
+    #hero.ifox-home-page .ifox-hero-paragraph br {
+        display: none;
+    }
+
+    #hero.ifox-home-page .ifox-hero-actions {
+        justify-content: center;
+        gap: 10px 16px;
+        margin-top: 22px;
+    }
+
+    #hero.ifox-home-page .ifox-hero-visual {
+        grid-column: 1;
+        grid-row: 2;
+        min-height: 0;
+        height: 500px;
+    }
+
+    #hero.ifox-home-page .ifox-globe-stage {
+        width: 100%;
+        height: 500px;
+        min-height: 0;
+        margin: 0 auto;
+    }
+
+    #hero.ifox-home-page .ifox-globe,
+    #hero.ifox-home-page .ifox-glow-orb {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #hero.ifox-home-page .ifox-globe {
+        top: 24px;
+        width: min(250px, 68vw);
+        height: min(250px, 68vw);
+    }
+
+    #hero.ifox-home-page .ifox-glow-orb {
+        top: 12px;
+        width: min(290px, 78vw);
+        height: min(290px, 78vw);
+    }
+
+    #hero.ifox-home-page .ifox-floating-card {
+        top: 310px;
+        bottom: auto;
+        width: calc(50% - 8px);
+        min-height: 62px;
+        padding: 9px 10px;
+    }
+
+    #hero.ifox-home-page .card-build {
+        right: auto;
+        left: 0;
+    }
+
+    #hero.ifox-home-page .card-grow {
+        right: 0;
+        left: auto;
+    }
+
+    #hero.ifox-home-page .card-transform {
+        top: 398px;
+        right: auto;
+        left: 50%;
+        width: 130px;
+        transform: translateX(-50%);
+    }
+
+    #hero.ifox-home-page .ifox-connectors,
+    #hero.ifox-home-page .ifox-orbit {
+        pointer-events: none;
+    }
 }
 
 #about.ifox-engineered-section .ifox-engineered-intro {
@@ -1561,5 +1888,46 @@ body:has(#hero.ifox-home-page) #footer .social-links a {
 
     .ifox-globe-stage {
         transition: none;
+    }
+}
+
+/* Final mobile hero spacing: keep the floating cards inside the hero flow. */
+@media (max-width: 767px) {
+    #hero.ifox-home-page {
+        min-height: 0;
+        overflow: visible;
+    }
+
+    #hero.ifox-home-page .ifox-hero-shell {
+        grid-template-rows: auto 650px !important;
+        min-height: 0 !important;
+        padding-bottom: 56px !important;
+    }
+
+    #hero.ifox-home-page .ifox-hero-visual,
+    #hero.ifox-home-page .ifox-globe-stage {
+        height: 650px !important;
+        min-height: 650px !important;
+    }
+}
+
+/* Place the mobile floating panel in the clear space below the globe. */
+@media (max-width: 767px) {
+    #hero.ifox-home-page .ifox-hero-shell {
+        grid-template-rows: auto 780px !important;
+    }
+
+    #hero.ifox-home-page .ifox-hero-visual,
+    #hero.ifox-home-page .ifox-globe-stage {
+        height: 780px !important;
+        min-height: 780px !important;
+    }
+
+    #hero.ifox-home-page .ifox-floating-card {
+        top: 430px !important;
+    }
+
+    #hero.ifox-home-page .card-transform {
+        top: 518px !important;
     }
 }

@@ -56,11 +56,17 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin: 0;
+  overflow-x: hidden;
 }
 .footer {
   position: absolute;

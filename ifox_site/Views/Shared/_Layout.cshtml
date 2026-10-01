@@ -43,6 +43,7 @@
     var isTestimonialsPage = string.Equals(currentController, "Testimonials", StringComparison.OrdinalIgnoreCase);
     var isBlogPage = string.Equals(currentController, "Blog", StringComparison.OrdinalIgnoreCase);
     var isContactPage = string.Equals(currentController, "Contact", StringComparison.OrdinalIgnoreCase);
+    var isHomePage = string.Equals(currentController, "Home", StringComparison.OrdinalIgnoreCase) && string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase);
     var isDarkContentPage = isServicePage || isServicesLandingPage || isDropdownPage || isTestimonialsPage || isBlogPage || isContactPage;
     var pageClass = $"{ViewData["PageClass"] ?? string.Empty} {(isDarkContentPage ? "ifox-service-page" : string.Empty)} {(isServicePage ? "ifox-service-detail-page" : string.Empty)} {(isIndustriesPage ? "ifox-industries-detail-page" : string.Empty)} {(isHireDevelopersPage ? "ifox-hire-developers-detail-page" : string.Empty)} {(isProductManagementPage ? "ifox-product-management-detail-page" : string.Empty)} {(isDropdownPage ? "ifox-dropdown-detail-page" : string.Empty)} {(isTestimonialsPage ? "ifox-testimonials-page" : string.Empty)} {(isBlogPage ? "ifox-blog-page" : string.Empty)} {(isContactPage ? "ifox-contact-page" : string.Empty)}".Trim();
 }
@@ -67,11 +68,10 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260731" rel="stylesheet">
-     <link href="~/assets/css/style.css?v=20260737" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260738" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
-        <link href="~/assets/css/home.css?v=20260619" rel="stylesheet" />
+         <link href="~/assets/css/home.css?v=20260620" rel="stylesheet" />
         <style>
             body:has(#hero.ifox-home-page) #header .ifox-nav-link,
             body:has(#hero.ifox-home-page) #header .ifox-get-started {
@@ -114,7 +114,7 @@
                     <!-- HOME -->
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Home" asp-action="Index" class="ifox-nav-link">
+                        <a asp-controller="Home" asp-action="Index" class="ifox-nav-link @(isHomePage ? "is-active" : string.Empty)">
 
                             HOME
 
@@ -129,7 +129,7 @@
                     <!-- SERVICES -->
                     <li class="ifox-nav-item ifox-has-mega ifox-services-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isServicePage || isServicesLandingPage ? "is-active" : string.Empty)">
                             <span class="ifox-services-label">SERVICES</span>
                             <i class="bi bi-chevron-down"></i>
                         </a>
@@ -517,7 +517,7 @@
 
                                             <a asp-controller="MobileDevelopment" asp-action="Android">
 
-                                                <i class="bi bi-android2"></i>
+                                                <i class="bi bi&&roid2"></i>
 
                                                 <span>
                                                     <strong>Android</strong>
@@ -872,7 +872,7 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isIndustriesPage ? "is-active" : string.Empty)">
 
                             INDUSTRIES
 
@@ -1842,7 +1842,7 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu ifox-product-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isProductManagementPage ? "is-active" : string.Empty)">
 
                             PRODUCT MANAGEMENT
 
@@ -2768,7 +2768,7 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-hire-menu">
 
-                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger">
+                        <a href="javascript:void(0);" class="ifox-nav-link ifox-dropdown-trigger @(isHireDevelopersPage ? "is-active" : string.Empty)">
 
                             HIRE DEVELOPERS
 
@@ -3157,7 +3157,7 @@
 
                                             <a asp-controller="MobileDevelopers" asp-action="AndroidDeveloper">
 
-                                                <i class="bi bi-android2"></i>
+                                                <i class="bi bi&&roid2"></i>
 
                                                 <span>
                                                     <strong>
@@ -3518,7 +3518,7 @@
 
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Testimonials" asp-action="Index" class="ifox-nav-link">
+                        <a asp-controller="Testimonials" asp-action="Index" class="ifox-nav-link @(isTestimonialsPage ? "is-active" : string.Empty)">
 
                             TESTIMONIALS
 
@@ -3531,7 +3531,7 @@
 
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Blog" asp-action="Index" class="ifox-nav-link">
+                        <a asp-controller="Blog" asp-action="Index" class="ifox-nav-link @(isBlogPage ? "is-active" : string.Empty)">
 
                             BLOG
 
@@ -3544,7 +3544,7 @@
 
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Contact" asp-action="Index" class="ifox-nav-link">
+                        <a asp-controller="Contact" asp-action="Index" class="ifox-nav-link @(isContactPage ? "is-active" : string.Empty)">
 
                             CONTACT
 
@@ -3575,13 +3575,25 @@
     <main id="main"> @if (isServicePage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-service-heading-image" src="~/assets/img/service-pages.png" alt="" aria-hidden="true" /> } @if (isIndustriesPage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-industries-heading-image" src="~/assets/img/industries-pages.png" alt="" aria-hidden="true" /> } @if (isHireDevelopersPage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-hire-developers-heading-image" src="~/assets/img/Hiredevelopers-pages.png" alt="" aria-hidden="true" /> } @if (isProductManagementPage && !string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase)) { <img class="ifox-product-management-heading-image" src="~/assets/img/Product-management-pages.png" alt="" aria-hidden="true" /> } @RenderBody() </main><!-- End #main --><!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <!-- Newsletter Section -->
-        <div class="footer-newsletter">
+        <div id="newsletter" class="footer-newsletter">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <h4>Join Our Newsletter</h4>
                         <p>Subscribe to our newsletter to receive emails about any updates</p>
-                        <form action="" method="post"><input type="email" name="email"><input type="submit" value="Subscribe"></form>
+                        <form action="/newsletter/subscribe" method="post" onsubmit="sessionStorage.setItem('newsletterScrollY', window.scrollY.toString());">
+                            @Html.AntiForgeryToken()
+                            <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address" oninvalid="this.setCustomValidity(this.value.trim() ? 'Please enter a valid email address.' : 'Please fill out this field.')" oninput="this.setCustomValidity('')">
+                            <input type="submit" value="Subscribe">
+                        </form>
+                        @if (TempData["NewsletterSuccess"] != null)
+                        {
+                            <p class="newsletter-message newsletter-success">@TempData["NewsletterSuccess"]</p>
+                        }
+                        @if (TempData["NewsletterError"] != null)
+                        {
+                            <p class="newsletter-message newsletter-error">@TempData["NewsletterError"]</p>
+                        }
                     </div>
                 </div>
             </div>
@@ -3592,33 +3604,21 @@
                     <!-- Footer Contact -->
                     <div class="col-lg-3 col-md-6 footer-contact">
                         <h1 class="logo me-auto"><a href="/home"><img src="~/assets/img/Ifoxlogo56.webp" alt="ifox" style="width: 60%; height: 60%;"></a></h1><br />
-                        <p align="left"> 29, Sri Ganapathi Nagar,<br> Keelapanangadi,<br> Kulamangalam Main Road<br> Vagai Kulam Post<br> Madurai - 625017<br> India<br /><br /><strong>Phone:</strong><a class="contact-info mob first_nav_content mr-md-2" href="tel:+919597 892 118"> +91 9488 718 218 </a><br /><strong>Email : </strong><a href="mailto:info@ifox.co.in"> info@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:sales@ifox.co.in"> sales@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:hr@ifox.co.in"> hr@ifox.co.in </a><br></p>
-                    </div><!-- Useful Links -->
-                    <div class="col-lg-2 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="bx bx-chevron-right"></i><a href="/home">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/dynamics-365-crm-services">Dynamics CRM 365</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/project-management-solutions">Product Management</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/hire-developers">Hire Developers</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/it-support-services">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/testimonials">Testimonials</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/contact-us">Contact</a></li>
-                        </ul>
-                    </div><!-- Our Services -->
-                    <div class="col-lg-2 col-md-6 footer-links">
+                        <p align="left">
+                            <strong>Phone:</strong><a class="contact-info mob first_nav_content mr-md-2" href="tel:+919597 892 118"> +91 9488 718 218 </a><br /><strong>Email : </strong><a href="mailto:info@ifox.co.in"> info@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:sales@ifox.co.in"> sales@ifox.co.in </a><br /><a style="padding-left:50px" href="mailto:hr@ifox.co.in"> hr@ifox.co.in </a><br>
+                        </p>
+                    </div><!-- Our Social Networks -->
+                    <div class="footer-home-services">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title1">Emergency Support</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title2">Remote office Support</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title3">Network Administration</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title4">Graphic Designing</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title5">IT Consulting Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title6">Customer Support Service</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title7">Digital Marketing</a></li>
-                            <li><i class="bx bx-chevron-right"></i><a href="/services#title8">Office System Installations</a></li>
+                            <li><a asp-controller="DynamicsCRM" asp-action="Index">Microsoft Dynamics 365</a></li>
+                            <li><a asp-controller="WebDevelopment" asp-action="Index">Web Development</a></li>
+                            <li><a asp-controller="MobileDevelopment" asp-action="Index">Mobile Development</a></li>
+                            <li><a asp-controller="WindowsApplication" asp-action="Index">Windows Applications</a></li>
+                            <li><a asp-controller="AISolutions" asp-action="Index">AI Solutions</a></li>
+                            <li><a asp-controller="CloudSolutions" asp-action="Index">Cloud Solutions</a></li>
                         </ul>
-                    </div><!-- Our Social Networks -->
+                    </div>
                     <div class="col-lg-5 col-md-6 footer-links">
                         <h4>Our Social Networks</h4>
                         <p>Social network theory focuses on the role of social relationships in transmitting information, channeling personal or media influence, and enabling attitudinal or behavioral change</p>
@@ -3644,7 +3644,7 @@
             </div>
         </div><!-- Footer Bottom Section -->
         <div class="container footer-bottom">
-            <div class="copyright"> &copy; Copyright <strong><span>ifox</span></strong>. All Rights Reserved V.1.0.5 </div>
+            <div class="copyright"> &copy;2026 Copyright <strong><span>ifox</span></strong>. All Rights Reserved V.1.0.5 </div>
         </div>
     </footer><!-- End Footer -->
     <div id="preloader"></div>
@@ -3669,7 +3669,7 @@
 
         gtag('config', 'G-TTNG595LVT');
     </script><!-- Template Main JS File -->
-    <script src="~/assets/js/main.js"></script><script>document.addEventListener("DOMContentLoaded",function(){const t=document.getElementById("ifoxMobileMenuToggle"),n=document.getElementById("ifoxNavigation");if(!t||!n)return;t.addEventListener("click",function(){const o=n.classList.toggle("mobile-open");t.setAttribute("aria-expanded",o);t.setAttribute("aria-label",o?"Close navigation menu":"Open navigation menu");t.querySelector("i").className=o?"bi bi-x":"bi bi-list"});window.addEventListener("resize",function(){if(innerWidth>991){n.classList.remove("mobile-open");t.setAttribute("aria-expanded","false");t.querySelector("i").className="bi bi-list"}})});</script>
+    <script src="~/assets/js/main.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -3718,39 +3718,12 @@
 
             }
 
-            document.addEventListener("mousemove", function (event) {
-                if (!event.target.closest(".ifox-has-mega")) {
-                    closeAllMegaMenus();
-                }
-            });
-
             /* Form controls must always win over navigation state. */
             document.addEventListener("pointerdown", function (event) {
                 if (event.target.closest("form, input, textarea, select, button")) {
                     closeAllMegaMenus();
                 }
             }, true);
-
-            // Close any open mega-menu when the contact form is entered or focused.
-            // This ensures the form controls are interactive and not occluded by the flyout.
-            const contactForm = document.querySelector("body.ifox-contact-page #contact-form");
-            if (contactForm) {
-                contactForm.addEventListener("pointerenter", closeAllMegaMenus, true);
-                contactForm.addEventListener("focusin", closeAllMegaMenus, true);
-            }
-
-            if (document.body.classList.contains("ifox-contact-page")) {
-                const contactMain = document.querySelector("body.ifox-contact-page #main");
-                const header = document.querySelector("#header");
-                if (header) {
-                    header.addEventListener("mouseleave", closeAllMegaMenus, true);
-                }
-                if (contactMain) {
-                    contactMain.addEventListener("pointerenter", closeAllMegaMenus, true);
-                    contactMain.addEventListener("focusin", closeAllMegaMenus, true);
-                }
-            }
-
 
             /* =========================================================
                INITIALIZE EACH MENU
@@ -3789,51 +3762,27 @@
                     event.preventDefault();
                     event.stopPropagation();
 
-                    const hoverOnlyMenu =
-                        megaItem.classList.contains("ifox-services-menu") ||
-                        megaItem.classList.contains("ifox-industries-menu") ||
-                        megaItem.classList.contains("ifox-hire-menu");
+                    const isClickClosed =
+                        megaItem.classList.contains("ifox-click-closed");
 
-                    if (hoverOnlyMenu) {
-                        closeAllMegaMenus();
-                        return;
-                    }
-
-                    const isCurrentlyOpen =
-                        megaItem.classList.contains("services-open");
-
-
-                    /* Close every menu */
                     closeAllMegaMenus();
 
-
-                    /* Open only clicked menu */
-                    if (!isCurrentlyOpen) {
-
+                    if (isClickClosed) {
+                        megaItem.classList.remove("ifox-click-closed");
                         megaItem.classList.add("services-open");
-
+                    } else {
+                        megaItem.classList.add("ifox-click-closed");
                     }
 
                 });
 
-                if (megaItem.classList.contains("ifox-services-menu") ||
-                    megaItem.classList.contains("ifox-industries-menu") ||
-                    megaItem.classList.contains("ifox-hire-menu")) {
-                    let closeTimer;
+                megaItem.addEventListener("mouseenter", function () {
+                    megaItem.classList.remove("ifox-click-closed");
+                });
 
-                    trigger.addEventListener("mouseenter", function () {
-                        window.clearTimeout(closeTimer);
-                        closeAllMegaMenus();
-                        megaItem.classList.add("services-open");
-                    });
-
-                    megaItem.addEventListener("mouseleave", function () {
-                        closeTimer = window.setTimeout(function () {
-                            megaItem.classList.remove("services-open");
-                        }, 120);
-                    });
-                }
-
+                megaItem.addEventListener("mouseleave", function () {
+                    megaItem.classList.remove("services-open", "ifox-click-closed");
+                });
 
                 /* =====================================================
                    MEGA MENU CLICK

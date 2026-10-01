@@ -567,6 +567,35 @@ h6 {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
+/* Compact accessible newsletter result messages */
+.footer .footer-newsletter .newsletter-message {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.footer .footer-newsletter .newsletter-message i {
+  font-size: 18px;
+  line-height: 0;
+}
+
+.footer .footer-newsletter .newsletter-success {
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  color: var(--heading-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 85%);
+}
+
+.footer .footer-newsletter .newsletter-error {
+  background: color-mix(in srgb, #d93025, transparent 92%);
+  color: #8b0000;
+  border: 1px solid color-mix(in srgb, #d93025, transparent 85%);
+}
+
 .footer .footer-top {
   padding-top: 50px;
 }
@@ -589,6 +618,9 @@ h6 {
   color: var(--accent-color);
   border-color: var(--accent-color);
 }
+    .footer .social-links a.linkedin i {
+        color: #ffffff !important;
+    }
 
 .footer h4 {
   font-size: 16px;
@@ -1938,6 +1970,19 @@ section,
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+/* I'm not a robot checkbox */
+.contact .local-captcha {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact #local-captcha {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 /*--------------------------------------------------------------
