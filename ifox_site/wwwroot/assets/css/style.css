@@ -1859,9 +1859,17 @@ section {
         }
 
             #footer .footer-newsletter form input[type=email] {
-                border: 0;
+                border: 0 !important;
+                outline: 0;
+                box-shadow: none;
                 padding: 4px 8px;
                 width: calc(100% - 100px);
+            }
+
+            #footer .footer-newsletter form input[type=email]:focus {
+                border: 0 !important;
+                outline: 0;
+                box-shadow: none;
             }
 
             #footer .footer-newsletter form input[type=submit] {
@@ -5486,7 +5494,7 @@ body:not(:has(#hero.ifox-home-page)) #chatbot-box #chatbot-send { margin: 6px; p
 @media (max-width: 767px) {
     body:not(:has(#hero.ifox-home-page)) #chatbot-toggle { right: 72px !important; bottom: 42px !important; width: 104px !important; height: 104px !important; }
     body:not(:has(#hero.ifox-home-page)) #chatbot-toggle > img { width: 104px !important; height: 104px !important; }
-    body:not(:has(#hero.ifox-home-page)) #chatbot-box { right: 28px !important; bottom: 182px !important; width: calc(100% - 56px) !important; max-width: 320px !important; height: 410px !important; max-height: calc(100vh - 210px) !important; }
+    body:not(:has(#hero.ifox-home-page)) #chatbot-box { right: 12px !important; bottom: 182px !important; width: calc(100% - 96px) !important; max-width: 320px !important; height: 410px !important; max-height: calc(100vh - 210px) !important; }
 }
 
 
@@ -5527,12 +5535,12 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
         bottom: auto !important;
         left: 12px !important;
         width: auto !important;
-        height: calc(100vh - 94px) !important;
+        height: auto !important;
         max-height: calc(100vh - 94px) !important;
         padding: 8px 0 20px !important;
         border: 1px solid rgba(93, 228, 255, .18) !important;
         border-radius: 0 0 12px 12px !important;
-        background: rgba(5, 11, 22, .96) !important;
+        background: #050b16 !important;
         -webkit-backdrop-filter: blur(20px) !important;
         backdrop-filter: blur(20px) !important;
         box-shadow: 0 20px 60px rgba(0, 0, 0, .45), 0 0 30px rgba(93, 228, 255, .08), 0 0 45px rgba(168, 85, 247, .06) !important;
@@ -5964,7 +5972,7 @@ iframe {
     body #chatbot-toggle,
     body:not(:has(#hero.ifox-home-page)) #chatbot-toggle {
         right: 16px !important;
-        bottom: 16px !important;
+        bottom: 104px !important;
         width: 64px !important;
         height: 64px !important;
     }
@@ -5978,11 +5986,11 @@ iframe {
     body #chatbot-box,
     body:not(:has(#hero.ifox-home-page)) #chatbot-box {
         right: 12px !important;
-        bottom: 88px !important;
+        bottom: 220px !important;
         width: calc(100vw - 24px) !important;
         max-width: 360px !important;
         height: min(70vh, 460px) !important;
-        max-height: calc(100vh - 110px) !important;
+        max-height: calc(100vh - 248px) !important;
     }
 }
 
