@@ -20,6 +20,7 @@ using System.Net.Http;
 namespace ifox_site.Controllers
 {
     [Route("contact-us")]
+    [Route("contact")]
     public class ContactController : Controller
     {
 

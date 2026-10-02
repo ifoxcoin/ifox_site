@@ -173,10 +173,45 @@
         })
 
         mobileNavigation.addEventListener('click', (event) => {
+            const dropdownTrigger = event.target.closest('.ifox-dropdown-trigger')
+            const category = event.target.closest('.ifox-mega-category')
+
+            if (dropdownTrigger && mobileNavigation.contains(dropdownTrigger)) {
+                event.preventDefault()
+                event.stopPropagation()
+
+                const megaItem = dropdownTrigger.closest('.ifox-has-mega')
+                const shouldOpen = !megaItem.classList.contains('services-open')
+
+                mobileNavigation.querySelectorAll('.ifox-has-mega.services-open').forEach((item) => {
+                    item.classList.remove('services-open')
+                })
+
+                if (shouldOpen) megaItem.classList.add('services-open')
+                return
+            }
+
+            if (category && mobileNavigation.contains(category)) {
+                event.preventDefault()
+                event.stopPropagation()
+
+                const megaItem = category.closest('.ifox-has-mega')
+                const tab = category.getAttribute('data-tab')
+
+                megaItem.querySelectorAll('.ifox-mega-category').forEach((item) => {
+                    item.classList.toggle('active', item === category)
+                })
+
+                megaItem.querySelectorAll('.ifox-service-panel').forEach((panel) => {
+                    panel.classList.toggle('active', panel.getAttribute('data-panel') === tab)
+                })
+                return
+            }
+
             const link = event.target.closest('a')
             if (!link || link.classList.contains('ifox-dropdown-trigger')) return
             closeMobileNavigation()
-        })
+        }, true)
 
         document.addEventListener('click', (event) => {
             if (!mobileNavigation.classList.contains('mobile-open') ||
