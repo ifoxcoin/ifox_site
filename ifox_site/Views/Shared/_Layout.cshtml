@@ -68,10 +68,10 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260738" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260739" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
-         <link href="~/assets/css/home.css?v=20260620" rel="stylesheet" />
+         <link href="~/assets/css/home.css?v=20260629" rel="stylesheet" />
         <style>
             body:has(#hero.ifox-home-page) #header .ifox-nav-link,
             body:has(#hero.ifox-home-page) #header .ifox-get-started {
@@ -3583,7 +3583,7 @@
                         <p>Subscribe to our newsletter to receive emails about any updates</p>
                         <form action="/newsletter/subscribe" method="post" onsubmit="sessionStorage.setItem('newsletterScrollY', window.scrollY.toString());">
                             @Html.AntiForgeryToken()
-                            <input type="email" name="email" placeholder="Enter your email address" required aria-label="Email address" oninvalid="this.setCustomValidity(this.value.trim() ? 'Please enter a valid email address.' : 'Please fill out this field.')" oninput="this.setCustomValidity('')">
+                            <input type="email" name="email" placeholder="Enter your email address" autocomplete="off" autocorrect="off" spellcheck="false" required aria-label="Email address" oninvalid="this.setCustomValidity(this.value.trim() ? 'Please enter a valid email address.' : 'Please fill out this field.')" oninput="this.setCustomValidity('')">
                             <input type="submit" value="Subscribe">
                         </form>
                         @if (TempData["NewsletterSuccess"] != null)
