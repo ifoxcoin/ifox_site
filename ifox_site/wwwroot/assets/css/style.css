@@ -15,6 +15,17 @@ body {
 }
 
 /* Final mega-menu state: visibility is controlled only by .services-open. */
+#header .ifox-category-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+#header .ifox-category-link:hover,
+#header .ifox-category-link:focus-visible {
+    color: inherit;
+    text-decoration: none;
+}
+
 #header .ifox-has-mega > .ifox-mega-menu {
     display: block !important;
     position: fixed !important;
@@ -5593,6 +5604,18 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
         border-top: 1px solid rgba(93, 228, 255, .1) !important;
     }
 
+    #header .ifox-category-link {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+    }
+
+    #header .ifox-category-link:hover,
+    #header .ifox-category-link:focus-visible {
+        color: inherit;
+        text-decoration: none;
+    }
+
     #header .ifox-navigation.mobile-open .ifox-get-started {
         width: calc(100% - 36px) !important;
         min-width: 0 !important;
@@ -5691,6 +5714,10 @@ body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; to
     color: #ffffff !important;
 }
 
+.ifox-mobile-mega-back {
+    display: none !important;
+}
+
 #footer .footer-top .social-links a.linkedin:hover {
     background: #004182 !important;
     color: #ffffff !important;
@@ -5735,7 +5762,7 @@ body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; to
 }
 
 /* Stable dropdown fallback: keep the panel visible while its trigger or panel is hovered. */
-#header .ifox-has-mega:hover > .ifox-mega-menu,
+#header .ifox-has-mega:hover:not(.ifox-click-closed) > .ifox-mega-menu,
 #header .ifox-has-mega.services-open > .ifox-mega-menu {
     display: block !important;
     opacity: 1 !important;
@@ -5748,7 +5775,7 @@ body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; to
 /* Dropdown text and icons must remain sharp. The panel may be translucent,
    but neither the menu layer nor its content should be blurred. */
 #header .ifox-has-mega > .ifox-mega-menu,
-#header .ifox-has-mega:hover > .ifox-mega-menu,
+#header .ifox-has-mega:hover:not(.ifox-click-closed) > .ifox-mega-menu,
 #header .ifox-has-mega.services-open > .ifox-mega-menu {
     filter: none !important;
     -webkit-filter: none !important;
@@ -5759,6 +5786,153 @@ body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; to
     -webkit-filter: none !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+}
+
+/* An explicit trigger close must win over the desktop hover state. */
+@media (min-width: 992px) {
+    #header .ifox-has-mega.ifox-click-closed > .ifox-mega-menu,
+    #header .ifox-has-mega.services-open.ifox-click-closed > .ifox-mega-menu,
+    #header .ifox-has-mega.ifox-click-closed:hover > .ifox-mega-menu {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translate(-50%, 12px) !important;
+    }
+}
+
+@media (max-width: 991px) {
+    #header .ifox-navigation.mobile-open .ifox-has-mega:not(.services-open) > .ifox-mega-menu,
+    #header .ifox-navigation.mobile-open .ifox-has-mega.ifox-click-closed > .ifox-mega-menu,
+    #header .ifox-navigation.mobile-open .ifox-has-mega.services-open.ifox-click-closed > .ifox-mega-menu {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-has-mega.services-open > .ifox-mega-menu {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mega-content {
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        display: none !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-has-mega.mobile-panel-open .ifox-mega-content {
+        display: block !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mega-sidebar {
+        display: block !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-has-mega.mobile-panel-open .ifox-mega-sidebar {
+        display: none !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mobile-mega-back {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 4 !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        min-height: 42px !important;
+        margin: 0 0 12px !important;
+        padding: 10px 14px !important;
+        border: 1px solid rgba(93, 228, 255, .28) !important;
+        border-radius: 7px !important;
+        background: rgba(93, 228, 255, .07) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        backdrop-filter: blur(10px) !important;
+        color: #5de4ff !important;
+        font: 600 13px/1.2 'Space Grotesk', sans-serif !important;
+        cursor: pointer !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mobile-mega-back:hover,
+    #header .ifox-navigation.mobile-open .ifox-mobile-mega-back:focus-visible {
+        background: rgba(93, 228, 255, .16) !important;
+        outline: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    #header .ifox-navigation.mobile-open .ifox-mega-inner {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mega-sidebar {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        max-height: 240px !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mega-content {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-service-panel {
+        position: relative !important;
+        inset: auto !important;
+        display: none !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 18px !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-service-panel.active {
+        display: block !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-service-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-service-grid > a {
+        width: 100% !important;
+        min-height: 62px !important;
+        padding: 12px !important;
+    }
 }
 
 /* Contact information icons use the dark-page palette instead of the legacy
@@ -5861,6 +6035,7 @@ iframe {
         overflow: hidden;
     }
 
+    body.ifox-service-detail-page .ifox-service-heading-image,
     body.ifox-industries-detail-page .ifox-industries-heading-image,
     body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image,
     body.ifox-product-management-detail-page .ifox-product-management-heading-image {
