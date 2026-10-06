@@ -144,7 +144,31 @@
     const mobileNavigation = document.getElementById('ifoxNavigation')
 
     if (mobileMenuToggle && mobileNavigation) {
+        const openMobileNavigation = () => {
+            mobileNavigation.classList.add('mobile-open')
+            document.body.classList.add('ifox-mobile-nav-open')
+            mobileMenuToggle.setAttribute('aria-expanded', 'true')
+            mobileMenuToggle.setAttribute('aria-label', 'Close navigation menu')
+            const icon = mobileMenuToggle.querySelector('i')
+            if (icon) icon.className = 'bi bi-x'
+        }
+
+        const resetMobileMegaMenus = () => {
+            mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((item) => {
+                item.classList.remove('services-open', 'mobile-panel-open', 'ifox-click-closed')
+                const trigger = item.querySelector('.ifox-dropdown-trigger')
+                if (trigger) trigger.setAttribute('aria-expanded', 'false')
+                const menu = item.querySelector('.ifox-mega-menu')
+                const sidebar = item.querySelector('.ifox-mega-sidebar')
+                const content = item.querySelector('.ifox-mega-content')
+                if (menu) menu.style.removeProperty('display')
+                if (sidebar) sidebar.style.removeProperty('display')
+                if (content) content.style.removeProperty('display')
+            })
+        }
+
         const closeMobileNavigation = () => {
+            resetMobileMegaMenus()
             mobileNavigation.classList.remove('mobile-open')
             document.body.classList.remove('ifox-mobile-nav-open')
             mobileMenuToggle.setAttribute('aria-expanded', 'false')
@@ -153,13 +177,60 @@
             if (icon) icon.className = 'bi bi-list'
         }
 
-        const openMobileNavigation = () => {
-            mobileNavigation.classList.add('mobile-open')
-            document.body.classList.add('ifox-mobile-nav-open')
-            mobileMenuToggle.setAttribute('aria-expanded', 'true')
-            mobileMenuToggle.setAttribute('aria-label', 'Close navigation menu')
-            const icon = mobileMenuToggle.querySelector('i')
-            if (icon) icon.className = 'bi bi-x'
+        mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((megaItem) => {
+            const megaContent = megaItem.querySelector('.ifox-mega-content')
+            if (!megaContent || megaContent.querySelector('.ifox-mobile-mega-back')) return
+
+            const backButton = document.createElement('button')
+            backButton.type = 'button'
+            backButton.className = 'ifox-mobile-mega-back'
+            backButton.setAttribute('aria-label', 'Back to menu categories')
+            backButton.innerHTML = '<i class="bi bi-arrow-left" aria-hidden="true"></i><span>Back</span>'
+            backButton.addEventListener('click', (event) => {
+                event.preventDefault()
+                event.stopPropagation()
+
+                megaItem.classList.remove('mobile-panel-open')
+                megaItem.classList.add('services-open')
+
+                const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
+                const content = megaItem.querySelector('.ifox-mega-content')
+                if (sidebar) {
+                    sidebar.style.setProperty('display', 'block', 'important')
+                    sidebar.scrollTop = 0
+                }
+                if (content) content.style.setProperty('display', 'none', 'important')
+
+                requestAnimationFrame(() => {
+                    mobileNavigation.scrollTo({
+                        top: Math.max(0, megaItem.offsetTop - 8),
+                        behavior: 'smooth'
+                    })
+                })
+            })
+            megaContent.prepend(backButton)
+        })
+
+        const toggleMobileMegaMenu = (dropdownTrigger, event) => {
+            if (window.innerWidth > 991 || !mobileNavigation.classList.contains('mobile-open')) return
+
+            event.preventDefault()
+            event.stopImmediatePropagation()
+
+            const megaItem = dropdownTrigger.closest('.ifox-has-mega')
+            const shouldOpen = !megaItem.classList.contains('services-open')
+
+            resetMobileMegaMenus()
+
+            if (!shouldOpen) return
+
+            megaItem.classList.add('services-open')
+            dropdownTrigger.setAttribute('aria-expanded', 'true')
+
+            const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
+            const content = megaItem.querySelector('.ifox-mega-content')
+            if (sidebar) sidebar.style.setProperty('display', 'block', 'important')
+            if (content) content.style.setProperty('display', 'none', 'important')
         }
 
         mobileMenuToggle.addEventListener('click', (event) => {
@@ -173,27 +244,45 @@
         })
 
         mobileNavigation.addEventListener('click', (event) => {
-            const dropdownTrigger = event.target.closest('.ifox-dropdown-trigger')
+            if (window.innerWidth > 991 || !mobileNavigation.classList.contains('mobile-open')) return
+
+            const dropdownTrigger = event.target.closest('.ifox-has-mega > .ifox-dropdown-trigger')
             const category = event.target.closest('.ifox-mega-category')
+            const backButton = event.target.closest('.ifox-mobile-mega-back')
+            const categoryLink = event.target.closest('.ifox-category-link')
+
+            if (categoryLink && mobileNavigation.contains(categoryLink)) return
+
+            if (backButton && mobileNavigation.contains(backButton)) {
+                event.preventDefault()
+                event.stopImmediatePropagation()
+                const megaItem = backButton.closest('.ifox-has-mega')
+                if (megaItem) {
+                    megaItem.classList.remove('mobile-panel-open')
+                    const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
+                    const content = megaItem.querySelector('.ifox-mega-content')
+                    megaItem.classList.add('services-open')
+                    if (sidebar) sidebar.style.setProperty('display', 'block', 'important')
+                    if (sidebar) sidebar.scrollTop = 0
+                    if (content) content.style.setProperty('display', 'none', 'important')
+                    requestAnimationFrame(() => {
+                        mobileNavigation.scrollTo({
+                            top: Math.max(0, megaItem.offsetTop - 8),
+                            behavior: 'smooth'
+                        })
+                    })
+                }
+                return
+            }
 
             if (dropdownTrigger && mobileNavigation.contains(dropdownTrigger)) {
-                event.preventDefault()
-                event.stopPropagation()
-
-                const megaItem = dropdownTrigger.closest('.ifox-has-mega')
-                const shouldOpen = !megaItem.classList.contains('services-open')
-
-                mobileNavigation.querySelectorAll('.ifox-has-mega.services-open').forEach((item) => {
-                    item.classList.remove('services-open')
-                })
-
-                if (shouldOpen) megaItem.classList.add('services-open')
+                toggleMobileMegaMenu(dropdownTrigger, event)
                 return
             }
 
             if (category && mobileNavigation.contains(category)) {
                 event.preventDefault()
-                event.stopPropagation()
+                event.stopImmediatePropagation()
 
                 const megaItem = category.closest('.ifox-has-mega')
                 const tab = category.getAttribute('data-tab')
@@ -205,6 +294,23 @@
                 megaItem.querySelectorAll('.ifox-service-panel').forEach((panel) => {
                     panel.classList.toggle('active', panel.getAttribute('data-panel') === tab)
                 })
+
+                megaItem.classList.add('services-open', 'mobile-panel-open')
+                const trigger = megaItem.querySelector('.ifox-dropdown-trigger')
+                if (trigger) trigger.setAttribute('aria-expanded', 'true')
+                const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
+                const content = megaItem.querySelector('.ifox-mega-content')
+                if (sidebar) sidebar.style.setProperty('display', 'none', 'important')
+                if (content) content.style.setProperty('display', 'block', 'important')
+                if (content) {
+                    requestAnimationFrame(() => {
+                        content.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+                    })
+                }
+                megaItem.querySelectorAll('.ifox-service-panel').forEach((panel) => {
+                    panel.style.display = panel.getAttribute('data-panel') === tab ? 'block' : 'none'
+                })
+
                 return
             }
 
