@@ -175,19 +175,29 @@
         mobileNavigation.addEventListener('click', (event) => {
             const dropdownTrigger = event.target.closest('.ifox-dropdown-trigger')
             const category = event.target.closest('.ifox-mega-category')
+            const backButton = event.target.closest('.ifox-mobile-mega-back')
 
             if (dropdownTrigger && mobileNavigation.contains(dropdownTrigger)) {
                 event.preventDefault()
                 event.stopPropagation()
+            }
 
-                const megaItem = dropdownTrigger.closest('.ifox-has-mega')
-                const shouldOpen = !megaItem.classList.contains('services-open')
+            if (backButton && mobileNavigation.contains(backButton)) {
+                event.preventDefault()
+                event.stopPropagation()
 
-                mobileNavigation.querySelectorAll('.ifox-has-mega.services-open').forEach((item) => {
-                    item.classList.remove('services-open')
-                })
+                const megaItem = backButton.closest('.ifox-has-mega')
 
-                if (shouldOpen) megaItem.classList.add('services-open')
+                if (megaItem) {
+                    const shouldOpen = !megaItem.classList.contains('services-open')
+
+                    mobileNavigation.querySelectorAll('.ifox-has-mega.services-open').forEach((item) => {
+                        item.classList.remove('services-open')
+                    })
+
+                    if (shouldOpen) megaItem.classList.add('services-open')
+                }
+
                 return
             }
 

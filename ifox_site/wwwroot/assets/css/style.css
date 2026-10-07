@@ -15,6 +15,22 @@ body {
 }
 
 /* Final mega-menu state: visibility is controlled only by .services-open. */
+#header .ifox-category-link {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    color: inherit;
+    cursor: pointer;
+    pointer-events: auto;
+    text-decoration: none;
+}
+
+#header .ifox-category-link:hover,
+#header .ifox-category-link:focus-visible {
+    color: inherit;
+    text-decoration: none;
+}
+
 #header .ifox-has-mega > .ifox-mega-menu {
     display: block !important;
     position: fixed !important;

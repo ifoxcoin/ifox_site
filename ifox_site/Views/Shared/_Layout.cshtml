@@ -3817,6 +3817,16 @@
 
                 categories.forEach(function (category) {
 
+                    const categoryLink = category.querySelector(".ifox-category-link");
+
+                    if (categoryLink) {
+                        categoryLink.addEventListener("click", function (event) {
+                            if (window.innerWidth > 991) {
+                                event.stopPropagation();
+                            }
+                        });
+                    }
+
                     if (megaItem.classList.contains("ifox-services-menu") ||
                         megaItem.classList.contains("ifox-industries-menu") ||
                         megaItem.classList.contains("ifox-hire-menu")) {
