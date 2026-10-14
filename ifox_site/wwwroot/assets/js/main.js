@@ -177,39 +177,45 @@
             if (icon) icon.className = 'bi bi-list'
         }
 
-        mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((megaItem) => {
-            const megaContent = megaItem.querySelector('.ifox-mega-content')
-            if (!megaContent || megaContent.querySelector('.ifox-mobile-mega-back')) return
+        const addMobileMegaBackButtons = () => {
+            if (window.innerWidth > 991) return
 
-            const backButton = document.createElement('button')
-            backButton.type = 'button'
-            backButton.className = 'ifox-mobile-mega-back'
-            backButton.setAttribute('aria-label', 'Back to menu categories')
-            backButton.innerHTML = '<i class="bi bi-arrow-left" aria-hidden="true"></i><span>Back</span>'
-            backButton.addEventListener('click', (event) => {
-                event.preventDefault()
-                event.stopPropagation()
+            mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((megaItem) => {
+                const megaContent = megaItem.querySelector('.ifox-mega-content')
+                if (!megaContent || megaContent.querySelector('.ifox-mobile-mega-back')) return
 
-                megaItem.classList.remove('mobile-panel-open')
-                megaItem.classList.add('services-open')
+                const backButton = document.createElement('button')
+                backButton.type = 'button'
+                backButton.className = 'ifox-mobile-mega-back'
+                backButton.setAttribute('aria-label', 'Back to menu categories')
+                backButton.innerHTML = '<i class="bi bi-arrow-left" aria-hidden="true"></i><span>Back</span>'
+                backButton.addEventListener('click', (event) => {
+                    event.preventDefault()
+                    event.stopPropagation()
 
-                const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
-                const content = megaItem.querySelector('.ifox-mega-content')
-                if (sidebar) {
-                    sidebar.style.setProperty('display', 'block', 'important')
-                    sidebar.scrollTop = 0
-                }
-                if (content) content.style.setProperty('display', 'none', 'important')
+                    megaItem.classList.remove('mobile-panel-open')
+                    megaItem.classList.add('services-open')
 
-                requestAnimationFrame(() => {
-                    mobileNavigation.scrollTo({
-                        top: Math.max(0, megaItem.offsetTop - 8),
-                        behavior: 'smooth'
+                    const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
+                    const content = megaItem.querySelector('.ifox-mega-content')
+                    if (sidebar) {
+                        sidebar.style.setProperty('display', 'block', 'important')
+                        sidebar.scrollTop = 0
+                    }
+                    if (content) content.style.setProperty('display', 'none', 'important')
+
+                    requestAnimationFrame(() => {
+                        mobileNavigation.scrollTo({
+                            top: Math.max(0, megaItem.offsetTop - 8),
+                            behavior: 'smooth'
+                        })
                     })
                 })
+                megaContent.prepend(backButton)
             })
-            megaContent.prepend(backButton)
-        })
+        }
+
+        addMobileMegaBackButtons()
 
         const toggleMobileMegaMenu = (dropdownTrigger, event) => {
             if (window.innerWidth > 991 || !mobileNavigation.classList.contains('mobile-open')) return
@@ -334,7 +340,12 @@
         })
 
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 991) closeMobileNavigation()
+            if (window.innerWidth > 991) {
+                closeMobileNavigation()
+                mobileNavigation.querySelectorAll('.ifox-mobile-mega-back').forEach((button) => button.remove())
+            } else {
+                addMobileMegaBackButtons()
+            }
         })
     }
 

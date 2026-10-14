@@ -14,6 +14,70 @@ body {
     color: #444444;
 }
 
+/* Separate category navigation from subheading-panel activation. */
+#header .ifox-mega-category > i {
+    display: none !important;
+}
+
+#header .ifox-category-toggle {
+    position: relative !important;
+    z-index: 2 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    margin: 0 0 0 auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    color: transparent !important;
+    cursor: pointer !important;
+    line-height: 1 !important;
+}
+
+#header .ifox-category-toggle:hover,
+#header .ifox-category-toggle:focus-visible {
+    border: 0 !important;
+    background: transparent !important;
+    color: transparent !important;
+    outline: 0 !important;
+}
+
+#header .ifox-category-toggle i {
+    display: none !important;
+    pointer-events: none !important;
+}
+
+@media (min-width: 992px) {
+    #header .ifox-category-hit-area {
+        position: absolute !important;
+        z-index: 1 !important;
+        top: 0 !important;
+        right: 48px !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        display: block !important;
+        width: auto !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        color: transparent !important;
+        cursor: pointer !important;
+    }
+}
+
+@media (max-width: 991px) {
+    #header .ifox-navigation.mobile-open .ifox-category-toggle {
+        flex-basis: 40px !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
 /* Final mega-menu state: visibility is controlled only by .services-open. */
 #header .ifox-category-link {
     color: inherit;
@@ -5790,6 +5854,10 @@ body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; to
 
 /* An explicit trigger close must win over the desktop hover state. */
 @media (min-width: 992px) {
+    #header .ifox-mobile-mega-back {
+        display: none !important;
+    }
+
     #header .ifox-has-mega.ifox-click-closed > .ifox-mega-menu,
     #header .ifox-has-mega.services-open.ifox-click-closed > .ifox-mega-menu,
     #header .ifox-has-mega.ifox-click-closed:hover > .ifox-mega-menu {

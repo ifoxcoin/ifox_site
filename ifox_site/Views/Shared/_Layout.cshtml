@@ -3751,7 +3751,7 @@
 
             /* Form controls must always win over navigation state. */
             document.addEventListener("pointerdown", function (event) {
-                if (event.target.closest(".ifox-mobile-mega-back, .ifox-dropdown-trigger")) {
+                if (event.target.closest(".ifox-mobile-mega-back, .ifox-dropdown-trigger, .ifox-category-toggle")) {
                     return;
                 }
 
@@ -3802,21 +3802,20 @@
                     event.preventDefault();
                     event.stopPropagation();
 
-                    const isMenuOpen =
-                        megaItem.classList.contains("services-open");
-
+                    const isMenuOpen = megaItem.classList.contains("services-open");
                     closeAllMegaMenus();
 
-                    if (!isMenuOpen) {
-                        megaItem.classList.remove("ifox-click-closed");
-                        megaItem.classList.add("services-open");
-                        megaMenu.style.removeProperty("display");
-                        trigger.setAttribute("aria-expanded", "true");
-                    } else {
+                    if (isMenuOpen) {
                         megaItem.classList.add("ifox-click-closed");
                         megaMenu.style.setProperty("display", "none", "important");
                         trigger.setAttribute("aria-expanded", "false");
+                        return;
                     }
+
+                    megaItem.classList.remove("ifox-click-closed");
+                    megaItem.classList.add("services-open");
+                    megaMenu.style.removeProperty("display");
+                    trigger.setAttribute("aria-expanded", "true");
 
                 });
 
@@ -3828,11 +3827,16 @@
                     megaItem.classList.remove("ifox-click-closed");
                 });
 
-                megaItem.addEventListener("mouseleave", function () {
+                megaItem.addEventListener("mouseleave", function (event) {
                     if (window.innerWidth <= 991 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
+
+                    if (event.relatedTarget && megaMenu.contains(event.relatedTarget)) {
+                        return;
+                    }
+
                     megaItem.classList.remove("services-open", "ifox-click-closed");
                 });
 
@@ -3869,8 +3873,53 @@
                         ".ifox-service-panel"
                     );
 
+                const activateCategory = function (category) {
+                    const tab = category.getAttribute("data-tab");
+                    if (!tab) {
+                        return;
+                    }
+
+                    megaItem.classList.add("services-open");
+                    megaItem.classList.remove("ifox-click-closed");
+                    megaMenu.style.removeProperty("display");
+
+                    categories.forEach(function (item) {
+                        item.classList.toggle("active", item === category);
+                    });
+
+                    panels.forEach(function (panel) {
+                        panel.classList.toggle("active", panel.getAttribute("data-panel") === tab);
+                    });
+                };
+
 
                 categories.forEach(function (category) {
+
+                    const categoryLink = category.querySelector(".ifox-category-link");
+                    if (categoryLink && !category.querySelector(".ifox-category-hit-area")) {
+                        const categoryHitArea = document.createElement("a");
+                        categoryHitArea.className = "ifox-category-link ifox-category-hit-area";
+                        categoryHitArea.href = categoryLink.href;
+                        categoryHitArea.tabIndex = -1;
+                        categoryHitArea.setAttribute("aria-hidden", "true");
+                        category.appendChild(categoryHitArea);
+                    }
+
+                    if (!category.querySelector(".ifox-category-toggle")) {
+                        const categoryToggle = document.createElement("button");
+                        categoryToggle.type = "button";
+                        categoryToggle.className = "ifox-category-toggle";
+                        categoryToggle.setAttribute("aria-label", "Open subheadings");
+                        categoryToggle.setAttribute("aria-expanded", category.classList.contains("active") ? "true" : "false");
+                        categoryToggle.innerHTML = '<i class="bi bi-chevron-right" aria-hidden="true"></i>';
+                        categoryToggle.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            activateCategory(category);
+                            categoryToggle.setAttribute("aria-expanded", "true");
+                        });
+                        category.appendChild(categoryToggle);
+                    }
 
                     if (megaItem.classList.contains("ifox-services-menu") ||
                         megaItem.classList.contains("ifox-industries-menu") ||
@@ -3910,8 +3959,9 @@
                                 return;
                             }
 
-                            if (window.innerWidth <= 991 &&
-                                document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
+                            // Only handle synthetic category clicks on desktop widths.
+                            // Leave mobile navigation links & dropdown behavior untouched.
+                            if (window.innerWidth <= 991) {
                                 return;
                             }
 
@@ -3919,64 +3969,7 @@
                             event.stopPropagation();
 
 
-                            const tab =
-                                this.getAttribute("data-tab");
-
-                            if (!tab) {
-                                return;
-                            }
-
-
-                            /* -----------------------------------------
-                               REMOVE ACTIVE CATEGORY
-                               ----------------------------------------- */
-
-                            categories.forEach(function (item) {
-
-                                item.classList.remove("active");
-
-                            });
-
-
-                            /* -----------------------------------------
-                               REMOVE ACTIVE PANELS
-                               ----------------------------------------- */
-
-                            panels.forEach(function (panel) {
-
-                                panel.classList.remove("active");
-
-                            });
-
-
-                            /* -----------------------------------------
-                               ACTIVATE CATEGORY
-                               ----------------------------------------- */
-
-                            this.classList.add("active");
-
-
-                            /* -----------------------------------------
-                               FIND PANEL
-                               ----------------------------------------- */
-
-                            const selectedPanel =
-                                megaItem.querySelector(
-                                    '.ifox-service-panel[data-panel="' +
-                                    tab +
-                                    '"]'
-                                );
-
-
-                            /* -----------------------------------------
-                               ACTIVATE PANEL
-                               ----------------------------------------- */
-
-                            if (selectedPanel) {
-
-                                selectedPanel.classList.add("active");
-
-                            }
+                            activateCategory(this);
 
                         }
                     );
