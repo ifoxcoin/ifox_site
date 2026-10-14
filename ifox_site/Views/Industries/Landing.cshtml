@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Industry Solutions | IFOX";
+    var items = new[]
+    {
+        new[] { "/Healthcare", "Healthcare", "Connected systems for better patient and care operations." },
+        new[] { "/Industries/Manufacturing", "Manufacturing Technology", "Improve production visibility, quality, and supply chain performance." },
+        new[] { "/Retail", "Retail & Digital Commerce", "Create smoother customer journeys and more efficient commerce operations." },
+        new[] { "/EducationTechnology", "Education Technology", "Build digital platforms for schools, colleges, and learners." },
+        new[] { "/Financialtechnology", "Financial Technology", "Deliver secure and scalable financial business solutions." },
+        new[] { "/LogisticsandTransportation", "Logistics & Transportation", "Connect fleet, shipment, and supply-chain operations." }
+    };
+}
+
+<section class="product-category-landing">
+    <div class="container">
+        <p class="product-category-landing__eyebrow">IFOX INDUSTRY SOLUTIONS</p>
+        <h1>Industry Solutions</h1>
+        <p class="product-category-landing__intro">Explore practical digital solutions designed around the needs of modern industries.</p>
+        <div class="product-category-landing__grid">
+            @foreach (var item in items)
+            {
+                <a href="@item[0]"><strong>@item[1]</strong><span>@item[2]</span></a>
+            }
+        </div>
+    </div>
+</section>

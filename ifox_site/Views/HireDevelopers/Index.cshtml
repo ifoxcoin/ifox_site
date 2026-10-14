@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Hire Developers | IFOX";
+    var items = new[]
+    {
+        new[] { "/D365-Developers", "Dynamics 365 Developers", "Hire CRM and Power Platform specialists." },
+        new[] { "/Dot-Net-Developers", ".NET Developers", "Build secure APIs, applications, and enterprise platforms." },
+        new[] { "/Mobile-Developer", "Mobile Developers", "Create high-quality Android and iOS applications." },
+        new[] { "/Reactandnodedevelopers", "React & Node.js Developers", "Build fast, modern web applications." },
+        new[] { "/PHP-Developer", "PHP Developers", "Deliver maintainable PHP and e-commerce solutions." },
+        new[] { "/Power-Platform-Developer", "Power Platform Developers", "Automate processes with Power Apps, Automate, and BI." }
+    };
+}
+
+<section class="product-category-landing">
+    <div class="container">
+        <p class="product-category-landing__eyebrow">IFOX HIRE DEVELOPERS</p>
+        <h1>Hire Developers</h1>
+        <p class="product-category-landing__intro">Extend your team with experienced developers who deliver practical, scalable technology solutions.</p>
+        <div class="product-category-landing__grid">
+            @foreach (var item in items)
+            {
+                <a href="@item[0]"><strong>@item[1]</strong><span>@item[2]</span></a>
+            }
+        </div>
+    </div>
+</section>
