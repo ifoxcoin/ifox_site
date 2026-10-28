@@ -2138,12 +2138,74 @@ body:has(#hero.ifox-home-page) #footer .social-links a {
 }
 
 @media (max-width: 991px) {
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-has-mega:not(.services-open) > .ifox-mega-menu,
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-has-mega.ifox-click-closed > .ifox-mega-menu {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-has-mega.services-open > .ifox-mega-menu {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
     body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open {
-        height: calc(100vh - 94px) !important;
+        height: auto !important;
         max-height: calc(100vh - 94px) !important;
     }
 
     body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-nav-list {
         height: auto !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-nav-link {
+        height: auto !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-mega-inner {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-mega-sidebar {
+        height: auto !important;
+        max-height: 240px !important;
+        overflow-y: auto !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-mega-content {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-service-panel {
+        position: relative !important;
+        inset: auto !important;
+        display: none !important;
+        height: auto !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-service-panel.active {
+        display: block !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-mega-content {
+        display: block !important;
+    }
+
+    body:has(#hero.ifox-home-page) #header .ifox-navigation.mobile-open .ifox-mobile-mega-back {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 4 !important;
+        display: flex !important;
     }
 }
