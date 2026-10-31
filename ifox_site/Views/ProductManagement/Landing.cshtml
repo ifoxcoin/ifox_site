@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Product Management Solutions | IFOX";
+    var items = new[]
+    {
+        new[] { "/Product-Development", "Product Development", "Turn validated ideas into reliable, scalable products." },
+        new[] { "/Product-Growth-Optimization", "Product Growth Optimization", "Improve adoption, conversion, and long-term retention." },
+        new[] { "/Product-Launch", "Product Launch", "Plan and manage confident product launches." },
+        new[] { "/Product-Roadmap-Planning", "Product Roadmap Planning", "Align priorities, releases, and resources around outcomes." },
+        new[] { "/Product-Strategy-Vision", "Product Strategy & Vision", "Create a clear direction for your product portfolio." },
+        new[] { "/Market-Customer-Research", "Market & Customer Research", "Use customer and market insight to guide product decisions." }
+    };
+}
+
+<section class="product-category-landing">
+    <div class="container">
+        <p class="product-category-landing__eyebrow">IFOX PRODUCT MANAGEMENT</p>
+        <h1>Product Management Solutions</h1>
+        <p class="product-category-landing__intro">Build, launch, and grow digital products with a clear strategy and customer-focused execution.</p>
+        <div class="product-category-landing__grid">
+            @foreach (var item in items)
+            {
+                <a href="@item[0]"><strong>@item[1]</strong><span>@item[2]</span></a>
+            }
+        </div>
+    </div>
+</section>
