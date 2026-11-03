@@ -18,7 +18,7 @@ namespace ifox_site.Controllers
                 new[] { "/CloudSolutions/Infrastructure", "Cloud Infrastructure", "Create secure and resilient cloud foundations." },
                 new[] { "/CloudSolutions/Microsoft%20Azure", "Microsoft Azure", "Use Azure to modernize applications and data." }
             };
-            return View("~/Views/Services/CategoryIndex.cshtml");
+            return View("~/Views/Services/CloudSolutions/Index.cshtml");
         }
 
         [HttpGet("AWS")]

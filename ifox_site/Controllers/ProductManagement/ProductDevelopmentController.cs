@@ -8,7 +8,18 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View("~/Views/ProductManagement/ProductDevelopment/Index.cshtml");
+            ViewData["ProductTitle"] = "Product Development";
+            ViewData["ProductDescription"] = "Build, test, and refine valuable products through a focused and collaborative development process.";
+            ViewData["ProductItems"] = new[]
+            {
+                new[] { "/Product-Development/Feature-Development", "Feature Development", "Turn validated opportunities into useful product features." },
+                new[] { "/Product-Development/MVP-Development", "MVP Development", "Launch a focused first version and learn from real users." },
+                new[] { "/Product-Development/Product-Design", "Product Design", "Create clear, accessible, and engaging product experiences." },
+                new[] { "/Product-Development/Product-Development", "Product Development", "Coordinate product planning, delivery, testing, and improvement." },
+                new[] { "/Product-Development/Product-Development-Launch", "Product Development Launch", "Prepare teams, customers, and systems for a successful launch." },
+                new[] { "/Product-Development/Product-Engineering", "Product Engineering", "Build reliable technical foundations that support product growth." }
+            };
+            return View("~/Views/ProductManagement/Overview.cshtml");
         }
 
         [HttpGet("Feature-Development")]

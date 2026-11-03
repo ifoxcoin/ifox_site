@@ -20,7 +20,7 @@ namespace ifox_site.Controllers
                 new[] { "/FinancialTechnology/Payment%20Solutions", "Payment Solutions", "Deliver secure and efficient payment experiences." },
                 new[] { "/FinancialTechnology/Risk%20Management", "Risk Management", "Identify, monitor, and manage financial risk." }
             };
-            return View("~/Views/Industries/Index.cshtml");
+            return View("~/Views/Industries/Overview.cshtml");
         }
 
         [HttpGet("Banking Applications")]

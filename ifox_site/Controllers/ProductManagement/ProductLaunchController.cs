@@ -8,7 +8,18 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View("~/Views/ProductManagement/ProductLaunch/Index.cshtml");
+            ViewData["ProductTitle"] = "Product Launch";
+            ViewData["ProductDescription"] = "Plan and deliver product launches that align teams, reach the right audience, and create momentum.";
+            ViewData["ProductItems"] = new[]
+            {
+                new[] { "/Product-Launch/Go-To-Market-Strategy", "Go-To-Market Strategy", "Define the audience, positioning, channels, and launch plan." },
+                new[] { "/Product-Launch/Launch-Management", "Launch Management", "Coordinate launch activities, teams, dependencies, and timelines." },
+                new[] { "/Product-Launch/Launch-Optimization", "Launch Optimization", "Learn from launch performance and improve the next opportunity." },
+                new[] { "/Product-Launch/Product-Launch-planning", "Product Launch Planning", "Prepare the product, organization, and customers for release." },
+                new[] { "/Product-Launch/Product-Marketing", "Product Marketing", "Communicate product value clearly to the right market." },
+                new[] { "/Product-Launch/Release-Planning", "Release Planning", "Plan reliable releases with clear scope, readiness, and communication." }
+            };
+            return View("~/Views/ProductManagement/Overview.cshtml");
         }
 
         [HttpGet("Go-To-Market-Strategy")]

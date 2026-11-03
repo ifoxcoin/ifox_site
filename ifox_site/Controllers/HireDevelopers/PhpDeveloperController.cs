@@ -17,7 +17,7 @@ namespace ifox_site.Controllers
                 new[] { "/PHP-Developer/PHP-E-Commerce-Developer", "PHP E-Commerce Developers", "Create effective online commerce platforms" },
                 new[] { "/PHP-Developer/WordPress-Developer", "WordPress Developers", "Build and customize WordPress websites" }
             };
-            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
+            return View("~/Views/HireDevelopers/Overview.cshtml");
         }
 
         [HttpGet("Laravel-Developer")]

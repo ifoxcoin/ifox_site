@@ -19,7 +19,7 @@ namespace ifox_site.Controllers
                 new[] { "/Industries/Manufacturing/Quality%20Management", "Quality Management", "Improve quality control and compliance." },
                 new[] { "/Industries/Manufacturing/Supply%20Chain%20Management", "Supply Chain Management", "Build a more connected and resilient supply chain." }
             };
-            return View("~/Views/Industries/Index.cshtml");
+            return View("~/Views/Industries/Overview.cshtml");
         }
 
         [HttpGet("Inventory Management")]

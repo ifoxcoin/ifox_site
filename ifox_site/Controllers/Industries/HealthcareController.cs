@@ -19,7 +19,7 @@ namespace ifox_site.Controllers
                 new[] { "/Healthcare/Telemedicine", "Telemedicine", "Deliver secure and accessible remote care experiences." },
                 new[] { "/Healthcare/Medical%20Data%20Management", "Medical Data Management", "Manage healthcare data securely and efficiently." }
             };
-            return View("~/Views/Industries/Index.cshtml");
+            return View("~/Views/Industries/Overview.cshtml");
         }
 
         [HttpGet("Appointment Scheduling")]

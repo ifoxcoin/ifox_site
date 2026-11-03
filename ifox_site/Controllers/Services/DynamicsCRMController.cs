@@ -39,7 +39,7 @@ namespace ifox_site.Controllers
                 new[] { "/dynamics-365-crm-services/Power%20Platform", "Power Platform", "Build connected apps and automations." },
                 new[] { "/dynamics-365-crm-services/Support", "CRM Support", "Keep your CRM platform healthy and effective." }
             };
-            return View("~/Views/Services/CategoryIndex.cshtml");
+            return View("~/Views/Services/DynamicsCRM/Index.cshtml");
         }
 
         [HttpGet("Implementation")]

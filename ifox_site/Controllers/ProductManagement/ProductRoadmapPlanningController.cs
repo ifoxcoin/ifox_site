@@ -8,7 +8,18 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View("~/Views/ProductManagement/ProductRoadmapPlanning/Index.cshtml");
+            ViewData["ProductTitle"] = "Product Roadmap Planning";
+            ViewData["ProductDescription"] = "Create a clear product direction, prioritize the right work, and align delivery with business goals.";
+            ViewData["ProductItems"] = new[]
+            {
+                new[] { "/Product-Roadmap-Planning/Feature-Prioritization", "Feature Prioritization", "Rank opportunities using value, effort, risk, and strategy." },
+                new[] { "/Product-Roadmap-Planning/Product-Backlog", "Product Backlog", "Maintain a clear and actionable list of product work." },
+                new[] { "/Product-Roadmap-Planning/Product-Lifecycle-Management", "Product Lifecycle Management", "Manage products from introduction through maturity and improvement." },
+                new[] { "/Product-Roadmap-Planning/Product-Roadmap-Planning", "Product Roadmap Planning", "Communicate direction, outcomes, themes, and delivery horizons." },
+                new[] { "/Product-Roadmap-Planning/Release-Roadmap", "Release Roadmap", "Coordinate upcoming releases around customer and business value." },
+                new[] { "/Product-Roadmap-Planning/Resource-Planning", "Resource Planning", "Align people, capacity, and investment with product priorities." }
+            };
+            return View("~/Views/ProductManagement/Overview.cshtml");
         }
 
         [HttpGet("Feature-Prioritization")]

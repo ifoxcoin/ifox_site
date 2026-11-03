@@ -20,7 +20,7 @@ namespace ifox_site.Controllers
                 new[] { "/RetailandEcommerce/Point%20Of%20Sale", "Point of Sale", "Modernize checkout and retail operations." },
                 new[] { "/RetailandEcommerce/Retail%20Management", "Retail Management", "Manage customers, products, and commerce in one place." }
             };
-            return View("~/Views/Industries/Index.cshtml");
+            return View("~/Views/Industries/Overview.cshtml");
         }
 
         [HttpGet("Customer Engagement")]

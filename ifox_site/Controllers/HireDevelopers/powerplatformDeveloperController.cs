@@ -17,7 +17,7 @@ namespace ifox_site.Controllers
                 new[] { "/Power-Platform-Developer/Hire-Power-BI-Developer", "Power BI Developers", "Turn business data into insights" },
                 new[] { "/Power-Platform-Developer/Power-Apps-Developer", "Power Apps Developers", "Create connected business applications" }
             };
-            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
+            return View("~/Views/HireDevelopers/Overview.cshtml");
         }
 
         [HttpGet("Dataverse-Developer")]

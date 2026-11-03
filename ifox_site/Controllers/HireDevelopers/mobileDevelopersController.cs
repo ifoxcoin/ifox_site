@@ -17,7 +17,7 @@ namespace ifox_site.Controllers
                 new[] { "/Mobile-Developer/IOS-Developer", "iOS Developers", "Deliver polished iPhone and iPad apps" },
                 new[] { "/Mobile-Developer/React-Native-Developer", "React Native Developers", "Develop efficient cross-platform apps" }
             };
-            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
+            return View("~/Views/HireDevelopers/Overview.cshtml");
         }
 
         [HttpGet("Android-Developer")]

@@ -19,7 +19,7 @@ namespace ifox_site.Controllers
                 new[] { "/AI%20Solutions/OCR", "OCR", "Convert documents and images into usable data." },
                 new[] { "/AI%20Solutions/Open%20AI", "OpenAI Solutions", "Build modern applications with advanced AI models." }
             };
-            return View("~/Views/Services/CategoryIndex.cshtml");
+            return View("~/Views/Services/AISolutions/Index.cshtml");
         }
 
         [HttpGet("AI Automation")]

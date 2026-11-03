@@ -20,7 +20,7 @@ namespace ifox_site.Controllers
                 new[] { "/Windows%20Application/POS%20Software", "POS Software", "Deliver efficient point-of-sale operations." },
                 new[] { "/Windows%20Application/School%20Management", "School Management", "Connect administration, staff, and student operations." }
             };
-            return View("~/Views/Services/CategoryIndex.cshtml");
+            return View("~/Views/Services/Windows Application/Index.cshtml");
         }
 
         [HttpGet("Billing Software")]

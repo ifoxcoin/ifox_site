@@ -20,7 +20,7 @@ namespace ifox_site.Controllers
                 new[] { "/Education%20Technology/School%20Management", "School Management", "Manage day-to-day school operations efficiently." },
                 new[] { "/Education%20Technology/Student%20Management", "Student Management", "Support student records, engagement, and success." }
             };
-            return View("~/Views/Industries/Index.cshtml");
+            return View("~/Views/Industries/Overview.cshtml");
         }
 
         [HttpGet("College Management")]

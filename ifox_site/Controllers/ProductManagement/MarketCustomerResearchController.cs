@@ -8,7 +8,18 @@ namespace ifox_site.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            return View("~/Views/ProductManagement/MarketCustomerResearch/Index.cshtml");
+            ViewData["ProductTitle"] = "Market & Customer Research";
+            ViewData["ProductDescription"] = "Understand your market, customers, and competitors before making important product decisions.";
+            ViewData["ProductItems"] = new[]
+            {
+                new[] { "/Market-Customer-Research/Competitor-Analysis", "Competitor Analysis", "Analyze competitors, positioning, and market opportunities." },
+                new[] { "/Market-Customer-Research/Customer-Research", "Customer Research", "Understand customer needs, motivations, and behavior." },
+                new[] { "/Market-Customer-Research/Customer-Segmentation", "Customer Segmentation", "Define audiences and create more relevant product experiences." },
+                new[] { "/Market-Customer-Research/Market-Customer_Research", "Market Customer Research", "Discover market and customer insights for stronger decisions." },
+                new[] { "/Market-Customer-Research/Market-Validation", "Market Validation", "Validate product opportunities before investing in delivery." },
+                new[] { "/Market-Customer-Research/User-Research", "User Research", "Learn how users behave and where their experience can improve." }
+            };
+            return View("~/Views/ProductManagement/Overview.cshtml");
         }
 
         [HttpGet("Competitor-Analysis")]

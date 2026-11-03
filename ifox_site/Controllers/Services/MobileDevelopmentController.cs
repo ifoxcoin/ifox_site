@@ -18,7 +18,7 @@ namespace ifox_site.Controllers
                 new[] { "/Mobile%20Development/IOS", "iOS Development", "Build polished iPhone and iPad experiences." },
                 new[] { "/Mobile%20Development/React%20Native", "React Native", "Develop maintainable cross-platform mobile apps." }
             };
-            return View("~/Views/Services/CategoryIndex.cshtml");
+            return View("~/Views/Services/Mobile Development/Index.cshtml");
         }
 
         [HttpGet("Android")]
