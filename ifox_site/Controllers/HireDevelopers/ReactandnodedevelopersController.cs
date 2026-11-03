@@ -17,7 +17,7 @@ namespace ifox_site.Controllers
                 new[] { "/Reactandnodedevelopers/NodeJsDeveloper", "Node.js Developers", "Create scalable server-side applications" },
                 new[] { "/Reactandnodedevelopers/ReactDeveloper", "React Developers", "Build responsive user interfaces" }
             };
-            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
+            return View("~/Views/HireDevelopers/Overview.cshtml");
         }
 
         [HttpGet("FullStackDeveloper")]

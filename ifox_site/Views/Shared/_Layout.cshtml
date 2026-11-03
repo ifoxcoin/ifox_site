@@ -69,7 +69,7 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260739" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260749" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
          <link href="~/assets/css/home.css?v=20260629" rel="stylesheet" />
@@ -3692,6 +3692,35 @@
     </script><!-- ================= CHATBOT UI ================= -->
 
     <script>
+        document.addEventListener("click", function (event) {
+            const capabilityLink = event.target.closest(
+                ".ifox-overview-capabilities h4 a, .ifox-web-capabilities h4 a"
+            );
+            const capabilityBox = event.target.closest(
+                ".ifox-overview-capabilities .icon-box, .ifox-web-capabilities .icon-box"
+            );
+
+            if (capabilityLink && capabilityLink.href) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                window.location.assign(capabilityLink.href);
+                return;
+            }
+
+            if (!capabilityBox) {
+                return;
+            }
+
+            const boxLink = capabilityBox.querySelector("h4 a");
+            if (!boxLink || !boxLink.href) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            window.location.assign(boxLink.href);
+        }, true);
+
         document.addEventListener("DOMContentLoaded", function () {
 
             /* =========================================================

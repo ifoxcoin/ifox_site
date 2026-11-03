@@ -3610,28 +3610,246 @@ body.ifox-service-page #main .Imgborder {
     border-color: rgba(99, 221, 255, .3) !important;
 }
 
-body.ifox-service-page #main > #call-to-action {
+body.ifox-service-page #main #call-to-action {
     background: #020b17 !important;
+    background-color: #020b17 !important;
+    background-image: none !important;
     color: #8bdcff !important;
 }
 
-body.ifox-service-page #main > #call-to-action::before {
-    background: linear-gradient(90deg, rgba(2, 11, 23, .98), rgba(3, 24, 42, .9)) !important;
+body.ifox-service-page #main #call-to-action::before {
+    background: #020b17 !important;
+    background-color: #020b17 !important;
+    background-image: none !important;
 }
 
-body.ifox-service-page #main > #call-to-action img {
+body.ifox-service-page #main #call-to-action img {
     display: none !important;
 }
 
-body.ifox-service-page #main > #call-to-action h3,
-body.ifox-service-page #main > #call-to-action p {
+body.ifox-service-page #main #call-to-action h3,
+body.ifox-service-page #main #call-to-action p {
     color: #8bdcff !important;
 }
 
-body.ifox-service-page #main > #call-to-action .cta-btn {
+body.ifox-service-page #main #call-to-action .cta-btn {
     color: #8bdcff !important;
     border-color: #8bdcff !important;
     background: transparent !important;
+}
+
+body.ifox-product-management-detail-page #main a.btn-primary,
+body.ifox-product-management-detail-page #main a.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 168px;
+    min-height: 48px;
+    padding: 11px 24px;
+    border: 1px solid #63ddff !important;
+    border-radius: 28px;
+    background: transparent !important;
+    box-shadow: 0 0 0 rgba(99, 221, 255, 0);
+    color: #8bdcff !important;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: color .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+body.ifox-product-management-detail-page #main a.btn-primary:hover,
+body.ifox-product-management-detail-page #main a.btn-primary:focus-visible,
+body.ifox-product-management-detail-page #main a.cta-btn:hover,
+body.ifox-product-management-detail-page #main a.cta-btn:focus-visible {
+    border-color: #ff6b2c !important;
+    background: #ff6b2c !important;
+    box-shadow: 0 0 24px rgba(255, 107, 44, .4);
+    color: #020b17 !important;
+    transform: translateY(-3px);
+}
+
+body.ifox-industry-overview-page #main #call-to-action .cta-btn,
+body.ifox-product-overview-page #main #call-to-action .cta-btn,
+body.ifox-hire-overview-page #main #call-to-action .cta-btn,
+body.ifox-web-development-page #main #call-to-action .cta-btn,
+body.ifox-mobile-development-page #main #call-to-action .cta-btn,
+body.ifox-windows-application-page #main #call-to-action .cta-btn,
+body.ifox-ai-solutions-page #main #call-to-action .cta-btn,
+body.ifox-cloud-solutions-page #main #call-to-action .cta-btn,
+body.ifox-dynamics-crm-overview-page #main #call-to-action .cta-btn {
+    position: relative;
+    transition: color .25s ease, background-color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+body.ifox-industry-overview-page #main #call-to-action .cta-btn:hover,
+body.ifox-product-overview-page #main #call-to-action .cta-btn:hover,
+body.ifox-hire-overview-page #main #call-to-action .cta-btn:hover,
+body.ifox-web-development-page #main #call-to-action .cta-btn:hover,
+body.ifox-mobile-development-page #main #call-to-action .cta-btn:hover,
+body.ifox-windows-application-page #main #call-to-action .cta-btn:hover,
+body.ifox-ai-solutions-page #main #call-to-action .cta-btn:hover,
+body.ifox-cloud-solutions-page #main #call-to-action .cta-btn:hover,
+body.ifox-dynamics-crm-overview-page #main #call-to-action .cta-btn:hover,
+body.ifox-industry-overview-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-product-overview-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-hire-overview-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-web-development-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-mobile-development-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-windows-application-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-ai-solutions-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-cloud-solutions-page #main #call-to-action .cta-btn:focus-visible,
+body.ifox-dynamics-crm-overview-page #main #call-to-action .cta-btn:focus-visible {
+    color: #020b17 !important;
+    background: #8bdcff !important;
+    border-color: #8bdcff !important;
+    box-shadow: 0 0 24px rgba(139, 220, 255, .45);
+    transform: translateY(-4px) scale(1.03);
+}
+
+body.ifox-industry-overview-page #main #call-to-action .cta-btn::after,
+body.ifox-product-overview-page #main #call-to-action .cta-btn::after,
+body.ifox-hire-overview-page #main #call-to-action .cta-btn::after,
+body.ifox-web-development-page #main #call-to-action .cta-btn::after,
+body.ifox-mobile-development-page #main #call-to-action .cta-btn::after,
+body.ifox-windows-application-page #main #call-to-action .cta-btn::after,
+body.ifox-ai-solutions-page #main #call-to-action .cta-btn::after,
+body.ifox-cloud-solutions-page #main #call-to-action .cta-btn::after,
+body.ifox-dynamics-crm-overview-page #main #call-to-action .cta-btn::after {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    width: max-content;
+    max-width: 220px;
+    padding: 7px 11px;
+    border: 1px solid rgba(139, 220, 255, .6);
+    border-radius: 6px;
+    background: #03182a;
+    color: #b7d5e6;
+    content: "Let's discuss your goals";
+    font-size: 12px;
+    line-height: 1.3;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 6px);
+    transition: opacity .25s ease, transform .25s ease;
+    visibility: hidden;
+}
+
+body.ifox-industry-overview-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-product-overview-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-hire-overview-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-web-development-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-mobile-development-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-windows-application-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-ai-solutions-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-cloud-solutions-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-dynamics-crm-overview-page #main #call-to-action .cta-btn:hover::after,
+body.ifox-industry-overview-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-product-overview-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-hire-overview-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-web-development-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-mobile-development-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-windows-application-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-ai-solutions-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-cloud-solutions-page #main #call-to-action .cta-btn:focus-visible::after,
+body.ifox-dynamics-crm-overview-page #main #call-to-action .cta-btn:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    visibility: visible;
+}
+
+.ifox-overview-capabilities .icon-box {
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+
+.ifox-overview-capabilities .icon-box > p {
+    position: absolute;
+    top: calc(100% - 8px);
+    left: 12px;
+    right: 12px;
+    z-index: 20;
+    margin: 0;
+    padding: 14px 16px;
+    border: 1px solid rgba(99, 221, 255, .55);
+    border-radius: 8px;
+    background: #03182a;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+    color: #b7d5e6 !important;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+    pointer-events: none;
+}
+
+.ifox-overview-capabilities .icon-box h4,
+.ifox-overview-capabilities .icon-box h4 a {
+    position: relative;
+    z-index: 1000 !important;
+    pointer-events: auto !important;
+}
+
+.ifox-overview-capabilities .icon-box h4 a {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.ifox-overview-capabilities .icon-box:hover,
+.ifox-overview-capabilities .icon-box:focus-within {
+    z-index: 30;
+    border-color: #63ddff;
+    box-shadow: 0 0 22px rgba(99, 221, 255, .18);
+    transform: translateY(-3px);
+}
+
+.ifox-overview-capabilities .icon-box:hover > p,
+.ifox-overview-capabilities .icon-box:focus-within > p {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+body.ifox-industry-overview-page #main > section:not(.ifox-overview-capabilities) .icon-box,
+body.ifox-product-overview-page #main > section:not(.ifox-overview-capabilities) .icon-box,
+body.ifox-hire-overview-page #main > section:not(.ifox-overview-capabilities) .icon-box,
+body.ifox-web-development-page #main > section:not(.ifox-overview-capabilities):not(.ifox-web-capabilities) .icon-box,
+body.ifox-mobile-development-page #main > section:not(.ifox-overview-capabilities) .icon-box,
+body.ifox-windows-application-page #main > section:not(.ifox-overview-capabilities) .icon-box,
+body.ifox-ai-solutions-page #main > section:not(.ifox-overview-capabilities) .icon-box,
+body.ifox-cloud-solutions-page #main > section:not(.ifox-overview-capabilities) .icon-box,
+body.ifox-dynamics-crm-overview-page #main > section:not(.ifox-overview-capabilities) .icon-box {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+body:has(.ifox-overview-capabilities) #main {
+    display: flex;
+    flex-direction: column;
+}
+
+body:has(.ifox-overview-capabilities) #main > .ifox-overview-capabilities {
+    order: 90;
+}
+
+body:has(.ifox-overview-capabilities) #main > #call-to-action {
+    order: 100;
+}
+
+@media (max-width: 767px) {
+    .ifox-overview-capabilities .icon-box > p {
+        position: static;
+        margin-top: 16px;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
 }
 
 body.ifox-service-page #footer,

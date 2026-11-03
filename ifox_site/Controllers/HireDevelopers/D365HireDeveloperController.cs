@@ -18,7 +18,7 @@ namespace ifox_site.Controllers
                 new[] { "/D365-Developers/Dynamics-Plugin-Developers", "Dynamics Plugin Developers", "Extend CRM with reliable plugins" },
                 new[] { "/D365-Developers/Power-Platform", "Power Platform Developers", "Create apps and automations with Power Platform" }
             };
-            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
+            return View("~/Views/HireDevelopers/Overview.cshtml");
         }
 
         [HttpGet("CRM-Developer")]

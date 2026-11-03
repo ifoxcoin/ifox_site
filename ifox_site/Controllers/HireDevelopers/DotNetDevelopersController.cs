@@ -17,7 +17,7 @@ namespace ifox_site.Controllers
                 new[] { "/Dot-Net-Developers/Dot-Net-API-Developer", ".NET API Developers", "Create secure and scalable APIs" },
                 new[] { "/Dot-Net-Developers/Dot-Net-Full-Stack-Developer", ".NET Full Stack Developers", "Deliver complete end-to-end applications" }
             };
-            return View("~/Views/HireDevelopers/CategoryIndex.cshtml");
+            return View("~/Views/HireDevelopers/Overview.cshtml");
         }
 
         [HttpGet("ASP-NET-Core-Developer")]

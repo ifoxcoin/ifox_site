@@ -1,0 +1,198 @@
+@{
+    ViewData["Title"] = ViewData["ProductTitle"] + " | IFOX";
+    ViewData["PageClass"] = "ifox-product-overview-page";
+    var items = ViewData["ProductItems"] as string[][] ?? Array.Empty<string[]>();
+    var productTitle = ViewData["ProductTitle"]?.ToString() ?? "Product Management";
+    var productDescription = ViewData["ProductDescription"]?.ToString() ?? string.Empty;
+}
+<style>
+    body.ifox-product-overview-page #main,
+    body.ifox-product-overview-page #main > section {
+        color: #d9efff;
+        background: #020b17;
+    }
+
+    body.ifox-product-overview-page h1,
+    body.ifox-product-overview-page h2,
+    body.ifox-product-overview-page h3,
+    body.ifox-product-overview-page h4,
+    body.ifox-product-overview-page h4 a {
+        color: #ff6b2c;
+    }
+
+    body.ifox-product-overview-page p,
+    body.ifox-product-overview-page li {
+        color: #b7d5e6;
+    }
+
+    body.ifox-product-overview-page .icon-box {
+        height: 100%;
+        border: 1px solid rgba(99, 221, 255, .25);
+        background: rgba(3, 24, 42, .55);
+    }
+
+    body.ifox-product-overview-page #call-to-action,
+    body.ifox-product-overview-page #call-to-action::before {
+        background: #020b17 !important;
+        background-image: none !important;
+    }
+</style>
+
+<section style="background:#020b17;">
+    <div class="container" data-aos="fade-up">
+        <div class="row align-items-center">
+            <div class="col-lg-10 mt-5">
+                <h1 class="text-start pt-3 pb-3"><b>@productTitle</b></h1>
+                <p class="pb-4">@productDescription</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>Product Decisions Grounded in Customer and Business Insight</b></h2>
+                <p>
+                    Product teams must balance customer expectations, commercial goals, technical constraints, and available resources. We help bring these perspectives together so decisions are based on evidence rather than assumptions. Research, interviews, analytics, competitive analysis, and feedback all contribute to a clearer view of where a product can create value.
+                </p>
+                <p>
+                    With a shared understanding of the opportunity, teams can define the right problem, communicate priorities clearly, and focus delivery effort on outcomes that matter to customers and the business.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Customer and market insight that informs product direction.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Clear product goals, personas, value propositions, and success measures.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Prioritized opportunities that connect customer value with commercial potential.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Shared decision-making across product, design, engineering, marketing, and sales.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>Manage the Product After Launch</b></h2>
+                <p>
+                    Launch is the beginning of the next learning cycle. We help teams define the measures that show whether a product is being discovered, adopted, used, and valued. These insights support informed decisions about improvements, experiments, positioning, and future investment.
+                </p>
+                <p>
+                    A repeatable product operating model makes it easier to respond to changing customer behavior and market conditions. It also gives stakeholders a dependable way to review progress, resolve trade-offs, and keep the roadmap connected to strategy.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Product analytics, feedback loops, and adoption measurement.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Experiment planning and prioritization based on expected impact.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Roadmap reviews that balance customer needs, technical health, and business growth.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>Turn Product Ideas into Measurable Outcomes</b></h2>
+                <p>
+                    Strong products are created by connecting customer needs, business strategy, design, delivery, and continuous improvement. IFOX helps product teams move from an early idea to a clear, useful, and scalable product experience.
+                </p>
+                <p>
+                    Our product management approach gives stakeholders a shared direction, helps teams prioritize the right opportunities, and creates a practical path from discovery to delivery. We combine research, planning, technology, and measurement to keep product decisions connected to real business value.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Understand customers, markets, competitors, and changing opportunities.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Define product goals, positioning, roadmaps, priorities, and success measures.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Build, launch, measure, and improve products through an iterative process.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Align product, design, engineering, marketing, sales, and support teams.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ifox-overview-capabilities">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>@productTitle Capabilities</h2>
+            <p>Explore the product management services available in this area.</p>
+        </div>
+        <div class="row">
+            @foreach (var item in items)
+            {
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
+                    <div class="icon-box w-100">
+                        <div class="icon"><i class="bx bx-right-arrow-alt"></i></div>
+                        <h4><a href="@item[0]">@item[1]</a></h4>
+                        <p>@item[2]</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Product Management That Connects Every Stage</h2>
+            <p>Make better decisions by connecting customer insight, product execution, and business growth.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="icon-box h-100">
+                    <h4>Discover the Right Opportunity</h4>
+                    <p>Use research, analysis, and customer feedback to understand the problem clearly before investing in a solution.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="icon-box h-100">
+                    <h4>Prioritize with Confidence</h4>
+                    <p>Align product decisions with strategic goals, available resources, customer value, and measurable outcomes.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="icon-box h-100">
+                    <h4>Improve Through Learning</h4>
+                    <p>Use analytics, user feedback, experiments, and market signals to improve adoption, retention, and product value.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>A Practical Product Journey</b></h2>
+                <p>
+                    Product management works best as a continuous journey rather than a single project milestone. We help teams establish a repeatable way to gather insight, define priorities, communicate decisions, deliver improvements, and measure results. This keeps the product aligned with customers and the business as conditions change.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Discovery, research, strategy, and product goal definition.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Roadmap planning, backlog refinement, and feature prioritization.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Cross-functional delivery with design, engineering, testing, and launch planning.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Analytics, customer feedback, growth experiments, and continuous optimization.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="call-to-action" class="call-to-action section dark-background">
+    <div class="container">
+        <div class="row aos-init aos-animate" data-aos="zoom-in">
+            <div class="col-xl-9 text-center text-xl-start">
+                <h3>Ready to move your product forward?</h3>
+                <p>Talk to our product management experts about your goals.</p>
+            </div>
+            <div class="col-xl-3 cta-btn-container text-center">
+                <a class="cta-btn align-middle" href="/contact">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>

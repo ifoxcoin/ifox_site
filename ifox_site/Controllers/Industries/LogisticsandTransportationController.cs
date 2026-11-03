@@ -20,7 +20,7 @@ namespace ifox_site.Controllers
                 new[] { "/Logistics%20and%20transportation/Supply%20Chain%20Automation", "Supply Chain Automation", "Automate connected supply chain workflows." },
                 new[] { "/Logistics%20and%20transportation/Warehouse%20Management", "Warehouse Management", "Improve warehouse accuracy, speed, and control." }
             };
-            return View("~/Views/Industries/Index.cshtml");
+            return View("~/Views/Industries/Overview.cshtml");
         }
 
         [HttpGet("Fleet Management")]

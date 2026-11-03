@@ -1,0 +1,198 @@
+@{
+    ViewData["Title"] = ViewData["HireTitle"] + " | IFOX";
+    ViewData["PageClass"] = "ifox-hire-overview-page";
+    var items = ViewData["HireItems"] as string[][] ?? Array.Empty<string[]>();
+    var hireTitle = ViewData["HireTitle"]?.ToString() ?? "Hire Developers";
+    var hireDescription = ViewData["HireDescription"]?.ToString() ?? string.Empty;
+}
+<style>
+    body.ifox-hire-overview-page #main,
+    body.ifox-hire-overview-page #main > section {
+        color: #d9efff;
+        background: #020b17;
+    }
+
+    body.ifox-hire-overview-page h1,
+    body.ifox-hire-overview-page h2,
+    body.ifox-hire-overview-page h3,
+    body.ifox-hire-overview-page h4,
+    body.ifox-hire-overview-page h4 a {
+        color: #ff6b2c;
+    }
+
+    body.ifox-hire-overview-page p,
+    body.ifox-hire-overview-page li {
+        color: #b7d5e6;
+    }
+
+    body.ifox-hire-overview-page .icon-box {
+        height: 100%;
+        border: 1px solid rgba(99, 221, 255, .25);
+        background: rgba(3, 24, 42, .55);
+    }
+
+    body.ifox-hire-overview-page #call-to-action,
+    body.ifox-hire-overview-page #call-to-action::before {
+        background: #020b17 !important;
+        background-image: none !important;
+    }
+</style>
+
+<section style="background:#020b17;">
+    <div class="container" data-aos="fade-up">
+        <div class="row align-items-center">
+            <div class="col-lg-10 mt-5">
+                <h1 class="text-start pt-3 pb-3"><b>@hireTitle</b></h1>
+                <p class="pb-4">@hireDescription</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>Flexible Development Support for Changing Priorities</b></h2>
+                <p>
+                    Development needs can change quickly as products grow, deadlines move, and new technical challenges appear. Adding the right specialist or delivery team gives your organization access to focused expertise without requiring a permanent change to your internal structure.
+                </p>
+                <p>
+                    We help identify the technical capabilities, experience level, communication style, and engagement model that fit your situation. Developers can work alongside your team, follow your delivery practices, and contribute to the quality and momentum of the product from the start.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Support for new products, modernization, integrations, migrations, and feature delivery.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Specialists matched to your technology stack, domain, and delivery objectives.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Flexible engagement options for short-term needs and long-term collaboration.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Clear communication with progress, risks, dependencies, and next steps visible to stakeholders.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>Quality Partnership from Onboarding to Delivery</b></h2>
+                <p>
+                    Successful team extension depends on more than technical ability. Developers need context, access to the right information, clear ownership, and a working relationship with your existing team. We support onboarding and collaboration so new contributors can become productive while maintaining your standards for code, testing, documentation, and security.
+                </p>
+                <p>
+                    As the engagement develops, regular reviews help confirm that the team structure still matches your roadmap. Capacity can be adjusted as priorities change, giving you a practical way to scale delivery without losing control of quality or communication.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Technical onboarding, documentation, and access planning.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Code reviews, automated testing, secure practices, and knowledge sharing.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Regular delivery reviews and capacity planning around your roadmap.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>Build Your Team with the Right Technical Expertise</b></h2>
+                <p>
+                    The right development team can turn a business idea into a reliable product, improve an existing platform, and help your organization move faster. IFOX connects businesses with experienced developers who understand both technology and the outcomes your team needs to achieve.
+                </p>
+                <p>
+                    Whether you need a dedicated specialist, an extended delivery team, or support for a complex project, our developers work with your stakeholders, processes, and tools. We focus on clear communication, maintainable code, security, and measurable delivery progress.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Match technical skills to your product, platform, and project requirements.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Add experienced developers without slowing down your existing team.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Support discovery, development, testing, integration, deployment, and maintenance.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Work through transparent communication, practical planning, and regular delivery updates.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ifox-overview-capabilities">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Explore @hireTitle</h2>
+            <p>Choose the specialist profile that best matches your product and delivery goals.</p>
+        </div>
+        <div class="row">
+            @foreach (var item in items)
+            {
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
+                    <div class="icon-box w-100">
+                        <div class="icon"><i class="bx bx-right-arrow-alt"></i></div>
+                        <h4><a href="@item[0]">@item[1]</a></h4>
+                        <p>@item[2]</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Flexible Ways to Add Development Capacity</h2>
+            <p>Scale your technical capability around the work you need to deliver.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="icon-box h-100">
+                    <h4>Dedicated Specialists</h4>
+                    <p>Add focused expertise for a specific technology, product area, or long-term development responsibility.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="icon-box h-100">
+                    <h4>Extended Delivery Teams</h4>
+                    <p>Work with a coordinated team that can support design, engineering, testing, integrations, and delivery management.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="icon-box h-100">
+                    <h4>Project-Based Support</h4>
+                    <p>Bring in specialists for migrations, modernization, feature delivery, performance improvements, or urgent technical work.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" align="justify">
+                <h2><b>A Clear Path from Requirement to Delivery</b></h2>
+                <p>
+                    We start by understanding your project goals, current technology, team structure, expected timeline, and communication needs. This helps identify the right technical profile and creates a practical engagement plan before development begins.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Requirement discovery and technical skill matching.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Clear responsibilities, delivery milestones, and communication routines.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Code quality, testing, documentation, and secure development practices.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Ongoing feedback, performance reviews, and support as your priorities change.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="call-to-action" class="call-to-action section dark-background">
+    <div class="container">
+        <div class="row aos-init aos-animate" data-aos="zoom-in">
+            <div class="col-xl-9 text-center text-xl-start">
+                <h3>Ready to strengthen your development team?</h3>
+                <p>Talk to our hiring specialists about the skills your project needs.</p>
+            </div>
+            <div class="col-xl-3 cta-btn-container text-center">
+                <a class="cta-btn align-middle" href="/contact">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>

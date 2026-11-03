@@ -21,7 +21,7 @@ namespace ifox_site.Controllers
                 new[] { "/Web-Development-services/HRMS", "HRMS", "Simplify human resource management." },
                 new[] { "/Web-Development-services/LMS", "LMS", "Deliver connected learning and training platforms." }
             };
-            return View("~/Views/Services/CategoryIndex.cshtml");
+            return View("~/Views/Services/Web Development/Index.cshtml");
         }
 
         [HttpGet("Corporate Websites")]
