@@ -36,14 +36,31 @@
         background: #020b17 !important;
         background-image: none !important;
     }
+
+    body.ifox-industry-overview-page section.ifox-content-right .row {
+        justify-content: flex-end;
+    }
+
+    body.ifox-industry-overview-page .ifox-industry-overview-image {
+        max-width: 85%;
+    }
+
+    @@media (max-width: 767px) {
+        body.ifox-industry-overview-page section.ifox-content-right .row {
+            justify-content: flex-start;
+        }
+    }
 </style>
 
 <section style="background:#020b17;">
     <div class="container" data-aos="fade-up">
         <div class="row align-items-center">
-            <div class="col-lg-10 mt-5">
+            <div class="col-lg-8 mt-5">
                 <h1 class="text-start pt-3 pb-3"><b>@industryTitle</b></h1>
                 <p class="pb-4">@industryDescription</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="~/assets/img/industries-overview.webp" class="img-fluid ifox-industry-overview-image" alt="Industries overview" />
             </div>
         </div>
     </div>
@@ -52,7 +69,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Solutions That Reflect How Your Industry Works</b></h2>
                 <p>
                     Technology creates the greatest value when it fits the realities of the people using it. We take time to understand your workflows, compliance expectations, customer journeys, operational systems, and the information your teams need every day. This helps us recommend improvements that are practical, measurable, and appropriate for your organization.
@@ -67,6 +84,9 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Flexible solutions that can adapt as your organization, market, and service needs change.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/industries-overview1.webp" class="img-fluid ifox-industry-overview-image" alt="Industry solutions" />
+            </div>
         </div>
     </div>
 </section>
@@ -74,7 +94,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Secure Growth Through Continuous Improvement</b></h2>
                 <p>
                     Industry solutions need to remain dependable after launch. We support organizations with testing, training, adoption planning, monitoring, and improvement cycles that keep technology aligned with real-world use. Feedback from teams and customers helps identify what should be simplified, automated, or enhanced next.
@@ -88,14 +108,20 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Training and adoption support that helps teams gain value from new capabilities.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/industries-overview2.webp" class="img-fluid ifox-industry-overview-image" alt="Industry growth solutions" />
+            </div>
         </div>
     </div>
 </section>
 
-<section>
+<section class="ifox-content-right">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/industries-overview3.webp" class="img-fluid ifox-industry-overview-image" alt="Industry technology solutions" />
+            </div>
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Technology Designed Around Your Industry</b></h2>
                 <p>
                     Every industry has its own customers, regulations, workflows, and operational priorities. IFOX helps organizations use technology to simplify day-to-day work, connect important information, and create better experiences for the people they serve.
@@ -108,6 +134,28 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Connect teams, customers, partners, and operational information.</p></li>
                     <li><p><i class="bi bi-check2-circle color"></i> Build secure and scalable platforms that support long-term growth.</p></li>
                     <li><p><i class="bi bi-check2-circle color"></i> Improve visibility with dashboards, reporting, automation, and accurate data.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ifox-content-right">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/industries-overview4.webp" class="img-fluid ifox-industry-overview-image" alt="Industry delivery solutions" />
+            </div>
+            <div class="col-lg-8 overview-content-column" align="justify">
+                <h2><b>A Practical Path from Requirements to Results</b></h2>
+                <p>
+                    Successful industry technology projects require more than a collection of features. Our team works with stakeholders to understand the current environment, define priorities, plan integrations, and deliver improvements in manageable stages. This approach helps reduce disruption and gives your organization a clear way to measure progress.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Discovery, process mapping, and solution architecture.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> User-focused design and iterative development.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Security, testing, data quality, and integration planning.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Deployment, training, monitoring, and continuous support.</p></li>
                 </ul>
             </div>
         </div>
@@ -159,25 +207,6 @@
                     <h4>Create Better Experiences</h4>
                     <p>Make it easier for customers, employees, students, patients, partners, or citizens to access services and complete important tasks.</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12" align="justify">
-                <h2><b>A Practical Path from Requirements to Results</b></h2>
-                <p>
-                    Successful industry technology projects require more than a collection of features. Our team works with stakeholders to understand the current environment, define priorities, plan integrations, and deliver improvements in manageable stages. This approach helps reduce disruption and gives your organization a clear way to measure progress.
-                </p>
-                <ul class="list-unstyled">
-                    <li><p><i class="bi bi-check2-circle color"></i> Discovery, process mapping, and solution architecture.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> User-focused design and iterative development.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Security, testing, data quality, and integration planning.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Deployment, training, monitoring, and continuous support.</p></li>
-                </ul>
             </div>
         </div>
     </div>

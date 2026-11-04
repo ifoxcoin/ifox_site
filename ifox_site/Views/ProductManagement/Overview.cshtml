@@ -36,14 +36,31 @@
         background: #020b17 !important;
         background-image: none !important;
     }
+
+    body.ifox-product-overview-page section.ifox-content-right .row {
+        justify-content: flex-end;
+    }
+
+    body.ifox-product-overview-page .ifox-product-overview-image {
+        max-width: 85%;
+    }
+
+    @@media (max-width: 767px) {
+        body.ifox-product-overview-page section.ifox-content-right .row {
+            justify-content: flex-start;
+        }
+    }
 </style>
 
 <section style="background:#020b17;">
     <div class="container" data-aos="fade-up">
         <div class="row align-items-center">
-            <div class="col-lg-10 mt-5">
+            <div class="col-lg-8 mt-5">
                 <h1 class="text-start pt-3 pb-3"><b>@productTitle</b></h1>
                 <p class="pb-4">@productDescription</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="~/assets/img/product-management-overview.webp" class="img-fluid ifox-product-overview-image" alt="Product management overview" />
             </div>
         </div>
     </div>
@@ -52,7 +69,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Product Decisions Grounded in Customer and Business Insight</b></h2>
                 <p>
                     Product teams must balance customer expectations, commercial goals, technical constraints, and available resources. We help bring these perspectives together so decisions are based on evidence rather than assumptions. Research, interviews, analytics, competitive analysis, and feedback all contribute to a clearer view of where a product can create value.
@@ -67,6 +84,9 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Shared decision-making across product, design, engineering, marketing, and sales.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/product-management-overview1.webp" class="img-fluid ifox-product-overview-image" alt="Product management insight" />
+            </div>
         </div>
     </div>
 </section>
@@ -74,7 +94,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Manage the Product After Launch</b></h2>
                 <p>
                     Launch is the beginning of the next learning cycle. We help teams define the measures that show whether a product is being discovered, adopted, used, and valued. These insights support informed decisions about improvements, experiments, positioning, and future investment.
@@ -88,14 +108,20 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Roadmap reviews that balance customer needs, technical health, and business growth.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/product-management-overview2.webp" class="img-fluid ifox-product-overview-image" alt="Product management outcomes" />
+            </div>
         </div>
     </div>
 </section>
 
-<section>
+<section class="ifox-content-right">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/product-management-overview3.webp" class="img-fluid ifox-product-overview-image" alt="Product management journey" />
+            </div>
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Turn Product Ideas into Measurable Outcomes</b></h2>
                 <p>
                     Strong products are created by connecting customer needs, business strategy, design, delivery, and continuous improvement. IFOX helps product teams move from an early idea to a clear, useful, and scalable product experience.
@@ -108,6 +134,28 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Define product goals, positioning, roadmaps, priorities, and success measures.</p></li>
                     <li><p><i class="bi bi-check2-circle color"></i> Build, launch, measure, and improve products through an iterative process.</p></li>
                     <li><p><i class="bi bi-check2-circle color"></i> Align product, design, engineering, marketing, sales, and support teams.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ifox-content-right">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/product-management-overview4.webp" class="img-fluid ifox-product-overview-image" alt="Product management journey" />
+            </div>
+                <div class="col-lg-8 overview-content-column" align="justify">
+                <h2><b>A Practical Product Journey</b></h2>
+                <p>
+                    Product management works best as a continuous journey rather than a single project milestone. We help teams establish a repeatable way to gather insight, define priorities, communicate decisions, deliver improvements, and measure results. This keeps the product aligned with customers and the business as conditions change.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Discovery, research, strategy, and product goal definition.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Roadmap planning, backlog refinement, and feature prioritization.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Cross-functional delivery with design, engineering, testing, and launch planning.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Analytics, customer feedback, growth experiments, and continuous optimization.</p></li>
                 </ul>
             </div>
         </div>
@@ -159,25 +207,6 @@
                     <h4>Improve Through Learning</h4>
                     <p>Use analytics, user feedback, experiments, and market signals to improve adoption, retention, and product value.</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12" align="justify">
-                <h2><b>A Practical Product Journey</b></h2>
-                <p>
-                    Product management works best as a continuous journey rather than a single project milestone. We help teams establish a repeatable way to gather insight, define priorities, communicate decisions, deliver improvements, and measure results. This keeps the product aligned with customers and the business as conditions change.
-                </p>
-                <ul class="list-unstyled">
-                    <li><p><i class="bi bi-check2-circle color"></i> Discovery, research, strategy, and product goal definition.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Roadmap planning, backlog refinement, and feature prioritization.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Cross-functional delivery with design, engineering, testing, and launch planning.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Analytics, customer feedback, growth experiments, and continuous optimization.</p></li>
-                </ul>
             </div>
         </div>
     </div>
