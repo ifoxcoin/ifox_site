@@ -521,6 +521,14 @@ h6 {
     }
 }
 
+.ifox-service-overview-image {
+    max-width: 85%;
+}
+
+.ifox-service-mainoverview-image-column {
+    align-self: flex-start !important;
+}
+
 @keyframes up-down {
     0% {
         transform: translateY(10px);
@@ -3838,6 +3846,57 @@ body:has(.ifox-overview-capabilities) #main > .ifox-overview-capabilities {
     order: 90;
 }
 
+body.ifox-dynamics-crm-overview-page #main > .ifox-overview-capabilities {
+    order: 0 !important;
+}
+
+.overview-content-column {
+    padding-right: 28px;
+    border-right: 2px solid rgba(99, 221, 255, .55) !important;
+}
+
+section.ifox-content-right .overview-content-column {
+    padding-right: 0;
+    padding-left: 28px;
+    border-right: 0 !important;
+    border-left: 2px solid rgba(99, 221, 255, .55) !important;
+}
+
+.ifox-service-sticker-column {
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ifox-service-sticker {
+    display: block;
+    width: min(100%, 300px);
+    max-height: 300px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .overview-content-column {
+        padding-right: 12px;
+        padding-left: 12px;
+        border-right: 0;
+        border-left: 0 !important;
+    }
+
+    .ifox-service-sticker-column {
+        min-height: 0;
+        border-left: 0;
+        margin-top: 24px;
+    }
+
+    .ifox-service-sticker {
+        width: min(100%, 240px);
+        margin-top: 24px;
+    }
+}
+
 body:has(.ifox-overview-capabilities) #main > #call-to-action {
     order: 100;
 }
@@ -3971,14 +4030,16 @@ body.ifox-dropdown-detail-page #main > section:first-child .container {
 body.ifox-service-detail-page #main > section:first-child h1,
 body.ifox-dropdown-detail-page #main > section:first-child h1 {
     max-width: 760px;
-    margin-left: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     margin-bottom: 10px;
     padding: 18px 24px 8px !important;
-    border-left: 3px solid #ff6b27;
-    background: linear-gradient(90deg, rgba(255, 107, 39, .12), rgba(255, 107, 39, 0));
+    border-left: 0;
+    background: linear-gradient(90deg, rgba(255, 107, 39, 0), rgba(255, 107, 39, .12), rgba(255, 107, 39, 0));
     color: #ff6b27 !important;
     letter-spacing: .02em;
     text-shadow: 0 0 18px rgba(255, 107, 39, .18);
+    text-align: center !important;
 }
 
 body.ifox-service-detail-page #main > section:first-child p,
@@ -3986,14 +4047,14 @@ body.ifox-dropdown-detail-page #main > section:first-child p {
     display: block;
     box-sizing: border-box;
     width: min(760px, 100%);
-    margin: 0 !important;
-    padding: 7px 14px 7px 24px !important;
+    margin: 0 auto !important;
+    padding: 7px 24px !important;
     border: 1px solid rgba(99, 221, 255, .32);
     border-radius: 3px;
     background: rgba(99, 221, 255, .07);
     color: #9ee7ff !important;
     letter-spacing: .03em;
-    text-align: left !important;
+    text-align: center !important;
 }
 
 /* Use the homepage navigation panel theme consistently across every page. */
@@ -4762,6 +4823,8 @@ body.ifox-contact-page #main .php-email-form button:hover {
 
 .product-category-landing__grid{display:flex!important;width:min(100%,950px)!important;margin:0 auto!important;flex-direction:column!important;gap:18px!important}.product-category-landing__grid>a{display:block!important;width:100%!important;box-sizing:border-box!important;padding:22px 24px!important;border:1px solid rgba(93,228,255,.28)!important;border-radius:6px!important;background:rgba(8,25,40,.82)!important;text-align:center!important;white-space:normal!important}.product-category-landing__grid>a strong,.product-category-landing__grid>a span{display:block!important;width:100%!important}.product-category-landing__grid>a strong{color:#82a9e8!important;font-family:Space Grotesk,sans-serif!important;font-size:1.6rem!important;line-height:1.3!important}.product-category-landing__grid>a span{margin-top:8px!important;color:#8fe9ff!important;font-size:1rem!important;line-height:1.6!important}
 .product-category-landing>.container{width:min(100%,950px)!important;max-width:950px!important;margin-left:auto!important;margin-right:auto!important;padding-left:0!important;padding-right:0!important}.product-category-landing__eyebrow,.product-category-landing h1,.product-category-landing__intro{width:100%!important;max-width:none!important;box-sizing:border-box!important;margin-left:auto!important;margin-right:auto!important;text-align:center!important}.product-category-landing__eyebrow{margin-bottom:28px!important}.product-category-landing h1{margin-bottom:22px!important}.product-category-landing__intro{margin-bottom:36px!important}
+body.ifox-service-page section.ifox-content-right .row{justify-content:flex-end!important}
+@media (max-width:767px){body.ifox-service-page section.ifox-content-right .row{justify-content:flex-start!important}}
 body.ifox-dropdown-detail-page #main > section:first-child{box-shadow:none!important;}
 body.ifox-service-detail-page #main > section:first-child,body.ifox-dropdown-detail-page #main > section:first-child{box-shadow:none!important;}
 

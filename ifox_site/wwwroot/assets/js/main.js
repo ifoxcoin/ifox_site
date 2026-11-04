@@ -431,13 +431,6 @@
     }
 
     /**
-     * Initiate  glightbox 
-     */
-    const glightbox = GLightbox({
-        selector: '.glightbox'
-    });
-
-    /**
      * Skills animation
      */
     let skilsContent = select('.skills-content');
@@ -482,13 +475,6 @@
             }, true);
         }
 
-    });
-
-    /**
-     * Initiate portfolio lightbox 
-     */
-    const portfolioLightbox = GLightbox({
-        selector: '.portfolio-lightbox'
     });
 
     /**

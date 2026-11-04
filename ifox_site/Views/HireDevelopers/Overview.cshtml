@@ -36,14 +36,31 @@
         background: #020b17 !important;
         background-image: none !important;
     }
+
+    body.ifox-hire-overview-page section.ifox-content-right .row {
+        justify-content: flex-end;
+    }
+
+    body.ifox-hire-overview-page .ifox-hire-overview-image {
+        max-width: 85%;
+    }
+
+    @@media (max-width: 767px) {
+        body.ifox-hire-overview-page section.ifox-content-right .row {
+            justify-content: flex-start;
+        }
+    }
 </style>
 
 <section style="background:#020b17;">
     <div class="container" data-aos="fade-up">
         <div class="row align-items-center">
-            <div class="col-lg-10 mt-5">
+            <div class="col-lg-8 mt-5">
                 <h1 class="text-start pt-3 pb-3"><b>@hireTitle</b></h1>
                 <p class="pb-4">@hireDescription</p>
+            </div>
+            <div class="col-lg-4 text-center">
+                <img src="~/assets/img/hiredevelopers-overview.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers overview" />
             </div>
         </div>
     </div>
@@ -52,7 +69,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Flexible Development Support for Changing Priorities</b></h2>
                 <p>
                     Development needs can change quickly as products grow, deadlines move, and new technical challenges appear. Adding the right specialist or delivery team gives your organization access to focused expertise without requiring a permanent change to your internal structure.
@@ -67,6 +84,9 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Clear communication with progress, risks, dependencies, and next steps visible to stakeholders.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/hiredevelopers-overview1.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers support" />
+            </div>
         </div>
     </div>
 </section>
@@ -74,7 +94,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Quality Partnership from Onboarding to Delivery</b></h2>
                 <p>
                     Successful team extension depends on more than technical ability. Developers need context, access to the right information, clear ownership, and a working relationship with your existing team. We support onboarding and collaboration so new contributors can become productive while maintaining your standards for code, testing, documentation, and security.
@@ -88,14 +108,20 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Regular delivery reviews and capacity planning around your roadmap.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/hiredevelopers-overview2.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers partnership" />
+            </div>
         </div>
     </div>
 </section>
 
-<section>
+<section class="ifox-content-right">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12" align="justify">
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/hiredevelopers-overview3.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers expertise" />
+            </div>
+                <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Build Your Team with the Right Technical Expertise</b></h2>
                 <p>
                     The right development team can turn a business idea into a reliable product, improve an existing platform, and help your organization move faster. IFOX connects businesses with experienced developers who understand both technology and the outcomes your team needs to achieve.
@@ -108,6 +134,28 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Add experienced developers without slowing down your existing team.</p></li>
                     <li><p><i class="bi bi-check2-circle color"></i> Support discovery, development, testing, integration, deployment, and maintenance.</p></li>
                     <li><p><i class="bi bi-check2-circle color"></i> Work through transparent communication, practical planning, and regular delivery updates.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ifox-content-right">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 text-center align-self-center">
+                <img src="~/assets/img/hiredevelopers-overview4.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers delivery" />
+            </div>
+                <div class="col-lg-8 overview-content-column" align="justify">
+                <h2><b>A Clear Path from Requirement to Delivery</b></h2>
+                <p>
+                    We start by understanding your project goals, current technology, team structure, expected timeline, and communication needs. This helps identify the right technical profile and creates a practical engagement plan before development begins.
+                </p>
+                <ul class="list-unstyled">
+                    <li><p><i class="bi bi-check2-circle color"></i> Requirement discovery and technical skill matching.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Clear responsibilities, delivery milestones, and communication routines.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Code quality, testing, documentation, and secure development practices.</p></li>
+                    <li><p><i class="bi bi-check2-circle color"></i> Ongoing feedback, performance reviews, and support as your priorities change.</p></li>
                 </ul>
             </div>
         </div>
@@ -159,25 +207,6 @@
                     <h4>Project-Based Support</h4>
                     <p>Bring in specialists for migrations, modernization, feature delivery, performance improvements, or urgent technical work.</p>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12" align="justify">
-                <h2><b>A Clear Path from Requirement to Delivery</b></h2>
-                <p>
-                    We start by understanding your project goals, current technology, team structure, expected timeline, and communication needs. This helps identify the right technical profile and creates a practical engagement plan before development begins.
-                </p>
-                <ul class="list-unstyled">
-                    <li><p><i class="bi bi-check2-circle color"></i> Requirement discovery and technical skill matching.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Clear responsibilities, delivery milestones, and communication routines.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Code quality, testing, documentation, and secure development practices.</p></li>
-                    <li><p><i class="bi bi-check2-circle color"></i> Ongoing feedback, performance reviews, and support as your priorities change.</p></li>
-                </ul>
             </div>
         </div>
     </div>

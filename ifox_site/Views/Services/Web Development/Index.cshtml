@@ -66,6 +66,14 @@
         transform: translateY(0);
     }
 
+    body.ifox-web-development-page section.ifox-content-right .row {
+        justify-content: flex-end;
+    }
+
+    body.ifox-web-development-page .ifox-service-mainoverview-image-column {
+        align-self: flex-start !important;
+    }
+
     @@media (max-width: 767px) {
         body.ifox-web-development-page .ifox-web-capabilities .icon-box > p {
             position: static;
@@ -73,6 +81,10 @@
             opacity: 1;
             visibility: visible;
             transform: none;
+        }
+
+        body.ifox-web-development-page section.ifox-content-right .row {
+            justify-content: flex-start;
         }
     }
 </style>
@@ -84,6 +96,9 @@
                 <h1 class="text-white text-start pt-5 pb-3"><b>WEB DEVELOPMENT SERVICES</b></h1>
                 <p class="text-white pb-4">Design and build scalable websites, portals, and web applications for modern businesses.</p>
             </div>
+            <div class="col-lg-4 text-center hero-img">
+                <img src="~/assets/img/Service-overview.webp" class="img-fluid ifox-service-overview-image" alt="Service overview" />
+            </div>
         </div>
     </div>
 </section>
@@ -91,7 +106,7 @@
 <section>
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-12" align="justify">
+            <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Web Solutions Built Around Your Business</b></h2>
                 <p>
                     Your website and web applications should do more than look professional. They should make it easier for customers to connect with your business, help your teams work efficiently, and provide a secure foundation for growth.
@@ -108,6 +123,9 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Ongoing optimization and support to keep your digital platforms reliable and effective.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center ifox-service-mainoverview-image-column">
+                <img src="~/assets/img/service-mainoverview.webp" class="img-fluid ifox-service-mainoverview-image" alt="Web development services" />
+            </div>
         </div>
     </div>
 </section>
@@ -115,7 +133,7 @@
 <section>
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-12" align="justify">
+            <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>A Clear Path from Idea to Reliable Product</b></h2>
                 <p>
                     Successful web projects begin with a clear understanding of the people and processes they serve. Our approach brings business stakeholders and technical teams together from discovery through delivery, helping reduce risk and create solutions that are ready for real-world use.
@@ -127,14 +145,20 @@
                     <li><p><i class="bi bi-check2-circle color"></i> Deployment, monitoring, and support that help your platform remain dependable.</p></li>
                 </ul>
             </div>
+            <div class="col-lg-4 text-center align-self-center ifox-service-mainoverview-image-column">
+                <img src="~/assets/img/service-mainoverview1.webp" class="img-fluid ifox-service-mainoverview-image" alt="Web development services" />
+            </div>
         </div>
     </div>
 </section>
 
-<section>
+<section class="ifox-content-right">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-12" align="justify">
+            <div class="col-lg-4 text-center align-self-center ifox-service-mainoverview-image-column">
+                <img src="~/assets/img/service-mainoverview2.webp" class="img-fluid ifox-service-mainoverview-image" alt="Web development services" />
+            </div>
+            <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Digital Platforms That Create Measurable Value</b></h2>
                 <p>
                     A strong web platform should support the complete customer and business journey. It can attract new audiences, explain your value clearly, simplify service requests, automate internal work, and give decision-makers better access to accurate information.
@@ -154,10 +178,13 @@
     </div>
 </section>
 
-<section>
+<section class="ifox-content-right">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-12" align="justify">
+            <div class="col-lg-4 text-center align-self-center ifox-service-mainoverview-image-column">
+                <img src="~/assets/img/service-mainoverview3.webp" class="img-fluid ifox-service-mainoverview-image" alt="Web development services" />
+            </div>
+            <div class="col-lg-8 overview-content-column" align="justify">
                 <h2><b>Performance, Security, and Continuous Improvement</b></h2>
                 <p>
                     Users expect web platforms to load quickly, work smoothly, and protect the information they share. We use practical testing, secure development practices, responsive layouts, and monitoring to create a dependable experience across devices and browsers.
