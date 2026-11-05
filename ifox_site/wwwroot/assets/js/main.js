@@ -82,6 +82,17 @@
         })
     }
 
+    const scrollToPhase = (target) => {
+        const header = select('#header')
+        const offset = header ? header.getBoundingClientRect().height + 24 : 24
+
+        window.scrollTo({
+            top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+            left: 0,
+            behavior: 'smooth'
+        })
+    }
+
     const refreshNavbarSectionPositions = () => {
         navbarlinks = select('#navbar .scrollto', true)
         cacheNavbarSectionPositions()
@@ -98,13 +109,76 @@
      */
     const scrollto = (el) => {
         let header = select('#header')
-        let offset = header.offsetHeight
+        let target = select(el)
+        if (!target) return
 
-        let elementPos = select(el).offsetTop
+        let offset = header ? header.offsetHeight + 24 : 24
         window.scrollTo({
-            top: elementPos - offset,
+            top: target.getBoundingClientRect().top + window.pageYOffset - offset,
             behavior: 'smooth'
         })
+    }
+
+    /**
+     * Scroll the Dynamics CRM implementation phase links to their sections.
+     */
+    const phaseLinks = select('.guid[href^="#"]', true)
+    let phaseSections = []
+    let phaseActiveFrame = null
+
+    const setActivePhase = (activeLink) => {
+        phaseLinks.forEach(link => link.classList.toggle('active', link === activeLink))
+    }
+
+    const updateActivePhase = () => {
+        if (phaseActiveFrame !== null || phaseSections.length === 0) return
+
+        phaseActiveFrame = window.requestAnimationFrame(() => {
+            phaseActiveFrame = null
+
+            const header = select('#header')
+            const activationPoint = window.scrollY + (header ? header.offsetHeight : 0) + 24
+            let activeSection = phaseSections[0]
+
+            phaseSections.forEach(section => {
+                const sectionTop = section.element.getBoundingClientRect().top + window.scrollY
+                if (sectionTop <= activationPoint) activeSection = section
+            })
+
+            setActivePhase(activeSection.link)
+        })
+    }
+
+    const refreshPhaseNavigation = () => {
+        phaseSections = phaseLinks
+            .map(link => {
+                const section = document.getElementById(link.hash.substring(1))
+                return section ? { link, element: section } : null
+            })
+            .filter(Boolean)
+
+        updateActivePhase()
+    }
+
+    if (phaseLinks.length > 0) {
+        document.addEventListener('click', (event) => {
+            const link = event.target.closest('.guid[href^="#"]')
+            if (!link) return
+
+            const target = document.getElementById(link.hash.substring(1))
+            if (!target) return
+
+            event.preventDefault()
+            event.stopImmediatePropagation()
+            scrollToPhase(target)
+            setActivePhase(link)
+            window.history.replaceState(null, '', link.hash)
+        }, true)
+
+        window.addEventListener('scroll', updateActivePhase, { passive: true })
+        window.addEventListener('load', refreshPhaseNavigation)
+        window.addEventListener('resize', refreshPhaseNavigation)
+        refreshPhaseNavigation()
     }
 
     /**
