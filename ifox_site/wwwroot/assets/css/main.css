@@ -87,6 +87,107 @@ h6 {
   font-family: var(--heading-font);
 }
 
+body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section:has(+ section .overview-content-column) .overview-content-column {
+  position: relative;
+}
+
+body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section:has(+ section .overview-content-column) {
+  position: relative;
+  overflow: visible;
+}
+
+body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after,
+body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after {
+  position: absolute;
+  bottom: -120px;
+  z-index: 1;
+  width: 2px;
+  height: 120px;
+  background: rgba(99, 221, 255, .55);
+  content: "";
+}
+
+body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after {
+  right: -2px;
+}
+
+body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after {
+  left: -2px;
+}
+
+body.ifox-ai-solutions-page section.ifox-content-right.ifox-ai-outcome-section .overview-content-column {
+  position: relative;
+}
+
+body.ifox-ai-solutions-page section.ifox-content-right.ifox-ai-outcome-section .overview-content-column::before {
+  position: absolute;
+  top: -2rem;
+  left: -2px;
+  z-index: 1;
+  width: 2px;
+  height: 2rem;
+  background: rgba(99, 221, 255, .55);
+  content: "";
+}
+
+body.ifox-product-overview-page,
+body.ifox-industry-overview-page,
+body.ifox-hire-overview-page {
+  --ifox-overview-page-scope: 1;
+}
+
+body.ifox-product-overview-page section:has(+ section .overview-content-column),
+body.ifox-industry-overview-page section:has(+ section .overview-content-column),
+body.ifox-hire-overview-page section:has(+ section .overview-content-column) {
+  position: relative;
+  overflow: visible;
+}
+
+body.ifox-product-overview-page section:has(+ section .overview-content-column) .overview-content-column,
+body.ifox-industry-overview-page section:has(+ section .overview-content-column) .overview-content-column,
+body.ifox-hire-overview-page section:has(+ section .overview-content-column) .overview-content-column {
+  position: relative;
+}
+
+body.ifox-product-overview-page section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after,
+body.ifox-product-overview-page section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after,
+body.ifox-industry-overview-page section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after,
+body.ifox-industry-overview-page section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after,
+body.ifox-hire-overview-page section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after,
+body.ifox-hire-overview-page section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after {
+  position: absolute;
+  bottom: -120px;
+  z-index: 1;
+  width: 2px;
+  height: 120px;
+  background: rgba(99, 221, 255, .55);
+  content: "";
+}
+
+body.ifox-product-overview-page section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after,
+body.ifox-industry-overview-page section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after,
+body.ifox-hire-overview-page section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after {
+  right: -2px;
+}
+
+body.ifox-product-overview-page section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after,
+body.ifox-industry-overview-page section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after,
+body.ifox-hire-overview-page section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after {
+  left: -2px;
+}
+
+@media (max-width: 767px) {
+  body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section:not(.ifox-content-right):has(+ section:not(.ifox-content-right) .overview-content-column) .overview-content-column::after,
+  body.ifox-service-page:not(.ifox-dynamics-crm-overview-page) section.ifox-content-right:has(+ section.ifox-content-right .overview-content-column) .overview-content-column::after {
+    display: none;
+  }
+
+  body.ifox-product-overview-page section:has(+ section .overview-content-column) .overview-content-column::after,
+  body.ifox-industry-overview-page section:has(+ section .overview-content-column) .overview-content-column::after,
+  body.ifox-hire-overview-page section:has(+ section .overview-content-column) .overview-content-column::after {
+    display: none;
+  }
+}
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
