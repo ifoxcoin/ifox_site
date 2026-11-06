@@ -74,6 +74,36 @@
         align-self: flex-start !important;
     }
 
+    body.ifox-web-development-page section.ifox-connected-section {
+        overflow: visible;
+    }
+
+    body.ifox-web-development-page section.ifox-connected-section .overview-content-column {
+        position: relative;
+    }
+
+    body.ifox-web-development-page section.ifox-connected-section .overview-content-column::after {
+        position: absolute;
+        bottom: -16px;
+        width: 2px;
+        height: 16px;
+        background: rgba(99, 221, 255, .55);
+        content: "";
+    }
+
+    body.ifox-web-development-page section.ifox-timeline-bridge .overview-content-column::after {
+        bottom: -126px;
+        height: 126px;
+    }
+
+    body.ifox-web-development-page section.ifox-connected-section:not(.ifox-content-right) .overview-content-column::after {
+        right: -2px;
+    }
+
+    body.ifox-web-development-page section.ifox-connected-section.ifox-content-right .overview-content-column::after {
+        left: -2px;
+    }
+
     @@media (max-width: 767px) {
         body.ifox-web-development-page .ifox-web-capabilities .icon-box > p {
             position: static;
@@ -85,6 +115,14 @@
 
         body.ifox-web-development-page section.ifox-content-right .row {
             justify-content: flex-start;
+        }
+
+        body.ifox-web-development-page section.ifox-connected-section {
+            overflow: hidden;
+        }
+
+        body.ifox-web-development-page section.ifox-connected-section .overview-content-column::after {
+            display: none;
         }
     }
 </style>
@@ -103,7 +141,7 @@
     </div>
 </section>
 
-<section>
+<section class="ifox-connected-section ifox-timeline-bridge">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 overview-content-column" align="justify">
@@ -130,7 +168,7 @@
     </div>
 </section>
 
-<section>
+<section class="ifox-connected-section">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-8 overview-content-column" align="justify">
@@ -152,7 +190,21 @@
     </div>
 </section>
 
-<section class="ifox-content-right">
+<section id="call-to-action" class="call-to-action ifox-overview-cta section dark-background">
+    <div class="container">
+        <div class="row aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-xl-9 text-center text-xl-start">
+                <h3>Ready to build your next web solution?</h3>
+                <p>Talk to our web development experts about your requirements.</p>
+            </div>
+            <div class="col-xl-3 cta-btn-container text-center">
+                <a class="cta-btn align-middle" href="/contact">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ifox-content-right ifox-connected-section ifox-timeline-bridge">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-4 text-center align-self-center ifox-service-mainoverview-image-column">
