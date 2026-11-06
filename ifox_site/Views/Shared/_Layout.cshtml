@@ -64,6 +64,16 @@
     <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+    @if (isHomePage)
+    {
+        <link rel="preload" href="~/assets/vendor/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"></noscript>
+    }
+    else
+    {
+        <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    }
+    <link href="~/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     @if (!isHomePage)
     {
