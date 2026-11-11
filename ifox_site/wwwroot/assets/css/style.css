@@ -14,6 +14,102 @@ body {
     color: #444444;
 }
 
+body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-navigation {
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+    padding: 20px 16px 16px;
+    border: 1px solid rgba(70, 177, 227, 0.35);
+    border-radius: 10px;
+    background: rgba(2, 13, 25, 0.5);
+}
+
+body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-navigation .sticky-top {
+    position: static;
+    max-height: none;
+    overflow: visible;
+}
+
+body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-content-column {
+    min-width: 0;
+}
+
+body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-content-panel {
+    position: relative;
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 12px 0 0;
+    border: 1px solid rgba(70, 177, 227, 0.35);
+    border-radius: 10px;
+    background: rgba(2, 13, 25, 0.5);
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-phase {
+    margin-bottom: 0;
+    border: 0;
+    border-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+    scroll-margin-top: 0;
+}
+
+@media (max-width: 767.98px) {
+    body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-navigation {
+        position: static;
+        padding: 16px 12px 12px;
+        border: 1px solid rgba(70, 177, 227, 0.35);
+        border-radius: 10px;
+        background: rgba(2, 13, 25, 0.5);
+    }
+
+    body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-navigation h5 {
+        margin-bottom: 12px;
+    }
+
+    body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-navigation .overflow-auto {
+        overflow: visible !important;
+    }
+
+    body.ifox-dynamics-crm-overview-page .dynamics-phase-section .dynamics-phase-content-panel {
+        height: 65vh;
+        max-height: 65vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        touch-action: pan-y;
+        padding-right: 0;
+        border: 1px solid rgba(70, 177, 227, 0.35);
+        background: rgba(2, 13, 25, 0.5);
+    }
+
+    body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-phase {
+        margin-bottom: 28px;
+        padding: 24px clamp(18px, 3vw, 32px);
+        background: linear-gradient(145deg, rgba(6, 24, 42, 0.96), rgba(2, 13, 25, 0.98));
+        border: 1px solid rgba(70, 177, 227, 0.32);
+        border-top: 2px solid rgba(0, 245, 255, 0.45);
+        border-radius: 10px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18), inset 0 0 24px rgba(0, 170, 255, 0.04);
+    }
+}
+
+#header .ifox-mobile-category-toggle {
+    display: none;
+}
+
+#header .ifox-mobile-overview-link,
+#header .ifox-mobile-top-chevron {
+    color: inherit;
+}
+
+#header .ifox-mobile-top-chevron {
+    display: none;
+}
+
 /* Separate category navigation from subheading-panel activation. */
 #header .ifox-mega-category > i {
     display: none !important;
@@ -71,6 +167,21 @@ body {
 }
 
 @media (max-width: 991px) {
+    #header .ifox-mobile-top-chevron {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 48px;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+    }
+
     #header .ifox-navigation.mobile-open .ifox-category-toggle {
         flex-basis: 40px !important;
         width: 40px !important;
@@ -1495,6 +1606,64 @@ body.ifox-dynamics-crm-overview-page #faq-2 .accordion-body {
     border-right: 2px solid #3e4e6b;
 }
 
+/* Keep subheading-page image columns aligned with their adjacent content. */
+@media (min-width: 992px) {
+    body.ifox-subheading-page #main > section:not(:first-child) .row {
+        align-items: stretch;
+    }
+
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 24px;
+        padding: 0 24px;
+    }
+
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-4 > div {
+        width: 100%;
+    }
+
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-4 img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-8 {
+        min-width: 0;
+    }
+
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-4.Imgborder,
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-8.Imgborder {
+        border-left: 2px solid rgba(99, 221, 255, .3);
+    }
+}
+
+@media (max-width: 991.98px) {
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-4 {
+        gap: 20px;
+        padding: 0 12px;
+        border-left: 0;
+    }
+
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-8.Imgborder {
+        border-left: 0;
+    }
+
+    body.ifox-subheading-page #main > section:not(:first-child) .row > .col-lg-4 img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
 /* Style the individual tab to make sure they are aligned in the center */
 .nav-tab {
     text-align: center;
@@ -2271,6 +2440,23 @@ Active list item style
     }
 }
 
+@media (max-width: 767px) {
+    #social-chat {
+        right: 12px;
+        bottom: 16px;
+        left: 12px;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    #social-chat .social-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
 /* ROUND ICON BUTTON */
 .social-btn {
     width: 52px;
@@ -2975,15 +3161,21 @@ Active list item style
         }
 
 /* Match the newsletter Subscribe button to the Contact Us Send Message button. */
-#footer .footer-newsletter form input[type=submit] {
+footer#footer.footer #newsletter.footer-newsletter form > input[type="submit"] {
     background: #8be8ff !important;
     color: #000000 !important;
     font-weight: 600 !important;
+    transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
 
-#footer .footer-newsletter form input[type=submit]:hover {
-    background: #8be8ff !important;
-    color: #020b17 !important;
+@media (min-width: 768px) {
+    footer#footer.footer #newsletter.footer-newsletter form > input[type="submit"]:hover {
+        background: #ff6b27 !important;
+        border-color: #ff6b27 !important;
+        box-shadow: 0 0 18px rgba(255, 107, 39, .35);
+        color: #020b17 !important;
+        transform: translateY(-2px) scale(1.02);
+    }
 }
 
     /* =========================================================
@@ -3067,6 +3259,50 @@ Active list item style
 }
 
 @media (max-width: 991px) {
+    #header .ifox-has-mega .ifox-mega-category > .bi-chevron-right {
+        display: none;
+    }
+
+    #header .ifox-has-mega .ifox-mobile-category-toggle {
+        position: relative;
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 44px;
+        width: 44px;
+        height: 48px;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+    }
+
+    #header .ifox-services-menu > .ifox-nav-link .ifox-services-chevron {
+        width: 44px;
+        height: 48px;
+        margin-right: -8px;
+        padding: 0;
+    }
+
+    #header .ifox-services-overview-indicator {
+        display: inline-flex;
+        margin-left: 6px;
+        padding: 2px 6px;
+        border: 1px solid rgba(93, 228, 255, .35);
+        border-radius: 999px;
+        color: #8bdcff;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: .08em;
+        line-height: 1.2;
+    }
+
+    #header .ifox-services-menu .ifox-service-grid > a {
+        cursor: pointer;
+    }
 
     #header {
         height: 70px !important;
@@ -3274,6 +3510,26 @@ select,
 
 * {
     cursor: none !important;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    html,
+    body,
+    *,
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    .navbar a,
+    .getstarted {
+        cursor: auto !important;
+    }
+
+    #cursor-dot,
+    #cursor-ring {
+        display: none !important;
+    }
 }
 
 
@@ -3916,6 +4172,15 @@ body.ifox-dynamics-crm-overview-page #main #call-to-action .cta-btn:focus-visibl
     cursor: pointer;
 }
 
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .icon-box h4 {
+    color: #37517e;
+    transition: ease-in-out 0.3s;
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .icon-box:hover h4 {
+    color: #47b2e4;
+}
+
 .ifox-overview-capabilities .icon-box:hover,
 .ifox-overview-capabilities .icon-box:focus-within {
     z-index: 30;
@@ -4065,10 +4330,11 @@ body.ifox-service-page #footer .footer-newsletter form input[type=submit] {
 }
 
 body.ifox-service-page #footer .footer-newsletter form input[type=submit]:hover {
-    background: #8be8ff !important;
-    color: #000000 !important;
-    box-shadow: none !important;
-    transform: translateY(-1px);
+    background: #ff6b27 !important;
+    border-color: #ff6b27 !important;
+    color: #020b17 !important;
+    box-shadow: 0 0 18px rgba(255, 107, 39, .35);
+    transform: translateY(-2px) scale(1.02);
 }
 
 body.ifox-service-detail-page #main > section:first-child,
@@ -4377,6 +4643,8 @@ body.ifox-dropdown-detail-page #main > section:first-child p {
 }
 
 #header .ifox-services-menu > .ifox-nav-link {
+    display: flex !important;
+    align-items: center !important;
     height: var(--ifox-header-height) !important;
     margin: 0 !important;
     padding: 0 8px !important;
@@ -4384,13 +4652,33 @@ body.ifox-dropdown-detail-page #main > section:first-child p {
     box-shadow: none !important;
 }
 
+#header .ifox-services-menu > .ifox-nav-link .ifox-services-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 0 0 6px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+}
+
 #header .ifox-services-menu > .ifox-nav-link .ifox-services-label {
+    display: inline-flex;
+    align-items: center;
+    color: #ffffff !important;
     transition: color .2s ease, text-shadow .2s ease !important;
+}
+
+#header .ifox-services-overview-indicator {
+    display: none;
 }
 
 #header .ifox-services-menu > .ifox-nav-link:hover .ifox-services-label,
 #header .ifox-services-menu > .ifox-nav-link:focus-visible .ifox-services-label,
-#header .ifox-services-menu:hover > .ifox-nav-link .ifox-services-label,
+#header .ifox-services-menu > .ifox-nav-link.is-active .ifox-services-label,
 #header .ifox-services-menu.services-open > .ifox-nav-link .ifox-services-label {
     color: #5de4ff !important;
     text-shadow: 0 0 8px rgba(154, 0, 255, 1), 0 0 22px rgba(154, 0, 255, .98), 0 0 42px rgba(154, 0, 255, .86), 0 0 68px rgba(154, 0, 255, .68), 0 0 92px rgba(154, 0, 255, .42) !important;
@@ -4398,11 +4686,11 @@ body.ifox-dropdown-detail-page #main > section:first-child p {
 
 #header .ifox-services-menu > .ifox-nav-link:hover i,
 #header .ifox-services-menu > .ifox-nav-link:focus-visible i,
-#header .ifox-services-menu:hover > .ifox-nav-link i,
 #header .ifox-services-menu.services-open > .ifox-nav-link i {
     color: #5de4ff !important;
     text-shadow: 0 0 8px rgba(93, 228, 255, .85) !important;
 }
+
 
 #header .ifox-get-started {
     font-family: 'Space Grotesk', sans-serif !important;
@@ -4742,16 +5030,62 @@ body.ifox-contact-page #main .php-email-form .file-validation-message {
     font-weight: 600;
 }
 
+body.ifox-contact-page #main .php-email-form .attachment-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.ifox-contact-page #main .php-email-form .attachment-control input[type=file] {
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+body.ifox-contact-page #main .php-email-form .attachment-remove {
+    flex: 0 0 auto;
+    padding: 8px 10px !important;
+    border: 1px solid #ff6b27 !important;
+    border-radius: 4px !important;
+    background: transparent !important;
+    color: #ff8a55 !important;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+body.ifox-contact-page #main .php-email-form .attachment-remove:hover,
+body.ifox-contact-page #main .php-email-form .attachment-remove:focus-visible {
+    background: #ff6b27 !important;
+    color: #020b17 !important;
+}
+
+@media (max-width: 575px) {
+    body.ifox-contact-page #main .php-email-form .attachment-control {
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    body.ifox-contact-page #main .php-email-form .attachment-remove {
+        width: 100%;
+    }
+}
+
 body.ifox-contact-page #main .php-email-form button {
     border-color: #63ddff !important;
     background: #63ddff !important;
     color: #020b17 !important;
     font-weight: 600;
+    transition: background-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
 
-body.ifox-contact-page #main .php-email-form button:hover {
-    color: #020b17 !important;
-    background: #8be8ff !important;
+@media (hover: hover) and (pointer: fine) {
+    body.ifox-contact-page #main .php-email-form button[type="submit"]:hover {
+        color: #020b17 !important;
+        background: #ff6b27 !important;
+        border-color: #ff6b27 !important;
+        box-shadow: 0 0 20px rgba(90, 220, 255, .45);
+        transform: translateY(-2px);
+    }
 }
 
 @media (max-width: 767px) {
@@ -5141,7 +5475,7 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
 
 
 /* Final cascade for dropdown heading artwork. */
-body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; top: 108px; right: clamp(28px, 6vw, 96px); width: clamp(210px, 23vw, 320px); max-width: 320px; opacity: .9; }
+body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; top: 220px; right: clamp(56px, 8vw, 128px); width: clamp(210px, 23vw, 320px); max-width: 320px; opacity: .9; }
 
 
 
@@ -5204,7 +5538,9 @@ body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; to
 
 #header .ifox-has-mega:hover:not(.ifox-click-closed) > .ifox-nav-link,
 #header .ifox-has-mega:hover:not(.ifox-click-closed) > .ifox-nav-link i,
-#header .ifox-services-menu:hover:not(.ifox-click-closed) > .ifox-nav-link .ifox-services-label {
+#header .ifox-has-mega.services-open > .ifox-nav-link,
+#header .ifox-has-mega.services-open > .ifox-nav-link i,
+#header .ifox-services-menu.services-open > .ifox-nav-link .ifox-services-label {
     color: #8bdcff !important;
 }
 
@@ -5241,6 +5577,326 @@ body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; to
     -webkit-filter: none !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+}
+
+/* Industry detail title cards use the site's dark neon theme. */
+body.ifox-industries-detail-page #main #services .icon-box {
+    background: #03182a;
+    border: 1px solid rgba(99, 221, 255, .35);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .35), 0 0 18px rgba(99, 221, 255, .08);
+}
+
+body.ifox-industries-detail-page #main #services .icon-box h4 {
+    color: #ff6b27;
+}
+
+body.ifox-industries-detail-page #main #services .icon-box p {
+    color: #b7d5e6;
+}
+
+body.ifox-industries-detail-page #main #services .icon-box:hover {
+    border-color: rgba(99, 221, 255, .75);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, .45), 0 0 24px rgba(99, 221, 255, .16);
+}
+
+/* Shared Get Started interaction. */
+#header .ifox-get-started,
+#main a.cta-btn,
+#main a.btn-primary {
+    position: relative;
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+#header .ifox-get-started::after,
+#main a.cta-btn::after,
+#main a.btn-primary::after {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    width: max-content;
+    max-width: 220px;
+    padding: 7px 11px;
+    border: 1px solid rgba(139, 220, 255, .6);
+    border-radius: 6px;
+    background: #03182a;
+    color: #b7d5e6;
+    content: "Let's discuss your goals";
+    font-size: 12px;
+    line-height: 1.3;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 6px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+    visibility: hidden;
+    z-index: 2;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    #header,
+    #header > .container,
+    #header .ifox-navigation,
+    #header .ifox-nav-list,
+    #header .ifox-nav-item {
+        overflow: visible;
+    }
+
+    #header .ifox-get-started::after {
+        top: calc(100% + 10px);
+        bottom: auto;
+        z-index: 100011;
+    }
+
+    #header .ifox-get-started:hover,
+    #main a.cta-btn:hover,
+    #main a.btn-primary:hover {
+        background: #8bdcff !important;
+        border-color: #8bdcff !important;
+        box-shadow: 0 0 24px rgba(139, 220, 255, .45) !important;
+        color: #020b17 !important;
+        transform: translateY(-4px) scale(1.03) !important;
+    }
+
+    #header .ifox-get-started:hover::after,
+    #main a.cta-btn:hover::after,
+    #main a.btn-primary:hover::after {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        visibility: visible;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body[class] #main #call-to-action a.cta-btn:hover,
+    body[class] #main a.cta-btn:hover,
+    body[class] #main a.btn-primary:hover {
+        background: #8bdcff !important;
+        border-color: #8bdcff !important;
+        box-shadow: 0 0 24px rgba(139, 220, 255, .45) !important;
+        color: #020b17 !important;
+        transform: translateY(-4px) scale(1.03) !important;
+    }
+
+    body[class] #main #call-to-action a.cta-btn:hover::after,
+    body[class] #main a.cta-btn:hover::after,
+    body[class] #main a.btn-primary:hover::after {
+        opacity: 1;
+        transform: translate(-50%, 0);
+        visibility: visible;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    #header .ifox-get-started::after,
+    #main a.cta-btn::after,
+    #main a.btn-primary::after {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    body.ifox-service-detail-page .ifox-service-heading-image {
+        margin-bottom: -80px;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child {
+        margin-bottom: 0 !important;
+        padding-bottom: 0;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child h1 {
+        margin-bottom: 0 !important;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child p {
+        margin-top: 0 !important;
+    }
+
+    body.ifox-service-detail-page #main > section:not(:first-child) {
+        padding-top: 8px;
+    }
+
+    body.ifox-service-detail-page #main > section:not(:first-child) h3 {
+        margin-top: 0;
+    }
+}
+
+#header .ifox-has-mega:hover:not(.ifox-click-closed) > .ifox-mega-menu,
+#header .ifox-has-mega.services-open > .ifox-mega-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, 0) !important;
+    z-index: 100010 !important;
+}
+#header .ifox-has-mega > .ifox-mega-menu,
+#header .ifox-has-mega:hover:not(.ifox-click-closed) > .ifox-mega-menu,
+#header .ifox-has-mega.services-open > .ifox-mega-menu {
+    filter: none !important;
+    -webkit-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+}
+
+@media (max-width: 767px) {
+    body.ifox-service-detail-page #main {
+        padding-top: 20px !important;
+    }
+
+    body.ifox-service-detail-page .ifox-service-heading-image {
+        width: min(72vw, 240px);
+        margin: 0 auto -80px;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child {
+        min-height: 0;
+        margin: 8px 8px 20px !important;
+        padding-top: 8px;
+        padding-bottom: 12px;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child .col-lg-8 {
+        margin-top: 0 !important;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child h1 {
+        margin-top: 0 !important;
+        padding: 8px 8px 4px !important;
+        text-align: left !important;
+    }
+
+    body.ifox-service-detail-page #main > section:first-child p {
+        margin-bottom: 0 !important;
+        padding: 4px 8px !important;
+        text-align: left !important;
+    }
+
+    body.ifox-service-detail-page #main > section:not(:first-child) {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    body.ifox-industry-overview-page #main,
+    body.ifox-product-overview-page #main,
+    body.ifox-hire-overview-page #main {
+        padding-top: 68px !important;
+    }
+
+    body.ifox-industry-overview-page .ifox-industries-heading-image,
+    body.ifox-product-overview-page .ifox-product-management-heading-image,
+    body.ifox-hire-overview-page .ifox-hire-developers-heading-image {
+        display: none !important;
+    }
+
+    body.ifox-industry-overview-page #main > section,
+    body.ifox-product-overview-page #main > section,
+    body.ifox-hire-overview-page #main > section {
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+
+    body.ifox-industry-overview-page #main > section:first-child,
+    body.ifox-product-overview-page #main > section:first-child,
+    body.ifox-hire-overview-page #main > section:first-child {
+        margin: 0 8px 24px !important;
+        padding-top: 8px;
+        padding-bottom: 20px;
+    }
+
+    body.ifox-industry-overview-page #main > section:first-child .col-lg-8,
+    body.ifox-product-overview-page #main > section:first-child .col-lg-8,
+    body.ifox-hire-overview-page #main > section:first-child .col-lg-8 {
+        margin-top: 0 !important;
+    }
+
+    body.ifox-industry-overview-page #main > section:first-child h1,
+    body.ifox-product-overview-page #main > section:first-child h1,
+    body.ifox-hire-overview-page #main > section:first-child h1 {
+        margin: 0 0 10px !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+    body.ifox-industry-overview-page #main > section:first-child p,
+    body.ifox-product-overview-page #main > section:first-child p,
+    body.ifox-hire-overview-page #main > section:first-child p {
+        margin-bottom: 12px !important;
+        padding-bottom: 0 !important;
+        text-align: left !important;
+    }
+
+    body.ifox-industry-overview-page .ifox-industry-overview-image,
+    body.ifox-product-overview-page .ifox-product-overview-image,
+    body.ifox-hire-overview-page .ifox-hire-overview-image {
+        display: block;
+        width: min(86vw, 340px);
+        max-width: 100%;
+        margin: 12px auto 0;
+    }
+
+    body.ifox-industry-overview-page .overview-content-column,
+    body.ifox-product-overview-page .overview-content-column,
+    body.ifox-hire-overview-page .overview-content-column {
+        width: 100%;
+    }
+
+    body.ifox-industry-overview-page .overview-content-column h2,
+    body.ifox-product-overview-page .overview-content-column h2,
+    body.ifox-hire-overview-page .overview-content-column h2 {
+        margin-top: 0;
+        margin-bottom: 14px;
+        text-align: left;
+        overflow-wrap: normal;
+    }
+
+    body.ifox-industry-overview-page #main > section:not(:first-child) .row,
+    body.ifox-product-overview-page #main > section:not(:first-child) .row,
+    body.ifox-hire-overview-page #main > section:not(:first-child) .row {
+        align-items: flex-start;
+    }
+
+    body.ifox-industry-overview-page #main > section:not(:first-child) .col-lg-4,
+    body.ifox-product-overview-page #main > section:not(:first-child) .col-lg-4,
+    body.ifox-hire-overview-page #main > section:not(:first-child) .col-lg-4 {
+        width: 100%;
+        margin-top: 16px;
+    }
+
+    body.ifox-service-page #main {
+        padding-top: 68px !important;
+    }
+
+    body.ifox-service-page #main > section:first-child {
+        margin-top: 0 !important;
+    }
+
+    body.ifox-service-page #main > section:first-child .col-lg-8 {
+        margin-top: 0 !important;
+    }
+
+    body.ifox-service-page #main > section:first-child h1 {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        text-align: left !important;
+    }
+
+    body.ifox-service-page #main > section:first-child p {
+        padding-bottom: 0 !important;
+        text-align: left !important;
+    }
+
+    body.ifox-service-page .ifox-service-overview-image,
+    body.ifox-service-page .ifox-service-mainoverview-image {
+        display: block;
+        width: min(86vw, 340px);
+        max-width: 100%;
+        margin: 12px auto 0;
+    }
+
+    body.ifox-service-page #main > section:not(:first-child) {
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
 }
 
 /* An explicit trigger close must win over the desktop hover state. */
@@ -5506,6 +6162,11 @@ iframe {
         width: min(78vw, 280px);
         max-width: 100%;
         margin: 16px auto 0;
+    }
+
+    body.ifox-service-detail-page .ifox-service-heading-image {
+        width: min(72vw, 240px);
+        margin: 0 auto -80px;
     }
 
     .row > *,
