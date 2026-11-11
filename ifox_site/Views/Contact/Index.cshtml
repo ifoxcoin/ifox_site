@@ -84,7 +84,10 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Attachments">Attachment</label>
-                        <input type="file" asp-for="@Model.Attachments" style="height:100%" class="form-control" name="file" id="Attachments" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="validateFile()" />
+                        <div class="attachment-control">
+                            <input type="file" asp-for="@Model.Attachments" style="height:100%" class="form-control" name="file" id="Attachments" accept=".pdf, .doc, .docx, .xls, .xlsx" onchange="validateFile()" />
+                            <button type="button" class="attachment-remove" id="removeAttachment" hidden> Remove ?  </button>
+                        </div>
                         <div class="file-validation-message" id="fileErrorMessage" style="display:none;"></div>
                     </div>
                     <div class="form-group">
@@ -113,38 +116,53 @@
 </section>
 <!-- End Contact Section -->
 <script>
-    function validateAndSubmit() {
-        var form = document.getElementById('contact-form');
-        var errorMessage = document.getElementById('formErrorMessage');
-        var fileErrorMessage = document.getElementById('fileErrorMessage');  // Get the attachment error message element
-        var requiredFields = [
+    function getContactValidationFields() {
+        return [
             { input: document.getElementById('name'), error: document.getElementById('nameErrorMessage'), requiredMessage: 'Please fill out this field.' },
             { input: document.getElementById('email'), error: document.getElementById('emailErrorMessage'), requiredMessage: 'Please fill out this field.', invalidMessage: 'Please enter a valid email address.' },
             { input: document.getElementById('subject'), error: document.getElementById('subjectErrorMessage'), requiredMessage: 'Please fill out this field.' },
             { input: document.getElementById('Contact'), error: document.getElementById('contactErrorMessage'), requiredMessage: 'Please fill out this field.', invalidMessage: 'Please enter a valid contact number.' }
         ];
-        var firstInvalidField = null;
+    }
+
+    function validateContactField(field) {
+        var value = field.input.value.trim();
         var emailPattern = /^[^\s@@]+@@[^\s@@]+\.[^\s@@]+$/;
         var contactPattern = /^\+?[0-9][0-9\s().-]{6,24}$/;
 
-        // Clear previous error messages
+        field.error.textContent = '';
+        field.input.classList.remove('custom-validation-error');
+
+        if (!value) {
+            field.error.textContent = field.requiredMessage;
+        } else if (field.input.id === 'email' && !emailPattern.test(value)) {
+            field.error.textContent = field.invalidMessage;
+        } else if (field.input.id === 'Contact' && !contactPattern.test(value)) {
+            field.error.textContent = field.invalidMessage;
+        }
+
+        if (field.error.textContent) {
+            field.input.classList.add('custom-validation-error');
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateAndSubmit() {
+        var form = document.getElementById('contact-form');
+        var errorMessage = document.getElementById('formErrorMessage');
+        var fileErrorMessage = document.getElementById('fileErrorMessage');
+        var captchaErrorMessage = document.getElementById('captchaErrorMessage');
+        var firstInvalidField = null;
+
         errorMessage.style.display = 'none';
-        fileErrorMessage.style.display = 'none';  // Hide the file error message on form submit
-        requiredFields.forEach(function (field) {
-            field.error.textContent = '';
-            field.input.classList.remove('custom-validation-error');
-            if (!field.input.value.trim()) {
-                field.error.textContent = field.requiredMessage;
-                field.input.classList.add('custom-validation-error');
-                firstInvalidField = firstInvalidField || field.input;
-            } else if (field.input.id === 'email' && !emailPattern.test(field.input.value.trim())) {
-                field.error.textContent = field.invalidMessage;
-                field.input.classList.add('custom-validation-error');
-                firstInvalidField = firstInvalidField || field.input;
-            } else if (field.input.id === 'Contact' && !contactPattern.test(field.input.value.trim())) {
-                field.error.textContent = field.invalidMessage;
-                field.input.classList.add('custom-validation-error');
-                firstInvalidField = firstInvalidField || field.input;
+        fileErrorMessage.style.display = 'none';
+        captchaErrorMessage.textContent = '';
+
+        getContactValidationFields().forEach(function (field) {
+            if (!validateContactField(field) && !firstInvalidField) {
+                firstInvalidField = field.input;
             }
         });
 
@@ -155,7 +173,7 @@
 
         // Check if reCAPTCHA is completed
         if (!document.getElementById("local-captcha").checked) {
-            document.getElementById("captchaErrorMessage").textContent = "Please confirm that you are not a robot.";
+            captchaErrorMessage.textContent = "Please confirm that you are not a robot.";
             return false;
         }
 
@@ -167,6 +185,18 @@
         return true; // Allow form submission
     }
 
+    var contactValidationFields = getContactValidationFields();
+    contactValidationFields.forEach(function (field) {
+        ['input', 'change'].forEach(function (eventName) {
+            field.input.addEventListener(eventName, function () {
+                validateContactField(field);
+            });
+        });
+    });
+
+    document.getElementById('local-captcha').addEventListener('change', function () {
+        document.getElementById('captchaErrorMessage').textContent = '';
+    });
 
 </script>
 
@@ -174,6 +204,9 @@
     function validateFile() {
         var fileInput = document.getElementById('Attachments');
         var errorMessage = document.getElementById('fileErrorMessage');
+        var removeButton = document.getElementById('removeAttachment');
+
+        removeButton.hidden = !fileInput.files || fileInput.files.length === 0;
 
         // If no file is selected, don't block submission on attachment validation.
         if (!fileInput.files || fileInput.files.length === 0) {
@@ -207,6 +240,12 @@
         errorMessage.style.display = 'none';
         return true;
     }
+
+    document.getElementById('removeAttachment').addEventListener('click', function () {
+        document.getElementById('Attachments').value = '';
+        this.hidden = true;
+        document.getElementById('fileErrorMessage').style.display = 'none';
+    });
 
 </script>
 

@@ -122,7 +122,9 @@
     /**
      * Scroll the Dynamics CRM implementation phase links to their sections.
      */
-    const phaseLinks = select('.guid[href^="#"]', true)
+    const phaseContainer = select('.dynamics-phase-section')
+    const phaseLinks = phaseContainer ? [...phaseContainer.querySelectorAll('.guid[href^="#"]')] : []
+    const phaseContentPanel = phaseContainer ? phaseContainer.querySelector('.dynamics-phase-content-panel') : null
     let phaseSections = []
     let phaseActiveFrame = null
 
@@ -131,17 +133,17 @@
     }
 
     const updateActivePhase = () => {
+        if (!phaseContentPanel) return
         if (phaseActiveFrame !== null || phaseSections.length === 0) return
 
         phaseActiveFrame = window.requestAnimationFrame(() => {
             phaseActiveFrame = null
 
-            const header = select('#header')
-            const activationPoint = window.scrollY + (header ? header.offsetHeight : 0) + 24
+            const activationPoint = phaseContentPanel.scrollTop + phaseContentPanel.clientHeight * 0.3
             let activeSection = phaseSections[0]
 
             phaseSections.forEach(section => {
-                const sectionTop = section.element.getBoundingClientRect().top + window.scrollY
+                const sectionTop = section.element.offsetTop
                 if (sectionTop <= activationPoint) activeSection = section
             })
 
@@ -152,7 +154,7 @@
     const refreshPhaseNavigation = () => {
         phaseSections = phaseLinks
             .map(link => {
-                const section = document.getElementById(link.hash.substring(1))
+                const section = phaseContainer.querySelector(link.hash)
                 return section ? { link, element: section } : null
             })
             .filter(Boolean)
@@ -165,17 +167,24 @@
             const link = event.target.closest('.guid[href^="#"]')
             if (!link) return
 
-            const target = document.getElementById(link.hash.substring(1))
+            const target = phaseContainer ? phaseContainer.querySelector(link.hash) : null
             if (!target) return
 
             event.preventDefault()
             event.stopImmediatePropagation()
-            scrollToPhase(target)
+            if (phaseContentPanel) {
+                phaseContentPanel.scrollTo({
+                    top: target.offsetTop,
+                    behavior: 'smooth'
+                })
+            }
             setActivePhase(link)
             window.history.replaceState(null, '', link.hash)
         }, true)
 
-        window.addEventListener('scroll', updateActivePhase, { passive: true })
+        if (phaseContentPanel) {
+            phaseContentPanel.addEventListener('scroll', updateActivePhase, { passive: true })
+        }
         window.addEventListener('load', refreshPhaseNavigation)
         window.addEventListener('resize', refreshPhaseNavigation)
         refreshPhaseNavigation()
@@ -264,6 +273,23 @@
                 item.classList.remove('services-open', 'mobile-panel-open', 'ifox-click-closed')
                 const trigger = item.querySelector('.ifox-dropdown-trigger')
                 if (trigger) trigger.setAttribute('aria-expanded', 'false')
+                const servicesChevron = item.querySelector('.ifox-services-chevron')
+                if (servicesChevron) {
+                    servicesChevron.setAttribute('aria-expanded', 'false')
+                    const icon = servicesChevron.querySelector('i')
+                    if (icon) icon.className = 'bi bi-chevron-down'
+                }
+                const topMenuChevron = item.querySelector('.ifox-mobile-top-chevron')
+                if (topMenuChevron) {
+                    topMenuChevron.setAttribute('aria-expanded', 'false')
+                    const icon = topMenuChevron.querySelector('i')
+                    if (icon) icon.className = 'bi bi-chevron-down'
+                }
+                item.querySelectorAll('.ifox-mobile-category-toggle').forEach((button) => {
+                    button.setAttribute('aria-expanded', 'false')
+                    const icon = button.querySelector('i')
+                    if (icon) icon.className = 'bi bi-chevron-right'
+                })
                 const menu = item.querySelector('.ifox-mega-menu')
                 const sidebar = item.querySelector('.ifox-mega-sidebar')
                 const content = item.querySelector('.ifox-mega-content')
@@ -283,9 +309,29 @@
             if (icon) icon.className = 'bi bi-list'
         }
 
+        const addMobileCategoryToggleButtons = () => {
+            if (window.innerWidth > 991) return
+
+            mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((megaItem) => {
+                megaItem.querySelectorAll('.ifox-mega-category').forEach((category) => {
+                    if (category.querySelector('.ifox-mobile-category-toggle')) return
+
+                    const categoryName = category.querySelector('strong')?.textContent?.trim() || 'category'
+                    const toggle = document.createElement('button')
+                    toggle.type = 'button'
+                    toggle.className = 'ifox-mobile-category-toggle'
+                    toggle.setAttribute('aria-label', `Expand ${categoryName} subpages`)
+                    toggle.setAttribute('aria-expanded', 'false')
+                    toggle.innerHTML = '<i class="bi bi-chevron-right" aria-hidden="true"></i>'
+                    category.appendChild(toggle)
+                })
+            })
+        }
+
         const addMobileMegaBackButtons = () => {
             if (window.innerWidth > 991) return
 
+            addMobileCategoryToggleButtons()
             mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((megaItem) => {
                 const megaContent = megaItem.querySelector('.ifox-mega-content')
                 if (!megaContent || megaContent.querySelector('.ifox-mobile-mega-back')) return
@@ -309,6 +355,11 @@
                         sidebar.scrollTop = 0
                     }
                     if (content) content.style.setProperty('display', 'none', 'important')
+                    megaItem.querySelectorAll('.ifox-mobile-category-toggle').forEach((button) => {
+                        button.setAttribute('aria-expanded', 'false')
+                        const icon = button.querySelector('i')
+                        if (icon) icon.className = 'bi bi-chevron-right'
+                    })
 
                     requestAnimationFrame(() => {
                         mobileNavigation.scrollTo({
@@ -338,6 +389,18 @@
 
             megaItem.classList.add('services-open')
             dropdownTrigger.setAttribute('aria-expanded', 'true')
+            const servicesChevron = megaItem.querySelector('.ifox-services-chevron')
+            if (servicesChevron) {
+                servicesChevron.setAttribute('aria-expanded', 'true')
+                const icon = servicesChevron.querySelector('i')
+                if (icon) icon.className = 'bi bi-chevron-up'
+            }
+            const topMenuChevron = megaItem.querySelector('.ifox-mobile-top-chevron')
+            if (topMenuChevron) {
+                topMenuChevron.setAttribute('aria-expanded', 'true')
+                const icon = topMenuChevron.querySelector('i')
+                if (icon) icon.className = 'bi bi-chevron-up'
+            }
 
             const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
             const content = megaItem.querySelector('.ifox-mega-content')
@@ -358,12 +421,75 @@
         mobileNavigation.addEventListener('click', (event) => {
             if (window.innerWidth > 991 || !mobileNavigation.classList.contains('mobile-open')) return
 
-            const dropdownTrigger = event.target.closest('.ifox-has-mega > .ifox-dropdown-trigger')
             const category = event.target.closest('.ifox-mega-category')
             const backButton = event.target.closest('.ifox-mobile-mega-back')
             const categoryLink = event.target.closest('.ifox-category-link')
+            const servicesLink = event.target.closest('.ifox-services-menu .ifox-services-label')
+            const servicesChevron = event.target.closest('.ifox-services-menu .ifox-services-chevron')
+            const categoryChevron = event.target.closest('.ifox-has-mega .ifox-mobile-category-toggle')
+            const topMenuChevron = event.target.closest('.ifox-mobile-top-chevron')
+            const overviewLink = event.target.closest('.ifox-mobile-overview-link')
+
+            if (categoryChevron && mobileNavigation.contains(categoryChevron)) {
+                event.preventDefault()
+                event.stopImmediatePropagation()
+
+                const megaItem = categoryChevron.closest('.ifox-has-mega')
+                const category = categoryChevron.closest('.ifox-mega-category')
+                const sidebar = megaItem?.querySelector('.ifox-mega-sidebar')
+                const content = megaItem?.querySelector('.ifox-mega-content')
+                const isOpen = megaItem?.classList.contains('mobile-panel-open') &&
+                    category?.classList.contains('active')
+
+                if (!megaItem || !category || !sidebar || !content) return
+
+                const tab = category.getAttribute('data-tab')
+                megaItem.querySelectorAll('.ifox-mega-category').forEach((item) => {
+                    item.classList.toggle('active', item === category)
+                })
+                megaItem.querySelectorAll('.ifox-service-panel').forEach((panel) => {
+                    panel.classList.toggle('active', panel.getAttribute('data-panel') === tab)
+                })
+                megaItem.classList.toggle('mobile-panel-open', !isOpen)
+                megaItem.querySelectorAll('.ifox-mobile-category-toggle').forEach((button) => {
+                    const buttonIsOpen = !isOpen && button === categoryChevron
+                    button.setAttribute('aria-expanded', String(buttonIsOpen))
+                    const icon = button.querySelector('i')
+                    if (icon) icon.className = buttonIsOpen
+                        ? 'bi bi-chevron-down'
+                        : 'bi bi-chevron-right'
+                })
+                const categoryName = category.querySelector('strong')?.textContent?.trim() || 'Service'
+                categoryChevron.setAttribute('aria-label', isOpen
+                    ? `Expand ${categoryName} subpages`
+                    : `Collapse ${categoryName} subpages`)
+                const categoryIcon = categoryChevron.querySelector('i')
+                if (categoryIcon) categoryIcon.className = isOpen
+                    ? 'bi bi-chevron-right'
+                    : 'bi bi-chevron-down'
+                sidebar.style.setProperty('display', isOpen ? 'block' : 'none', 'important')
+                content.style.setProperty('display', isOpen ? 'none' : 'block', 'important')
+                return
+            }
+
+            if (topMenuChevron && mobileNavigation.contains(topMenuChevron)) {
+                const trigger = topMenuChevron.closest('.ifox-has-mega > .ifox-dropdown-trigger')
+                if (trigger) toggleMobileMegaMenu(trigger, event)
+                return
+            }
 
             if (categoryLink && mobileNavigation.contains(categoryLink)) return
+
+            if (overviewLink && mobileNavigation.contains(overviewLink)) {
+                event.stopImmediatePropagation()
+                return
+            }
+
+            if (servicesChevron && mobileNavigation.contains(servicesChevron)) {
+                const servicesTrigger = servicesChevron.closest('.ifox-has-mega > .ifox-dropdown-trigger')
+                if (servicesTrigger) toggleMobileMegaMenu(servicesTrigger, event)
+                return
+            }
 
             if (backButton && mobileNavigation.contains(backButton)) {
                 event.preventDefault()
@@ -387,42 +513,26 @@
                 return
             }
 
-            if (dropdownTrigger && mobileNavigation.contains(dropdownTrigger)) {
+            if (servicesLink && mobileNavigation.contains(servicesLink)) {
+                event.stopImmediatePropagation()
+                return
+            }
+
+            const dropdownTrigger = event.target.closest('.ifox-has-mega > .ifox-dropdown-trigger')
+            if (dropdownTrigger &&
+                mobileNavigation.contains(dropdownTrigger) &&
+                !dropdownTrigger.closest('.ifox-services-menu, .ifox-industries-menu, .ifox-product-menu, .ifox-hire-menu')) {
                 toggleMobileMegaMenu(dropdownTrigger, event)
                 return
             }
 
             if (category && mobileNavigation.contains(category)) {
+                const categoryDestination = category.querySelector('.ifox-category-link')
+                if (!categoryDestination) return
+
                 event.preventDefault()
                 event.stopImmediatePropagation()
-
-                const megaItem = category.closest('.ifox-has-mega')
-                const tab = category.getAttribute('data-tab')
-
-                megaItem.querySelectorAll('.ifox-mega-category').forEach((item) => {
-                    item.classList.toggle('active', item === category)
-                })
-
-                megaItem.querySelectorAll('.ifox-service-panel').forEach((panel) => {
-                    panel.classList.toggle('active', panel.getAttribute('data-panel') === tab)
-                })
-
-                megaItem.classList.add('services-open', 'mobile-panel-open')
-                const trigger = megaItem.querySelector('.ifox-dropdown-trigger')
-                if (trigger) trigger.setAttribute('aria-expanded', 'true')
-                const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
-                const content = megaItem.querySelector('.ifox-mega-content')
-                if (sidebar) sidebar.style.setProperty('display', 'none', 'important')
-                if (content) content.style.setProperty('display', 'block', 'important')
-                if (content) {
-                    requestAnimationFrame(() => {
-                        content.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
-                    })
-                }
-                megaItem.querySelectorAll('.ifox-service-panel').forEach((panel) => {
-                    panel.style.display = panel.getAttribute('data-panel') === tab ? 'block' : 'none'
-                })
-
+                window.location.assign(categoryDestination.href)
                 return
             }
 
@@ -754,15 +864,15 @@
         }
         function trackMessage(sender, text) {
 
-            if (!startTracking) return;
-
             chatHistory.push({
                 sender: sender,
                 text: text,
                 time: new Date().toISOString()
             });
 
-            resetIdleTimer();
+            if (startTracking) {
+                resetIdleTimer();
+            }
         }
 
 
@@ -1069,12 +1179,30 @@
 
         /* ================= CONTACT CTA ================= */
 
+        window.openWhatsAppConversation = function (event) {
+            event.preventDefault();
+
+            const conversation = chatHistory.length
+                ? chatHistory.map(function (message) {
+                    const sender = message.sender === "Bot" ? "Assistant" : message.sender;
+                    return sender + ": " + message.text;
+                }).join("\n\n")
+                : "No conversation history was recorded.";
+
+            const whatsappUrl = "https://wa.me/919488718218?text=" + encodeURIComponent(conversation);
+            const whatsappWindow = window.open(whatsappUrl, "_blank");
+
+            if (!whatsappWindow) {
+                window.location.assign(whatsappUrl);
+            }
+        };
+
         window.contactCTA = function () {
             bot("For more details contact us 👇 \n Contact:+919488718218 \n E-Mail:hr@ifox.co.in");
 
             buttons.innerHTML = `
         <a class="chat-btn whatsapp-contact-btn" target="_blank"
-        href="https://wa.me/919488718218">Chat on WhatsApp</a>`;
+        href="https://wa.me/919488718218" onclick="openWhatsAppConversation(event)">Chat on WhatsApp</a>`;
             buttons.classList.add("contact-buttons");
         }
         function resetIdleTimer() {
@@ -1149,6 +1277,9 @@
 
         /*Hover Effect*/
 
+        const touchDevice = window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+        if (!touchDevice) {
             const dot = document.getElementById('cursor-dot');
             const ring = document.getElementById('cursor-ring');
 
@@ -1204,6 +1335,7 @@
             });
 
         });
+        }
         console.log("LAYOUT LOADED");
 
 
@@ -1219,6 +1351,7 @@
 
         /* ─── CLICK RIPPLE EFFECT ─── */
         document.addEventListener('click', e => {
+            if (touchDevice) return;
             if (e.target.tagName === 'CANVAS') return;
             const ripple = document.createElement('div');
             Object.assign(ripple.style, {

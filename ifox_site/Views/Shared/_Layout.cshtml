@@ -36,16 +36,27 @@
     };
     var isServicePage = Array.IndexOf(serviceControllers, currentController) >= 0;
     var isIndustriesPage = Array.IndexOf(industriesControllers, currentController) >= 0;
+    var isHealthcarePage = string.Equals(currentController, "Healthcare", StringComparison.OrdinalIgnoreCase);
     var isHireDevelopersPage = Array.IndexOf(hireDevelopersControllers, currentController) >= 0;
     var isProductManagementPage = Array.IndexOf(productManagementControllers, currentController) >= 0;
     var isServicesLandingPage = string.Equals(currentController, "Services", StringComparison.OrdinalIgnoreCase);
     var isDropdownPage = Array.IndexOf(dropdownPageControllers, currentController) >= 0;
+    var isSubheadingPage = isDropdownPage || isServicePage;
     var isTestimonialsPage = string.Equals(currentController, "Testimonials", StringComparison.OrdinalIgnoreCase);
     var isBlogPage = string.Equals(currentController, "Blog", StringComparison.OrdinalIgnoreCase);
     var isContactPage = string.Equals(currentController, "Contact", StringComparison.OrdinalIgnoreCase);
     var isHomePage = string.Equals(currentController, "Home", StringComparison.OrdinalIgnoreCase) && string.Equals(currentAction, "Index", StringComparison.OrdinalIgnoreCase);
+    var activeNav = isHomePage ? "home"
+        : (isServicePage || isServicesLandingPage) ? "services"
+        : isIndustriesPage ? "industries"
+        : isProductManagementPage ? "product-management"
+        : isHireDevelopersPage ? "hire-developers"
+        : isTestimonialsPage ? "testimonials"
+        : isBlogPage ? "blog"
+        : isContactPage ? "contact"
+        : string.Empty;
     var isDarkContentPage = isServicePage || isServicesLandingPage || isDropdownPage || isTestimonialsPage || isBlogPage || isContactPage;
-    var pageClass = $"{ViewData["PageClass"] ?? string.Empty} {(isDarkContentPage ? "ifox-service-page" : string.Empty)} {(isServicePage ? "ifox-service-detail-page" : string.Empty)} {(isIndustriesPage ? "ifox-industries-detail-page" : string.Empty)} {(isHireDevelopersPage ? "ifox-hire-developers-detail-page" : string.Empty)} {(isProductManagementPage ? "ifox-product-management-detail-page" : string.Empty)} {(isDropdownPage ? "ifox-dropdown-detail-page" : string.Empty)} {(isTestimonialsPage ? "ifox-testimonials-page" : string.Empty)} {(isBlogPage ? "ifox-blog-page" : string.Empty)} {(isContactPage ? "ifox-contact-page" : string.Empty)}".Trim();
+    var pageClass = $"{ViewData["PageClass"] ?? string.Empty} {(isDarkContentPage ? "ifox-service-page" : string.Empty)} {(isServicePage ? "ifox-service-detail-page" : string.Empty)} {(isSubheadingPage ? "ifox-subheading-page" : string.Empty)} {(isIndustriesPage ? "ifox-industries-detail-page" : string.Empty)} {(isHealthcarePage ? "ifox-healthcare-page" : string.Empty)} {(isHireDevelopersPage ? "ifox-hire-developers-detail-page" : string.Empty)} {(isProductManagementPage ? "ifox-product-management-detail-page" : string.Empty)} {(isDropdownPage ? "ifox-dropdown-detail-page" : string.Empty)} {(isTestimonialsPage ? "ifox-testimonials-page" : string.Empty)} {(isBlogPage ? "ifox-blog-page" : string.Empty)} {(isContactPage ? "ifox-contact-page" : string.Empty)}".Trim();
 }
 
 <!DOCTYPE html>
@@ -82,10 +93,10 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260752" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260753" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
-         <link href="~/assets/css/home.css?v=20260629" rel="stylesheet" />
+         <link href="~/assets/css/home.css?v=20260630" rel="stylesheet" />
         <style>
             body:has(#hero.ifox-home-page) #header .ifox-nav-link,
             body:has(#hero.ifox-home-page) #header .ifox-get-started {
@@ -128,7 +139,7 @@
                     <!-- HOME -->
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Home" asp-action="Index" class="ifox-nav-link @(isHomePage ? "is-active" : string.Empty)">
+                        <a asp-controller="Home" asp-action="Index" class="ifox-nav-link @(activeNav == "home" ? "is-active" : string.Empty)">
 
                             HOME
 
@@ -143,12 +154,17 @@
                     <!-- SERVICES -->
                     <li class="ifox-nav-item ifox-has-mega ifox-services-menu">
 
-                        <button type="button" class="ifox-nav-link ifox-dropdown-trigger @(isServicePage || isServicesLandingPage ? "is-active" : string.Empty)">
-                            <span class="ifox-services-label">SERVICES</span>
-                            <i class="bi bi-chevron-down"></i>
-                        </button>
+                        <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "services" ? "is-active" : string.Empty)" role="group">
+                            <a asp-controller="Services" asp-action="Index" class="ifox-services-label">
+                                <span>SERVICES</span>
+                                <small class="ifox-services-overview-indicator">OVERVIEW</small>
+                            </a>
+                            <button type="button" class="ifox-services-chevron" aria-label="Expand Services menu" aria-controls="ifoxServicesMegaMenu" aria-expanded="false">
+                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
 
-                        <div class="ifox-mega-menu">
+                        <div class="ifox-mega-menu" id="ifoxServicesMegaMenu">
 
                             <div class="ifox-mega-inner">
 
@@ -171,6 +187,9 @@
                                         </div>
 
                                         <i class="bi bi-chevron-right"></i>
+                                        <button type="button" class="ifox-mobile-category-toggle" aria-label="Expand Microsoft Dynamics 365 subpages" aria-controls="ifoxDynamicsSubpages" aria-expanded="false">
+                                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                                        </button>
 
                                     </div>
 
@@ -188,6 +207,9 @@
                                         </div>
 
                                         <i class="bi bi-chevron-right"></i>
+                                        <button type="button" class="ifox-mobile-category-toggle" aria-label="Expand Web Development subpages" aria-controls="ifoxDynamicsSubpages" aria-expanded="false">
+                                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                                        </button>
 
                                     </div>
 
@@ -205,6 +227,9 @@
                                         </div>
 
                                         <i class="bi bi-chevron-right"></i>
+                                        <button type="button" class="ifox-mobile-category-toggle" aria-label="Expand Mobile Development subpages" aria-controls="ifoxDynamicsSubpages" aria-expanded="false">
+                                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                                        </button>
 
                                     </div>
 
@@ -222,6 +247,9 @@
                                         </div>
 
                                         <i class="bi bi-chevron-right"></i>
+                                        <button type="button" class="ifox-mobile-category-toggle" aria-label="Expand Windows Applications subpages" aria-controls="ifoxDynamicsSubpages" aria-expanded="false">
+                                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                                        </button>
 
                                     </div>
 
@@ -239,6 +267,9 @@
                                         </div>
 
                                         <i class="bi bi-chevron-right"></i>
+                                        <button type="button" class="ifox-mobile-category-toggle" aria-label="Expand AI Solutions subpages" aria-controls="ifoxDynamicsSubpages" aria-expanded="false">
+                                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                                        </button>
 
                                     </div>
 
@@ -256,6 +287,9 @@
                                         </div>
 
                                         <i class="bi bi-chevron-right"></i>
+                                        <button type="button" class="ifox-mobile-category-toggle" aria-label="Expand Cloud Solutions subpages" aria-controls="ifoxDynamicsSubpages" aria-expanded="false">
+                                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                                        </button>
 
                                     </div>
 
@@ -266,7 +300,7 @@
                                      RIGHT SIDE
                                      ===================================== -->
 
-                                <div class="ifox-mega-content">
+                                <div class="ifox-mega-content" id="ifoxDynamicsSubpages">
 
 
                                     <!-- =================================
@@ -886,13 +920,12 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu">
 
-                        <button type="button" class="ifox-nav-link ifox-dropdown-trigger @(isIndustriesPage ? "is-active" : string.Empty)">
-
-                            INDUSTRIES
-
-                            <i class="bi bi-chevron-down"></i>
-
-                        </button>
+                        <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "industries" ? "is-active" : string.Empty)" role="group">
+                            <a href="/Industries" class="ifox-mobile-overview-link">INDUSTRIES</a>
+                            <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Industries menu" aria-expanded="false">
+                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
 
 
                         <div class="ifox-mega-menu">
@@ -1856,13 +1889,12 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu ifox-product-menu">
 
-                        <button type="button" class="ifox-nav-link ifox-dropdown-trigger @(isProductManagementPage ? "is-active" : string.Empty)">
-
-                            PRODUCT MANAGEMENT
-
-                            <i class="bi bi-chevron-down"></i>
-
-                        </button>
+                        <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "product-management" ? "is-active" : string.Empty)" role="group">
+                            <a href="/ProductManagement" class="ifox-mobile-overview-link">PRODUCT MANAGEMENT</a>
+                            <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Product Management menu" aria-expanded="false">
+                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
 
 
                         <div class="ifox-mega-menu">
@@ -2782,13 +2814,12 @@
 
                     <li class="ifox-nav-item ifox-has-mega ifox-hire-menu">
 
-                        <button type="button" class="ifox-nav-link ifox-dropdown-trigger @(isHireDevelopersPage ? "is-active" : string.Empty)">
-
-                            HIRE DEVELOPERS
-
-                            <i class="bi bi-chevron-down"></i>
-
-                        </button>
+                        <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "hire-developers" ? "is-active" : string.Empty)" role="group">
+                            <a href="/hire-developers" class="ifox-mobile-overview-link">HIRE DEVELOPERS</a>
+                            <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Hire Developers menu" aria-expanded="false">
+                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
 
 
                         <div class="ifox-mega-menu">
@@ -3532,7 +3563,7 @@
 
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Testimonials" asp-action="Index" class="ifox-nav-link @(isTestimonialsPage ? "is-active" : string.Empty)">
+                        <a asp-controller="Testimonials" asp-action="Index" class="ifox-nav-link @(activeNav == "testimonials" ? "is-active" : string.Empty)">
 
                             TESTIMONIALS
 
@@ -3545,7 +3576,7 @@
 
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Blog" asp-action="Index" class="ifox-nav-link @(isBlogPage ? "is-active" : string.Empty)">
+                        <a asp-controller="Blog" asp-action="Index" class="ifox-nav-link @(activeNav == "blog" ? "is-active" : string.Empty)">
 
                             BLOG
 
@@ -3558,7 +3589,7 @@
 
                     <li class="ifox-nav-item">
 
-                        <a asp-controller="Contact" asp-action="Index" class="ifox-nav-link @(isContactPage ? "is-active" : string.Empty)">
+                        <a asp-controller="Contact" asp-action="Index" class="ifox-nav-link @(activeNav == "contact" ? "is-active" : string.Empty)">
 
                             CONTACT
 
@@ -3677,7 +3708,7 @@
          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
      }
      <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNG595LVT"></script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TV4XQY3R5"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -3686,9 +3717,9 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-TTNG595LVT');
+         gtag('config', 'G-1TV4XQY3R5');
     </script><!-- Template Main JS File -->
-     <script src="~/assets/js/main.js?v=20260626-phase-navigation"></script>
+     <script src="~/assets/js/main.js?v=20260626-mobile-menu-v2"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -3761,15 +3792,23 @@
                CLOSE ALL MENUS
                ========================================================= */
 
-            function closeAllMegaMenus() {
+                function closeAllMegaMenus(exceptItem) {
 
                 megaItems.forEach(function (item) {
+
+                        if (item === exceptItem) {
+                            return;
+                        }
 
                     item.classList.remove("services-open", "mobile-panel-open", "ifox-click-closed");
                     const trigger = item.querySelector(".ifox-dropdown-trigger");
                     const menu = item.querySelector(".ifox-mega-menu");
                     if (trigger) {
                         trigger.setAttribute("aria-expanded", "false");
+                    }
+                    const servicesChevron = item.querySelector(".ifox-services-chevron");
+                    if (servicesChevron) {
+                        servicesChevron.setAttribute("aria-expanded", "false");
                     }
                     if (menu) {
                         menu.style.removeProperty("display");
@@ -3847,6 +3886,11 @@
                         return;
                     }
 
+                    if (megaItem.classList.contains("ifox-services-menu") &&
+                        event.target.closest(".ifox-services-label")) {
+                        return;
+                    }
+
                     event.preventDefault();
                     event.stopPropagation();
 
@@ -3864,6 +3908,10 @@
                     megaItem.classList.add("services-open");
                     megaMenu.style.removeProperty("display");
                     trigger.setAttribute("aria-expanded", "true");
+                    const servicesChevron = megaItem.querySelector(".ifox-services-chevron");
+                    if (servicesChevron) {
+                        servicesChevron.setAttribute("aria-expanded", "true");
+                    }
 
                 });
 
@@ -3872,6 +3920,7 @@
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
+                    closeAllMegaMenus(megaItem);
                     megaItem.classList.remove("ifox-click-closed");
                 });
 
