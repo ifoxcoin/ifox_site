@@ -5917,6 +5917,26 @@ body.ifox-industries-detail-page #main #services .icon-box:hover {
 }
 
 @media (max-width: 991px) {
+    #header .ifox-navigation.mobile-open .ifox-nav-link.is-active {
+        background: #102d4b !important;
+        border-left: 3px solid #5de4ff !important;
+        color: #5de4ff !important;
+        text-shadow: none !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mega-category.is-current,
+    #header .ifox-navigation.mobile-open .ifox-service-grid > a.is-current {
+        background: #102d4b !important;
+        border-left: 3px solid #5de4ff !important;
+        color: #5de4ff !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-mega-category.is-current .ifox-category-link,
+    #header .ifox-navigation.mobile-open .ifox-service-grid > a.is-current strong,
+    #header .ifox-navigation.mobile-open .ifox-service-grid > a.is-current > i {
+        color: #5de4ff !important;
+    }
+
     #header .ifox-navigation.mobile-open .ifox-has-mega:not(.services-open) > .ifox-mega-menu,
     #header .ifox-navigation.mobile-open .ifox-has-mega.ifox-click-closed > .ifox-mega-menu,
     #header .ifox-navigation.mobile-open .ifox-has-mega.services-open.ifox-click-closed > .ifox-mega-menu {

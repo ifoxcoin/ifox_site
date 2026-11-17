@@ -155,7 +155,7 @@
                     <li class="ifox-nav-item ifox-has-mega ifox-services-menu">
 
                         <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "services" ? "is-active" : string.Empty)" role="group">
-                            <a asp-controller="Services" asp-action="Index" class="ifox-services-label">
+                            <a class="ifox-services-label">
                                 <span>SERVICES</span>
                                 <small class="ifox-services-overview-indicator">OVERVIEW</small>
                             </a>
@@ -921,7 +921,7 @@
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu">
 
                         <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "industries" ? "is-active" : string.Empty)" role="group">
-                            <a href="/Industries" class="ifox-mobile-overview-link">INDUSTRIES</a>
+                            <a class="ifox-mobile-overview-link">INDUSTRIES</a>
                             <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Industries menu" aria-expanded="false">
                                 <i class="bi bi-chevron-down" aria-hidden="true"></i>
                             </button>
@@ -1890,7 +1890,7 @@
                     <li class="ifox-nav-item ifox-has-mega ifox-industries-menu ifox-product-menu">
 
                         <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "product-management" ? "is-active" : string.Empty)" role="group">
-                            <a href="/ProductManagement" class="ifox-mobile-overview-link">PRODUCT MANAGEMENT</a>
+                            <a class="ifox-mobile-overview-link">PRODUCT MANAGEMENT</a>
                             <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Product Management menu" aria-expanded="false">
                                 <i class="bi bi-chevron-down" aria-hidden="true"></i>
                             </button>
@@ -2815,7 +2815,7 @@
                     <li class="ifox-nav-item ifox-has-mega ifox-hire-menu">
 
                         <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "hire-developers" ? "is-active" : string.Empty)" role="group">
-                            <a href="/hire-developers" class="ifox-mobile-overview-link">HIRE DEVELOPERS</a>
+                            <a class="ifox-mobile-overview-link">HIRE DEVELOPERS</a>
                             <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Hire Developers menu" aria-expanded="false">
                                 <i class="bi bi-chevron-down" aria-hidden="true"></i>
                             </button>
@@ -3719,7 +3719,7 @@
 
          gtag('config', 'G-1TV4XQY3R5');
     </script><!-- Template Main JS File -->
-     <script src="~/assets/js/main.js?v=20260626-mobile-menu-v2"></script>
+     <script src="~/assets/js/main.js?v=20260626-mobile-menu-v3"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -3883,11 +3883,6 @@
 
                     if (window.innerWidth <= 991 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
-                        return;
-                    }
-
-                    if (megaItem.classList.contains("ifox-services-menu") &&
-                        event.target.closest(".ifox-services-label")) {
                         return;
                     }
 
@@ -4210,6 +4205,37 @@
             );
 
         });
+    </script>
+    <script>
+        (function () {
+            const navigation = document.getElementById("ifoxNavigation");
+            if (!navigation) return;
+
+            const normalizePath = (path) => {
+                const normalized = (path || "/").toLowerCase().replace(/\/$/, "");
+                return normalized || "/";
+            };
+            const currentPath = normalizePath(window.location.pathname);
+
+            navigation.querySelectorAll(".ifox-mega-menu a[href]").forEach((link) => {
+                const linkUrl = new URL(link.href, window.location.origin);
+                if (linkUrl.origin !== window.location.origin || normalizePath(linkUrl.pathname) !== currentPath) return;
+
+                link.classList.add("is-current");
+
+                const panel = link.closest(".ifox-service-panel");
+                if (panel) {
+                    const menu = link.closest(".ifox-mega-menu");
+                    const panelName = (panel.dataset.panel || "").toLowerCase();
+                    const category = menu && Array.from(menu.querySelectorAll(".ifox-mega-category")).find((item) =>
+                        (item.dataset.tab || "").toLowerCase() === panelName);
+                    if (category) category.classList.add("is-current");
+                } else {
+                    const category = link.closest(".ifox-mega-category");
+                    if (category) category.classList.add("is-current");
+                }
+            });
+        }());
     </script>
     <div id="chatbot-container">
         <!-- Floating Logo -->

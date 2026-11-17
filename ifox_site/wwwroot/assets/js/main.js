@@ -480,8 +480,10 @@
 
             if (categoryLink && mobileNavigation.contains(categoryLink)) return
 
-            if (overviewLink && mobileNavigation.contains(overviewLink)) {
-                event.stopImmediatePropagation()
+            const parentLink = servicesLink || overviewLink
+            if (parentLink && mobileNavigation.contains(parentLink)) {
+                const trigger = parentLink.closest('.ifox-has-mega > .ifox-dropdown-trigger')
+                if (trigger) toggleMobileMegaMenu(trigger, event)
                 return
             }
 
@@ -510,11 +512,6 @@
                         })
                     })
                 }
-                return
-            }
-
-            if (servicesLink && mobileNavigation.contains(servicesLink)) {
-                event.stopImmediatePropagation()
                 return
             }
 
