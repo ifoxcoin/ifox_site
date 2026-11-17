@@ -60,7 +60,14 @@
                 <p class="pb-4">@hireDescription</p>
             </div>
             <div class="col-lg-4 text-center">
-                <img src="~/assets/img/hiredevelopers-overview.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers overview" />
+                @if (hireTitle == "Mobile Developers")
+                {
+                    <img src="~/assets/img/hiredevelopers-overview.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers overview" fetchpriority="high" />
+                }
+                else
+                {
+                    <img src="~/assets/img/hiredevelopers-overview.webp" class="img-fluid ifox-hire-overview-image" alt="Hire developers overview" />
+                }
             </div>
         </div>
     </div>
