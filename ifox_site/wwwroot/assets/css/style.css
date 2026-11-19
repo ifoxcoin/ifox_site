@@ -4043,6 +4043,39 @@ body.ifox-product-management-detail-page #main a.cta-btn:focus-visible {
     transform: translateY(-3px);
 }
 
+body.ifox-product-management-detail-page #main .ifox-product-display-card {
+    background: #061827 !important;
+    border: 1px solid #087D9B !important;
+    cursor: default !important;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card h4,
+body.ifox-product-management-detail-page #main .ifox-product-display-card h4 b {
+    color: #FF6428 !important;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card p {
+    color: #B9D9E8 !important;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card.service-box {
+    padding: 50px 30px;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card.service-box > i {
+    display: block;
+    margin-bottom: 10px;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card.service-box h4 {
+    margin: 0 0 15px;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card.service-box p {
+    margin-bottom: 0;
+    line-height: 24px;
+}
+
 body.ifox-industry-overview-page #main #call-to-action .cta-btn,
 body.ifox-product-overview-page #main #call-to-action .cta-btn,
 body.ifox-hire-overview-page #main #call-to-action .cta-btn,
@@ -4778,6 +4811,25 @@ body.ifox-testimonials-page #main .quote {
 body.ifox-testimonials-page #main .stats p,
 body.ifox-testimonials-page #main .user span {
     color: #8bdcff !important;
+}
+
+body.ifox-testimonials-page #main .stats > div {
+    background: #0A2031 !important;
+    border: 1px solid #087D9B;
+    transition: box-shadow .2s ease, border-color .2s ease;
+}
+
+body.ifox-testimonials-page #main .stats > div:hover {
+    border-color: #087D9B;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08), 0 0 10px rgba(8, 125, 155, .28);
+}
+
+body.ifox-testimonials-page #main .stats > div h2 {
+    color: #FF6428 !important;
+}
+
+body.ifox-testimonials-page #main .stats > div p {
+    color: #B9D9E8 !important;
 }
 
 body.ifox-testimonials-page #main .user strong {
@@ -5597,6 +5649,48 @@ body.ifox-industries-detail-page #main #services .icon-box p {
 body.ifox-industries-detail-page #main #services .icon-box:hover {
     border-color: rgba(99, 221, 255, .75);
     box-shadow: 0 18px 34px rgba(0, 0, 0, .45), 0 0 24px rgba(99, 221, 255, .16);
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card,
+body.ifox-healthcare-page #main #services .icon-box {
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card h4,
+body.ifox-product-management-detail-page #main .ifox-product-display-card h4 b,
+body.ifox-healthcare-page #main #services .icon-box h4 {
+    color: #ff6428 !important;
+    font-size: 24px;
+    font-weight: 700;
+    transition: color .35s ease, transform .35s ease;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card i,
+body.ifox-healthcare-page #main #services .icon-box .icon i {
+    color: #55ccf5 !important;
+    font-size: 36px;
+    line-height: 1;
+    transition: none;
+}
+
+body.ifox-product-management-detail-page #main .ifox-product-display-card p,
+body.ifox-healthcare-page #main #services .icon-box p {
+    color: #b9d9e8 !important;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    body.ifox-product-management-detail-page #main .ifox-product-display-card:hover,
+    body.ifox-healthcare-page #main #services .icon-box:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 25px 45px rgba(91, 99, 255, .25), 0 0 24px rgba(85, 204, 245, .16);
+    }
+
+    body.ifox-product-management-detail-page #main .ifox-product-display-card:hover h4,
+    body.ifox-healthcare-page #main #services .icon-box:hover h4 {
+        transform: translateX(3px);
+    }
 }
 
 /* Shared Get Started interaction. */
