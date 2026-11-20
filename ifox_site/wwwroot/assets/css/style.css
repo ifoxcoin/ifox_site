@@ -107,7 +107,34 @@ body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-pha
 }
 
 #header .ifox-mobile-top-chevron {
-    display: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 32px;
+    margin-left: 2px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+#header .ifox-mobile-top-chevron i,
+#header .ifox-services-chevron i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: 13px;
+    line-height: 1;
+    pointer-events: none;
+    transition: transform .2s ease;
 }
 
 /* Separate category navigation from subheading-panel activation. */
@@ -168,18 +195,10 @@ body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-pha
 
 @media (max-width: 991px) {
     #header .ifox-mobile-top-chevron {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex: 0 0 44px;
+        flex-basis: 44px;
         width: 44px;
         height: 48px;
         margin-left: auto;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        color: inherit;
-        cursor: pointer;
     }
 
     #header .ifox-navigation.mobile-open .ifox-category-toggle {
@@ -3281,6 +3300,7 @@ footer#footer.footer #newsletter.footer-newsletter form > input[type="submit"] {
     }
 
     #header .ifox-services-menu > .ifox-nav-link .ifox-services-chevron {
+        flex-basis: 44px;
         width: 44px;
         height: 48px;
         margin-right: -8px;
