@@ -277,13 +277,13 @@
                 if (servicesChevron) {
                     servicesChevron.setAttribute('aria-expanded', 'false')
                     const icon = servicesChevron.querySelector('i')
-                    if (icon) icon.className = 'bi bi-chevron-down'
+                     if (icon) icon.className = 'bi bi-chevron-up'
                 }
                 const topMenuChevron = item.querySelector('.ifox-mobile-top-chevron')
                 if (topMenuChevron) {
                     topMenuChevron.setAttribute('aria-expanded', 'false')
                     const icon = topMenuChevron.querySelector('i')
-                    if (icon) icon.className = 'bi bi-chevron-down'
+                     if (icon) icon.className = 'bi bi-chevron-up'
                 }
                 item.querySelectorAll('.ifox-mobile-category-toggle').forEach((button) => {
                     button.setAttribute('aria-expanded', 'false')
@@ -393,13 +393,13 @@
             if (servicesChevron) {
                 servicesChevron.setAttribute('aria-expanded', 'true')
                 const icon = servicesChevron.querySelector('i')
-                if (icon) icon.className = 'bi bi-chevron-up'
+                 if (icon) icon.className = 'bi bi-chevron-down'
             }
             const topMenuChevron = megaItem.querySelector('.ifox-mobile-top-chevron')
             if (topMenuChevron) {
                 topMenuChevron.setAttribute('aria-expanded', 'true')
                 const icon = topMenuChevron.querySelector('i')
-                if (icon) icon.className = 'bi bi-chevron-up'
+                 if (icon) icon.className = 'bi bi-chevron-down'
             }
 
             const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
