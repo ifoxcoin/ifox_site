@@ -3954,6 +3954,7 @@ body.ifox-service-page #main > section:first-child {
 }
 
 body.ifox-service-page #main h1,
+body.ifox-service-page #main h2,
 body.ifox-service-page #main h3 {
     color: #ff6b27 !important;
     font-family: 'Space Grotesk', sans-serif !important;
@@ -3973,29 +3974,29 @@ body.ifox-service-page #main .Imgborder {
     border-color: rgba(99, 221, 255, .3) !important;
 }
 
-body.ifox-service-page #main #call-to-action {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) {
     background: #020b17 !important;
     background-color: #020b17 !important;
     background-image: none !important;
     color: #8bdcff !important;
 }
 
-body.ifox-service-page #main #call-to-action::before {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary)::before {
     background: #020b17 !important;
     background-color: #020b17 !important;
     background-image: none !important;
 }
 
-body.ifox-service-page #main #call-to-action img {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) img {
     display: none !important;
 }
 
-body.ifox-service-page #main #call-to-action h3,
-body.ifox-service-page #main #call-to-action p {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) h3,
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) p {
     color: #8bdcff !important;
 }
 
-body.ifox-service-page #main #call-to-action .cta-btn {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) .cta-btn {
     color: #8bdcff !important;
     border-color: #8bdcff !important;
     background: transparent !important;
