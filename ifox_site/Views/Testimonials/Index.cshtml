@@ -5,9 +5,9 @@
 
     <section class="wrap">
         <div class="stats mt-5">
-            <div><h2>15+</h2><p>Happy Clients</p></div>
-            <div><h2>25+</h2><p>Successful Projects</p></div>
-            <div><h2>98%</h2><p>Client Satisfaction</p></div>
+            <div><h2 data-count-target="15" data-count-suffix="+">15+</h2><p>Happy Clients</p></div>
+            <div><h2 data-count-target="25" data-count-suffix="+">25+</h2><p>Successful Projects</p></div>
+            <div><h2 data-count-target="98" data-count-suffix="%">98%</h2><p>Client Satisfaction</p></div>
         </div>
         <div class="tag">TESTIMONIALS</div>
         <h1>Trusted by Businesses for CRM, Web Development & Digital Solutions</h1>
@@ -100,3 +100,47 @@
             </div>
         </div>
     </section>
+
+<script>
+    (function () {
+        const counters = document.querySelectorAll('.ifox-testimonials-page #main .stats h2[data-count-target]');
+        if (!counters.length) return;
+
+        const animateCounter = (counter) => {
+            const target = Number(counter.dataset.countTarget);
+            const suffix = counter.dataset.countSuffix || '';
+            const duration = 2000;
+            const startTime = performance.now();
+
+            counter.textContent = `0${suffix}`;
+
+            const update = (currentTime) => {
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+                counter.textContent = `${Math.round(target * easedProgress)}${suffix}`;
+
+                if (progress < 1) {
+                    window.requestAnimationFrame(update);
+                }
+            };
+
+            window.requestAnimationFrame(update);
+        };
+
+        if (!('IntersectionObserver' in window)) {
+            counters.forEach(animateCounter);
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, currentObserver) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                currentObserver.unobserve(entry.target);
+                animateCounter(entry.target);
+            });
+        }, { threshold: 0.35 });
+
+        counters.forEach((counter) => observer.observe(counter));
+    }());
+</script>
