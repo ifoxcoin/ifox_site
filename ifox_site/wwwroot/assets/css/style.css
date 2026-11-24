@@ -107,7 +107,34 @@ body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-pha
 }
 
 #header .ifox-mobile-top-chevron {
-    display: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 32px;
+    margin-left: 2px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+#header .ifox-mobile-top-chevron i,
+#header .ifox-services-chevron i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: 13px;
+    line-height: 1;
+    pointer-events: none;
+    transition: transform .2s ease;
 }
 
 /* Separate category navigation from subheading-panel activation. */
@@ -166,20 +193,12 @@ body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-pha
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-mobile-top-chevron {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        flex: 0 0 44px;
+        flex-basis: 44px;
         width: 44px;
         height: 48px;
         margin-left: auto;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        color: inherit;
-        cursor: pointer;
     }
 
     #header .ifox-navigation.mobile-open .ifox-category-toggle {
@@ -230,6 +249,21 @@ body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-pha
     visibility: visible !important;
     pointer-events: auto !important;
     transform: translate(-50%, 0) !important;
+}
+
+#header:has(.ifox-services-menu.services-open) {
+    z-index: 100011 !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-inner {
+    background: rgba(3, 24, 42, .98) !important;
+    border: 1px solid rgba(93, 228, 255, .18) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .55), 0 0 30px rgba(93, 228, 255, .08) !important;
+}
+
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-sidebar,
+#header .ifox-services-menu > .ifox-mega-menu .ifox-mega-content {
+    background: #03182a !important;
 }
 
 /* Premium styling for the remaining mega-menus only. */
@@ -465,15 +499,29 @@ h6 {
 
     .back-to-top i {
         font-size: 24px;
-        color: #fff;
+        color: #63ddff;
         line-height: 1;
     }
 
-    .back-to-top:hover {
-        background: #ff6b27;
-        border-color: #ff6b27;
-        box-shadow: 0 0 18px rgba(255, 107, 39, 0.35);
+    .back-to-top:focus,
+    .back-to-top:active {
+        background: #061727;
+        border-color: rgba(99, 221, 255, 0.75);
+        box-shadow: 0 0 16px rgba(99, 221, 255, 0.18);
         color: #fff;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .back-to-top:hover {
+            background: #FF6428;
+            border-color: #FF6428;
+            box-shadow: 0 0 18px rgba(255, 100, 40, 0.35);
+            color: #fff;
+        }
+
+        .back-to-top:hover i {
+            color: #fff;
+        }
     }
 
     .back-to-top.active {
@@ -1532,6 +1580,10 @@ body.ifox-dynamics-crm-overview-page #faq-2 + .container > .section-title h2 {
     color: #ff6b27 !important;
 }
 
+body.ifox-dynamics-crm-overview-page #skills .content > .section {
+    padding-bottom: 0;
+}
+
 body.ifox-dynamics-crm-overview-page #faq-2 {
     background: transparent;
 }
@@ -1662,6 +1714,7 @@ body.ifox-dynamics-crm-overview-page #faq-2 .accordion-body {
         margin: 0 !important;
         padding: 0 !important;
     }
+
 }
 
 /* Style the individual tab to make sure they are aligned in the center */
@@ -2744,6 +2797,7 @@ Active list item style
         white-space: nowrap !important;
         text-decoration: none !important;
         cursor: pointer !important;
+        outline: none !important;
         transition: color .2s ease !important;
     }
 
@@ -3258,7 +3312,7 @@ footer#footer.footer #newsletter.footer-newsletter form > input[type="submit"] {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-has-mega .ifox-mega-category > .bi-chevron-right {
         display: none;
     }
@@ -3281,6 +3335,7 @@ footer#footer.footer #newsletter.footer-newsletter form > input[type="submit"] {
     }
 
     #header .ifox-services-menu > .ifox-nav-link .ifox-services-chevron {
+        flex-basis: 44px;
         width: 44px;
         height: 48px;
         margin-right: -8px;
@@ -3934,6 +3989,7 @@ body.ifox-service-page #main > section:first-child {
 }
 
 body.ifox-service-page #main h1,
+body.ifox-service-page #main h2,
 body.ifox-service-page #main h3 {
     color: #ff6b27 !important;
     font-family: 'Space Grotesk', sans-serif !important;
@@ -3953,29 +4009,29 @@ body.ifox-service-page #main .Imgborder {
     border-color: rgba(99, 221, 255, .3) !important;
 }
 
-body.ifox-service-page #main #call-to-action {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) {
     background: #020b17 !important;
     background-color: #020b17 !important;
     background-image: none !important;
     color: #8bdcff !important;
 }
 
-body.ifox-service-page #main #call-to-action::before {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary)::before {
     background: #020b17 !important;
     background-color: #020b17 !important;
     background-image: none !important;
 }
 
-body.ifox-service-page #main #call-to-action img {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) img {
     display: none !important;
 }
 
-body.ifox-service-page #main #call-to-action h3,
-body.ifox-service-page #main #call-to-action p {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) h3,
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) p {
     color: #8bdcff !important;
 }
 
-body.ifox-service-page #main #call-to-action .cta-btn {
+body.ifox-service-page #main :is(#call-to-action, #call-to-action-secondary) .cta-btn {
     color: #8bdcff !important;
     border-color: #8bdcff !important;
     background: transparent !important;
@@ -4242,6 +4298,84 @@ body.ifox-dynamics-crm-overview-page #main > section:not(.ifox-overview-capabili
     border: 0;
     background: transparent;
     box-shadow: none;
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card .icon-box {
+    height: 100%;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card h3 {
+    color: #47b2e4;
+    transition: color .3s ease;
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card-arrow {
+    display: inline-block;
+    color: orange;
+    font-size: .75em;
+    opacity: 0;
+    transform: translate(-3px, 3px);
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card:hover .icon-box,
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card:focus-visible .icon-box {
+    transform: translateY(-4px);
+    box-shadow: 0 0 18px rgba(99, 221, 255, .3);
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card:hover h3,
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card:focus-visible h3 {
+    color: orange;
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card:hover .ifox-dynamics-service-card-arrow,
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card:focus-visible .ifox-dynamics-service-card-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+body.ifox-dynamics-crm-overview-page .ifox-dynamics-service-overview .ifox-dynamics-service-card:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+body.ifox-service-detail-page #main .ifox-dynamics-related-services .icon-box {
+    height: 100%;
+    background: linear-gradient(145deg, #061f35, #03182a) !important;
+    border: 1px solid rgba(93, 228, 255, .28);
+    box-shadow: 0 12px 30px rgba(0, 5, 14, .35), inset 0 0 22px rgba(0, 170, 255, .04);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+body.ifox-service-detail-page #main .ifox-dynamics-related-services .icon-box:hover {
+    border-color: rgba(93, 228, 255, .58);
+    box-shadow: 0 16px 34px rgba(0, 5, 14, .42), 0 0 20px rgba(93, 228, 255, .16);
+    transform: translateY(-4px);
+}
+
+body.ifox-service-detail-page #main .ifox-dynamics-related-services .icon-box .icon i {
+    color: #5de4ff !important;
+}
+
+body.ifox-service-detail-page #main .ifox-dynamics-related-services .icon-box h3,
+body.ifox-service-detail-page #main .ifox-dynamics-related-services .icon-box h3 a {
+    color: #ff672f !important;
+}
+
+body.ifox-service-detail-page #main .ifox-dynamics-related-services .icon-box p {
+    color: #b7d5e6 !important;
 }
 
 body:has(.ifox-overview-capabilities) #main {
@@ -4789,7 +4923,7 @@ body.ifox-contact-page #main label {
 
 body.ifox-testimonials-page #main .wrap {
     min-height: calc(100vh - 82px);
-    padding: 74px 6% 90px;
+    padding: 24px 6% 90px;
     background: linear-gradient(135deg, #020b17 0%, #03182a 52%, #020b17 100%);
 }
 
@@ -5364,11 +5498,37 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
         object-fit: contain;
     }
 }
-@media (max-width: 991px) { #header .ifox-mobile-menu-toggle { display:inline-flex!important; align-items:center!important; justify-content:center!important; width:44px!important; height:44px!important; margin-left:auto!important; padding:0!important; border:1px solid rgba(255,255,255,.35)!important; border-radius:8px!important; background:transparent!important; color:#fff!important; font-size:28px!important; cursor:pointer!important } #header .ifox-navigation { display:none!important; position:absolute!important; top:70px!important; right:12px!important; left:12px!important; width:auto!important; height:calc(100vh - 82px)!important; max-height:calc(100vh - 82px)!important; overflow-y:auto!important; overflow-x:hidden!important; padding:8px 0 20px!important; border:1px solid rgba(255,255,255,.12)!important; border-radius:0 0 14px 14px!important; background:#233f66!important; box-shadow:0 18px 40px rgba(0,0,0,.35)!important } #header .ifox-navigation.mobile-open { display:block!important } #header .ifox-nav-list { display:flex!important; flex-direction:column!important; align-items:stretch!important; width:100%!important; min-width:0!important; height:auto!important } #header .ifox-nav-item { display:block!important; width:100%!important; height:auto!important; white-space:normal!important } #header .ifox-nav-link { display:flex!important; align-items:center!important; justify-content:space-between!important; width:100%!important; min-height:48px!important; height:auto!important; padding:12px 18px!important; font-size:14px!important } #header .ifox-get-started { width:calc(100% - 36px)!important; min-width:0!important; height:44px!important; margin:10px 18px!important } #header .ifox-mega-menu { position:static!important; width:100%!important; max-height:none!important; overflow:visible!important } #header .ifox-mega-inner { border:0!important; border-radius:0!important; box-shadow:none!important } } @media (min-width: 992px) { #header .ifox-mobile-menu-toggle { display:none!important } }
+@media (max-width: 1199px) {
+    #header .ifox-navigation {
+        display: none !important;
+    }
+
+    #header .ifox-mobile-menu-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        margin-left: auto !important;
+        padding: 0 !important;
+        border: 1px solid rgba(255,255,255,.35) !important;
+        border-radius: 8px !important;
+        background: transparent !important;
+        color: #fff !important;
+        font-size: 28px !important;
+        cursor: pointer !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #header .ifox-mobile-menu-toggle {
+        display: none !important;
+    }
+}
 
 /* Final mobile navigation layout. Keep mega menus in the navigation flow so
    every top-level link remains reachable on narrow screens. */
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     body.ifox-mobile-nav-open {
         overflow: hidden;
     }
@@ -5527,7 +5687,18 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
 
 
 /* Final cascade for dropdown heading artwork. */
-body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; top: 220px; right: clamp(56px, 8vw, 128px); width: clamp(210px, 23vw, 320px); max-width: 320px; opacity: .9; }
+body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; top: 220px; right: clamp(56px, 8vw, 128px); width: clamp(230px, 25vw, 350px); max-width: 350px; opacity: .9; }
+
+@media (max-width: 767px) {
+    body.ifox-industries-detail-page .ifox-industries-heading-image {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: min(82vw, 300px);
+        max-width: 300px;
+        margin: 12px auto 0;
+    }
+}
 
 
 
@@ -6010,7 +6181,7 @@ body.ifox-healthcare-page #main #services .icon-box p {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-navigation.mobile-open .ifox-nav-link.is-active {
         background: #102d4b !important;
         border-left: 3px solid #5de4ff !important;
@@ -6109,11 +6280,15 @@ body.ifox-healthcare-page #main #services .icon-box p {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-navigation.mobile-open .ifox-mega-inner {
         display: block !important;
         height: auto !important;
         overflow: visible !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-has-mega > .ifox-mega-menu {
+        transform: none !important;
     }
 
     #header .ifox-navigation.mobile-open .ifox-mega-sidebar {
@@ -6213,7 +6388,7 @@ iframe {
     max-width: 100%;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .container,
     #header .container-fluid {
         width: 100%;
@@ -6412,4 +6587,15 @@ iframe {
     -webkit-filter: none !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+}
+/* Global smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }

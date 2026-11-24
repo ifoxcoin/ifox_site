@@ -93,7 +93,7 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260753" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260755" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
          <link href="~/assets/css/home.css?v=20260630" rel="stylesheet" />
@@ -160,7 +160,7 @@
                                 <small class="ifox-services-overview-indicator">OVERVIEW</small>
                             </a>
                             <button type="button" class="ifox-services-chevron" aria-label="Expand Services menu" aria-controls="ifoxServicesMegaMenu" aria-expanded="false">
-                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                                <i class="bi bi-chevron-up" aria-hidden="true"></i>
                             </button>
                         </div>
 
@@ -923,7 +923,7 @@
                         <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "industries" ? "is-active" : string.Empty)" role="group">
                             <a class="ifox-mobile-overview-link">INDUSTRIES</a>
                             <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Industries menu" aria-expanded="false">
-                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                                <i class="bi bi-chevron-up" aria-hidden="true"></i>
                             </button>
                         </div>
 
@@ -1892,7 +1892,7 @@
                         <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "product-management" ? "is-active" : string.Empty)" role="group">
                             <a class="ifox-mobile-overview-link">PRODUCT MANAGEMENT</a>
                             <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Product Management menu" aria-expanded="false">
-                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                                <i class="bi bi-chevron-up" aria-hidden="true"></i>
                             </button>
                         </div>
 
@@ -2817,7 +2817,7 @@
                         <div class="ifox-nav-link ifox-dropdown-trigger @(activeNav == "hire-developers" ? "is-active" : string.Empty)" role="group">
                             <a class="ifox-mobile-overview-link">HIRE DEVELOPERS</a>
                             <button type="button" class="ifox-mobile-top-chevron" aria-label="Expand Hire Developers menu" aria-expanded="false">
-                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                                <i class="bi bi-chevron-up" aria-hidden="true"></i>
                             </button>
                         </div>
 
@@ -3719,7 +3719,7 @@
 
          gtag('config', 'G-1TV4XQY3R5');
     </script><!-- Template Main JS File -->
-     <script src="~/assets/js/main.js?v=20260626-mobile-menu-v3"></script>
+     <script src="~/assets/js/main.js?v=20260626-mobile-menu-v5"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -3784,7 +3784,7 @@
 
             // Mobile navigation is controlled by main.js. Do not attach the
             // desktop mega-menu handlers to the same touch targets.
-            if (window.innerWidth <= 991) {
+            if (window.innerWidth <= 1199) {
                 return;
             }
 
@@ -3809,6 +3809,18 @@
                     const servicesChevron = item.querySelector(".ifox-services-chevron");
                     if (servicesChevron) {
                         servicesChevron.setAttribute("aria-expanded", "false");
+                         const icon = servicesChevron.querySelector("i");
+                         if (icon) {
+                             icon.className = "bi bi-chevron-up";
+                         }
+                     }
+                     const topMenuChevron = item.querySelector(".ifox-mobile-top-chevron");
+                     if (topMenuChevron) {
+                         topMenuChevron.setAttribute("aria-expanded", "false");
+                         const icon = topMenuChevron.querySelector("i");
+                         if (icon) {
+                             icon.className = "bi bi-chevron-up";
+                         }
                     }
                     if (menu) {
                         menu.style.removeProperty("display");
@@ -3821,7 +3833,7 @@
             document.addEventListener("click", function (event) {
                 const navigation = document.getElementById("ifoxNavigation");
 
-                if (window.innerWidth <= 991 && navigation?.classList.contains("mobile-open")) {
+                if (window.innerWidth <= 1199 && navigation?.classList.contains("mobile-open")) {
                     return;
                 }
 
@@ -3881,7 +3893,7 @@
 
                 trigger.addEventListener("click", function (event) {
 
-                    if (window.innerWidth <= 991 &&
+                    if (window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
@@ -3906,21 +3918,44 @@
                     const servicesChevron = megaItem.querySelector(".ifox-services-chevron");
                     if (servicesChevron) {
                         servicesChevron.setAttribute("aria-expanded", "true");
+                         const icon = servicesChevron.querySelector("i");
+                         if (icon) {
+                             icon.className = "bi bi-chevron-down";
+                         }
+                     }
+                     const topMenuChevron = megaItem.querySelector(".ifox-mobile-top-chevron");
+                     if (topMenuChevron) {
+                         topMenuChevron.setAttribute("aria-expanded", "true");
+                         const icon = topMenuChevron.querySelector("i");
+                         if (icon) {
+                             icon.className = "bi bi-chevron-down";
+                         }
                     }
 
                 });
 
                 megaItem.addEventListener("mouseenter", function () {
-                    if (window.innerWidth <= 991 &&
+                    if (window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
                     closeAllMegaMenus(megaItem);
                     megaItem.classList.remove("ifox-click-closed");
+                    const servicesChevron = megaItem.querySelector(".ifox-services-chevron");
+                    const topMenuChevron = megaItem.querySelector(".ifox-mobile-top-chevron");
+                    [servicesChevron, topMenuChevron].forEach(function (chevron) {
+                        if (chevron) {
+                            chevron.setAttribute("aria-expanded", "true");
+                            const icon = chevron.querySelector("i");
+                            if (icon) {
+                                icon.className = "bi bi-chevron-down";
+                            }
+                        }
+                    });
                 });
 
                 megaItem.addEventListener("mouseleave", function (event) {
-                    if (window.innerWidth <= 991 &&
+                    if (window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
@@ -3930,6 +3965,17 @@
                     }
 
                     megaItem.classList.remove("services-open", "ifox-click-closed");
+                     const servicesChevron = megaItem.querySelector(".ifox-services-chevron");
+                     const topMenuChevron = megaItem.querySelector(".ifox-mobile-top-chevron");
+                     [servicesChevron, topMenuChevron].forEach(function (chevron) {
+                         if (chevron) {
+                             chevron.setAttribute("aria-expanded", "false");
+                             const icon = chevron.querySelector("i");
+                             if (icon) {
+                                 icon.className = "bi bi-chevron-up";
+                             }
+                         }
+                     });
                 });
 
                 /* =====================================================
@@ -3942,7 +3988,7 @@
                      * Do NOT close the menu when clicking inside it.
                      */
 
-                    if (!(window.innerWidth <= 991 &&
+                    if (!(window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open"))) {
                         event.stopPropagation();
                     }
@@ -3974,6 +4020,17 @@
                     megaItem.classList.add("services-open");
                     megaItem.classList.remove("ifox-click-closed");
                     megaMenu.style.removeProperty("display");
+                    const servicesChevron = megaItem.querySelector(".ifox-services-chevron");
+                    const topMenuChevron = megaItem.querySelector(".ifox-mobile-top-chevron");
+                    [servicesChevron, topMenuChevron].forEach(function (chevron) {
+                        if (chevron) {
+                            chevron.setAttribute("aria-expanded", "true");
+                            const icon = chevron.querySelector("i");
+                            if (icon) {
+                                icon.className = "bi bi-chevron-down";
+                            }
+                        }
+                    });
 
                     categories.forEach(function (item) {
                         item.classList.toggle("active", item === category);
@@ -4053,7 +4110,7 @@
 
                             // Only handle synthetic category clicks on desktop widths.
                             // Leave mobile navigation links & dropdown behavior untouched.
-                            if (window.innerWidth <= 991) {
+                            if (window.innerWidth <= 1199) {
                                 return;
                             }
 
