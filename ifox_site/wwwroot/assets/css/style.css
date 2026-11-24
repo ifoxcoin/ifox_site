@@ -193,7 +193,7 @@ body.ifox-dynamics-crm-overview-page .dynamics-phase-section .implementation-pha
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-mobile-top-chevron {
         flex-basis: 44px;
         width: 44px;
@@ -1700,6 +1700,7 @@ body.ifox-dynamics-crm-overview-page #faq-2 .accordion-body {
         margin: 0 !important;
         padding: 0 !important;
     }
+
 }
 
 /* Style the individual tab to make sure they are aligned in the center */
@@ -2782,6 +2783,7 @@ Active list item style
         white-space: nowrap !important;
         text-decoration: none !important;
         cursor: pointer !important;
+        outline: none !important;
         transition: color .2s ease !important;
     }
 
@@ -3296,7 +3298,7 @@ footer#footer.footer #newsletter.footer-newsletter form > input[type="submit"] {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-has-mega .ifox-mega-category > .bi-chevron-right {
         display: none;
     }
@@ -4907,7 +4909,7 @@ body.ifox-contact-page #main label {
 
 body.ifox-testimonials-page #main .wrap {
     min-height: calc(100vh - 82px);
-    padding: 74px 6% 90px;
+    padding: 24px 6% 90px;
     background: linear-gradient(135deg, #020b17 0%, #03182a 52%, #020b17 100%);
 }
 
@@ -5482,11 +5484,37 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
         object-fit: contain;
     }
 }
-@media (max-width: 991px) { #header .ifox-mobile-menu-toggle { display:inline-flex!important; align-items:center!important; justify-content:center!important; width:44px!important; height:44px!important; margin-left:auto!important; padding:0!important; border:1px solid rgba(255,255,255,.35)!important; border-radius:8px!important; background:transparent!important; color:#fff!important; font-size:28px!important; cursor:pointer!important } #header .ifox-navigation { display:none!important; position:absolute!important; top:70px!important; right:12px!important; left:12px!important; width:auto!important; height:calc(100vh - 82px)!important; max-height:calc(100vh - 82px)!important; overflow-y:auto!important; overflow-x:hidden!important; padding:8px 0 20px!important; border:1px solid rgba(255,255,255,.12)!important; border-radius:0 0 14px 14px!important; background:#233f66!important; box-shadow:0 18px 40px rgba(0,0,0,.35)!important } #header .ifox-navigation.mobile-open { display:block!important } #header .ifox-nav-list { display:flex!important; flex-direction:column!important; align-items:stretch!important; width:100%!important; min-width:0!important; height:auto!important } #header .ifox-nav-item { display:block!important; width:100%!important; height:auto!important; white-space:normal!important } #header .ifox-nav-link { display:flex!important; align-items:center!important; justify-content:space-between!important; width:100%!important; min-height:48px!important; height:auto!important; padding:12px 18px!important; font-size:14px!important } #header .ifox-get-started { width:calc(100% - 36px)!important; min-width:0!important; height:44px!important; margin:10px 18px!important } #header .ifox-mega-menu { position:static!important; width:100%!important; max-height:none!important; overflow:visible!important } #header .ifox-mega-inner { border:0!important; border-radius:0!important; box-shadow:none!important } } @media (min-width: 992px) { #header .ifox-mobile-menu-toggle { display:none!important } }
+@media (max-width: 1199px) {
+    #header .ifox-navigation {
+        display: none !important;
+    }
+
+    #header .ifox-mobile-menu-toggle {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        margin-left: auto !important;
+        padding: 0 !important;
+        border: 1px solid rgba(255,255,255,.35) !important;
+        border-radius: 8px !important;
+        background: transparent !important;
+        color: #fff !important;
+        font-size: 28px !important;
+        cursor: pointer !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    #header .ifox-mobile-menu-toggle {
+        display: none !important;
+    }
+}
 
 /* Final mobile navigation layout. Keep mega menus in the navigation flow so
    every top-level link remains reachable on narrow screens. */
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     body.ifox-mobile-nav-open {
         overflow: hidden;
     }
@@ -5645,7 +5673,18 @@ body.ifox-hire-developers-detail-page .ifox-hire-developers-heading-image, body.
 
 
 /* Final cascade for dropdown heading artwork. */
-body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; top: 220px; right: clamp(56px, 8vw, 128px); width: clamp(210px, 23vw, 320px); max-width: 320px; opacity: .9; }
+body.ifox-industries-detail-page .ifox-industries-heading-image { z-index: 0; top: 220px; right: clamp(56px, 8vw, 128px); width: clamp(230px, 25vw, 350px); max-width: 350px; opacity: .9; }
+
+@media (max-width: 767px) {
+    body.ifox-industries-detail-page .ifox-industries-heading-image {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: min(82vw, 300px);
+        max-width: 300px;
+        margin: 12px auto 0;
+    }
+}
 
 
 
@@ -6128,7 +6167,7 @@ body.ifox-healthcare-page #main #services .icon-box p {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-navigation.mobile-open .ifox-nav-link.is-active {
         background: #102d4b !important;
         border-left: 3px solid #5de4ff !important;
@@ -6227,11 +6266,15 @@ body.ifox-healthcare-page #main #services .icon-box p {
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .ifox-navigation.mobile-open .ifox-mega-inner {
         display: block !important;
         height: auto !important;
         overflow: visible !important;
+    }
+
+    #header .ifox-navigation.mobile-open .ifox-has-mega > .ifox-mega-menu {
+        transform: none !important;
     }
 
     #header .ifox-navigation.mobile-open .ifox-mega-sidebar {
@@ -6331,7 +6374,7 @@ iframe {
     max-width: 100%;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
     #header .container,
     #header .container-fluid {
         width: 100%;
@@ -6530,4 +6573,15 @@ iframe {
     -webkit-filter: none !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+}
+/* Global smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }

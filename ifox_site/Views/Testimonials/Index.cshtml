@@ -4,14 +4,14 @@
 }
 
     <section class="wrap">
-        <div class="stats mt-5">
+        <div class="tag">TESTIMONIALS</div>
+        <h1>Trusted by Businesses for CRM, Web Development & Digital Solutions</h1>
+        <p class="intro">Discover why businesses choose iFOX for Microsoft Dynamics 365 CRM, custom web applications, mobile apps, cloud solutions, AI integration and enterprise software development.</p>
+        <div class="stats">
             <div><h2 data-count-target="15" data-count-suffix="+">15+</h2><p>Happy Clients</p></div>
             <div><h2 data-count-target="25" data-count-suffix="+">25+</h2><p>Successful Projects</p></div>
             <div><h2 data-count-target="98" data-count-suffix="%">98%</h2><p>Client Satisfaction</p></div>
         </div>
-        <div class="tag">TESTIMONIALS</div>
-        <h1>Trusted by Businesses for CRM, Web Development & Digital Solutions</h1>
-        <p class="intro">Discover why businesses choose IFOX for Microsoft Dynamics 365 CRM, custom web applications, mobile apps, cloud solutions, AI integration and enterprise software development.</p>
         <div class="grid">
      
            
@@ -105,11 +105,15 @@
     (function () {
         const counters = document.querySelectorAll('.ifox-testimonials-page #main .stats h2[data-count-target]');
         if (!counters.length) return;
+        const animatedCounters = new WeakSet();
 
         const animateCounter = (counter) => {
+            if (animatedCounters.has(counter)) return;
+            animatedCounters.add(counter);
+
             const target = Number(counter.dataset.countTarget);
             const suffix = counter.dataset.countSuffix || '';
-            const duration = 2000;
+            const duration = 3000;
             const startTime = performance.now();
 
             counter.textContent = `0${suffix}`;

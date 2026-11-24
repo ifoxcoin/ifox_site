@@ -93,7 +93,7 @@
     <link href="~/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="~/assets/css/main.css" rel="stylesheet" />
-     <link href="~/assets/css/style.css?v=20260753" rel="stylesheet">
+     <link href="~/assets/css/style.css?v=20260755" rel="stylesheet">
     @if (ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index")
     {
          <link href="~/assets/css/home.css?v=20260630" rel="stylesheet" />
@@ -3719,7 +3719,7 @@
 
          gtag('config', 'G-1TV4XQY3R5');
     </script><!-- Template Main JS File -->
-     <script src="~/assets/js/main.js?v=20260626-mobile-menu-v3"></script>
+     <script src="~/assets/js/main.js?v=20260626-mobile-menu-v5"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
@@ -3784,7 +3784,7 @@
 
             // Mobile navigation is controlled by main.js. Do not attach the
             // desktop mega-menu handlers to the same touch targets.
-            if (window.innerWidth <= 991) {
+            if (window.innerWidth <= 1199) {
                 return;
             }
 
@@ -3833,7 +3833,7 @@
             document.addEventListener("click", function (event) {
                 const navigation = document.getElementById("ifoxNavigation");
 
-                if (window.innerWidth <= 991 && navigation?.classList.contains("mobile-open")) {
+                if (window.innerWidth <= 1199 && navigation?.classList.contains("mobile-open")) {
                     return;
                 }
 
@@ -3893,7 +3893,7 @@
 
                 trigger.addEventListener("click", function (event) {
 
-                    if (window.innerWidth <= 991 &&
+                    if (window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
@@ -3935,7 +3935,7 @@
                 });
 
                 megaItem.addEventListener("mouseenter", function () {
-                    if (window.innerWidth <= 991 &&
+                    if (window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
@@ -3955,7 +3955,7 @@
                 });
 
                 megaItem.addEventListener("mouseleave", function (event) {
-                    if (window.innerWidth <= 991 &&
+                    if (window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open")) {
                         return;
                     }
@@ -3988,7 +3988,7 @@
                      * Do NOT close the menu when clicking inside it.
                      */
 
-                    if (!(window.innerWidth <= 991 &&
+                    if (!(window.innerWidth <= 1199 &&
                         document.getElementById("ifoxNavigation")?.classList.contains("mobile-open"))) {
                         event.stopPropagation();
                     }
@@ -4110,7 +4110,7 @@
 
                             // Only handle synthetic category clicks on desktop widths.
                             // Leave mobile navigation links & dropdown behavior untouched.
-                            if (window.innerWidth <= 991) {
+                            if (window.innerWidth <= 1199) {
                                 return;
                             }
 

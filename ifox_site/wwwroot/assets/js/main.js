@@ -310,7 +310,7 @@
         }
 
         const addMobileCategoryToggleButtons = () => {
-            if (window.innerWidth > 991) return
+            if (window.innerWidth > 1199) return
 
             mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((megaItem) => {
                 megaItem.querySelectorAll('.ifox-mega-category').forEach((category) => {
@@ -329,7 +329,7 @@
         }
 
         const addMobileMegaBackButtons = () => {
-            if (window.innerWidth > 991) return
+            if (window.innerWidth > 1199) return
 
             addMobileCategoryToggleButtons()
             mobileNavigation.querySelectorAll('.ifox-has-mega').forEach((megaItem) => {
@@ -375,7 +375,7 @@
         addMobileMegaBackButtons()
 
         const toggleMobileMegaMenu = (dropdownTrigger, event) => {
-            if (window.innerWidth > 991 || !mobileNavigation.classList.contains('mobile-open')) return
+            if (window.innerWidth > 1199 || !mobileNavigation.classList.contains('mobile-open')) return
 
             event.preventDefault()
             event.stopImmediatePropagation()
@@ -404,6 +404,8 @@
 
             const sidebar = megaItem.querySelector('.ifox-mega-sidebar')
             const content = megaItem.querySelector('.ifox-mega-content')
+            const menu = megaItem.querySelector('.ifox-mega-menu')
+            if (menu) menu.style.setProperty('display', 'block', 'important')
             if (sidebar) sidebar.style.setProperty('display', 'block', 'important')
             if (content) content.style.setProperty('display', 'none', 'important')
         }
@@ -419,7 +421,7 @@
         })
 
         mobileNavigation.addEventListener('click', (event) => {
-            if (window.innerWidth > 991 || !mobileNavigation.classList.contains('mobile-open')) return
+            if (window.innerWidth > 1199 || !mobileNavigation.classList.contains('mobile-open')) return
 
             const category = event.target.closest('.ifox-mega-category')
             const backButton = event.target.closest('.ifox-mobile-mega-back')
@@ -429,6 +431,12 @@
             const categoryChevron = event.target.closest('.ifox-has-mega .ifox-mobile-category-toggle')
             const topMenuChevron = event.target.closest('.ifox-mobile-top-chevron')
             const overviewLink = event.target.closest('.ifox-mobile-overview-link')
+            const dropdownRow = event.target.closest('.ifox-has-mega > .ifox-dropdown-trigger')
+
+            if (dropdownRow && !event.target.closest('.ifox-mega-menu')) {
+                toggleMobileMegaMenu(dropdownRow, event)
+                return
+            }
 
             if (categoryChevron && mobileNavigation.contains(categoryChevron)) {
                 event.preventDefault()
@@ -553,7 +561,7 @@
         })
 
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 991) {
+            if (window.innerWidth > 1199) {
                 closeMobileNavigation()
                 mobileNavigation.querySelectorAll('.ifox-mobile-mega-back').forEach((button) => button.remove())
             } else {
