@@ -499,15 +499,29 @@ h6 {
 
     .back-to-top i {
         font-size: 24px;
-        color: #fff;
+        color: #63ddff;
         line-height: 1;
     }
 
-    .back-to-top:hover {
-        background: #ff6b27;
-        border-color: #ff6b27;
-        box-shadow: 0 0 18px rgba(255, 107, 39, 0.35);
+    .back-to-top:focus,
+    .back-to-top:active {
+        background: #061727;
+        border-color: rgba(99, 221, 255, 0.75);
+        box-shadow: 0 0 16px rgba(99, 221, 255, 0.18);
         color: #fff;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .back-to-top:hover {
+            background: #FF6428;
+            border-color: #FF6428;
+            box-shadow: 0 0 18px rgba(255, 100, 40, 0.35);
+            color: #fff;
+        }
+
+        .back-to-top:hover i {
+            color: #fff;
+        }
     }
 
     .back-to-top.active {
