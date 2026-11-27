@@ -20,6 +20,20 @@
     <meta name="twitter:image" content="https://www.ifox.co.in/images/contact-ifox.jpg">
     <meta name="twitter:url" content="https://www.ifox.co.in/contact-us">
     <meta name="twitter:site" content="@@IFOXSolutions">
+    <style>
+        #contact .required-asterisk {
+            color: #FF6428;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-left: 0.15rem;
+        }
+
+        #contact .custom-validation-message:not(:empty)::before {
+            content: "⚠";
+            margin-right: 0.3rem;
+            font-size: 0.9em;
+        }
+    </style>
 }
 
 <!-- ======= Contact Section ======= -->
@@ -59,27 +73,27 @@
             </div>
 
             <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" enctype="multipart/form-data" role="form" class="php-email-form" onsubmit="return validateAndSubmit()" novalidate>
+                    <form id="contact-form" asp-controller="Contact" asp-action="SendEmail" method="post" enctype="multipart/form-data" role="form" class="php-email-form" onsubmit="return validateAndSubmit()" novalidate>
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label asp-for="@Model.Name">Your Name</label>
+                            <label asp-for="@Model.Name">Your Name <span class="required-asterisk" aria-hidden="true">*</span></label>
                             <input type="text" asp-for="@Model.Name" class="form-control" id="name" autocomplete="name" required>
                             <div class="custom-validation-message" id="nameErrorMessage" role="alert"></div>
                         </div>
                         <div class="form-group col-md-6">
-                            <label asp-for="@Model.Email">Your Email</label>
+                            <label asp-for="@Model.Email">Your Email <span class="required-asterisk" aria-hidden="true">*</span></label>
                             <input type="email" asp-for="@Model.Email" class="form-control" id="email" autocomplete="email" required>
                             <div class="custom-validation-message" id="emailErrorMessage" role="alert"></div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Subject">Subject</label>
-                        <input type="text" asp-for="@Model.Subject" class="form-control" id="subject" maxlength="200" required>
+                        <input type="text" asp-for="@Model.Subject" class="form-control" id="subject" maxlength="200">
                         <div class="custom-validation-message" id="subjectErrorMessage" role="alert"></div>
                     </div>
                     <div class="form-group">
                         <label asp-for="@Model.Contact">Contact No.</label>
-                        <input type="tel" asp-for="@Model.Contact" class="form-control" id="Contact" autocomplete="tel" inputmode="tel" maxlength="25" required>
+                        <input type="tel" asp-for="@Model.Contact" class="form-control" id="Contact" autocomplete="tel" inputmode="tel" maxlength="25">
                         <div class="custom-validation-message" id="contactErrorMessage" role="alert"></div>
                     </div>
                     <div class="form-group">
@@ -118,10 +132,10 @@
 <script>
     function getContactValidationFields() {
         return [
-            { input: document.getElementById('name'), error: document.getElementById('nameErrorMessage'), requiredMessage: 'Please fill out this field.' },
-            { input: document.getElementById('email'), error: document.getElementById('emailErrorMessage'), requiredMessage: 'Please fill out this field.', invalidMessage: 'Please enter a valid email address.' },
-            { input: document.getElementById('subject'), error: document.getElementById('subjectErrorMessage'), requiredMessage: 'Please fill out this field.' },
-            { input: document.getElementById('Contact'), error: document.getElementById('contactErrorMessage'), requiredMessage: 'Please fill out this field.', invalidMessage: 'Please enter a valid contact number.' }
+            { input: document.getElementById('name'), error: document.getElementById('nameErrorMessage'), required: true, requiredMessage: 'Please enter your name.' },
+            { input: document.getElementById('email'), error: document.getElementById('emailErrorMessage'), required: true, requiredMessage: 'Please enter your email address.', invalidMessage: 'Please enter a valid email address.' },
+            { input: document.getElementById('subject'), error: document.getElementById('subjectErrorMessage'), required: false },
+            { input: document.getElementById('Contact'), error: document.getElementById('contactErrorMessage'), required: false, invalidMessage: 'Please enter a valid contact number.' }
         ];
     }
 
@@ -132,17 +146,19 @@
 
         field.error.textContent = '';
         field.input.classList.remove('custom-validation-error');
+        field.input.removeAttribute('aria-invalid');
 
-        if (!value) {
+        if (!value && field.required) {
             field.error.textContent = field.requiredMessage;
-        } else if (field.input.id === 'email' && !emailPattern.test(value)) {
+        } else if (value && field.input.id === 'email' && !emailPattern.test(value)) {
             field.error.textContent = field.invalidMessage;
-        } else if (field.input.id === 'Contact' && !contactPattern.test(value)) {
+        } else if (value && field.input.id === 'Contact' && !contactPattern.test(value)) {
             field.error.textContent = field.invalidMessage;
         }
 
         if (field.error.textContent) {
             field.input.classList.add('custom-validation-error');
+            field.input.setAttribute('aria-invalid', 'true');
             return false;
         }
 
